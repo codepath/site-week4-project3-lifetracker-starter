@@ -1,0 +1,12 @@
+{
+  "name": "lifetracker-api",
+  "version": "0.0.1",
+  "description": "Express backend for the LifeTracker application",
+  "main": "server.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
