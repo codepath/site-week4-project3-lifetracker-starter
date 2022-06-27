@@ -296,14 +296,18 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
       - [ ] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
       - [ ] Any other
-    - [ ] Take the first `6` or less items in the `avgCaloriesPerCategory` array and render a `SummaryStat.jsx` component for each item.
-      - [ ] It should pass the `calories` **rounded down to one decimal place** as the `stat` prop
-      - [ ] It should pass the string of `average calories per category` as the `label` prop
-      - [ ] It should pass the `category` as the `substat` prop
-    - [ ] For each item in the `totalCaloriesPerDay` array, it should render a `SummaryStat.jsx` component.
-      - [ ] It should pass the `calories` **rounded down to the nearest whole number** as the `stat` prop
-      - [ ] It should pass the string of `total calories per day` as the `label` prop
-      - [ ] It should pass the `date` in the format `dd/mm/yyyy` - example: `07/02/2022` - as the `substat` prop
+    - [ ] Inside an element with the `className` of `per-category`, it should:
+      - [ ] Render the text: `"Average Calories Per Category` inside an `h4` element
+      - [ ] Take the first `6` or less items in the `avgCaloriesPerCategory` array and render a `SummaryStat.jsx` component for each item.
+        - [ ] It should pass the calories **rounded down to one decimal place** as the `stat` prop
+        - [ ] It should pass the string of `calories` as the `label` prop
+        - [ ] It should pass the `category` as the `substat` prop
+    - [ ] Inside an element with the `className` of `per-day`, it should:
+      - [ ] Render the text: `"Total Calories Per Day` inside an `h4` element
+      - [ ] For each item in the `totalCaloriesPerDay` array, it should render a `SummaryStat.jsx` component.
+        - [ ] It should pass the calories **rounded down to the nearest whole number** as the `stat` prop
+        - [ ] It should pass the string of `calories` as the `label` prop
+        - [ ] It should pass the `date` in the format `dd/mm/yyyy` - example: `07/02/2022` - as the `substat` prop
 
   - [ ] The **`SummaryStat.jsx`** component:
 
@@ -327,14 +331,13 @@ The components in the `App.jsx` file should render the following components (alo
         - [ ] That hook should check to see if a user is logged in.
         - [ ] If a user is logged in...
           - [ ] Set the `isLoading` state variable to `true`
-          - [ ] Then, it should make a `GET` request to the `/activity` endpoint
+          - [ ] Then, it should make a `GET` request to the `/nutritions` endpoint
             - [ ] If there is an error with the request, it should set a message as the `error` state variable
             - [ ] If all goes well:
-              - [ ] It should set the data as the `activity` state variable
-              - [ ] It should force the `activity` context to refetch the summary data so that it's up to date
-          - [ ] Regardless, at the end, set the `isLoading` state variable to `false`
-      - [ ] Make sure to pass an object containing all the state variables to the `value` prop of the `ActivityContext.Provider` component
-    - [ ] Create and export a `useActivityContext` hook that calls the `React.useContext` hook with the newly created `ActivityContext` and returns it.
+              - [ ] It should set the data as the `nutritions` state variable
+          - [ ] Regardless, at the end, set the `isLoading` state variable to `false` and the `initialized` state variable to `true`
+      - [ ] Make sure to pass an object containing all the state variables to the `value` prop of the `NutritionContext.Provider` component
+    - [ ] Create and export a `useNutritionContext` hook that calls the `React.useContext` hook with the newly created `NutritionContext` and returns it.
 
   - [ ] The **`NutritionPage.jsx`** component:
 
