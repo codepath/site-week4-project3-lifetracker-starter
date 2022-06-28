@@ -391,6 +391,9 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] There should be a `button` element with the `className` of `submit-nutrition`:
       - [ ] It should contain the text `"Save"`
       - [ ] When clicked, it should call a function that creates a new nutrition entry
+    - [ ] After the form has been succesfully submitted:
+      - [ ] Ensure that the new nutrition entry is stored in the `nutrition` context's `nutritions` array and is displayed in the `NutritionFeed.jsx` component
+      - [ ] Refetch the `activity` data so that new summary stats will be calculated
 
   - [ ] The **`NutritionDetail.jsx`** component:
 
