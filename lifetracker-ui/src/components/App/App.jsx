@@ -8,6 +8,7 @@ import RegistrationPage from "../RegistrationPage/RegistrationPage";
 import ActivityPage from "../ActivityPage/ActivityPage";
 import NutritionPage from "../NutritionPage/NutritionPage";
 import NotFound from "../NotFound/NotFound";
+import Loading from "../Loading/Loading";
 
 export default function App() {
     return (
