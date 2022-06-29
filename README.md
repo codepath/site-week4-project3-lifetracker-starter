@@ -107,16 +107,16 @@ The components in the `App.jsx` file should render the following components (alo
 - To build out the front-end, start with the `App.jsx` component:
 
   - [ ] **`App.jsx`**
-    - [ ] Should be wrapped by an element with the `className` of `app`
-    - [ ] The core App component that contains the routes for the app wrapped in Context providers
-    - [ ] Renders the `Navbar` component on every route
-    - [ ] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
-      - [ ] `/` - Should render the `Landing.jsx` component
-      - [ ] `/login` - Should render the `LoginPage.jsx` component
-      - [ ] `/register` - Should render the `RegistrationPage.jsx` component
-      - [ ] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
-      - [ ] `/nutrition/* - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
-      - [ ] `*` - anything else should render the `NotFound` component
+    - [x] Should be wrapped by an element with the `className` of `app`
+    - [x] The core App component that contains the routes for the app wrapped in Context providers
+    - [x] Renders the `Navbar` component on every route
+    - [x] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
+      - [x] `/` - Should render the `Landing.jsx` component
+      - [x] `/login` - Should render the `LoginPage.jsx` component
+      - [x] `/register` - Should render the `RegistrationPage.jsx` component
+      - [x] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
+      - [x] `/nutrition/* - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
+      - [x] `*` - anything else should render the `NotFound` component
   - [ ] To standarize API requests throughout the application, set up an **`ApiClient`** class
 
     - [ ] Start by creating a `constants.js` file at the root of the project
@@ -170,28 +170,28 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] Should render JSX that is wrapped by an element with the `className` of `loading`
     - [ ] Should render an element with the `className` of `loading-message` that contains the text `"Loading"`
 
-  - [ ] The **`Navbar.jsx`** component
+  - [x] The **`Navbar.jsx`** component
 
-    - [ ] Should render JSX that is wrapped by a `nav` element with the `className` of `navbar`
-    - [ ] Should render the app's logo:
-      - [ ] It should be an element with the `className` of `logo`.
-      - [ ] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
-      - [ ] Inside that `Link` component should be the application's logo (text or image)
-    - [ ] Should render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route
+    - [x] Should render JSX that is wrapped by a `nav` element with the `className` of `navbar`
+    - [x] Should render the app's logo:
+      - [x] It should be an element with the `className` of `logo`.
+      - [x] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
+      - [x] Inside that `Link` component should be the application's logo (text or image)
+    - [x] Should render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route
 
   - [ ] The **`NavLinks.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with a `className` of `nav-links`
-    - [ ] Should render a `Link` element from `react-router-dom` for:
-      - [ ] The `/activity` route. It should have a label of `Activity`.
-      - [ ] The `/nutrition` route. It should have a label of `Nutrition`.
-      - [ ] A route for any other resource page
+    - [x] Should render JSX that is wrapped by an element with a `className` of `nav-links`
+    - [x] Should render a `Link` element from `react-router-dom` for:
+      - [x] The `/activity` route. It should have a label of `Activity`.
+      - [x] The `/nutrition` route. It should have a label of `Nutrition`.
+      - [x] A route for any other resource page
     - [ ] If a valid user is logged in:
       - [ ] It should render an element with the `className` of `logout-button` that calls the `logoutUser` function when clicked.
         - [ ] That function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
-    - [ ] If no valid user is logged in:
-      - [ ] It should render a `Link` element that redirects to the `/login` route with the label `Login`
-      - [ ] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
+    - [x] If no valid user is logged in:
+      - [x] It should render a `Link` element that redirects to the `/login` route with the label `Login`
+      - [x] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
 
   - [ ] The **`LoginForm.jsx`** component:
 
