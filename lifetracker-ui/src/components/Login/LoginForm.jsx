@@ -1,8 +1,11 @@
 import * as React from "react"
-import { useState } from "react" 
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "./LoginPage.css"
 
 export default function LoginForm(props) {
+
+  const navigate = useNavigate()
 
   const [form, setForm] = useState({
     email: "",
@@ -17,7 +20,7 @@ export default function LoginForm(props) {
   const handleOnSubmit = async (e) => {
     e.preventDefault()
     props.setIsLoggedIn(true)
-    console.log(props)
+    navigate("/activity")
   }
 
   return (
