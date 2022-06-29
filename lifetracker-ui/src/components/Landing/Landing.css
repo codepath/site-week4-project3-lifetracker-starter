@@ -1,0 +1,22 @@
+.hero-img{
+    width: 30%;
+}
+
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfe1e0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.cta{
+    display: block;
+    justify-content: center;
+    width: 30%;
+}
+
+.cta h1{
+    padding-bottom: 20px;
+}
