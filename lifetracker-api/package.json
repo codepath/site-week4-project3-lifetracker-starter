@@ -7,6 +7,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "express": "^5.0.0-beta.1"
+  }
 }
