@@ -1,1 +1,3 @@
 # Lifetracker React UI
+just run....
+1) npm install

@@ -107,16 +107,16 @@ The components in the `App.jsx` file should render the following components (alo
 - To build out the front-end, start with the `App.jsx` component:
 
   - [ ] **`App.jsx`**
-    - [ ] Should be wrapped by an element with the `className` of `app`
-    - [ ] The core App component that contains the routes for the app wrapped in Context providers
-    - [ ] Renders the `Navbar` component on every route
-    - [ ] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
-      - [ ] `/` - Should render the `Landing.jsx` component
-      - [ ] `/login` - Should render the `LoginPage.jsx` component
-      - [ ] `/register` - Should render the `RegistrationPage.jsx` component
-      - [ ] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
+    - [x] Should be wrapped by an element with the `className` of `app`
+    - [x] The core App component that contains the routes for the app wrapped in Context providers
+    - [x] Renders the `Navbar` component on every route
+    - [x] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
+      - [x] `/` - Should render the `Landing.jsx` component
+      - [x] `/login` - Should render the `LoginPage.jsx` component
+      - [x] `/register` - Should render the `RegistrationPage.jsx` component
+      - [x] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
       - [ ] `/nutrition/* - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
-      - [ ] `*` - anything else should render the `NotFound` component
+      - [x] `*` - anything else should render the `NotFound` component
   - [ ] To standarize API requests throughout the application, set up an **`ApiClient`** class
 
     - [ ] Start by creating a `constants.js` file at the root of the project
@@ -195,10 +195,10 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LoginForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `login-form`
-    - [ ] Should render an input element for the following fields:
-      - [ ] `email`
-      - [ ] `password`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `login-form`
+    - [x] Should render an input element for the following fields:
+      - [x] `email`
+      - [x] `password`
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
       - [ ] `name` - the `name` of the `input` field being rendered (`email`, `password`)
       - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
@@ -215,14 +215,14 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LoginPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `login-page`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `login-page`
     - [ ] Using either a custom hook, context, or manually set state, this component should check to see if a user is already logged in
       - [ ] If the user is already logged in, it should redirect them to the `/activity` page
       - [ ] If no user is authenticated, it should render the `LoginForm.jsx` component and pass it any props it needs
 
   - [ ] The **`RegistrationForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `registration-form`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `registration-form`
     - [ ] Should render an input element for the following fields:
       - [ ] `email`
       - [ ] `username`
@@ -284,7 +284,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`ActivityPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `activity-page`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `activity-page`
     - [ ] It should call the `useActivityContext` hook and extract all the necessary data from it.
     - [ ] If the `isProcessing` flag is `true`, it should render the `Loading.jsx` component
     - [ ] If the `isProcessing` flag is `false`, it should render the `ActivityFeed.jsx` component and pass it the appropriate props
@@ -341,7 +341,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
     - [ ] Should render a nested `Routes` component from `react-router-dom`.
       - [ ] There should be multiple `Route` components:
         - [ ] The `/nutrition` route should render the `NutritionOverview.jsx` component
