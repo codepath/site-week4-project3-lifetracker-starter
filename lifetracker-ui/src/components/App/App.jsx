@@ -2,6 +2,9 @@ import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "components/Navbar/Navbar";
+import LandingPage from "components/LandingPage/LandingPage";
+import LoginPage from "components/LoginPage/LoginPage";
+import RegistrationPage from "components/RegistrationPage/RegistrationPage";
 
 export default function App() {
   return (
@@ -15,6 +18,7 @@ export default function App() {
                 element={
                   <>
                     <Navbar />
+                    <LandingPage />
                   </>
                 }
               />
@@ -23,6 +27,7 @@ export default function App() {
                 element={
                   <>
                     <Navbar />
+                    <LoginPage />
                   </>
                 }
               />
@@ -31,6 +36,7 @@ export default function App() {
                 element={
                   <>
                     <Navbar />
+                    <RegistrationPage />
                   </>
                 }
               />

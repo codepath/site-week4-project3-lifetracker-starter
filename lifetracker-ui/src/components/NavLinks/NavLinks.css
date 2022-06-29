@@ -1,0 +1,38 @@
+.nl-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  flex: 1 1;
+  max-width: 650px;
+  grid-gap: 50px;
+  gap: 50px;
+  width: 100%;
+}
+
+.nlp {
+  color: #fff;
+  font-weight: 300;
+}
+
+.nll {
+  text-decoration: none;
+}
+
+.logout-button,
+.signup-button {
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  padding: 12px 18px;
+  border-radius: 4px;
+  background: #00c98e;
+
+  color: #fff;
+}
