@@ -9,9 +9,9 @@ export default function NavLinks(props) {
         <ul>
             <li>Activity</li>
             <li>Nutrition</li>
-            <li><Link to="/login"> Login </Link></li>
+            <li className={(props.isLoggedIn) ? "hidden" : ''}><Link to="/login"> Login </Link></li>
             <li className={!(props.isLoggedIn) ? "hidden" : ''} onClick={() => props.setIsLoggedIn()}><Link to="/"> Logout </Link></li>
-            <li><Link to="/register"> Sign Up </Link></li>
+            <li className={(props.isLoggedIn) ? "hidden" : ''}><Link to="/register"> Sign Up </Link></li>
         </ul>
     </div>
   )
