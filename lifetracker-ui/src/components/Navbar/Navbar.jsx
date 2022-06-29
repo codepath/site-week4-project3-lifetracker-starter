@@ -9,10 +9,10 @@ export default function Navbar() {
     console.log(logo);
     return (
         <nav className="Navbar">
-            <Link to="/">
-                <img src={logo} width="60px" />
+            <Link to="/" className="logo">
+                <img src={logo} width="60px" alt="Website logo" />
             </Link>
-            <NavLinks/>
+            <NavLinks loggedIn={false}/>
         </nav>
     );
 }

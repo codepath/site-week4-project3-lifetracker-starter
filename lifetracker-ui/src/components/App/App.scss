@@ -1,7 +1,39 @@
+$text-primary-color: #fcfcfc;
+$primary-color: #fffae3;
+$secondary-color: #f7567c;
+$wild-color: #99e1d9;
+$text-secondary-color: #5d576b;
+
 .app {
     width: 100%;
     max-width: 100vw;
     height: 100%;
     min-height: 100vh;
-    background-color: bisque;
+    background-color: $primary-color;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.Navbar {
+    background-color: $secondary-color;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px;
+    .nav-links {
+        margin: auto 0;
+        * {
+            padding: 10px;
+            margin: auto 20px;
+            color: $text-primary-color;
+            font-size: 20pt;
+            text-decoration: none;
+        }
+        button{
+            background-color: $wild-color;
+            border: none;
+            border-radius: 10px;
+        }
+    }
 }

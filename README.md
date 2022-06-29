@@ -181,17 +181,17 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NavLinks.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with a `className` of `nav-links`
-    - [ ] Should render a `Link` element from `react-router-dom` for:
-      - [ ] The `/activity` route. It should have a label of `Activity`.
-      - [ ] The `/nutrition` route. It should have a label of `Nutrition`.
+    - [X] Should render JSX that is wrapped by an element with a `className` of `nav-links`
+    - [X] Should render a `Link` element from `react-router-dom` for:
+      - [X] The `/activity` route. It should have a label of `Activity`.
+      - [X] The `/nutrition` route. It should have a label of `Nutrition`.
       - [ ] A route for any other resource page
     - [ ] If a valid user is logged in:
       - [ ] It should render an element with the `className` of `logout-button` that calls the `logoutUser` function when clicked.
         - [ ] That function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
-    - [ ] If no valid user is logged in:
-      - [ ] It should render a `Link` element that redirects to the `/login` route with the label `Login`
-      - [ ] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
+    - [X] If no valid user is logged in:
+      - [X] It should render a `Link` element that redirects to the `/login` route with the label `Login`
+      - [X] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
 
   - [ ] The **`LoginForm.jsx`** component:
 

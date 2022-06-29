@@ -3,6 +3,39 @@
   max-width: 100vw;
   height: 100%;
   min-height: 100vh;
-  background-color: bisque;
+  background-color: #fffae3;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.Navbar {
+  background-color: #f7567c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 100px;
+}
+
+.Navbar .nav-links {
+  margin: auto 0;
+}
+
+.Navbar .nav-links * {
+  padding: 10px;
+  margin: auto 20px;
+  color: #fcfcfc;
+  font-size: 20pt;
+  text-decoration: none;
+}
+
+.Navbar .nav-links button {
+  background-color: #99e1d9;
+  border: none;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=App.css.map */
