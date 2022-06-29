@@ -7,12 +7,12 @@ import NotFound from "../NotFound/NotFound"
 import ActivityPage from "../ActivityPage/ActivityPage"
 import NutritionPage from "../NutritionPage/NutritionPage"
 import RegistrationPage from "../RegistrationPage/RegistrationPage"
-import { BrowserRouter, Route, Routes, Links } from "react-router-dom"
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom"
 
 export default function App() {
   return (
     <div className="app">
-      <React.Fragment>{
+      <React.Fragment>
         <BrowserRouter>
           <main>
             <Routes>
@@ -23,7 +23,7 @@ export default function App() {
                   </>
                 )
               }
-              / >
+              />
               <Route path="/login" element={
                 (
                   <>
@@ -31,7 +31,7 @@ export default function App() {
                   </>
                 )
               }
-              / >
+              />
               <Route path="/register" element={
                 (
                   <>
@@ -39,7 +39,7 @@ export default function App() {
                   </>
                 )
               }
-              / >
+              />
               <Route path="/activity" element={
                 (
                   <>
@@ -47,7 +47,7 @@ export default function App() {
                   </>
                 )
               }
-              / >
+              />
               <Route path="/nutrition/*" element={
                 (
                   <>
@@ -55,7 +55,7 @@ export default function App() {
                   </>
                 )
               }
-              / >
+              />
               <Route path="*" element={
                 (
                   <>
@@ -63,12 +63,11 @@ export default function App() {
                   </>
                 )
               }
-              / >
+              />
             </Routes>
           </main>
         </BrowserRouter>
-      }</React.Fragment>
-
+      </React.Fragment>
     </div>
   )
 }
