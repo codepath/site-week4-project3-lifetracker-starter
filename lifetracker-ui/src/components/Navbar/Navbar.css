@@ -1,0 +1,31 @@
+.navbar{
+    width: 100%;
+    max-width: 100vw;
+    background: #2c4147;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 80px;
+}
+.nav-links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin-left: auto;
+    flex: 1 1;
+    max-width: 650px;
+    grid-gap: 50px;
+    gap: 50px;
+}
+.link-label{
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: 300;
+    cursor: pointer;
+}
+.link-label green{
+    
+}

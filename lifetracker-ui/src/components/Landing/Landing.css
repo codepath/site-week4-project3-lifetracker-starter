@@ -1,0 +1,16 @@
+.landing{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.hero{
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.h1{
+    color: white;
+    position: relative;
+    z-index: 10;
+}
