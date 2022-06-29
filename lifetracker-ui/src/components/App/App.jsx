@@ -1,7 +1,7 @@
 import * as React from "react"
 import "./App.css"
 import Navbar from "../Navbar/Navbar"
-import LandingPage from "../LandingPage/Landing"
+import LandingPage from "../LandingPage/LandingPage"
 import LoginPage from "../LoginPage/LoginPage"
 import NotFound from "../NotFound/NotFound"
 import ActivityPage from "../ActivityPage/ActivityPage"
@@ -20,6 +20,7 @@ export default function App() {
                 (
                   <>
                     <Navbar />
+                    <LandingPage />
                   </>
                 )
               }
