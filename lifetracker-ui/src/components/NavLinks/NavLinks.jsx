@@ -8,31 +8,31 @@ export default function NavLinks( { isLoggedIn } ) {
   return (
     <div className="nav-links">
         <Link to="/activity">
-          <button>Activity</button>
+          <button className="nav-btn">Activity</button>
         </Link>
         <Link to="/exercise">
-          <button>Exercise</button>
+          <button className="nav-btn">Exercise</button>
         </Link>
         <Link to="/nutrition">
-          <button>Nutrition</button>
+          <button className="nav-btn">Nutrition</button>
         </Link>
         <Link to="/sleep">
-          <button>Sleep</button>
+          <button className="nav-btn">Sleep</button>
         </Link>
         {
           isLoggedIn ? 
           <>
             <Link to="/">
-              <button>Log Out</button>
+              <button className="nav-btn">Log Out</button>
             </Link>
           </>
           :
           <>
             <Link to="/login">
-              <button>Log In</button>
+              <button className="nav-btn">Log In</button>
             </Link>
             <Link to="/register">
-              <button>Register</button>
+              <button className="nav-btn">Register</button>
             </Link>
           </>
         }

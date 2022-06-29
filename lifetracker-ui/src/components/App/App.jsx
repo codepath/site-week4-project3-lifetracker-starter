@@ -1,7 +1,7 @@
 import "./App.css"
 import * as React from "react"
 import Navbar from "../Navbar/Navbar"
-import Landing from "../Landing/Landing"
+import LandingPage from "../LandingPage/LandingPage"
 import LoginPage from "../LoginPage/LoginPage"
 import RegistrationPage from "../RegistrationPage/RegistrationPage"
 import ActivityPage from "../ActivityPage/ActivityPage"
@@ -19,7 +19,7 @@ export default function App() {
         <BrowserRouter>
         <Navbar isLoggedIn={isLoggedIn} />
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage isLoggedIn={isLoggedIn} />} />
             <Route path="/register" element={<RegistrationPage
                                               isLoggedIn={isLoggedIn} />} />

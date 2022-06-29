@@ -1,8 +1,6 @@
 .navbar {
     width: 100%;
     max-width: 100vw;
-    background-color: #ff4e00;
-    background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
     height: 150px;
     display: flex;
     flex-direction: row;

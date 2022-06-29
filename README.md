@@ -216,9 +216,9 @@ The components in the `App.jsx` file should render the following components (alo
   - [ ] The **`LoginPage.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `login-page`
-    - [ ] Using either a custom hook, context, or manually set state, this component should check to see if a user is already logged in
-      - [ ] If the user is already logged in, it should redirect them to the `/activity` page
-      - [ ] If no user is authenticated, it should render the `LoginForm.jsx` component and pass it any props it needs
+    - [x] Using either a custom hook, context, or manually set state, this component should check to see if a user is already logged in
+      - [x] If the user is already logged in, it should redirect them to the `/activity` page
+      - [x] If no user is authenticated, it should render the `LoginForm.jsx` component and pass it any props it needs
 
   - [ ] The **`RegistrationForm.jsx`** component:
 
@@ -246,19 +246,19 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] It should contain the text `"Create Account"`
       - [ ] When clicked, it should call the `signupUser` function
 
-  - [ ] The **`RegistrationPage.jsx`** component:
+  - [x] The **`RegistrationPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `registration-page`
-    - [ ] Using either a custom hook, context, or manually handled state, this component should check to see if a user is already logged in
-      - [ ] If the user is already logged in, it should redirect them to the `/activity` page
-      - [ ] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
+    - [x] Should render JSX that is wrapped by an element with the `className` of `registration-page`
+    - [x] Using either a custom hook, context, or manually handled state, this component should check to see if a user is already logged in
+      - [x] If the user is already logged in, it should redirect them to the `/activity` page
+      - [x] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
 
   - [ ] The **`LandingPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `landing-page`
-    - [ ] Should render an element with the `className` of `hero`
-      - [ ] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
-      - [ ] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `landing-page`
+    - [x] Should render an element with the `className` of `hero`
+      - [x] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
+      - [x] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
     - [ ] Should allow unauthenticated access
 
   - [ ] The **`activity`** context

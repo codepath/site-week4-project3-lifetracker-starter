@@ -1,0 +1,27 @@
+.landing-page .hero {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 65px;
+}
+
+.hero-img {
+    border-radius: 70px;
+}
+
+.cta {
+    color: #ff902f;
+    margin-right: 20px;
+}
+
+.landing-page .hero .cta .title {
+    font-size: 60px;
+    margin: 5px;
+}
+
+.landing-page .hero .cta .description {
+    font-size: 20px;
+    margin: 1px;
+}
