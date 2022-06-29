@@ -1,10 +1,10 @@
 import * as React from "react"
-import "./Landing.css"
+import "./RegistrationPage.css"
 
-export default function Landing() {
+export default function RegistrationPage() {
   return (
-    <div className="landing">
-      <p>Landing</p>
+    <div className="registration-page">
+      <p>RegistrationPage</p>
     </div>
   )
 }
