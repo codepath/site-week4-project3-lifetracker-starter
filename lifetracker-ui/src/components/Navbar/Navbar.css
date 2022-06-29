@@ -1,0 +1,18 @@
+.navbar, .nav-links {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.navbar {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    gap: 10px;
+} 
+
+.nav-links > * {
+    text-decoration: none;
+}

@@ -9,3 +9,7 @@ body {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --codepath-dark-green: #2c4147;
+}

@@ -1,11 +1,12 @@
 import * as React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navbar from "../Navbar/Navbar"
-import LandingPage from "../LoginPage/LandingPage"
+import Landing from "../Landing/Landing"
 import LoginPage from "../LoginPage/LoginPage"
-import RegistrationPage from "../RegistrationPage/RegisrationPage"
+import RegistrationPage from "../RegistrationPage/RegistrationPage"
 import ActivityPage from "../ActivityPage/ActivityPage"
-import NutritionPage from "../NutritionPage/NutritionPage"
+import NutritionPage from "../NutritionPage/NuritionPage"
+import NotFound from "../NotFound/NotFound"
 import "./App.css"
 
 export default function App() {
@@ -17,7 +18,7 @@ export default function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={
-                <LandingPage />} />
+                <Landing />} />
               <Route path="/login" element={
                 <LoginPage />} />
               <Route path="/register" element={
