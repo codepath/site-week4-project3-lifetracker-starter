@@ -1,0 +1,90 @@
+.registration-form{
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    min-height: 90%;
+    color: aliceblue;
+}
+.error{
+    color: red;
+}
+.redner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid aliceblue;
+    padding: 5px;
+    
+}
+.card{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.email{
+    display: flex;
+    flex-direction: column;
+}
+
+.email .form-input{
+    margin: 0px;
+    width: 100%;
+    min-height: 25px;
+}
+
+.username{
+    display: flex;
+    flex-direction: column;
+}
+
+.username .form-input{
+    margin: 0px;
+    width: 100%;
+    min-height: 25px;
+}
+
+.password{
+    display: flex;
+    flex-direction: column;
+}
+
+.password .form-input{
+    margin: 0px;
+    width: 100%;
+    min-height: 25px;
+}
+
+.names{
+    display: flex;
+    flex-direction: row;
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+}
+
+.name .form-input{
+    min-height: 22px;
+    margin: 0px;
+    width: 95%;
+}
+
+.redirect{
+    border-top: 1px solid aliceblue;
+}
+
+.register-btn{
+    display: flex;
+    justify-content: center;
+}
+.error{
+    color: red;
+    margin: 5px 0px;
+}
+
+.signin{
+    text-align: center;
+}

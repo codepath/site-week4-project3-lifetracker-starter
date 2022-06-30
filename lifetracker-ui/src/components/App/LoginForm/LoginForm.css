@@ -1,0 +1,15 @@
+.login-form{
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    min-height: 90%;
+    color: aliceblue;
+}
+
+.input-window{
+    border: 1px solid aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
