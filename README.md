@@ -255,11 +255,11 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LandingPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `landing-page`
-    - [ ] Should render an element with the `className` of `hero`
-      - [ ] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
-      - [ ] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
-    - [ ] Should allow unauthenticated access
+    - [X] Should render JSX that is wrapped by an element with the `className` of `landing-page`
+    - [X] Should render an element with the `className` of `hero`
+      - [X] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
+      - [X] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
+    - [X] Should allow unauthenticated access
 
   - [ ] The **`activity`** context
 

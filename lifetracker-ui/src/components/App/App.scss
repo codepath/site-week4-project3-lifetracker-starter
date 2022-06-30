@@ -30,10 +30,46 @@ $text-secondary-color: #5d576b;
             font-size: 20pt;
             text-decoration: none;
         }
-        button{
+        button {
             background-color: $wild-color;
             border: none;
             border-radius: 10px;
+        }
+    }
+}
+
+.landing-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .hero {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        height: 500px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        * {
+            z-index: 1;
+            border-radius: 5px;
+        }
+        .title {
+            font-size: 76px;
+            font-weight: 700;
+            color: $wild-color;
+            background-color: $text-primary-color;
+        }
+        .cta {
+            margin-top: 10px;
+            font-size: 50px;
+            color: $text-primary-color;
+            background-color: $wild-color;
+        }
+        img {
+            z-index: 0;
+            position: absolute;
         }
     }
 }

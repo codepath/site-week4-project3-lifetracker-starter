@@ -38,4 +38,58 @@
   border: none;
   border-radius: 10px;
 }
+
+.landing-page {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.landing-page .hero {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 500px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.landing-page .hero * {
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.landing-page .hero .title {
+  font-size: 76px;
+  font-weight: 700;
+  color: #99e1d9;
+  background-color: #fcfcfc;
+}
+
+.landing-page .hero .cta {
+  margin-top: 10px;
+  font-size: 50px;
+  color: #fcfcfc;
+  background-color: #99e1d9;
+}
+
+.landing-page .hero img {
+  z-index: 0;
+  position: absolute;
+}
 /*# sourceMappingURL=App.css.map */
