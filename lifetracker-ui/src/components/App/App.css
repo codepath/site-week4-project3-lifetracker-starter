@@ -4,6 +4,7 @@
   height: 100%;
   min-height: 100vh;
   background-color: #fffae3;
+  color: #1D2D44;
 }
 
 .hidden {
@@ -28,13 +29,13 @@
 .Navbar .nav-links * {
   padding: 10px;
   margin: auto 20px;
-  color: #fcfcfc;
+  color: #fffae3;
   font-size: 20pt;
   text-decoration: none;
 }
 
 .Navbar .nav-links button {
-  background-color: #99e1d9;
+  background-color: cyan;
   border: none;
   border-radius: 10px;
 }
@@ -78,18 +79,43 @@
   font-size: 76px;
   font-weight: 700;
   color: #99e1d9;
-  background-color: #fcfcfc;
+  background-color: #1D2D44;
 }
 
 .landing-page .hero .cta {
   margin-top: 10px;
   font-size: 50px;
-  color: #fcfcfc;
+  color: #1D2D44;
   background-color: #99e1d9;
 }
 
 .landing-page .hero img {
   z-index: 0;
   position: absolute;
+}
+
+.login-form {
+  background-color: blue;
+  max-width: 500px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 36px;
+}
+
+.login-form input, .login-form button {
+  height: 60px;
+}
+
+.login-form .invalid-email {
+  color: #fe3210;
+  font-size: 16px;
 }
 /*# sourceMappingURL=App.css.map */

@@ -253,7 +253,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] If the user is already logged in, it should redirect them to the `/activity` page
       - [ ] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
 
-  - [ ] The **`LandingPage.jsx`** component:
+  - [X] The **`LandingPage.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `landing-page`
     - [X] Should render an element with the `className` of `hero`

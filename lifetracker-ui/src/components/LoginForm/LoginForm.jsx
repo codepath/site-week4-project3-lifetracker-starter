@@ -1,14 +1,17 @@
 import React from "react";
 
+// const
+
 export default function LoginForm() {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     console.log(email);
     console.log(password);
+
+    const [emailInvalid, setEI] = React.useState(<></>);
     return (
         <div className="login-form">
             <label htmlFor="email">Email:</label>
-            <br />
             <input
                 className="form-input"
                 type="email"
@@ -16,17 +19,18 @@ export default function LoginForm() {
                 name="email"
                 placeholder="john.doe@mail.com"
                 onChange={(e) => {
-                    let newValue = e.target.value;
-                    if (newValue.indexOf("@") > 0) {
-                        setEmail(newValue);
+                    setEmail(e.target.value);
+                    if (e.target.value.indexOf("@") > 0) {
+                        setEI(<></>);
                     } else {
-                        console.error("LoginForm 23, Please input a valid email");
+                        setEI(
+                            <div className="invalid-email error">Invalid email</div>
+                        );
                     }
                 }}
             />
-            <br />
+            {emailInvalid}
             <label htmlFor="email">Password:</label>
-            <br />
             <input
                 className="form-input"
                 type="password"
@@ -36,10 +40,14 @@ export default function LoginForm() {
                     setPassword(e.target.value);
                 }}
             />
-            <br />
-            <button className="submit-login" onClick={()=>{
-                console.error("LoginForm 41, Setup loginUser function")
-            }}>Login</button>
+            <button
+                className="submit-login"
+                onClick={() => {
+                    console.error("LoginForm 41, Setup loginUser function");
+                }}
+            >
+                Login
+            </button>
 
             <br />
         </div>

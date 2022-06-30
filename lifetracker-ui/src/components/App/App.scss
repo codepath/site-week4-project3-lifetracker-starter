@@ -1,8 +1,9 @@
-$text-primary-color: #fcfcfc;
 $primary-color: #fffae3;
 $secondary-color: #f7567c;
-$wild-color: #99e1d9;
-$text-secondary-color: #5d576b;
+$text-primary-color: #99e1d9;
+$text-secondary-color: #1D2D44;
+
+$wild-color: #2A0800;//maybe cyan
 
 .app {
     width: 100%;
@@ -10,6 +11,7 @@ $text-secondary-color: #5d576b;
     height: 100%;
     min-height: 100vh;
     background-color: $primary-color;
+    color: $text-secondary-color;
 }
 
 .hidden {
@@ -26,12 +28,12 @@ $text-secondary-color: #5d576b;
         * {
             padding: 10px;
             margin: auto 20px;
-            color: $text-primary-color;
+            color: $primary-color;
             font-size: 20pt;
             text-decoration: none;
         }
         button {
-            background-color: $wild-color;
+            background-color: cyan;
             border: none;
             border-radius: 10px;
         }
@@ -58,18 +60,41 @@ $text-secondary-color: #5d576b;
         .title {
             font-size: 76px;
             font-weight: 700;
-            color: $wild-color;
-            background-color: $text-primary-color;
+            color: $text-primary-color; 
+            background-color: $text-secondary-color;
         }
         .cta {
             margin-top: 10px;
             font-size: 50px;
-            color: $text-primary-color;
-            background-color: $wild-color;
+            color:  $text-secondary-color;
+            background-color: $text-primary-color;
         }
         img {
             z-index: 0;
             position: absolute;
         }
+    }
+}
+
+.login-form{
+    background-color: blue;
+
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 36px;
+
+    input, button{
+        height: 60px;
+    }
+
+    .invalid-email{
+        color: #fe3210;
+        font-size: 16px;
     }
 }
