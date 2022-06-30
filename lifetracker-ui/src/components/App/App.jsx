@@ -9,8 +9,19 @@ import AccessForbidden from "../AccessForbidden/AccessForbidden"
 import NutritionPage from "../NutritionPage/NutritionPage"
 import NotFound from "../NotFound/NotFound"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { AuthContextProvider } from "../../../contexts/auth"
 
-export default function App() {
+export default function AppContainer(props) {
+  return (
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
+  )
+}
+
+
+function App(props) {
+  
   const [isLoggedIn, setIsLoggedIn] = React.useState(false)
 
   return (
