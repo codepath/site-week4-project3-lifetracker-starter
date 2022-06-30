@@ -119,18 +119,18 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] `*` - anything else should render the `NotFound` component
   - [ ] To standarize API requests throughout the application, set up an **`ApiClient`** class
 
-    - [ ] Start by creating a `constants.js` file at the root of the project
-      - [ ] In it, export a few variables:
+    - [x] Start by creating a `constants.js` file at the root of the project
+      - [x] In it, export a few variables:
       - [ ] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
-      - [ ] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
-      - [ ] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
-    - [ ] Next, create a `services` directory at the root of the project
-    - [ ] Inside that directory, touch an `apiClient.js` file
-    - [ ] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
-    - [ ] Define a new class in that file called `ApiClient`.
-      - [ ] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
-      - [ ] Export default a new instance of the `ApiClient` class
-      - [ ] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
+      - [x] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
+      - [x] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
+    - [x] Next, create a `services` directory at the root of the project
+    - [x] Inside that directory, touch an `apiClient.js` file
+    - [x] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
+    - [x] Define a new class in that file called `ApiClient`.
+      - [x] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
+      - [x] Export default a new instance of the `ApiClient` class
+      - [x] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
       - [ ] Create a utility method called `request` that uses `axios` to issue HTTP requests
       - [ ] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
       - [ ] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
