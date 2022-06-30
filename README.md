@@ -137,33 +137,33 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
       - [ ] **Add as many other methods as needed when making API requests**
 
-  - [ ] Create an **`auth`** context:
+  - [x] Create an **`auth`** context:
 
-    - [ ] First, create a `contexts` directory at the root of the project
-    - [ ] Inside it, touch the `contexts/auth.jsx` file
-    - [ ] In that file, define a new `AuthContext` with `React.createContext`
-    - [ ] Use that context to create an `AuthContextProvider` component
-      - [ ] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
-      - [ ] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
-        - [ ] That hook should check to see if a JWT token exists in local storage under the `lifetracker_token` key
-          - [ ] If it does:
-            - [ ] It should add that token to `ApiClient` class with the `setToken` method
-            - [ ] Then, it should set the `isProcessing` state variable to `true` and the `error` state variable to `null`
-            - [ ] Next, it should send a `GET` request to the `/auth/me` endpoint
-              - [ ] If it fails, it should set the `error` prop to a valid error message
-              - [ ] If it is successful...
-                - [ ] It should set the `user` state variable with the `user` returned in the response
-                - [ ] It should set the `error` state variable to `null`
-            - [ ] Regardless, it should set the `isProcessing` state variable to `false` and the `initialized` state variable to `true`
-          - [ ] The user returned from that request should be stored in state. This will ensure that users stay logged in even if they refresh the page.
-      - [ ] It should also define handler functions for:
-        - [ ] `loginUser` - should make a request to log the user in
-        - [ ] `signupUser` - should make a request to sign the user up
-        - [ ] `fetchUserFromToken` - should make a request to the `/auth/me` route to get the user's info
-        - [ ] `logoutUser` - this function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset
-      - [ ] Make sure to set all the state variables as the `value` prop passed to the `AuthContext.Provider` component
-    - [ ] Create and export a `useAuthContext` hook that calls the `React.useContext` hook with the newly created `AuthContext` and returns it.
-    - [ ] In `App.jsx` file create an `AppContainer` component that wraps the `App` component with the `AuthContextProvider` component (which should still be nested inside the `BrowserRouter` component from `react-router-dom`). Export the `AppContainer` component by default instead of the `App`
+    - [x] First, create a `contexts` directory at the root of the project
+    - [x] Inside it, touch the `contexts/auth.jsx` file
+    - [x] In that file, define a new `AuthContext` with `React.createContext`
+    - [x] Use that context to create an `AuthContextProvider` component
+      - [x] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
+      - [x] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
+        - [x] That hook should check to see if a JWT token exists in local storage under the `lifetracker_token` key
+          - [x] If it does:
+            - [x] It should add that token to `ApiClient` class with the `setToken` method
+            - [x] Then, it should set the `isProcessing` state variable to `true` and the `error` state variable to `null`
+            - [x] Next, it should send a `GET` request to the `/auth/me` endpoint
+              - [x] If it fails, it should set the `error` prop to a valid error message
+              - [x] If it is successful...
+                - [x] It should set the `user` state variable with the `user` returned in the response
+                - [x] It should set the `error` state variable to `null`
+            - [x] Regardless, it should set the `isProcessing` state variable to `false` and the `initialized` state variable to `true`
+          - [x] The user returned from that request should be stored in state. This will ensure that users stay logged in even if they refresh the page.
+      - [x] It should also define handler functions for:
+        - [x] `loginUser` - should make a request to log the user in
+        - [x] `signupUser` - should make a request to sign the user up
+        - [x] `fetchUserFromToken` - should make a request to the `/auth/me` route to get the user's info
+        - [x] `logoutUser` - this function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset
+      - [x] Make sure to set all the state variables as the `value` prop passed to the `AuthContext.Provider` component
+    - [x] Create and export a `useAuthContext` hook that calls the `React.useContext` hook with the newly created `AuthContext` and returns it.
+    - [x] In `App.jsx` file create an `AppContainer` component that wraps the `App` component with the `AuthContextProvider` component (which should still be nested inside the `BrowserRouter` component from `react-router-dom`). Export the `AppContainer` component by default instead of the `App`
 
   - [ ] The **`Loading.jsx`** component
 

@@ -1,7 +1,18 @@
 import "./LoginForm.css"
 import * as React from "react"
+import { useAuthContext } from  "../../../contexts/auth"
 
 export default function LoginForm( {} ) {
+
+    const { user, setUser,
+        initialized, setInitialized,
+        isProcessing, setIsProcessing,
+        error, setError,
+        loginUser,
+        signupUser,
+        fetchUserFromToken,
+        logoutUser} = useAuthContext()
+
     const [loginForm, setLoginForm] = React.useState({
         email: "",
         password: "",
@@ -25,7 +36,7 @@ export default function LoginForm( {} ) {
     }
 
     const handleOnSubmit = () => {
-        // here is where I would make the post request to the back end api
+        loginUser(loginForm)
     }
 
     return (
