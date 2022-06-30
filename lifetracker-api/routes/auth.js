@@ -27,7 +27,7 @@ router.post("/register", async (req, res, next) => {
 })
 
 
-router.get("/exercise", authenticateToken, async (req, res, next) => {
+router.get("/me", authenticateToken, async (req, res, next) => {
     try {
         res.status(201).json(req.user)
     }
