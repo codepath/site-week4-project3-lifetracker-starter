@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     min-width: 100%;
-    min-height: 90%;
     color: aliceblue;
+    margin-top: 55px;
 }
 
 .input-window{
@@ -12,4 +12,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 5px;
+    width: 35%;
+    height: 75%;
+    max-height: 85%;
 }

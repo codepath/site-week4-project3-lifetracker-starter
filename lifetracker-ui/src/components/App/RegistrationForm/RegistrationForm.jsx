@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import './RegistrationForm.css'
 
 export default function RegistrationForm(){
@@ -83,7 +84,7 @@ export default function RegistrationForm(){
                     </div>
                 </div>
                 <div className="redirect">
-                    <p className='signin'> Have An Account? Login </p>
+                    <p className='signin'> Have An Account? <Link to='/login'>Login</Link></p>
                 </div>
             </div>
         </div>

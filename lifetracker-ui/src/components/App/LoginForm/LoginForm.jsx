@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
 import './LoginForm.css'
 
@@ -35,12 +36,12 @@ export default function LoginForm(){
                         <input type="password" className="form-input" name='password'value={loginForm.password} onChange={handleOnChange} placeholder="Password"/>
                     </div>
                 
-                    <div className="submit-btn">
+                    <div className="register-btn">
                         <button> Login </button>
                     </div>
                 </div>
                 <div className="signIn">
-                    <p className="login">Don't have an account? SignUp </p>
+                    <p className="login">Don't have an account? <Link to='/register'>SignUp</Link> </p>
                 </div>
             </div>
         </div>
