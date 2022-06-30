@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react"
 import "./App.css"
 import Navbar from "../Navbar/Navbar"
 import LandingPage from "../LandingPage/LandingPage"
@@ -10,16 +11,18 @@ import RegistrationPage from "../RegistrationPage/RegistrationPage"
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom"
 
 export default function App() {
+  const [appState, setAppState] = useState({}) // keeps track of user login status
+
   return (
     <div className="app">
       <React.Fragment>
         <BrowserRouter>
+          <Navbar />
           <main>
             <Routes>
               <Route path="/" element={
                 (
                   <>
-                    <Navbar />
                     <LandingPage />
                   </>
                 )
@@ -28,8 +31,7 @@ export default function App() {
               <Route path="/login" element={
                 (
                   <>
-                    <Navbar />
-                    <LoginPage />
+                    <LoginPage setAppState={setAppState} />
                   </>
                 )
               }
@@ -37,8 +39,7 @@ export default function App() {
               <Route path="/register" element={
                 (
                   <>
-                    <Navbar />
-                    <RegistrationPage />
+                    <RegistrationPage setAppState={setAppState} />
                   </>
                 )
               }
@@ -46,7 +47,6 @@ export default function App() {
               <Route path="/activity" element={
                 (
                   <>
-                    <Navbar />
                     <ActivityPage />
                   </>
                 )
@@ -55,7 +55,6 @@ export default function App() {
               <Route path="/nutrition/*" element={
                 (
                   <>
-                    <Navbar />
                     <NutritionPage />
                   </>
                 )
@@ -64,7 +63,6 @@ export default function App() {
               <Route path="*" element={
                 (
                   <>
-                    <Navbar />
                     <NotFound />
                   </>
                 )
