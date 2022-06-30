@@ -3,7 +3,7 @@ const cors = require("cors")
 const morgan = require("morgan")
 const { PORT } = require("./config")
 const authRoutes = require("./routes/auth")
-const security = require("./routes/auth")
+const security = require("./middleware/security")
 
 const { BadRequestError, NotFoundError } = require("./utils/errors")
 
@@ -22,6 +22,7 @@ app.use(morgan("tiny"))
 // in the auth header
 // if it does, attach the decoded user to res.locals
 app.use(security.extractUserFromJwt)
+
 
 app.use("/auth", authRoutes)
 

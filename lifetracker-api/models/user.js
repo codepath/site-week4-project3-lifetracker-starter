@@ -77,7 +77,7 @@ class User {
         )
         VALUES ($1,$2,$3,$4,$5)
         RETURNING username, password, first_name, last_name, email;
-        `,[ credentials.username, hashedPassword, credentials.firstName, credentials.lastName, lowerCasedEmail])
+        `,[ credentials.username, hashedPassword, credentials.firstName, credentials.lastName, lowerCasedEmail ])
         // return the user
         const user = result.rows[0]
 
