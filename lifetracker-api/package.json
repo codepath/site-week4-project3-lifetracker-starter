@@ -7,6 +7,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.0.0-beta.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.18"
+  }
 }
