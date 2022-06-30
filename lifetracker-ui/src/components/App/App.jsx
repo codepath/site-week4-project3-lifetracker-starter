@@ -14,8 +14,8 @@ export default function App() {
     <div className="app">
       <React.Fragment>
         {/* YOUR CODE HERE! */}
-        <Navbar />
             <BrowserRouter>
+                <Navbar />
                 <Routes>
                       <Route path="/" element={<Landing />}></Route>
                       <Route path="/login" element={<LoginPage />}></Route>
