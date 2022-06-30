@@ -1,0 +1,17 @@
+.nav-links {
+    margin-left: auto;
+    max-width: 650px;
+    width: 100%;
+}
+.links {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+li {
+    display: inline;
+    text-decoration: none;
+}

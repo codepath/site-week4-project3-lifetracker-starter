@@ -1,0 +1,14 @@
+.navbar {
+    padding: 0px 80px;
+    background-color: aquamarine;
+}
+.content {
+    display: flex;
+    align-items: center;
+    margin: 0px auto;
+    max-width: 1100px;
+    width: 100%
+}
+.logo{
+    margin-right: 50px;
+}
