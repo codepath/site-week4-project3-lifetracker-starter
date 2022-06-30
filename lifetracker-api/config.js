@@ -20,6 +20,6 @@ module.exports = {
     PORT,
     SECRET_KEY,
     BCRYPT_WORK_FACTOR,
-    IS_TESTING,
+    // IS_TESTING,
     getDatabaseUri,
 }

@@ -10,7 +10,7 @@ CREATE TABLE if not exists "users" (
 );
 
 CREATE TABLE if not exists "nutrition" (
-    id          INTEGER NOT NULL,
+    id          SERIAL PRIMARY KEY,
     name        TEXT NOT NULL,
     category    TEXT NOT NULL,
     calories    INTEGER NOT NULL,
