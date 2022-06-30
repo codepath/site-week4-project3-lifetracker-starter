@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #8884FF;
+    background-color: #0275d8;
     display: flex;
     justify-content: space-between;
     width: 100vw;
@@ -29,7 +29,7 @@
     font-size: 20px;
 }
 
-.logo {
+.logo img {
     height: 60px;
     width: auto;
 }

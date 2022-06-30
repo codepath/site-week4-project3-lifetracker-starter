@@ -1,12 +1,14 @@
 .hero-img {
-    height: 400px;
+    height: 350px;
     width: auto;
     opacity: .8;
+    border-radius: 15px;
 }
 
 .left-div h1 {
     font-size: 58px;
     margin-bottom: -10px;
+    margin-top: -20px;
 }
 
 .left-div {
@@ -17,7 +19,8 @@
     margin-right: 30px;
 }
 
-.left-div .sign-up-button {
+.left-div .sign-up-link {
+    text-decoration: none;
     margin-top: 20px;
     padding: 10px;
     background-color: black ;
@@ -26,17 +29,20 @@
     font-weight: bolder;
     color: white;
     width: 100%;
+    text-align: center;
 }
 
-.left-div .sign-up-button:hover {
+.left-div .sign-up-link:hover {
+    text-decoration: none;
     margin-top: 20px;
     padding: 10px;
-    background-color: #58A4B0 ;
+    background-color: #0275d8 ;
     border-radius: 10px;
     border: none;
     font-weight: bolder;
     color: white;
     width: 100%;
+    text-align: center;
 }
 
 .landing-page {
