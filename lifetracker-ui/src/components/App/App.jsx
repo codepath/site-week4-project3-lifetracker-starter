@@ -8,6 +8,16 @@ import ActivityPage from "../ActivityPage/ActivityPage"
 import NutritionPage from "../NutritionPage/NutritionPage"
 import NotFound from "../NotFound/NotFound"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import {AuthContextProvider, useAuthContext} from "../../contexts/auth"
+
+//  export default function AppContainer()
+//  {
+//    return(
+//      <AuthContextProvider>
+//          <App />
+//      </AuthContextProvider>
+//    )
+//  }
 
 export default function App() {
   return (
