@@ -11,7 +11,6 @@ class User {
         // if password matches DB password, return the user
         // otherwise, throw unauthorized error
         throw new UnauthorizedError("Invalid Email or Password")
-
     }
 
     static async register(credentials) {
@@ -58,7 +57,6 @@ class User {
         if (!email) {
             throw new BadRequestError(`No email provided!`)
         }
-
         const query = `SELECT * FROM users WHERE email = $1` // best practice when inserting variables
         const result = await db.query(query, [email.toLowerCase()])
         const user = result.rows[0]
