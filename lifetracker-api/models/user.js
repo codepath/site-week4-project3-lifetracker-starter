@@ -6,7 +6,7 @@ const {BadRequestError, UnauthorizedError} = require('../utils/errors')
 class User
 {
     //METHOD FOR RETURNING PUBLIC USER TO CLIENT WITH SECURITY HAZARDS
-    static async makePublicUser(user)
+    static makePublicUser(user)
     {
         return{
             id: user.id,
