@@ -10,6 +10,12 @@ export default function Landing() {
             <div className="landing-text">
                 <h1 className="title">Life Tracker</h1>
                 <p className="cta"> Helping you take back control of your world </p>
+                <div className="icon-row">
+                      <img src="../src/fitness.png" className="icons"/>
+                      <img src="../src/food.png" className="icons"/>
+                      <img src="../src/rest.png" className="icons"/>
+                      <img src="../src/planner.png" className="icons"/>
+                </div>
             </div>
         </div>
     </div>

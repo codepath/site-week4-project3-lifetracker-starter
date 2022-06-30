@@ -16,3 +16,17 @@
     text-align: center;
 }
 
+.title
+{
+    font-size: 5rem;
+}
+
+.icons
+{
+    margin-right: 1rem;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    filter: brightness(150%)
+}
+

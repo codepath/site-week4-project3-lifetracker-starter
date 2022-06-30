@@ -11,16 +11,16 @@ export default function LoginForm() {
             <input type="email" 
                    placeholder="Type in email..."
                    name="email"
-                   onChange = ""
+                   onChange = {() => {}}
                    className="form-input" />
             </div>
 
             <div>
             <h3>Password</h3>
-            <input type="text" 
+            <input type="password" 
                    placeholder="Type in password..."
                    name="password"
-                   onChange = ""
+                   onChange = {() => {}}
                    className="form-input" />
             </div>
             
