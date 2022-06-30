@@ -2,10 +2,13 @@ import * as React from "react"
 import { useState } from "react"
 import axios from "axios"
 import "./LoginForm.css"
+import { useNavigate } from "react-router-dom"
+
 
 export default function LoginForm(props) {
     const [form, setForm] = useState({email: "", password: ""})
     const [error, setError] = useState({})
+    const navigate = useNavigate()
     
     const handleOnInputChange = (event) => {
         // Check for valid email
@@ -42,7 +45,9 @@ export default function LoginForm(props) {
                     password: ""
                   })
                 console.log(json.data)
+                navigate("/activity")
                 props.setIsLoggedIn(true)
+                
             }
             else{
                 setError((state) => ({ ...state, form: "Something went wrong with registration." }))
