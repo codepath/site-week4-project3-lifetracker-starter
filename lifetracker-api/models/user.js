@@ -4,7 +4,7 @@ const { BCRYPT_WORK_FACTOR } = require("../config")
 const { UnauthorizedError, BadRequestError } = require ("../utils/errors")
 
 class User {
-    static async makePublicUser(user){
+    static makePublicUser(user){
         return{
             id: user.id,
             email: user.email,
@@ -81,6 +81,7 @@ class User {
             )
             VALUES ($1, $2, $3, $4, $5)
             RETURNING 
+                id,
                 email, 
                 username,
                 first_name,
@@ -103,7 +104,7 @@ class User {
         if (!email) {throw new BadRequestError("No email provided")}
         const query = `SELECT * FROM users WHERE email = $1`
         const result = await db.query(query, [email.toLowerCase()])
-        const user = result.rows[0]       
+        const user = result.rows[0]     
         return user
     }
     static async fetchUserByUsername(username){

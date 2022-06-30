@@ -1,12 +1,11 @@
 const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan") 
-const app = express()
 const security = require("./middleware/security")
 const authRoutes = require('./routes/auth')
-
-
 const {NotFoundError} = require("./utils/errors")
+
+const app = express()
 
 app.use(cors())
 app.use(express.json())
@@ -32,6 +31,7 @@ app.use((req,res,next) => {
 app.use((error, req, res, next) => {
     const status = error.status || 500
     const message = error.message || "Something went wrong in the application"
+    
     return res.status(status).json({
         error: {message, status}
     })

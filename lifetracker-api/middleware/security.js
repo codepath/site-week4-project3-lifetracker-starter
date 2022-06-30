@@ -3,7 +3,7 @@ const { SECRET_KEY } = require("../config")
 const { UnauthorizedError } = require("../utils/errors")
 
 // create a function to extract the JWT from the request header
-const jwtFrom = ({header}) => {
+const jwtFrom = ({headers}) => {
     if(headers?.authorization){
         // Authroization: "Bearer dklaflka"
         const [scheme, token] = headers.authorization.split(" ") 
@@ -43,5 +43,5 @@ const requireAuthenticatedUser = (req, res, next) => {
 
 module.exports = {
     requireAuthenticatedUser,
-    extractUserFromJwt,
+    extractUserFromJwt
 }
