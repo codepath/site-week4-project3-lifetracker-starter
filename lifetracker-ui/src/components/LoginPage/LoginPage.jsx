@@ -8,7 +8,7 @@ export default function LoginPage(props) {
       <div className="login-page">
         <div className="card">
             <h2>Login</h2>
-            <LoginForm isLogged={props.isLogged} setIsLogged={props.setIsLogged} loginForm={props.loginForm} setLoginForm={props.setLoginForm}/>
+            <LoginForm isLogged={props.isLogged} setIsLogged={props.setIsLogged} loginForm={props.loginForm} setLoginForm={props.setLoginForm} error={props.error} setError={props.setError}/>
             <div className="footer">
                 <p>
                     Don't have an account? Sign up

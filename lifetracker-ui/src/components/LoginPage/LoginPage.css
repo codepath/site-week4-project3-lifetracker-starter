@@ -87,3 +87,7 @@
     text-decoration: none;
     color: #00c98e;
 }
+
+.login-page .card .error {
+    color: #fe3210;
+}
