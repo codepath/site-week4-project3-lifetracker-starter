@@ -5,11 +5,11 @@ import { useState, useEffect } from 'react';
 import LoginForm from "components/LoginForm/LoginForm";
 import "./LoginPage.css";
 
-export default function LoginPage({loggedIn}) {
+export default function LoginPage({ setUser}) {
     //state to check if user is logged in
     return (
         <div className="login-page">
-            <LoginForm></LoginForm>
+            <LoginForm setUser={setUser}></LoginForm>
         </div>
     );
 }

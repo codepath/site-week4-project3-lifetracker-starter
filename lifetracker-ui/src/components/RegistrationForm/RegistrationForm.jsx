@@ -1,11 +1,15 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import axios from "axios"
+import apiClient from "../../services/apiClient"
+import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
 import "./RegistrationForm.css"
 
 
 
-export default function Signup({ setAppState }) {
+export default function Signup({  }) {
+
+  const {setUser} = useAuthContext()
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
@@ -48,38 +52,29 @@ export default function Signup({ setAppState }) {
     setIsLoading(true)
     setErrors((e) => ({ ...e, form: null }))
 
-    /*if (form.passwordConfirm !== form.password) {
+    if (form.passwordConfirm !== form.password) {
       setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }))
       setIsLoading(false)
       return
     } else {
       setErrors((e) => ({ ...e, passwordConfirm: null }))
     }
-
-    try {
-      const res = await axios.post("http://localhost:3001/auth/register", {
-        date: form.date,
-        location: form.location,
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        password: form.password,
-      })
-
-      if (res?.data?.user) {
-        setAppState(res.data)
+    const {data, error} = await apiClient.signupUser({email: form.email, password: form.password, firstName: form.firstName, lastName: form.lastName, username: form.username});
+    if (error) {
+        setErrors((e) => ({ ...e, form: error }))
+        const message = error?.response?.data?.error?.message
+        setErrors((e) => ({ ...e, form: message ? String(message) : String(error) }))
         setIsLoading(false)
-        navigate("/portal")
-      } else {
-        setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
-        setIsLoading(false)
-      }
-    } catch (err) {
-      console.log(err)
-      const message = err?.response?.data?.error?.message
-      setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-      setIsLoading(false)
-    }*/
+    }
+    if (data?.user) {
+        setUser(data.user);
+        apiClient.setToken(data.token);
+        
+        setIsLoading(false);
+        navigate("/activity");
+    }
+    setIsLoading(false);
+
   }
 
   return (
@@ -124,9 +119,9 @@ export default function Signup({ setAppState }) {
               value={form.email}
               onChange={handleOnInputChange}
             />
-            {errors.email && <span className="error">{errors.email}</span>}
+            
           </div>
-
+          {errors.email && <span className="error">{errors.email}</span>}
           <div className="input-field">
             <label htmlFor="name">Username</label>
             <input
@@ -160,8 +155,9 @@ export default function Signup({ setAppState }) {
               value={form.passwordConfirm}
               onChange={handleOnInputChange}
             />
-            {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
+            
           </div>
+          {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
         <div className="btn-row">
             <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
                 {isLoading ? "Loading..." : "Create Account"}

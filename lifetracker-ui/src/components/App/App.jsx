@@ -16,23 +16,54 @@ import LoginPage from "components/LoginPage/LoginPage";
 import RegistrationPage from "components/RegistrationPage/RegistrationPage";
 import NotFound from "components/NotFound/NotFound";
 import AccessForbidden from "components/AccessForbidden/AccessForbidden";
+import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
+import apiClient from "../../services/apiClient";
 
-export default function App() {
+export default function AppContainer() {
+  return (
+    <AuthContextProvider>
+      <App/>
+    </AuthContextProvider>
+  )
+}
+
+function App() {
   //state of logged in?
-  const [loggedIn, setLoggedIn] = useState(false);
+  const {user, setUser, error, setError} = useAuthContext();
+  //const [loggedIn, setLoggedIn] = useState(false);
+  //const [user, setUser] = useState({});
+  useEffect(() => {
+    const fetchUser = async () => {
+      const {data, err} = await apiClient.fetchUserFromToken()
+      if (data) setUser(data.user)
+      if (err) setError(err)
+    }
+
+    const token = localStorage.getItem("lifetracker_token");
+    if(token) {
+      apiClient.setToken(token)
+      fetchUser()
+    }
+  }, [])
+
+  useEffect(() => {
+    //video 9/10 rate my setup for fetching the info
+  }, []);
+
+
   return (
     <div className="app">
       <React.Fragment>
         <BrowserRouter>
-          <Navbar loggedIn={loggedIn}/>
+          <Navbar loggedIn={user.email ? true : false}/>
           <Routes>
             <Route path="/" element={<LandingPage/>}/>
-            <Route path="/login" element={loggedIn ? <Navigate to="/activity"/> : <LoginPage loggedIn={loggedIn}/>}/>
-            <Route path="/register" element={loggedIn ? <Navigate to="/activity"/> : <RegistrationPage loggedIn={loggedIn}/>}/>
-            <Route path="/activity" element={!loggedIn ? <AccessForbidden/> : <div>activity page</div>}/>
-            <Route path="/nutrition" element={!loggedIn ? <AccessForbidden/> : <div>Nutrition</div>}/>
-            <Route path="/nutrition/create" element={!loggedIn ? <AccessForbidden/> : <div>Nutrition Form</div>}/>
-            <Route path="/nutrition/id/:nutritionId" element={!loggedIn ? <AccessForbidden/> : <div>Nutrition Detail</div>}/>
+            <Route path="/login" element={user.email ? <Navigate to="/activity"/> : <LoginPage setUser={setUser}/>}/>
+            <Route path="/register" element={user.email ? <Navigate to="/activity"/> : <RegistrationPage/>}/>
+            <Route path="/activity" element={!user.email ? <AccessForbidden/> : <div>activity page</div>}/>
+            <Route path="/nutrition/" element={!user.email ? <AccessForbidden/> : <div>Nutrition</div>}/>
+            <Route path="/nutrition/create" element={!user.email ? <AccessForbidden/> : <div>Nutrition Form</div>}/>
+            <Route path="/nutrition/id/:nutritionId" element={!user.email ? <AccessForbidden/> : <div>Nutrition Detail</div>}/>
             <Route path="nutrition/*" element={<NotFound/>}/>
             <Route path="*" element={<NotFound/>}/>
           </Routes>

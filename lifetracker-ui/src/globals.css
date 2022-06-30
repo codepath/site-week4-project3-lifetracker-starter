@@ -14,4 +14,5 @@ body {
   --dark-text: #0b110e;
   --background: #344e41;
   --accent-green: #588157;
+  --error: rgb(201, 13, 13);
 }

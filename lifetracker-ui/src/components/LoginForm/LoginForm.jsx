@@ -1,11 +1,15 @@
 import * as React from "react";
 import {Redirect} from 'react'
 import axios from "axios";
+import apiClient from "../../services/apiClient";
+import {useNavigate} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import "./LoginForm.css";
 
-export default function LoginForm({loggedIn}) {
+export default function LoginForm({setUser}) {
     //state to check if user is logged in
+
+    const navigate = useNavigate()
     const [form, setForm] = useState({
         email: "",
         password: "",
@@ -29,13 +33,29 @@ export default function LoginForm({loggedIn}) {
         e.preventDefault()
         setIsLoading(true)
         setErrors((e) => ({ ...e, form: null }))
-        /*
-        try {
+
+        const {data, error} = await apiClient.loginUser({email: form.email, password: form.password});
+        if (error) {
+          setErrors((e) => ({ ...e, form: error }))
+          const message = error?.response?.data?.error?.message
+          setErrors((e) => ({ ...e, form: message ? String(message) : String(error) }))
+          setIsLoading(false)
+        }
+        if (data?.user) {
+          setUser(data.user);
+          apiClient.setToken(data.token);
+          setIsLoading(false);
+          navigate("/activity");
+        }
+        
+        /*try {
+          console.log("form", form);
           const res = await axios.post(`http://localhost:3001/auth/login`, form)
           if (res?.data) {
-            setAppState(res.data)
-            setIsLoading(false)
-            navigate("/portal")
+            setUser(res.data);
+            setLoggedIn(true);
+            setIsLoading(false);
+            navigate("/activity");
           } else {
             setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
             setIsLoading(false)
@@ -52,6 +72,7 @@ export default function LoginForm({loggedIn}) {
     return (
         <div className="login-form">
           <h2>Login</h2>
+          {Boolean(errors.form) && <span className="error">{errors.form}</span>}
             <div className="input-field">
                 <label htmlFor="email">Email</label>
                 <input
@@ -62,8 +83,8 @@ export default function LoginForm({loggedIn}) {
                 value={form.email}
                 onChange={handleOnInputChange}
                 />
-                {errors.email && <span className="error">{errors.email}</span>}
             </div>
+            {errors.email && <span className="error">{errors.email}</span>}
             <div className="input-field">
                 <label htmlFor="password">Password</label>
                 <input

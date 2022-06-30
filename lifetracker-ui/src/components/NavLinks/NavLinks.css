@@ -19,3 +19,11 @@ a {
     padding: 10px;
     border-radius: 6px;
 }
+.logout {
+    background-color: var(--accent-green);
+    padding: 10px;
+    border-radius: 6px;
+    color: var(--light-text);
+    border: 0px solid black;
+    font: inherit;
+}

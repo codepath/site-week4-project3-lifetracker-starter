@@ -37,4 +37,9 @@ input{
     border-radius: 6px;
     padding: 8px;
     cursor: pointer;
+    font: inherit
+}
+.error{
+    margin-bottom: 10px;
+    color: var(--error);
 }
