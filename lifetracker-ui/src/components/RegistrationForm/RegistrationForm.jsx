@@ -92,35 +92,37 @@ export default function RegistrationForm(props) {
     return (
         <div className="registration-form">
             <h1>Sign Up</h1>
+            <img src="\src\assets\icons8-sign-up-60.png"></img>
             <form>
-                <label></label>
-                <input className="form-input" type="email" name="email"
-                        placeholder="user@gmail.com"
-                        value={form.email}
-                        onChange={handleOnInputChange}/>
-                {error.email ? (<p className="error">{error.email}</p>) : null}
-                <input className="form-input" type="text" name="username"
-                        placeholder="username"
-                        value={form.username}
-                        onChange={handleOnInputChange}/>
-                <input className="form-input" type="text" name="firstName"
-                        placeholder="Jane"
-                        value={form.firstName}
-                        onChange={handleOnInputChange}/>
-                <input className="form-input" type="text" name="lastName"
-                        placeholder="Doe"
-                        value={form.lastName}
-                        onChange={handleOnInputChange}/>
-                <input className="form-input" type="password" name="password"
-                        placeholder="password"
-                        value={form.password}
-                        onChange={handleOnInputChange}/>
-                {error.password ? (<p className="error">{error.password}</p>) : null}
-                <input className="form-input" type="password" name="passwordConfirm"
-                        placeholder="confirm password"
-                        value={form.passwordConfirm}
-                        onChange={handleOnInputChange}/>
-                {error.passwordConfirm ? (<p className="error">{error.passwordConfirm}</p>) : null}
+                <div className="form-inputs">
+                    <input className="form-input" type="email" name="email"
+                            placeholder="user@gmail.com"
+                            value={form.email}
+                            onChange={handleOnInputChange}/>
+                    {error.email ? (<p className="error">{error.email}</p>) : null}
+                    <input className="form-input" type="text" name="username"
+                            placeholder="username"
+                            value={form.username}
+                            onChange={handleOnInputChange}/>
+                    <input className="form-input" type="text" name="firstName"
+                            placeholder="Jane"
+                            value={form.firstName}
+                            onChange={handleOnInputChange}/>
+                    <input className="form-input" type="text" name="lastName"
+                            placeholder="Doe"
+                            value={form.lastName}
+                            onChange={handleOnInputChange}/>
+                    <input className="form-input" type="password" name="password"
+                            placeholder="password"
+                            value={form.password}
+                            onChange={handleOnInputChange}/>
+                    {error.password ? (<p className="error">{error.password}</p>) : null}
+                    <input className="form-input" type="password" name="passwordConfirm"
+                            placeholder="confirm password"
+                            value={form.passwordConfirm}
+                            onChange={handleOnInputChange}/>
+                    {error.passwordConfirm ? (<p className="error">{error.passwordConfirm}</p>) : null}
+                </div>
                 <button className="submit-registration" onClick={signupUser}>Create Account</button>
             </form>
         </div>

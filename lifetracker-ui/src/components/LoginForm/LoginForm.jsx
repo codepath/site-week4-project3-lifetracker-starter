@@ -50,6 +50,7 @@ export default function LoginForm(props) {
     return (
         <div className="login-form">
                 <h1>Login</h1>
+                <img src="\src\assets\icons8-login-60.png"></img>
             <form>
                 <input className="form-input" type="email" name="email"
                     placeholder="user@gmail.com"

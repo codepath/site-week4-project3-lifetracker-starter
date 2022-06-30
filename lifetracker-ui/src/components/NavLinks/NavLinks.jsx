@@ -13,11 +13,11 @@ export default function NavLinks(props) {
           <li><Link to="/activity" label="Activity">Activity</Link></li>
           <li><Link to="/nutrition" label="Nutrition">Nutrition</Link></li>
           {props.isLoggedIn ? 
-          (<li onClick={logoutUser}><Link to="/">Logout</Link></li>) : 
+          (<li onClick={logoutUser}><Link to="/" className="nav-btn">Logout</Link></li>) : 
           (
             <>
             <li><Link to="/login" label="Login">Login</Link></li>
-            <li><Link to="/register" label="Sign Up">Sign Up</Link></li>
+            <li ><Link to="/register" label="Sign Up" className="nav-btn">Sign Up</Link></li>
             </>
         )}      
         </ul>
