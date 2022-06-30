@@ -5,6 +5,18 @@ const {BadRequestError, UnauthorizedError} = require('../utils/errors')
 
 class User
 {
+    //METHOD FOR RETURNING PUBLIC USER TO CLIENT WITH SECURITY HAZARDS
+    static async makePublicUser(user)
+    {
+        return{
+            id: user.id,
+            username: user.username,
+            firstName: user.first_name,
+            lastName: user.last_name,
+            email: user.email
+        }
+    }
+
     //METHOD FOR SUCCESSFUL LOGIN CREDENTIALS
     static async login(credentials)
     {
@@ -22,7 +34,7 @@ class User
             const isValid = await bcrypt.compare(credentials.password, user.password)
             if(isValid)
             {
-                return user
+                return User.makePublicUser(user)
             }
         }
 
@@ -36,7 +48,7 @@ class User
     static async register(credentials)
     {
         //ERROR HANDLING FOR REQUIRED FIELDS AND PROPER EMAIL AND EXISTENCE OF EMAIL
-        const requiredFields = ["username", "password", "firstName", "lastName", "email", "createdAt", "updatedAt"]
+        const requiredFields = ["username", "password", "firstName", "lastName", "email"]
         requiredFields.forEach(field => {
             if(!credentials.hasOwnProperty(field))
             {
@@ -44,7 +56,7 @@ class User
             }
         })
 
-        if(credentials.email.indexOf('@' <= 0))
+        if(credentials.email.indexOf('@') <= 0)
         {
             throw new BadRequestError('Invalid Email')
         }
@@ -59,24 +71,22 @@ class User
         const hashedPw = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR)
         const lowercasedEmail = credentials.email.toLowerCase()
 
-        const result = await db.query(`
+        const results = await db.query(`
             INSERT INTO users(
                 username,
                 password,
                 first_name,
                 last_name,
-                email,
-                created_at,
-                updated_at
+                email
             )
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            VALUES ($1, $2, $3, $4, $5)
             RETURNING id, username, password, first_name, last_name, email, created_at, updated_at
-        `, [credentials.username, hashedPw, credentials.firstName, credentials.lastName, lowercasedEmail, credentials.createdAt, credentials.updatedAt])
+        `, [credentials.username, hashedPw, credentials.firstName, credentials.lastName, lowercasedEmail])
         
 
         //RETURN THE USER
         const user = results.rows[0]
-        return user
+        return User.makePublicUser(user)
     }
 
 

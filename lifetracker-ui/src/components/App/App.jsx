@@ -1,10 +1,31 @@
 import * as React from "react"
 import "./App.css"
+import Navbar from "../Navbar/Navbar"
+import Landing from "../LandingPage/Landing"
+import LoginPage from "../LoginPage/LoginPage"
+import RegistrationPage from "../RegistrationPage/RegistrationPage"
+import ActivityPage from "../ActivityPage/ActivityPage"
+import NutritionPage from "../NutritionPage/NutritionPage"
+import NotFound from "../NotFound/NotFound"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 export default function App() {
   return (
     <div className="app">
-      <React.Fragment>{/* YOUR CODE HERE! */}</React.Fragment>
+      <React.Fragment>
+        {/* YOUR CODE HERE! */}
+        <Navbar />
+            <BrowserRouter>
+                <Routes>
+                      <Route path="/" element={<Landing />}></Route>
+                      <Route path="/login" element={<LoginPage />}></Route>
+                      <Route path="/register" element={<RegistrationPage />}></Route>
+                      <Route path="/activity" element={<ActivityPage />}></Route>
+                      <Route path="/nutrition/*" element={<NutritionPage />}></Route>
+                      <Route path="*" element={<NotFound />}></Route>
+                </Routes>
+            </BrowserRouter>
+      </React.Fragment>
     </div>
   )
 }

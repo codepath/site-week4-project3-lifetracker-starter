@@ -3,7 +3,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const app = express()
 const {BadRequestError, NotFoundError} = require('./utils/errors')
-
+const authRoutes = require('./routes/auth')
 
 //APP USES - Cross Origin Sharing
 app.use(cors())
@@ -11,6 +11,8 @@ app.use(cors())
 app.use(express.json())
 //APP USE - Log request info
 app.use(morgan('tiny'))
+//APP USE - LOGIN AND REGISTER ROUTES
+app.use('/auth', authRoutes)
 
 
 //APP GET REQUESTS
