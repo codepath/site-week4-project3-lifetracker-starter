@@ -4,6 +4,8 @@ const morgan = require("morgan")
 const { PORT } = require("./config")
 // const authRoutes = require("./routes/auth")
 
+const { BadRequestError, NotFoundError } = require("./utils/errors")
+
 const app = express()
 
 // allow other origins to access this api
@@ -16,9 +18,9 @@ app.use(morgan("tiny"))
 // app.use("/auth", authRoutes)
 
 // if endpoint does not match defined endpoints, we call this middleware
-// app.use((req, res, next) => {
-//     return next(new NotFoundError())
-// })
+app.use((req, res, next) => {
+    return next(new NotFoundError())
+})
 
 // generic error handler
 app.use((err, req, res, next) => {
