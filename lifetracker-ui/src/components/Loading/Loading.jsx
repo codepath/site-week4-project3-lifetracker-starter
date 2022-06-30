@@ -1,4 +1,4 @@
-import "./Landing.css";
+import "./Loading.css";
 
 export default function Landing() {
   return (

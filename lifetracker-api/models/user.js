@@ -38,7 +38,7 @@ class User {
     }
 
     static async register(credentials){
-        // user should submit their email, pw, rsvp status
+        // user should submit their email, pw
         // if any of those fields are missing, throw an error
         const requiredFields = ["password", "firstName", "lastName", "email", "username"]
         console.log(credentials)
@@ -47,6 +47,7 @@ class User {
                 throw new BadRequestError(`Missing ${field} in request body.`)
             }
         })
+
         if(credentials.email.indexOf("@") <= 0){
             throw new BadRequestError("Invalid email")
         }
@@ -67,7 +68,7 @@ class User {
         const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR)
         // take the users email/username and lower case it
         const lowercasedEmail = credentials.email.toLowerCase()
-        const lowercasedUsername = credetials.username.toLowerCase()
+        const lowercasedUsername = credentials.username.toLowerCase()
 
         // create a new user in the db with all their info
         const result = await db.query(
@@ -76,21 +77,21 @@ class User {
                 username,
                 first_name,
                 last_name,
-                password,
+                password
             )
-            VALUES ($1, $2, $3, $4, $5, $6)
+            VALUES ($1, $2, $3, $4, $5)
             RETURNING 
                 email, 
                 username,
                 first_name,
                 last_name,
-                password,
+                password;
             `,[ 
                 lowercasedEmail, 
-                lowercasedEmail,
+                lowercasedUsername,
                 credentials.firstName, 
                 credentials.lastName,  
-                hashedPassword, 
+                hashedPassword
                 ] 
         )
 

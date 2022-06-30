@@ -1,9 +1,18 @@
 const express = require("express")
+const cors = require("cors")
+
 const morgan = require("morgan") 
 const app = express()
+const authRoutes = require('./routes/auth')
 
+
+const {NotFoundError} = require("./utils/errors")
+
+app.use(cors())
 app.use(morgan("tiny"))
 app.use(express.json())
+app.use("/auth", authRoutes)
+
 
 app.get("/", async (req, res, next) => {
     res.status(200).json({ "ping": "pong"})

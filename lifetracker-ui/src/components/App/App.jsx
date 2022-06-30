@@ -7,8 +7,19 @@ import Landing from "../Landing/Landing";
 import { useState } from "react";
 import LoginPage from "../LoginPage/LoginPage";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
+import { AuthContextProvider, useAuthContext } from "contexts/auth";
 
-export default function App() {
+export default function AppContainer() {
+  return (
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
+  );
+}
+
+export function App() {
+  const { user, setUser } = useAuthContext;
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
