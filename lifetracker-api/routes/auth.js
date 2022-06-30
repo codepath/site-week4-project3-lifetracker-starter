@@ -27,12 +27,12 @@ router.post("/register", async (req, res, next) => {
     }
 })
 
-//below working, but result brought back is empty object
-router.get("/me", security.requireAuthenticatedUser, async (req,res,next) => {
+router.get("/me", security.requireAuthenticatedUser, async (req, res, next) => {
     try {
         const { email } = res.locals.user
         const user = await User.fetchUserByEmail(email)
-        const publicUser = User.makePublicUser(user)
+        const publicUser = await User.makePublicUser(user)
+        console.log("TEST",publicUser)
         return res.status(200).json({ user: publicUser })
     } catch(err) {
         next(err)
