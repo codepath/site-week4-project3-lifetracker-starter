@@ -1,10 +1,30 @@
+* {
+  color: #2a0800;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+input {
+  background-color: #fffae3;
+  border-color: #1d2d44;
+  border-radius: 10px;
+  padding-left: 20px;
+}
+
+.error {
+  color: #fe3210;
+}
+
 .app {
   width: 100%;
   max-width: 100vw;
   height: 100%;
   min-height: 100vh;
   background-color: #fffae3;
-  color: #1D2D44;
+  color: #1d2d44;
 }
 
 .hidden {
@@ -79,13 +99,13 @@
   font-size: 76px;
   font-weight: 700;
   color: #99e1d9;
-  background-color: #1D2D44;
+  background-color: #1d2d44;
 }
 
 .landing-page .hero .cta {
   margin-top: 10px;
   font-size: 50px;
-  color: #1D2D44;
+  color: #1d2d44;
   background-color: #99e1d9;
 }
 
@@ -94,8 +114,8 @@
   position: absolute;
 }
 
-.login-form {
-  background-color: blue;
+.login-page .login-form {
+  color: #1d2d44;
   max-width: 500px;
   width: 100%;
   display: -webkit-box;
@@ -107,15 +127,75 @@
           flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  font-size: 36px;
+  font-size: 30pt;
 }
 
-.login-form input, .login-form button {
+.login-page .login-form label {
+  margin-top: 10px;
+}
+
+.login-page .login-form input,
+.login-page .login-form button {
+  height: 60px;
+  margin-top: 5px;
+}
+
+.login-page .login-form .submit-login {
+  cursor: pointer;
+  margin-top: 40px;
+  background-color: #f7567c;
+  font-size: 20pt;
+  color: #99e1d9;
+}
+
+.login-page .login-form .invalid-email {
+  color: #fe3210;
+  font-size: 16px;
+}
+
+.registration-form {
+  max-width: 500px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 30pt;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.registration-form input,
+.registration-form button {
   height: 60px;
 }
 
-.login-form .invalid-email {
-  color: #fe3210;
-  font-size: 16px;
+.registration-form button {
+  cursor: pointer;
+  background-color: #f7567c;
+  font-size: 20pt;
+  color: #99e1d9;
+}
+
+.registration-form .name-input {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.registration-form .name-input * {
+  width: 45%;
+}
+
+.registration-form label {
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 /*# sourceMappingURL=App.css.map */

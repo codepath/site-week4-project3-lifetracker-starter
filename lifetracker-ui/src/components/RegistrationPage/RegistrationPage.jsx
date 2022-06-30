@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import RegistrationForm from "../RegistrationForm/RegistrationForm";
 
 export default function RegistrationPage() {
-  return (
-    <div>RegistrationPage</div>
-  )
+    return (
+        <div className="registration-page">
+            RegistrationPage
+            <RegistrationForm />
+        </div>
+    );
 }
