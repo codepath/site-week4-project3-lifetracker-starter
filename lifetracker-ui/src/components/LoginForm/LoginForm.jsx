@@ -17,14 +17,21 @@ export default function LoginForm(props) {
             setError((state) => ({ ...state, email: null }))
           }
         }
+        else {
+            setError((state) => ({ ...state, password: null }))
+        }
         setForm((state) => ({ ...state, [event.target.name]: event.target.value }))
     }
 
     const loginUser = async (e) => {
         e.preventDefault()
+        if (!form.password){
+            setError((state) => ({ ...state, password: "You must enter a password." }))
+            return
+        }
         //placeholder, handled by contexts
         try{
-            const json = await axios.post("http://localhost:3002/auth/login", {
+            const json = await axios.post("http://localhost:3001/auth/login", {
                 email: form.email,
                 password: form.password,
             })
@@ -43,6 +50,7 @@ export default function LoginForm(props) {
         }catch(err) {
             const message = err?.response?.data?.error?.message
             setError((state) => ({ ...state, form: message ? String(message) : String(err) }))
+            console.log(err)
         }
         console.log(error)
     }
@@ -61,7 +69,9 @@ export default function LoginForm(props) {
                     placeholder="Password"
                     value={form.password}
                     onChange={handleOnInputChange}/>
+                {error.password ? (<p className="error">{error.password}</p>) : null}
                 <button className="submit-login" onClick={loginUser}>Login</button>
+                {error.form ? (<p className="error">{error.form}</p>) : null}
             </form>
         </div>
     )}

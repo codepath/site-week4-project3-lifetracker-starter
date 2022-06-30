@@ -28,7 +28,7 @@ export default function App() {
               <Route path="/login" element={<LoginPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setAppState={setAppState}/>}></Route>
               <Route path="/register" element={<RegistrationPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setAppState={setAppState}/>}></Route>
               <Route path="/activity" element={isLoggedIn ? (<ActivityPage/>) : (<AccessForbidden/>)} ></Route>
-              <Route path="/nutrition" element={isLoggedIn ? (<NutritionPage/>) : (<AccessForbidden/>)}></Route>
+              <Route path="/nutrition/*" element={isLoggedIn ? (<NutritionPage/>) : (<AccessForbidden/>)}></Route>
               <Route path="*" element={<NotFound/>}></Route>
             </Routes>
           </main>

@@ -1,0 +1,29 @@
+.nutrition-card{
+    width: 30vw;
+    background-color:  #e0e1e0;
+    overflow: hidden;
+    height: 40vh;
+    display: flex;
+    border-radius: 20px;
+    border-width: 5px;
+    border-color: #e0e1e0;
+    border-style: groove;
+    color: black
+}
+
+.nutrition-text{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.nutrition-name{
+    font-size: large;
+    padding: 5px;
+}
+
+.nutrition-image{
+    width: 15vw;
+    height: 40vh;
+    object-fit: cover;
+}

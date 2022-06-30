@@ -1,0 +1,30 @@
+.nutrition-overview #record{
+    font-size: large;
+    margin: 8px;
+    padding: 8px;
+    background: linear-gradient(to right, #8d5652 50%, #ffffff 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.3s;
+    color: #8d5652;
+    border: none;
+}
+
+
+.nutrition-overview #record:hover{
+    background-position:0 0;
+    color: white
+}
+
+.nutrition-overview{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+}
+
+.nutrition-overview h1{
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+}

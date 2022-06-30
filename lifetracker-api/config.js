@@ -1,7 +1,7 @@
 require("dotenv").config()
 require("colors")
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3002
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
 
 function getDatabaseUri() {
     const dbUser = process.env.DATABASE_USER || "postgres"

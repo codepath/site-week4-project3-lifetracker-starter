@@ -56,12 +56,16 @@ export default function RegistrationForm(props) {
             setError((state) => ({ ...state, passwordConfirm: "passwords don't match." }))
             return
         } 
+        else if (!form.password){
+            setError((state) => ({ ...state, passwordConfirm: "You must enter a password." }))
+            return
+        }
         else {
             setError((state) => ({ ...state, passwordConfirm: null }))
         }
 
         try{
-            const json = await axios.post("http://localhost:3002/auth/register", {
+            const json = await axios.post("http://localhost:3001/auth/register", {
                 email: form.email,
                 username: form.username,
                 firstName: form.firstName,
@@ -92,7 +96,7 @@ export default function RegistrationForm(props) {
     return (
         <div className="registration-form">
             <h1>Sign Up</h1>
-            <img src="\src\assets\icons8-sign-up-60.png"></img>
+            <img src="\src\assets\icons8-sign-up-60.png" alt="sign up"></img>
             <form>
                 <div className="form-inputs">
                     <input className="form-input" type="email" name="email"
@@ -124,6 +128,7 @@ export default function RegistrationForm(props) {
                     {error.passwordConfirm ? (<p className="error">{error.passwordConfirm}</p>) : null}
                 </div>
                 <button className="submit-registration" onClick={signupUser}>Create Account</button>
+                {error.form ? (<p className="error">{error.form}</p>) : null}
             </form>
         </div>
     )}
