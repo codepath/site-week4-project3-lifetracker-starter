@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./Navbar.css";
 import logo from "src/components/Navbar/Logo.png";
 import { Link } from "react-router-dom";
 import NavLinks from "../NavLinks/NavLinks";

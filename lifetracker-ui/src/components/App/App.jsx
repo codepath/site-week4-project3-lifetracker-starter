@@ -32,7 +32,6 @@ export default function App() {
                     </Routes>
                 </BrowserRouter>
 
-                {/* YOUR CODE HERE! */}
             </React.Fragment>
         </div>
     );

@@ -1,7 +1,11 @@
 import React from 'react'
+import LoginForm from '../LoginForm/LoginForm'
 
 export default function LoginPage() {
   return (
-    <div>LoginPage</div>
+    <div>
+      LoginPage
+      <LoginForm/>
+      </div>
   )
 }

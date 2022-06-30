@@ -1,8 +1,12 @@
 import React from 'react'
+import sculpture from 'src/components/Landing/sculpture.png'
 
 export default function Landing() {
   return (
-    <div>Landing</div>
+    <div>
+      <img src={sculpture}/>
+      Landing</div>
+
   )
 }
 

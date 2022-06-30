@@ -195,22 +195,22 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LoginForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `login-form`
-    - [ ] Should render an input element for the following fields:
-      - [ ] `email`
-      - [ ] `password`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `login-form`
+    - [X] Should render an input element for the following fields:
+      - [X] `email`
+      - [X] `password`
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`email`, `password`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [X] `name` - the `name` of the `input` field being rendered (`email`, `password`)
+      - [X] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
       - [ ] `value` - the current value of the `input` element
-      - [ ] `onChange` - the `onChange` handler function
+      - [X] `onChange` - the `onChange` handler function
     - [ ] The component should validate the `email` field:
       - [ ] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
     - [ ] The component should gracefully handle errors:
       - [ ] If the user has attempted to login and gotten a `401` error, then an error message should be displayed in an element with the `className` of `error` indicating that the `email` and `password` combination is incorrect.
       - [ ] If the user has attempted to login and gotten a `400` or `422` error, then an error message should be displayed in an element with the `className` of `error` indicating what went wrong.
     - [ ] There should be a `button` element with the `className` of `submit-login`:
-      - [ ] It should contain the text `"Login"`
+      - [X] It should contain the text `"Login"`
       - [ ] When clicked, it should call the `loginUser` function
 
   - [ ] The **`LoginPage.jsx`** component:

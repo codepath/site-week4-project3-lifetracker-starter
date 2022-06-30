@@ -11,7 +11,7 @@ export default function NavLinks({ loggedIn = true }) {
             <Link to="/activity">Activity</Link>
             <Link to="/nutrition">Nutrition</Link>
             <button
-                className={log ? "hidden" : "" + "logout-button"}
+                className={log ? "hidden logout-button" : "logout-button"}
                 onClick={() => {
                     setLog(!log);
                     //change from button to Link
@@ -26,7 +26,7 @@ export default function NavLinks({ loggedIn = true }) {
                 to="/login"
                 className={log ? "" : "hidden"}
                 onClick={() => {
-                    setLog(!log);
+                    // setLog(!log);
                     console.log("setup log out");
                 }}
             >
