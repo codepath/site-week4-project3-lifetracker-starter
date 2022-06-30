@@ -25,7 +25,7 @@ export function Logo() {
 export function NavLinks({ isLoggedIn }) {
   return (
     <div className="nav-links">
-      <Link to="/">
+      <Link to="/activity">
         <label className="link-label">Activity</label>
       </Link>
       <Link to="/nutrition/*">
