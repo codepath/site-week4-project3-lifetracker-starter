@@ -67,6 +67,14 @@ class User
             throw new BadRequestError(`Duplicate email: ${credentials.email}`)
         }
 
+        const existingUsername = await User.fetchUserByUsername(credentials.username)
+        console.log(existingUsername)
+        if(existingUsername)
+        {
+            console.log("enter the exist un")
+            throw new BadRequestError("Duplicate username: " + credentials.username)
+        }
+
         //PROPER REGISTRATION INFORMATION INPUTTED, THEN PROCREED WITH CREATION
         const hashedPw = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR)
         const lowercasedEmail = credentials.email.toLowerCase()
@@ -102,6 +110,20 @@ class User
 
         const query = `SELECT * FROM users WHERE email = $1`
         const result = await db.query(query, [email.toLowerCase()])
+        const user = result.rows[0]
+        return user
+    }
+
+    //METHOD FOR FINDING SPECIFIC USERNAME
+    static async fetchUserByUsername(username)
+    {
+        if(!username)
+        {
+            throw new BadRequestError("No username provided.")
+        }
+
+        const query = `SELECT * FROM users WHERE username = $1`
+        const result = await db.query(query, [username])
         const user = result.rows[0]
         return user
     }
