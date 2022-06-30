@@ -1,0 +1,47 @@
+.landing-page, .cta .hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.landing-page {
+    max-width: 100vw;
+}
+
+.landing-page .hero {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 0;
+}
+
+.cta {
+    color: #fff;
+    z-index: 1;
+}
+
+/* .landing, .landing .hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.landing .hero img{
+    position: absolute;
+}
+
+.landing .hero h1, .landing .hero p{
+    color: #fff;
+    position: relative;
+    z-index : 10;
+} */

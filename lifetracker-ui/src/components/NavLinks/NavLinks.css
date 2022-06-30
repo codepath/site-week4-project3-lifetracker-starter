@@ -1,0 +1,22 @@
+.nav-links {
+    display: flex;
+    flex-direction: row;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+.login-links {
+    display: flex;
+    flex-direction: row;
+}
+li {
+    margin: 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
