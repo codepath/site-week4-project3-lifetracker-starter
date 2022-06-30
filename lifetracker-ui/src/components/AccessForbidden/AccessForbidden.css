@@ -1,0 +1,14 @@
+.hero-img {
+    width: 100%;
+}
+.access-cont{
+    position: relative;
+    text-align: center;
+}
+.access-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--background);
+}

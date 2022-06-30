@@ -1,0 +1,9 @@
+.navbar{
+    color: #dae2d4;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 32px;
+    align-items: center;
+    margin-bottom: 0px;
+}

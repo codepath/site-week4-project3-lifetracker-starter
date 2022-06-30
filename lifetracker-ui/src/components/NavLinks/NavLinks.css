@@ -1,0 +1,21 @@
+.nav-links {
+    color: var(--light-text);
+    width: 600px
+}
+a {
+    color: var(--light-text);
+    text-decoration: none;
+    cursor: pointer;
+}
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
+.register {
+    background-color: var(--accent-green);
+    padding: 10px;
+    border-radius: 6px;
+}
