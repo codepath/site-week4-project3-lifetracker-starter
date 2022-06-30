@@ -19,10 +19,11 @@ export default function App() {
           <Navbar isLoggedIn={isLoggedIn} />
           <Routes>
             <Route path="/" element={<Landing />} />
-            {/* <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegistrationPage />} />
-            <Route path="/activity" element={<ActivityPage />} />
-            */}
+
+            {/*<Route path="/activity" element={<ActivityPage />} />
+             */}
 
             <Route path="/nutrition/*" element={<NutritionPage />} />
 

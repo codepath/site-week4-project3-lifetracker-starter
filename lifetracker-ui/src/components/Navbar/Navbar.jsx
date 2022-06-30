@@ -44,10 +44,10 @@ export function NavLinks({ isLoggedIn }) {
         </Link>
       ) : (
         <>
-          <Link to="/">
+          <Link to="/login">
             <label className="link-label">Login</label>
           </Link>
-          <Link to="/">
+          <Link to="/register">
             <label className="link-label green">Sign Up</label>
           </Link>
         </>
