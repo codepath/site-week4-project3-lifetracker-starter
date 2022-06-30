@@ -16,7 +16,11 @@
     justify-content: center;
     position: relative;
 }
-
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .hero-img {
     display: flex;
     align-items: center;

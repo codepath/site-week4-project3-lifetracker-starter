@@ -9,7 +9,7 @@ export default function LandingPage() {
                     <img className="hero-img" src="./media/smartwatch-screen-digital-device.svg" alt="hero-img"/>
                 {/* </div> */}
                 <div className="cta">
-                    <h1>LifeTracker</h1>
+                    <h1 className="header">LifeTracker</h1>
                     <p>Helping you take back control of your world</p>
                 </div>
             </div>

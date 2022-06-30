@@ -5,7 +5,7 @@ export default function LoginPage(props) {
 
     return (
         <div className="login-page">
-            <LoginForm setIsLoggedIn={props.setIsLoggedIn}/>
+            <LoginForm user={props.user} setUser={props.setUser} setIsLoggedIn={props.setIsLoggedIn}/>
         </div>
         
     )

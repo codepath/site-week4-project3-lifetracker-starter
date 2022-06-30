@@ -124,9 +124,9 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
       - [ ] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
       - [ ] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
-    - [ ] Next, create a `services` directory at the root of the project
-    - [ ] Inside that directory, touch an `apiClient.js` file
-    - [ ] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
+    - [x] Next, create a `services` directory at the root of the project
+    - [x] Inside that directory, touch an `apiClient.js` file
+    - [x] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
     - [ ] Define a new class in that file called `ApiClient`.
       - [ ] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
       - [ ] Export default a new instance of the `ApiClient` class
@@ -555,13 +555,13 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] In any new test file, make sure to import these functions and use them with the correct `jest` lifecycle hooks
 - **Authentication**
   - [ ] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
-  - [ ] Add new directories for `models`, `routes`, and `middleware`
-  - [ ] The **User** model
-    - [ ] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
-      - [ ] The `User` model should have **at least** the following static methods:
-        - [ ] `login`
-        - [ ] `register`
-        - [ ] `fetchUserByEmail`
+  - [x] Add new directories for `models`, `routes`, and `middleware`
+  - [x] The **User** model
+    - [x] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
+      - [x] The `User` model should have **at least** the following static methods:
+        - [x] `login`
+        - [x] `register`
+        - [x] `fetchUserByEmail`
     - [ ] In the `models/user.test.js` file:
       - [ ] Test the `login` method. Write test cases for:
         - [ ] User can login successfully with proper credentials
@@ -576,15 +576,15 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] A valid email returns a user from the database
         - [ ] Invalid emails are handled correctly
       - [ ] It will probably be important to use the `beforeAll`, `afterAll`, `beforeEach`, and `afterEach` hooks to add and delete users from the database before running the tests
-    - [ ] In the `models/user.js` file:
-      - [ ] Import the `bcrypt` package, the `db` client, and the app `config`.
-      - [ ] Implement the features outlined in the tests until they're all passing.
-  - [ ] Commit all work to `git`
-  - [ ] The **tokens** utility functions
-    - [ ] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
-      - [ ] At the bare minimum, two functions will be needed:
-        - [ ] One that accepts a JSON payload as an argument and converts it into a JWT
-        - [ ] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
+    - [x] In the `models/user.js` file:
+      - [x] Import the `bcrypt` package, the `db` client, and the app `config`.
+      - [x] Implement the features outlined in the tests until they're all passing.
+  - [x] Commit all work to `git`
+  - [x] The **tokens** utility functions
+    - [x] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
+      - [x] At the bare minimum, two functions will be needed:
+        - [x] One that accepts a JSON payload as an argument and converts it into a JWT
+        - [x] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
     - [ ] In the `utils/tokens.test.js` file:
       - [ ] Write test cases for:
         - [ ] Can create valid JWT tokens for user payloads
@@ -592,16 +592,16 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] No payload gets returned when invalid tokens are parsed
     - [ ] In the `utils/tokens.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
-  - [ ] Commit all work to `git`
-  - [ ] The **security** middleware
-    - [ ] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
-      - [ ] One middleware will be responsible for extracting a user from a valid JWT in the request:
-        - [ ] Checking the `Authentication` header of each request for the existence of a JWT.
-        - [ ] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
-      - [ ] One middleware will be responsible for ensuring that an authenticated user exists:
-        - [ ] Checking that a valid user exists on the response's `locals` property
-        - [ ] If one does, the middleware should simply call next
-        - [ ] If no valid user exists, it should throw an `UnauthorizedError`
+  - [x] Commit all work to `git`
+  - [x] The **security** middleware
+    - [x] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
+      - [x] One middleware will be responsible for extracting a user from a valid JWT in the request:
+        - [x] Checking the `Authentication` header of each request for the existence of a JWT.
+        - [x] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
+      - [x] One middleware will be responsible for ensuring that an authenticated user exists:
+        - [x] Checking that a valid user exists on the response's `locals` property
+        - [x] If one does, the middleware should simply call next
+        - [x] If no valid user exists, it should throw an `UnauthorizedError`
     - [ ] In the `middleware/security.test.js` file:
       - [ ] Test the `Authentication` header parsing middleware
         - [ ] Write test cases for:
@@ -616,18 +616,18 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] In the `app.js` file, add the `Authentication` header parsing middleware to the Express app's middleware pipeline
   - [ ] Commit all work to `git`
-  - [ ] The **/auth** routes
-    - [ ] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
-      - [ ] A new Express router should be created. It should handle:
-        - [ ] A `GET` request to the `/me` endpoint
-          - [ ] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/login` endpoint
-          - [ ] It should accept a request body with `email` and `password` keys
-          - [ ] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/register` endpoint
-          - [ ] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
-          - [ ] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
-      - [ ] It should be mounted at the `/auth` endpoint in the `app.js` file
+  - [x] The **/auth** routes
+    - [x] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
+      - [x] A new Express router should be created. It should handle:
+        - [x] A `GET` request to the `/me` endpoint
+          - [x] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
+        - [x] A `POST` request to the `/login` endpoint
+          - [x] It should accept a request body with `email` and `password` keys
+          - [x] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
+        - [x] A `POST` request to the `/register` endpoint
+          - [x] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
+          - [x] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
+      - [x] It should be mounted at the `/auth` endpoint in the `app.js` file
     - [ ] In the `routes/auth.test.js` file:
       - [ ] Test the `POST /auth/login` endpoint
         - [ ] Write test cases for:
@@ -646,13 +646,13 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] Write test cases for:
           - [ ] Provides the user with their user info when a valid JWT is present in the `Authentication` header of the request
           - [ ] Throws an `UnauthorizedError` when no valid user is logged in
-    - [ ] In the `routes/auth.js` file:
-      - [ ] Create a new Express router
+    - [x] In the `routes/auth.js` file:
+      - [x] Create a new Express router
       - [ ] Implement the features outlined in the tests until they're all passing
-    - [ ] In the `app.js` file:
-    - [ ] Mount the router at the `/auth` endpoint
-  - [ ] Commit all work to `git`
-  - [ ] There should now be a full-fledged authentication system in place!
+    - [x] In the `app.js` file:
+    - [x] Mount the router at the `/auth` endpoint
+  - [x] Commit all work to `git`
+  - [x] There should now be a full-fledged authentication system in place!
 - **Resources and Permissions**
   - [ ] Next, implement the functionality to allow users to save instances of things they've drank/eaten, so that they can track their own nutrition data! Also make sure users can only access the data that they themselves have created. No other user should be able to see any data owned by another user!
   - [ ] The **Nutrition** model

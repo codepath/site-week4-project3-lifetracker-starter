@@ -33,10 +33,11 @@ export default function LoginForm(props) {
   
       try {
         const res = await axios.post(`http://localhost:3001/auth/login`, form)
-        if (res?.data) {
+        if (res?.data.user) {
         //   setAppState(res.data)
           props.setIsLoggedIn(true)
-          setIsLoading(false)
+        //   setIsLoading(false)
+        props.setUser(res.data.user)
           navigate("/activity")
         } else {
           setErrors((error) => ({ ...error, form: "Invalid username/password combination" }))

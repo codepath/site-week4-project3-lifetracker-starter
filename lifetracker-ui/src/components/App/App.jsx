@@ -11,6 +11,9 @@ import "./App.css"
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [user, setUser] = useState({})
+  const [error, setError] = useState(null)
+  const [isFetching, setIsFetching] = useState(false)
 
   return (
     <div className="app">
@@ -25,8 +28,8 @@ export default function App() {
               <Route path = "/" element={<LandingPage />} />
 
                 
-              <Route path = "/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}  />}/>
-              <Route path = "/register" element={<RegistrationPage />}/>
+              <Route path = "/login" element={<LoginPage user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn}  />}/>
+              <Route path = "/register" element={<RegistrationPage user={user} setUser={setUser} />}/>
 
                {/* Need to figure out when user is logged in to register Activity
               and Nutrition, otherwise render AccessForbidden */}

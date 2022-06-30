@@ -4,4 +4,9 @@
     margin: 8px 0;
     box-sizing: border-box;
     border-color: white;
+    color: black;
+  }
+
+  .login-btn {
+    color: black;
   }

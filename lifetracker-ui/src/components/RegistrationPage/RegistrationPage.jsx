@@ -1,10 +1,10 @@
 import RegistrationForm from "components/RegistrationForm/RegistrationForm"
 import * as React from "react"
  
-export default function RegistrationPage() {
+export default function RegistrationPage(props) {
     return (
         <div className="registration-page">
-            <RegistrationForm />
+            <RegistrationForm user={props.user} setUser={props.setUser} />
         </div>
     )
 }
