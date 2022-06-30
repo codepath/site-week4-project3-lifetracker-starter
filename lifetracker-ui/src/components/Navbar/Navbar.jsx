@@ -29,8 +29,8 @@ export function NavLinks() {
       <Link to="/nutrition">Nutrition</Link>
       <span>Sleep</span>
       {/* <span className="logout-button" onClick={logoutUser}>Logout</span> */}
-      {/* <Link to="/signup">Sign Up</Link> */}
-      {/* <Link to="/login">Login</Link> */}
+      <Link to="/register">Sign Up</Link>
+      <Link to="/login">Login</Link>
     </div>
   )
 }
