@@ -23,10 +23,10 @@ export function Logo() {
 
 export function NavLinks() {
     return (
-        <div>
-            <Link to="/activity"> Activity </Link>
-            <Link to="/exercise"> Exercise </Link>
-            <Link to="/nutrition"> Nutrition </Link>
+        <div className='navlink'>
+            <Link className="links" to="/activity"> Activity </Link>
+            <Link className="links" to="/exercise"> Exercise </Link>
+            <Link className="links" to="/nutrition"> Nutrition </Link>
         </div>
     )
 }

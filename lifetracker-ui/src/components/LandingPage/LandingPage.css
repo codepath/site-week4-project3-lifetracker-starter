@@ -1,4 +1,49 @@
 .hero-img {
-    height: 200px;
+    height: 400px;
     width: auto;
+    opacity: .8;
+}
+
+.left-div h1 {
+    font-size: 58px;
+    margin-bottom: -10px;
+}
+
+.left-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin-right: 30px;
+}
+
+.left-div .sign-up-button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: black ;
+    border-radius: 10px;
+    border: none;
+    font-weight: bolder;
+    color: white;
+    width: 100%;
+}
+
+.left-div .sign-up-button:hover {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #58A4B0 ;
+    border-radius: 10px;
+    border: none;
+    font-weight: bolder;
+    color: white;
+    width: 100%;
+}
+
+.landing-page {
+    display: flex;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    padding-right: 20%;
+    padding-left: 20%;
 }

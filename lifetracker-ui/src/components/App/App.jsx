@@ -28,6 +28,7 @@ export default function App() {
               <Route path="/login" element={
                 (
                   <>
+                    <Navbar />
                     <LoginPage />
                   </>
                 )
@@ -36,6 +37,7 @@ export default function App() {
               <Route path="/register" element={
                 (
                   <>
+                    <Navbar />
                     <RegistrationPage />
                   </>
                 )
@@ -44,6 +46,7 @@ export default function App() {
               <Route path="/activity" element={
                 (
                   <>
+                    <Navbar />
                     <ActivityPage />
                   </>
                 )
@@ -52,6 +55,7 @@ export default function App() {
               <Route path="/nutrition/*" element={
                 (
                   <>
+                    <Navbar />
                     <NutritionPage />
                   </>
                 )
@@ -60,6 +64,7 @@ export default function App() {
               <Route path="*" element={
                 (
                   <>
+                    <Navbar />
                     <NotFound />
                   </>
                 )
