@@ -29,7 +29,7 @@
 }
 
 .email .form-input{
-    margin: 0px;
+    /* margin: 0px; */
     width: 100%;
     min-height: 25px;
 }
@@ -40,7 +40,7 @@
 }
 
 .username .form-input{
-    margin: 0px;
+    /* margin: 0px; */
     width: 100%;
     min-height: 25px;
 }
@@ -51,7 +51,7 @@
 }
 
 .password .form-input{
-    margin: 0px;
+    /* margin: 0px; */
     width: 100%;
     min-height: 25px;
 }
@@ -68,7 +68,7 @@
 
 .name .form-input{
     min-height: 22px;
-    margin: 0px;
+    /* margin: 0px; */
     width: 95%;
 }
 

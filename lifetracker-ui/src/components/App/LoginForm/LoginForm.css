@@ -12,7 +12,43 @@
     flex-direction: column;
     justify-content: center;
     padding: 5px;
-    width: 35%;
+    width: 28%;
     height: 75%;
     max-height: 85%;
+}
+
+.form-input{
+    color: aliceblue;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 3px solid aliceblue;
+    outline: none;
+    margin: 10px 0px 0px 0px;
+}
+
+.register-btn button{
+    background-color: orange;
+    border: 1px solid aliceblue;
+    border-radius: 25px;
+    color: aliceblue;
+    cursor: pointer;
+    outline: none;
+    height: 25px;
+    width: 65%;
+    transition: .3s;
+}
+
+.register-btn button:hover{
+    box-shadow: 0px 0px 15px grey;
+    transform: scale(1.2) translateY(-10px);
+}
+
+.restore{
+    color: orange;
+    text-decoration: none;
+}
+
+.restore:hover{
+    color: green;
+    text-decoration: none;
 }
