@@ -33,3 +33,40 @@
     margin-top: 35px;
 }
 
+.activity-page .actions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.activity-page .actions h2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 42px;
+    color: white;
+}
+
+.activity-page .actions .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-gap: 20px;
+    gap: 20px;
+}
+
+.Button.outline.aqua {
+    background: transparent;
+    color: #03c5d1;
+    border: 1px solid #03c5d1;
+}
+
+.Button.small {
+    padding: 10px 20px;
+    max-height: 40px;
+}
+
+.activity-page a{
+    text-decoration: none
+}
