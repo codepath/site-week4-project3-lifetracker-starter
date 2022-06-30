@@ -1,12 +1,15 @@
 const db = require("../db")
 const { BadRequestError, UnauthorizedError } = require("../utils/errors")
 const bcrypt = require("bcrypt")
+require("dotenv").config()
 
-// don't need to import process.env.BCRYPT_WORK_FACTOR
+const BCRYPT_WORK_FACTOR = process.env.BCRYPT_WORK_FACTOR ? Number(process.env.BCRYPT_WORK_FACTOR) : 13
+
+
 
 class User {
     // not putting async for now
-    static login(information) {
+    static async login(information) {
         // only need information to contain email and password to log in successfully
 
         if (!information)
@@ -34,7 +37,9 @@ class User {
 
     }
 
-    static register(information) {
+    static async register(information) {
+        console.log("entered register function", BCRYPT_WORK_FACTOR)
+
         if (!information)
         {
             throw new BadRequestError("No object passed through to register (sign up).")
@@ -53,15 +58,15 @@ class User {
             throw newBadRequestError("Invalid email passed when trying to register.");
         }
 
-        const maybeUserExistsEmail = User.fetchUserByEmail(information.email)
-        const maybeUserExistsUsername = User. fetchUserByUsername(information.username)
+        const maybeUserExistsEmail = await User.fetchUserByEmail(information.email)
+        const maybeUserExistsUsername = await User. fetchUserByUsername(information.username)
         if (maybeUserExistsEmail || maybeUserExistsUsername)
         {
             // should not enter because we are registering...
             throw new BadRequestError("Email/Username already exists in our system. Try logging in.")
         }
-    
-        const hashedPassword = await bcrypt.hash(information.password, process.env.BCRYPT_WORK_FACTOR)
+        
+        const hashedPassword = await bcrypt.hash(information.password, BCRYPT_WORK_FACTOR)
        
  // const requiredFields = ["username", "first_name", "last_name", "email", "password"]
 
@@ -84,7 +89,7 @@ class User {
         return User.returnPublicUser(result.rows[0]);
     }
     
-    static fetchUserByEmail(email) {
+    static async fetchUserByEmail(email) {
         if (!email)
         {
             throw new BadRequestError("No email passed through");
@@ -95,7 +100,7 @@ class User {
         return result.rows[0];  // this is the user with that email
     }
 
-    static fetchUserByUsername(username) {
+    static async fetchUserByUsername(username) {
         if (!username)
         {
             throw new BadRequestError("No username passed through");

@@ -2,15 +2,23 @@ const express = require("express")
 const morgan = require("morgan")
 const cors = require("cors")
 const { NotFoundError } = require("./utils/errors")
-// const bankRouter = require("./routes/bank")
+
 
 const app = express()
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requeseted-With, Content-Type, Accept");
+  next()
+})
 
 app.use(morgan("tiny"))
 app.use(express.json())
 app.use(cors())
-// app.use("/bank", bankRouter)
 
+const authRoute = require("./routes/auth")
+
+app.use("/auth", authRoute)
 
 app.get("/", async (req, res, next) => {
     res.status(200).json({"ping": "pong"})
