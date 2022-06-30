@@ -97,6 +97,20 @@ class User {
 
         return user
     }
+
+    static async fetchUserByUsername(username) {
+        if (!username) {
+          throw new BadRequestError("No username provided")
+        }
+    
+        const query = `SELECT * FROM users WHERE username = $1`
+    
+        const result = await db.query(query, [username])
+    
+        const user = result.rows[0]
+    
+        return user
+      }
 }
 
 module.exports = User
