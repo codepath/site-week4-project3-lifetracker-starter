@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "vite build",
-    "dev": "vite dev",
+    "dev": "PORT=3000 vite dev",
     "start": "vite start"
   },
   "dependencies": {

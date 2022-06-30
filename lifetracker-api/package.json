@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "description": "Express backend for the LifeTracker application",
   "main": "server.js",
-  "scripts": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
