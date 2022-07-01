@@ -117,9 +117,9 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
       - [ ] `/nutrition/* - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
       - [x] `*` - anything else should render the `NotFound` component
-  - [ ] To standarize API requests throughout the application, set up an **`ApiClient`** class
+  - [x] To standarize API requests throughout the application, set up an **`ApiClient`** class
 
-    - [ ] Start by creating a `constants.js` file at the root of the project
+    - [x] Start by creating a `constants.js` file at the root of the project
       - [ ] In it, export a few variables:
       - [ ] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
       - [ ] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
@@ -127,14 +127,14 @@ The components in the `App.jsx` file should render the following components (alo
     - [x] Next, create a `services` directory at the root of the project
     - [x] Inside that directory, touch an `apiClient.js` file
     - [x] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
-    - [ ] Define a new class in that file called `ApiClient`.
-      - [ ] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
-      - [ ] Export default a new instance of the `ApiClient` class
-      - [ ] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
-      - [ ] Create a utility method called `request` that uses `axios` to issue HTTP requests
-      - [ ] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
-      - [ ] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
-      - [ ] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
+    - [x] Define a new class in that file called `ApiClient`.
+      - [x] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
+      - [x] Export default a new instance of the `ApiClient` class
+      - [x] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
+      - [x] Create a utility method called `request` that uses `axios` to issue HTTP requests
+      - [x] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
+      - [x] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
+      - [x] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
       - [ ] **Add as many other methods as needed when making API requests**
 
   - [ ] Create an **`auth`** context:
@@ -685,7 +685,7 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] The **permissions** middleware
     - [ ] In the `middleware` directory, create two new files: `middleware/permissions.js` and `middleware/permissions.test.js`
       - [ ] Though more functions will need to be added here as the number of resources grows, for now only 1 function needs to be created.
-      - [ ] The `authedUserOwnsNutrition` middleware function should:
+      - [x] The `authedUserOwnsNutrition` middleware function should:
         - [ ] Probably be called after the `requireAuthenticatedUser` security middleware in any route's middleware pipeline
         - [ ] Extract a parameter from the request endpoint that corresponds to the `id` of the nutrition instance
         - [ ] Query the database for that nutrition instance
@@ -702,9 +702,9 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] In the `middleware/permissions.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] Commit all work to `git`
-  - [ ] The **/nutrition** routes
-    - [ ] In the `routes` directory, create two new files: `routes/nutrition.js` and `routes/nutrition.test.js`
-      - [ ] A new Express router should be created that will be mounted at the `/nutrition` endpoint. It should handle:
+  - [x] The **/nutrition** routes
+    - [x] In the `routes` directory, create two new files: `routes/nutrition.js` and `routes/nutrition.test.js`
+      - [x] A new Express router should be created that will be mounted at the `/nutrition` endpoint. It should handle:
         - [ ] `GET` requests to the `/` endpoint
           - [ ] It should send a JSON response back to the client with all of the user-owned nutrition instances in an array like so: `{ "nutritions": [...] }`
         - [ ] `POST` requests to the `/` endpoint

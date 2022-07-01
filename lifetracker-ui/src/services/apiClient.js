@@ -1,5 +1,5 @@
 import axios from "axios"
-import API_BASE_URL from "../constants"
+import API_BASE_URL from "../../../constants"
 
 class ApiClient {
     constructor(remoteHostUrl) {
@@ -31,6 +31,14 @@ class ApiClient {
         }
     }
 
+    async listNutrition() {
+        return await this.request({ endpoint: `nutrition`, method: `GET` })
+    }
+
+    async createNutrition(nutrition) {
+        return await this.request({ endpoint: `nutrition`, method: `POST`, data: credentials})
+    }
+
     async loginUser(credentials) {
         return await this.request({ endpoint: `auth/login`, method: `POST`, data: credentials})
     }
@@ -39,12 +47,10 @@ class ApiClient {
         return await this.request({ endpoint: `auth/register`, method: `POST`, data: credentials})
     }
 
-    async fetchUserFromToken(credentials) {
-        return await this.request({ endpoint: `auth/me`, method: `GET`, data: credentials})
+    async fetchUserFromToken() {
+        return await this.request({ endpoint: `auth/me`, method: `GET` })
     }
 
 }
 
-
-
-export default new ApiClient(API_BASE_URL)
+export default new ApiClient(API_BASE_URL || "http://localhost:3001")

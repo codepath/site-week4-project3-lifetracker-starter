@@ -70,6 +70,34 @@ class Nutrition {
         )
         return results.rows
     }
+
+    static async editNutrition({ nutritionId, nutritionUpdate }) {
+        const requiredFields = ["calories"] // need to add quantity and default to 1
+        requiredFields.forEach(field => {
+            if (!nutritionUpdate.hasOwnProperty(field)) {
+                throw new BadRequestError(`Required field - ${field} - missing from request body.`)
+            }
+        })
+
+        const results = await db.query(
+            `
+            UPDATE nutrition
+            SET calories = $1,
+                updated_at = NOW()
+            WHERE id = $2
+            RETURNING   id,
+                        name,
+                        category,
+                        calories,
+                        image_url AS "imageUrl",
+                        user_id AS "userId",
+                        created_at AS "createdAt" 
+            `,[nutritionUpdate.calories,nutritionId]
+        )
+        return results.rows[0]
+    }
 }
+
+
 
 module.exports = Nutrition

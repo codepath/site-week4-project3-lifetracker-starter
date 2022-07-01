@@ -1,10 +1,10 @@
 import * as React from "react"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import apiClient from "../../../../services/apiClient"
+import apiClient from "../../services/apiClient"
 import "./LoginForm.css"
 
-export default function LoginForm(props) {
+export default function LoginForm({user, setUser}) {
 
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
@@ -37,26 +37,8 @@ export default function LoginForm(props) {
         setUser(data.user)
         apiClient.setToken(data.token)
       }
-      setIsProcessing(false)
+      // setIsProcessing(false)
       
-      // try {
-      //   const res = await axios.post(`http://localhost:3001/auth/login`, form)
-      //   if (res?.data.user) {
-      //   //   setAppState(res.data)
-      //     props.setIsLoggedIn(true)
-      //   //   setIsLoading(false)
-      //   props.setUser(res.data.user)
-      //     navigate("/activity")
-      //   } else {
-      //     setErrors((error) => ({ ...error, form: "Invalid username/password combination" }))
-      //     setIsLoading(false)
-      //   }
-      // } catch (err) {
-      //   console.log(err)
-      //   const message = err?.response?.data?.error?.message
-      //   setErrors((error) => ({ ...error, form: message ? String(message) : String(err) }))
-      //   setIsLoading(false)
-      // }
     }
 
     return (

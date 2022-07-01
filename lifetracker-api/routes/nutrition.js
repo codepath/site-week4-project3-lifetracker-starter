@@ -44,12 +44,12 @@ router.put("/:nutritionId", security.requireAuthenticatedUser, permissions.authe
     }
 })
 
-router.get("/", async (req,res,next) => {
-    try{
+// router.get("/", async (req,res,next) => {
+//     try{
 
-    } catch(err) {
-        next(err)
-    }
-})
+//     } catch(err) {
+//         next(err)
+//     }
+// })
 
 module.exports = router
