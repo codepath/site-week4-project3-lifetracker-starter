@@ -3,15 +3,15 @@ import "./ActivityNew.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function ActivityNew() {
+export default function ActivityNew({ setNewActivity }) {
   return (
     <div className="activity-new">
-      <ActivityForm />
+      <ActivityForm setNewActivity={setNewActivity} />
     </div>
   );
 }
 
-export function ActivityForm() {
+export function ActivityForm({ setNewActivity }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -85,6 +85,7 @@ export function ActivityForm() {
           form: "Something went wrong with registration",
         }));
         setIsLoading(false);
+        setNewActivity(false);
       }
     } catch (err) {
       console.log(err);
@@ -94,6 +95,7 @@ export function ActivityForm() {
         form: message ? String(message) : String(err),
       }));
       setIsLoading(false);
+      setNewActivity(false);
     }
   };
 

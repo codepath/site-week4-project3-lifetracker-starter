@@ -16,7 +16,7 @@ export default function SleepPage() {
       </div>
       <div className="content">
         {newSleep ? (
-          <SleepNew />
+          <SleepNew setNewSleep={setNewSleep} />
         ) : (
           <>
             <SleepOverview handleOnClick={handleNewSleepOnClick} />
@@ -28,12 +28,12 @@ export default function SleepPage() {
   );
 }
 
-export function SleepOverview({ handleNewSleepOnClick }) {
+export function SleepOverview({ handleOnClick }) {
   return (
     <div className="sleep-overview">
       <div className="header">
         <h3>Overview</h3>
-        <button onClick={handleNewSleepOnClick}>Record Sleep</button>
+        <button onClick={handleOnClick}>Record Sleep</button>
       </div>
     </div>
   );

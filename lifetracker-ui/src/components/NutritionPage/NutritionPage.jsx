@@ -4,10 +4,12 @@ import { useState } from "react";
 
 export default function NutritionPage() {
   const [newNutrition, setNewNutrition] = useState(false);
+
   const handleNewNutritionOnClick = () => {
-    setNewNutrition(true);
     console.log("clicked");
+    setNewNutrition(true);
   };
+
   return (
     <div className="nutrition-page">
       <div className="banner">
@@ -15,7 +17,7 @@ export default function NutritionPage() {
       </div>
       <div className="content">
         {newNutrition ? (
-          <NutritionNew></NutritionNew>
+          <NutritionNew setNewNutrition={setNewNutrition} />
         ) : (
           <>
             <NutritionOverview handleOnClick={handleNewNutritionOnClick} />
@@ -27,12 +29,12 @@ export default function NutritionPage() {
   );
 }
 
-export function NutritionOverview({ handleNewNutritionOnClick }) {
+export function NutritionOverview({ handleOnClick }) {
   return (
     <div className="nutrition-overview">
       <div className="header">
         <h3>Overview</h3>
-        <button onClick={handleNewNutritionOnClick}>Record Nutrition</button>
+        <button onClick={handleOnClick}>Record Nutrition</button>
       </div>
     </div>
   );

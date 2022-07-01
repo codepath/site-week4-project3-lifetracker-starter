@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import NutritionPage from "../NutritionPage/NutritionPage";
 import Landing from "../Landing/Landing";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LoginPage from "../LoginPage/LoginPage";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
 import ActivityPage from "../ActivityPage/ActivityPage";
@@ -12,6 +12,7 @@ import ExercisePage from "components/ExercisePage/ExercisePage";
 import SleepPage from "components/SleepPage/SleepPage";
 import NotFound from "../NotFound/NotFound";
 import { AuthContextProvider, useAuthContext } from "../../contexts/contexts";
+import apiClient from "../../../services/apiClient";
 
 export default function AppContainer() {
   return (
@@ -22,8 +23,28 @@ export default function AppContainer() {
 }
 
 export function App() {
-  const { user, setUser } = useAuthContext;
+  const [user, setUser] = useState({});
+  const [nutritions, setNutritions] = useState([]);
+  const [error, setError] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const fetchNutritionList = async () => {
+      setIsFetching(true);
+
+      const { data, error } = await apiClient.listNutrition();
+      if (data) {
+        setNutritions(data.nutritions);
+      }
+      if (error) {
+        setError(error);
+      }
+
+      setIsFetching(false);
+    };
+
+    fetchNutritionList();
+  }, []);
 
   return (
     <div className="app">

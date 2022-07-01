@@ -3,15 +3,15 @@ import "./NutritionNew.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function NutritionNew() {
+export default function NutritionNew({ setNewNutrition }) {
   return (
     <div className="nutrition-new">
-      <NutritionForm />
+      <NutritionForm setNewNutrition={setNewNutrition} />
     </div>
   );
 }
 
-export function NutritionForm() {
+export function NutritionForm({ setNewNutrition }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -62,6 +62,7 @@ export function NutritionForm() {
     if (form.passwordConfirm !== form.password) {
       setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }));
       setIsLoading(false);
+      setNewExercise(false);
       return;
     } else {
       setErrors((e) => ({ ...e, passwordConfirm: null }));
@@ -78,6 +79,7 @@ export function NutritionForm() {
       if (res?.data?.user) {
         //setAppState(res.data);
         setIsLoading(false);
+        setNewExercise(false);
         navigate("/activity");
       } else {
         setErrors((e) => ({
@@ -85,6 +87,8 @@ export function NutritionForm() {
           form: "Something went wrong with registration",
         }));
         setIsLoading(false);
+        setNewExercise(false);
+        setNewNutrition(false);
       }
     } catch (err) {
       console.log(err);
@@ -94,6 +98,7 @@ export function NutritionForm() {
         form: message ? String(message) : String(err),
       }));
       setIsLoading(false);
+      setNewNutrition(false);
     }
   };
 

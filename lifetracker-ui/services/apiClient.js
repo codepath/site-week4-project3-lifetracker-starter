@@ -47,6 +47,10 @@ class ApiClient {
     return await this.request({ endpoint: `posts`, method: `GET` })
   }
 
+  async listNutritions() {
+    return await this.request({ endpoint: `nutrition`, method: `GET` })
+  }
+
   async createPost(post) {
     return await this.request({ endpoint: `posts`, method: `POST`, data: post })
   }
@@ -69,6 +73,9 @@ class ApiClient {
   }
 }
 
-const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
+// const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
+
+const API = new ApiClient("http://localhost:3001")
+
 
 export default API

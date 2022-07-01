@@ -1,29 +1,47 @@
-
-
 const db = require("../db")
+const { BadRequestError, NotFoundError } = require("../utils/errors")
 
 
 class Nutrition {
     static async createNutrition(nutrition) {
-    // create a new transfer
-
     if (!nutrition) {
         throw new BadRequestError(`No nutrition sent.`)
     }
-    const requiredFields = ["name", "category", "calories", "image_url"]
+    const requiredFields = ["name", "calories", "quantity", "imageUrl", "category"]
     requiredFields.forEach((field) => {
-        if (!transfer[field] && transaction[field] !== 0) {
-        throw new BadRequestError(`Field: "${field}" is required in creating nutrition`)
-        }
+      if (!nutrition.hasOwnProperty(field) || !nutrition[field]) {
+        throw new BadRequestError(`Required field - ${field} - missing from request body.`)
+      }
     })
 
-    const nutritions = await Nutritions.listNutritions()
-    const nutritionId = nutritions.length + 1
-    const postedAt = new Date().toISOString()
 
-    const newNutrition = { id: nutritionId, postedAt, user_id: user.id, ...nutrition }
+    // insert a new post into the database
+    const results = await db.query(
+      `
+      INSERT INTO nutrition (
+        name, 
+        category,
+        calories,
+        image_url,
+        user_id
+        )
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING id, 
+                name, 
+                category,
+                calories,
+                image_url AS "imageUrl",
+                user_id AS "userId";
+    `,[
+      nutrition.name, 
+      nutrition.category, 
+      nutrition.calories, 
+      nutrition.imageUrl,
+      123
+    ]
+    )
 
-    return newNutrition
+    return results.rows[0]
     }
     
     static async fetchNutritionById(id){
@@ -35,9 +53,14 @@ class Nutrition {
     }
     
     static async listNutritions() {
-        const query = `SELECT * FROM nutrition WHERE user_id = $1`
-        const result = await db.query(query, [user.id])
-        return result
+        // const query = `SELECT * FROM nutrition WHERE user_id = $1`
+        // const result = await db.query(query, [user.id])
+        // return result
+        const query = `SELECT * FROM nutrition`
+        const result = await db.query(query)
+        return result.rows;
     }
 
 }
+
+module.exports = Nutrition

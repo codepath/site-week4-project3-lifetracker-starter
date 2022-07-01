@@ -3,15 +3,15 @@ import "./ExerciseNew.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function ExerciseNew() {
+export default function ExerciseNew({ setNewExercise }) {
   return (
     <div className="exercise-new">
-      <ExerciseForm />
+      <ExerciseForm setNewExercise={setNewExercise} />
     </div>
   );
 }
 
-export function ExerciseForm() {
+export function ExerciseForm({ setNewExercise }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -78,6 +78,7 @@ export function ExerciseForm() {
       if (res?.data?.user) {
         //setAppState(res.data);
         setIsLoading(false);
+        setNewExercise(false);
         navigate("/exercise");
       } else {
         setErrors((e) => ({
@@ -85,6 +86,7 @@ export function ExerciseForm() {
           form: "Something went wrong with registration",
         }));
         setIsLoading(false);
+        setNewExercise(false);
       }
     } catch (err) {
       console.log(err);
@@ -94,6 +96,7 @@ export function ExerciseForm() {
         form: message ? String(message) : String(err),
       }));
       setIsLoading(false);
+      setNewExercise(false);
     }
   };
 

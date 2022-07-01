@@ -56,14 +56,7 @@
     transition: all .2s ease;
     border: 1px solid transparent;
     white-space: nowrap;
-
     padding: 10px 20px;
     max-height: 40px;
-
     color: white;
-
-/* 
-    background: transparent;
-    color: #1D7874;
-    border: 1px solid #1D7874; */
 }

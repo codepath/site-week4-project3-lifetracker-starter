@@ -16,7 +16,7 @@ export default function ActivityPage() {
       </div>
       <div className="content">
         {newActivity ? (
-          <ActivityNew />
+          <ActivityNew setNewActivity={setNewActivity} />
         ) : (
           <>
             <ActivityOverview handleOnClick={handleNewActivityOnClick} />
@@ -28,12 +28,11 @@ export default function ActivityPage() {
   );
 }
 
-export function ActivityOverview({ handleNewActivityOnClick }) {
+export function ActivityOverview({ handleOnClick }) {
   return (
     <div className="activity-overview">
       <div className="header">
         <h3>Overview</h3>
-        <button onClick={handleNewActivityOnClick}>Record Activity</button>
       </div>
     </div>
   );

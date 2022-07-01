@@ -3,15 +3,15 @@ import "./SleepNew.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function SleepNew() {
+export default function SleepNew({ setNewSleep }) {
   return (
     <div className="sleep-new">
-      <SleepForm />
+      <SleepForm setNewSleep={setNewSleep} />
     </div>
   );
 }
 
-export function SleepForm() {
+export function SleepForm({ setNewSleep }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -78,6 +78,7 @@ export function SleepForm() {
       if (res?.data?.user) {
         //setAppState(res.data);
         setIsLoading(false);
+        setNewSleep(false);
         navigate("/sleep");
       } else {
         setErrors((e) => ({
@@ -85,6 +86,7 @@ export function SleepForm() {
           form: "Something went wrong with registration",
         }));
         setIsLoading(false);
+        setNewSleep(false);
       }
     } catch (err) {
       console.log(err);
@@ -94,6 +96,7 @@ export function SleepForm() {
         form: message ? String(message) : String(err),
       }));
       setIsLoading(false);
+      setNewSleep(false);
     }
   };
 

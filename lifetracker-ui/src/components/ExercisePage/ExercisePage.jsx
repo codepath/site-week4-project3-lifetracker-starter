@@ -16,7 +16,7 @@ export default function ExercisePage() {
       </div>
       <div className="content">
         {newExercise ? (
-          <ExerciseNew />
+          <ExerciseNew setNewExercise={setNewExercise} />
         ) : (
           <>
             <ExerciseOverview handleOnClick={handleNewExerciseOnClick} />
@@ -28,12 +28,12 @@ export default function ExercisePage() {
   );
 }
 
-export function ExerciseOverview({ handleNewExerciseOnClick }) {
+export function ExerciseOverview({ handleOnClick }) {
   return (
     <div className="exercise-overview">
       <div className="header">
         <h3>Overview</h3>
-        <button onClick={handleNewExerciseOnClick}>Record Exercise</button>
+        <button onClick={handleOnClick}>Record Exercise</button>
       </div>
     </div>
   );
