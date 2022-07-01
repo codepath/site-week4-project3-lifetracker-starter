@@ -52,3 +52,7 @@
     font-weight: 500;
     display: block;
 }
+
+.registration-form form{
+    padding: 2vw;
+}

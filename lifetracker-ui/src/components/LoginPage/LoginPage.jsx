@@ -7,7 +7,7 @@ export default function LoginPage(props) {
     console.log("TODO: change login from useState to context")
     return (
         <div className="login-page">
-            <LoginForm setIsLoggedIn={props.setIsLoggedIn} setAppState={props.setAppState}/>
+            <LoginForm user={props.user} setUser={props.setUser}/>
             
         </div>
     )}

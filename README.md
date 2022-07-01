@@ -157,18 +157,18 @@ The components in the `App.jsx` file should render the following components (alo
             - [ ] Regardless, it should set the `isProcessing` state variable to `false` and the `initialized` state variable to `true`
           - [ ] The user returned from that request should be stored in state. This will ensure that users stay logged in even if they refresh the page.
       - [ ] It should also define handler functions for:
-        - [ ] `loginUser` - should make a request to log the user in
-        - [ ] `signupUser` - should make a request to sign the user up
-        - [ ] `fetchUserFromToken` - should make a request to the `/auth/me` route to get the user's info
-        - [ ] `logoutUser` - this function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset
+        - [x] `loginUser` - should make a request to log the user in
+        - [x] `signupUser` - should make a request to sign the user up
+        - [x] `fetchUserFromToken` - should make a request to the `/auth/me` route to get the user's info
+        - [x] `logoutUser` - this function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset
       - [ ] Make sure to set all the state variables as the `value` prop passed to the `AuthContext.Provider` component
     - [ ] Create and export a `useAuthContext` hook that calls the `React.useContext` hook with the newly created `AuthContext` and returns it.
     - [ ] In `App.jsx` file create an `AppContainer` component that wraps the `App` component with the `AuthContextProvider` component (which should still be nested inside the `BrowserRouter` component from `react-router-dom`). Export the `AppContainer` component by default instead of the `App`
 
-  - [ ] The **`Loading.jsx`** component
+  - [x] The **`Loading.jsx`** component
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `loading`
-    - [ ] Should render an element with the `className` of `loading-message` that contains the text `"Loading"`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `loading`
+    - [x] Should render an element with the `className` of `loading-message` that contains the text `"Loading"`
 
   - [x] The **`Navbar.jsx`** component
 
@@ -370,11 +370,11 @@ The components in the `App.jsx` file should render the following components (alo
   - [ ] The **`NutritionNew.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-new`
-    - [ ] Should render the `NutritionForm.jsx` component and pass it the appropriate props
+    - [x] Should render the `NutritionForm.jsx` component and pass it the appropriate props
 
   - [ ] The **`NutritionForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-form`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-form`
     - [ ] Should render an input element for the following fields:
       - [x] `name` - name of the nutrition item (defaults to an empty string)
       - [x] `calories` - number of calories in the nutrition item (defaults to 1)
@@ -577,14 +577,14 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] Invalid emails are handled correctly
       - [ ] It will probably be important to use the `beforeAll`, `afterAll`, `beforeEach`, and `afterEach` hooks to add and delete users from the database before running the tests
     - [ ] In the `models/user.js` file:
-      - [ ] Import the `bcrypt` package, the `db` client, and the app `config`.
+      - [x] Import the `bcrypt` package, the `db` client, and the app `config`.
       - [ ] Implement the features outlined in the tests until they're all passing.
   - [ ] Commit all work to `git`
-  - [ ] The **tokens** utility functions
-    - [ ] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
-      - [ ] At the bare minimum, two functions will be needed:
-        - [ ] One that accepts a JSON payload as an argument and converts it into a JWT
-        - [ ] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
+  - [x] The **tokens** utility functions
+    - [x] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
+      - [x] At the bare minimum, two functions will be needed:
+        - [x] One that accepts a JSON payload as an argument and converts it into a JWT
+        - [x] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
     - [ ] In the `utils/tokens.test.js` file:
       - [ ] Write test cases for:
         - [ ] Can create valid JWT tokens for user payloads
@@ -619,8 +619,8 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] The **/auth** routes
     - [ ] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
       - [ ] A new Express router should be created. It should handle:
-        - [ ] A `GET` request to the `/me` endpoint
-          - [ ] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
+        - [x] A `GET` request to the `/me` endpoint
+          - [x] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
         - [x] A `POST` request to the `/login` endpoint
           - [x] It should accept a request body with `email` and `password` keys
           - [ ] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
@@ -645,7 +645,7 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Test the `POST /auth/me` endpoint
         - [ ] Write test cases for:
           - [ ] Provides the user with their user info when a valid JWT is present in the `Authentication` header of the request
-          - [ ] Throws an `UnauthorizedError` when no valid user is logged in
+          - [x] Throws an `UnauthorizedError` when no valid user is logged in
     - [ ] In the `routes/auth.js` file:
       - [ ] Create a new Express router
       - [ ] Implement the features outlined in the tests until they're all passing
@@ -683,7 +683,7 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] Commit all work to `git`
   - [ ] The **permissions** middleware
-    - [ ] In the `middleware` directory, create two new files: `middleware/permissions.js` and `middleware/permissions.test.js`
+    - [x] In the `middleware` directory, create two new files: `middleware/permissions.js` and `middleware/permissions.test.js`
       - [ ] Though more functions will need to be added here as the number of resources grows, for now only 1 function needs to be created.
       - [ ] The `authedUserOwnsNutrition` middleware function should:
         - [ ] Probably be called after the `requireAuthenticatedUser` security middleware in any route's middleware pipeline
@@ -705,13 +705,13 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] The **/nutrition** routes
     - [ ] In the `routes` directory, create two new files: `routes/nutrition.js` and `routes/nutrition.test.js`
       - [ ] A new Express router should be created that will be mounted at the `/nutrition` endpoint. It should handle:
-        - [ ] `GET` requests to the `/` endpoint
-          - [ ] It should send a JSON response back to the client with all of the user-owned nutrition instances in an array like so: `{ "nutritions": [...] }`
-        - [ ] `POST` requests to the `/` endpoint
-          - [ ] It should accept a request body with one `nutrition` key containing an object with all the attributes of the `nutrition` entry
-          - [ ] It should send a JSON response back to the client with a `201` status code, and the newly created nutrition instance like so: `{ "nutrition": { ... } }`
-        - [ ] `GET` requests to the `/:nutritionId` endpoint
-          - [ ] It should send a JSON response back to the client with the nutrition instance that matches the `:nutritionId` parameter like so: `{ "nutrition": { ... } }`
+        - [x] `GET` requests to the `/` endpoint
+          - [x] It should send a JSON response back to the client with all of the user-owned nutrition instances in an array like so: `{ "nutritions": [...] }`
+        - [x] `POST` requests to the `/` endpoint
+          - [x] It should accept a request body with one `nutrition` key containing an object with all the attributes of the `nutrition` entry
+          - [x] It should send a JSON response back to the client with a `201` status code, and the newly created nutrition instance like so: `{ "nutrition": { ... } }`
+        - [x] `GET` requests to the `/:nutritionId` endpoint
+          - [x] It should send a JSON response back to the client with the nutrition instance that matches the `:nutritionId` parameter like so: `{ "nutrition": { ... } }`
     - [ ] In the `routes/nutrition.test.js` file:
       - [ ] Test the `GET /nutrition` endpoint
         - [ ] Write test cases for:

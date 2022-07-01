@@ -4,7 +4,7 @@ const { BCRYPT_WORK_FACTOR } = require('../config')
 const bcrypt = require("bcrypt")
 
 class User {
-    static async makePublicUser(user){
+    static makePublicUser(user){
         return {
             id: user.id,
             email: user.email,
@@ -73,7 +73,7 @@ class User {
             username
         )
         VALUES ($1, $2, $3, $4, $5)
-        RETURNING id, email, first_name, last_name, username;
+        RETURNING id, email, first_name, last_name, username, created_at;
         `, [lowercasedEmail, hashedPassword, credentials.firstName, credentials.lastName, credentials.username])
         //return the user
         const user = result.rows[0]

@@ -8,7 +8,7 @@ export default function Navbar(props) {
     return (
       <nav className="navbar">
         <Logo/>
-        <NavLinks isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn}/>
+        <NavLinks user={props.user} handleLogout={props.handleLogout}/>
       </nav>
     )
   }

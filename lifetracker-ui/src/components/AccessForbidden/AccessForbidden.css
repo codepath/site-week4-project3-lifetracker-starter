@@ -1,0 +1,26 @@
+.access-forbidden {
+    height: 100vh;
+    background-color:#bf9991;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.access-forbidden button{
+    margin-top: 20px;
+    padding: 5px;
+    width: 30vw;
+    height: 40px;
+    font-size: large;
+    background-color: #8d5652;
+    border: none;
+    color: white
+}
+
+.access-forbidden button:hover{
+    color: #8d5652;
+    background-color: white;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}

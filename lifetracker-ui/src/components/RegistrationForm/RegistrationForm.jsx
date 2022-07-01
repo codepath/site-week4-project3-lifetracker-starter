@@ -1,7 +1,7 @@
 import * as React from "react"
-import { useState } from "react"
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import API from "../../services/apiClient"
+import { useNavigate, Link } from "react-router-dom"
 import "./RegistrationForm.css"
 
 export default function RegistrationForm(props) {
@@ -15,6 +15,12 @@ export default function RegistrationForm(props) {
       })
       const [error, setError] = useState({})
       const navigate = useNavigate()
+
+      useEffect(() => {
+        if(props.user?.email){
+            navigate("/")
+        }
+    }, [props.user, navigate])
 
     const handleOnInputChange = (event) => {
         // Check for valid email
@@ -48,9 +54,8 @@ export default function RegistrationForm(props) {
     }
 
     const signupUser = async (e) => {
+      e.preventDefault()
         // placeholder, replace with context
-        e.preventDefault()
-        setError((state) => ({ ...state, form: null }))
 
         if (form.passwordConfirm != form.password) {
             setError((state) => ({ ...state, passwordConfirm: "passwords don't match." }))
@@ -64,33 +69,45 @@ export default function RegistrationForm(props) {
             setError((state) => ({ ...state, passwordConfirm: null }))
         }
 
-        try{
-            const json = await axios.post("http://localhost:3001/auth/register", {
-                email: form.email,
-                username: form.username,
-                firstName: form.firstName,
-                lastName: form.lastName,
-                password: form.password,
-            })
-            if(json?.data?.user){
-                props.setAppState(json.data)
-                setForm({
-                    email: "",
-                    username: "",
-                    firstName: "",
-                    lastName: "",
-                    password: "",
-                    passwordConfirm: "",
-                  })
-                navigate("/")
-            }
-            else{
-                setError((state) => ({ ...state, form: "Something went wrong with registration." }))
-            }
-        }catch(err) {
-            const message = err?.response?.data?.error?.message
-            setError((state) => ({ ...state, form: message ? String(message) : String(err) }))
+        const {data, error} = await API.signupUser({email: form.email,
+                  username: form.username,
+                  firstName: form.firstName,
+                  lastName: form.lastName,
+                  password: form.password,})
+        console.log(data, error)
+        if (error) setError((state) => ({ ...state, form: error }))
+        if(data?.user){
+          props.setUser(data.user)
+          API.setToken(data.token)
         }
+        // try{
+        //     const json = await axios.post("http://localhost:3001/auth/register", {
+        //         email: form.email,
+        //         username: form.username,
+        //         firstName: form.firstName,
+        //         lastName: form.lastName,
+        //         password: form.password,
+        //     })
+        //     if(json?.data?.user){
+        //         props.setAppState(json.data)
+        //         setForm({
+        //             email: "",
+        //             username: "",
+        //             firstName: "",
+        //             lastName: "",
+        //             password: "",
+        //             passwordConfirm: "",
+        //           })
+        //           props.setUser(json.data.user)
+        //         navigate("/")
+        //     }
+        //     else{
+        //         setError((state) => ({ ...state, form: "Something went wrong with registration." }))
+        //     }
+        // }catch(err) {
+        //     const message = err?.response?.data?.error?.message
+        //     setError((state) => ({ ...state, form: message ? String(message) : String(err) }))
+        // }
     }
 
     return (
@@ -130,5 +147,6 @@ export default function RegistrationForm(props) {
                 <button className="submit-registration" onClick={signupUser}>Create Account</button>
                 {error.form ? (<p className="error">{error.form}</p>) : null}
             </form>
+            <p>Have a lifetracker account? <Link to="/login">Login here</Link></p>
         </div>
     )}

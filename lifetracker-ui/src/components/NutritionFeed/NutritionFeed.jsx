@@ -1,7 +1,7 @@
 import NutritionCard from "components/NutritionCard/NutritionCard"
 import * as React from "react"
 import "./NutritionFeed.css"
-import axios from "axios"
+import API from "../../services/apiClient"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
@@ -10,14 +10,20 @@ export default function NutritionFeed(props) {
     let [error, setError] = useState() 
 
     async function getNutrition(){
-        try{
-            let json = await axios.get('http://localhost:3001/nutrition/')
-            console.log(json)
-            setNutrition(json.data.nutrition)
-          }
-        catch(err){
-          setError(err)
-        }
+      const {data, err} = await API.fetchNutrition()
+      if(err) setError(err)
+      if(data){
+        console.log(data)
+        setNutrition(data.nutrition)
+      }
+      //   try{
+      //       let json = await axios.get('http://localhost:3001/nutrition/')
+      //       console.log(json)
+      //       setNutrition(json.data.nutrition)
+      //     }
+      //   catch(err){
+      //     setError(err)
+      //   }
       }
 
   useEffect(() => {
@@ -29,7 +35,7 @@ export default function NutritionFeed(props) {
         {nutrition.length ? null : (<p className="empty-message">Nothing here yet..</p>)}
         {nutrition.map((item) => {return(
             <Link to={`id/`+item.id}>
-                <NutritionCard key={item.name} name={item.name} calories={item.calories} imageUrl={item.image_url} category={item.category} createdAt={item.created_at} id={item.id}/>
+                <NutritionCard key={item.name} quantity={item.quantity} name={item.name} calories={item.calories} imageUrl={item.imageUrl} category={item.category} createdAt={item.createdAt} id={item.id}/>
             </Link>
         )})}
     </div>

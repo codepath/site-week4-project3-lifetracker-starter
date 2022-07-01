@@ -4,3 +4,29 @@
     align-items: center;
     height: 100vh;
 }
+
+.nutrition-detail .nutrition-card{
+    width: 60vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.nutrition-detail .nutrition-card .nutrition-image{
+    width: 30vw;
+}
+
+.nutrition-detail .nutrition-card .nutrition-text{
+    opacity: 1;
+    float: right;
+    text-align: right;
+}
+
+.nutrition-detail .nutrition-card .nutrition-name{
+    background-color: transparent;
+    font-size: x-large;
+}
+
+.nutrition-detail .nutrition-card:hover .nutrition-image{
+    opacity: 1
+}

@@ -3,6 +3,7 @@ const cors = require("cors")
 const morgan = require("morgan")
 const authRoutes = require("./routes/auth")
 const nutritionRoutes = require("./routes/nutrition")
+const security = require("./middleware/security")
 
 const {BadRequestError, NotFoundError} = require("./utils/errors")
 
@@ -14,6 +15,9 @@ app.use(cors())
 app.use(express.json())
 //log request info
 app.use(morgan("tiny"))
+//for every request, check if token exists in the authorization header
+//if does, attach decoded user to res.locals
+app.use(security.extractUserFromJwt)
 
 app.use("/auth", authRoutes)
 app.use("/nutrition", nutritionRoutes)
