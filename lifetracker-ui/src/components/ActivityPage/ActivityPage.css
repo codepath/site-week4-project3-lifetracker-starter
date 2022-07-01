@@ -70,3 +70,34 @@
 .activity-page a{
     text-decoration: none
 }
+
+.summary-stat, .summary-stat .background {
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(64.7deg,#03c5d1,#03c5d1)
+}
+
+.summary-stat {
+    position: relative;
+    background: #fff;
+}
+
+.summary-stat .background {
+    mix-blend-mode: normal;
+    justify-content: space-around;
+    padding: 16px 32px;
+}
+
+.summary-stat p {
+    color: white;
+    font-size: 20px;
+}
+
+.summary-stat h1 {
+    color: white;
+    font-size: 60px;
+    font-weight: 700;
+}

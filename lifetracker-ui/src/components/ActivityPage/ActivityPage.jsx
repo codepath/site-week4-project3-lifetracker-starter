@@ -6,7 +6,7 @@ export default function ActivityPage(props) {
     return (
         <div className="activity-page">
             <div className="content">
-               <ActivityFeed />
+               <ActivityFeed totalCaloriesPerDay={props.totalCaloriesPerDay} avgCaloriesPerCategory={props.avgCaloriesPerCategory}/>
             </div>
         </div>
     )

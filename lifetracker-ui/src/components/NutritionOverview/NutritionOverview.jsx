@@ -12,7 +12,7 @@ export default function NutritionOverview(props) {
                 <Link to="/nutrition/create"><button className="Button outline small outline aqua">Record Nutrition</button></Link>
             </div>
             <div className="feed">
-                {props.nutritionItems.map((item) => (<NutritionCard name={item.name}/>))}
+                {props.nutritionItems.map((item) => (<NutritionCard name={item.name} calories={item.calories} image={item.imageUrl} category={item.category} quantity={item.quantity} time={item.time}/>))}
             </div>
         </div>
     )

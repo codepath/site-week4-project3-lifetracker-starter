@@ -1,4 +1,5 @@
 import * as React from "react"
+import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
 export default function LoginForm(props) {
@@ -10,21 +11,27 @@ export default function LoginForm(props) {
   }
 
   async function loginUser(evt){
+
+    evt.preventDefault()
+
     if(props.loginForm.email == "" || props.loginForm.password == ""){
-      props.setError(0)
+      props.setError("Missing an input value")
       return
     }
     else if(props.loginForm.email.indexOf("@") < 0){
-      props.setError(1)
+      props.setError("Please enter a valid email")
       return
     }
-    else{
-      console.log()
-      evt.preventDefault()
-      props.setIsLogged(true)
-      props.setError(-1)
-      props.setLoginForm({"email" : "", "password": ""})
-      navigate("/activity")
+    try {
+      const res = await axios.post(`http://localhost:3001/auth/login`, props.loginForm)
+      if(res?.data){
+        props.setIsLogged(true)
+        props.setError("")
+        props.setLoginForm({"email" : "", "password": ""})
+        navigate("/activity")
+      }
+    } catch (err) {
+      props.setError("Wrong email or password")
     }
   }
 
@@ -33,12 +40,11 @@ export default function LoginForm(props) {
         <div className="input-field">
             <label>Email</label>
             <input className="form-input" type="email" name="email" placeholder="user@gmail.com" defaultValue={props.loginForm.email} onChange={handleChange}></input>
-            {props.error == 1 ?  <span className="error">Invalid email</span>: null}
+            {props.error != ""?  <span className="error">{props.error}</span>: null}
         </div>
         <div className="input-field">
             <label>Password</label>
             <input className="form-input" name="password" placeholder="password" defaultValue={props.loginForm.password} onChange={handleChange}></input>
-            {props.error == 0 ?  <span className="error">You're missing an input value</span>: null}
         </div>
         <button className="btn" onClick={loginUser}>Login</button>
       </div>

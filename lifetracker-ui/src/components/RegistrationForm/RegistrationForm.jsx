@@ -1,3 +1,4 @@
+import axios from "axios"
 import * as React from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -9,26 +10,42 @@ export default function RegistrationForm(props) {
   }
 
   async function signupUser(evt){
+
+    evt.preventDefault()
+
     if(props.registrationForm.email == "" || props.registrationForm.password == "" || props.registrationForm.firstName == "" || props.registrationForm.lastName == "" || props.registrationForm.passwordConfirm == "" || props.registrationForm.username == ""){
-      props.setError(0)
+      props.setError("Missing input value")
       return
     }
     else if(props.registrationForm.email.indexOf("@") < 0){
-      props.setError(1)
+      props.setError("Invalid email")
       return
     }
     else if(props.registrationForm.password != props.registrationForm.passwordConfirm){
-        props.setError(3)
+        props.setError("Passwords don't match")
         return
     }
-    else{
-      console.log()
-      evt.preventDefault()
+    try {
+      const res = await axios.post("http://localhost:3001/auth/register", {
+        email: props.registrationForm.email,
+        username: props.registrationForm.username,
+        password: props.registrationForm.password,
+        firstName: props.registrationForm.firstName,
+        lastName: props.registrationForm.lastName,
+      })
+
+      if(res?.data?.user){
       props.setIsLogged(true)
-      props.setError(-1)
+      props.setError("")
       props.setRegistrationForm({"email" : "", "username" : "", "fisrtName" : "", "lastName" : "", "password" : "", "passwordConfirm" : ""})
       navigate("/activity")
-    }
+      }
+
+    } catch(err) {
+      if(props.error == ""){
+        props.setError("Email or Username already in use")
+      }
+    } 
   }
 
     return (
@@ -36,7 +53,7 @@ export default function RegistrationForm(props) {
         <div className="input-field">
             <label>Email</label>
             <input className="form-input" type="email" name="email" placeholder="Enter a valid email" onChange={handleChange} defaultValue={props.registrationForm.email}></input>
-            {props.error == 1 ?  <span className="error">Invalid email</span>: null}
+            {props.error != "" ?  <span className="error">{props.error}</span>: null}
         </div>
         <div className="input-field">
             <label>Username</label>
