@@ -2,6 +2,7 @@ import * as React from "react";
 import {Redirect} from 'react'
 import axios from "axios";
 import { useState, useEffect } from 'react';
+
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import "./RegistrationPage.css";
 

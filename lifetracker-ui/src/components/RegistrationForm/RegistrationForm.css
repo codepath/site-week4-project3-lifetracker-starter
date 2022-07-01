@@ -5,7 +5,8 @@
     border-radius: 6px;
     background-color: var(--light-text);
     color: var(--dark-text);
-    border: 2px solid black;
+    box-shadow: 4px 4px 20px rgb(9, 22, 7);
+
 }
 a#here-text {
     color: var(--accent-green);
