@@ -8,15 +8,9 @@ import "./NutritionOverview.css";
 import NotFound from "components/NotFound/NotFound";
 import NutritionFeed from "components/NutritionFeed/NutritionFeed";
 
-export default function OverviewContainer() {
-    return (
-      <NutritionContextProvider>
-        <NutritionOverview/>
-      </NutritionContextProvider>
-    )
-  }
 
-function NutritionOverview({}) {
+
+export default function NutritionOverview({}) {
     const {nutritions, 
         setNutritions, 
         initialized, 
@@ -25,9 +19,9 @@ function NutritionOverview({}) {
         setIsProcessing,
         error,
         setError,
+        newNutrition
         
     } = useNutritionContext();
-
     return (
         <div className="nutrition-overview">
             <div className="overview-header">
@@ -36,7 +30,7 @@ function NutritionOverview({}) {
                 <Link className="nutrition-btn" to="/nutrition/create">Record Nutrition</Link>
             </div>
             
-            {isProcessing ? <h3>Loading</h3> : <NutritionFeed nutritions={[{id: 1, name: "chicken", calories: 1000, category: "meat", createdAt: "2-2-2022"}]}/>}
+            {isProcessing ? <h3>Loading</h3> : <NutritionFeed newNutrition={newNutrition} nutritions={nutritions}/>}
         </div>
     );
 }

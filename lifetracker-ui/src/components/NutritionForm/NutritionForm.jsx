@@ -2,6 +2,7 @@ import * as React from "react";
 import {Redirect} from 'react'
 import axios from "axios";
 import { useState, useEffect,  } from 'react';
+import apiClient from "../../services/apiClient";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import NutritionOverview from "components/NutritionOverview/NutritionOverview";
 import "./NutritionForm.css";
@@ -10,6 +11,7 @@ import { NutritionContextProvider, useNutritionContext } from "../../contexts/nu
 
 export default function NutritionForm({}) {
     //state to check if user is logged in
+    const {nutritions, setNutritions} = useNutritionContext();
     const navigate = useNavigate()
     const [form, setForm] = useState({
         name: "",
@@ -27,24 +29,25 @@ export default function NutritionForm({}) {
         setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
     }
 
+
     const handleOnSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
         setErrors((e) => ({ ...e, form: null }))
+        const fetchNew = async () => {
+            const {data, err} = await apiClient.newNutrition(form);
 
-        const {data, error} = await apiClient.loginUser({email: form.email, password: form.password});
-        if (error) {
-          setErrors((e) => ({ ...e, form: error }))
-          const message = error?.response?.data?.error?.message
-          setErrors((e) => ({ ...e, form: message ? String(message) : String(error) }))
-          setIsLoading(false)
         }
-        if (data?.user) {
-          setUser(data.user);
-          apiClient.setToken(data.token);
-          setIsLoading(false);
-          navigate("/activity");
+        const fetchNutr = async () => {
+            const {data, err} = await apiClient.fetchNutrition();
+            if (data) setNutritions(data.nutritions);
+            if (err) setErrors(err);
         }
+        fetchNew();
+        fetchNutr();
+        navigate("/nutrition")
+        console.log("nutritions after new", nutritions);
+        
       }
 
 
@@ -81,7 +84,7 @@ export default function NutritionForm({}) {
                     <label >Image URL</label>
                     <input type="text" name="imageUrl" placeholder="http://www.food-image.com/1" value={form.imageUrl} onChange={handleOnInputChange}/>
                 </div>
-                <button className="save-btn">Save</button>
+                <button className="save-btn" onClick={handleOnSubmit}>Save</button>
             </div>
         </div>
     );

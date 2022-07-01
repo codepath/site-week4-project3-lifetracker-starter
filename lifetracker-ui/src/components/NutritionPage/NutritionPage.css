@@ -5,3 +5,8 @@
     align-items: center;
     justify-content: center;
 }
+.nutrition-page {
+    
+    height: 200vh;
+    margin-bottom: 20px;
+}

@@ -8,16 +8,24 @@ export const NutritionContextProvider = ({children}) => {
     const [initialized, setInitialized] = useState();
     const [isProcessing, setIsProcessing] = useState();
     const [error, setError] = useState({nutrition: ""});
+    const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-        console.log("useEffect")
+        console.log("useEffect nutrition")
         //check if user is logged in
-        let loggedIn = false;
         const fetchUser = async () => {
             const {data, err} = await apiClient.fetchUserFromToken()
-            if (data) loggedIn = true;
+            if (data) setLoggedIn(true);
             if (err) setError(err);
-          }
+        }
+        const fetchNutr = async () => {
+            const {data, err} = await apiClient.fetchNutrition();
+            console.log(loggedIn, data);
+            if (data) setNutritions(data.nutritions);
+            if (err) setError(err);
+        }
+        
+          
       
           const token = localStorage.getItem("lifetracker_token");
           if(token) {
@@ -26,16 +34,32 @@ export const NutritionContextProvider = ({children}) => {
           }
           if (loggedIn){
               setIsProcessing(true);
+              fetchNutr();
+              console.log("nutritions", nutritions)
               //get request to nutritions endpoint
               //set nutrititions to the data
           }
+          
           setIsProcessing(false)
           setInitialized(true)
 
-    }, [])
+    }, [loggedIn, initialized])
 
-    function newNutrition() {
-        //post request to nutrition
+    function newNutrition(info) {
+        const fetchNew = async () => {
+            const {data, err} = await apiClient.newNutrition(info);
+
+        }
+        const fetchNutr = async () => {
+            const {data, err} = await apiClient.fetchNutrition();
+            console.log(loggedIn, data);
+            if (data) setNutritions(data.nutritions);
+            if (err) setError(err);
+        }
+        fetchNew();
+        fetchNutr();
+        console.log("nutritions after new", nutritions);
+
     }
 
 
@@ -47,6 +71,7 @@ export const NutritionContextProvider = ({children}) => {
         setIsProcessing,
         error,
         setError,
+        newNutrition
         
     }
 

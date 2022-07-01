@@ -5,4 +5,19 @@
     padding: 60px;
     background-color: rgb(248, 255, 246);
     color: var(--dark-text);
+    margin-bottom: 20px;
+}
+.nutrition-image{
+    width: 200px;
+    border-radius: 6px;
+}
+
+.nutrition-card:hover{
+    border-radius: 6px;
+    box-shadow: 1px 1px 10px rgb(165, 97, 109);
+    transform: translateY(-10px);
+    width: fit-content;
+    padding: 60px;
+    background-color: rgb(248, 255, 246);
+    color: var(--dark-text);
 }
