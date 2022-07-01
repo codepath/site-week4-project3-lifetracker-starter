@@ -1,0 +1,4 @@
+lifetracker-api/.env
+lifetracker-api/node_modules
+lifetracker-ui/.env
+lifetracker-ui/node_modules
