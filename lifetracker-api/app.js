@@ -5,6 +5,7 @@ const app = express()
 const {BadRequestError, NotFoundError} = require('./utils/errors')
 const authRoutes = require('./routes/auth')
 const security = require('./middleware/security')
+const nutritionRoutes = require('./routes/nutrition')
 
 //APP USES - Cross Origin Sharing
 app.use(cors())
@@ -16,6 +17,7 @@ app.use(morgan('tiny'))
 app.use(security.extractUserFromJwt)
 //APP USE - LOGIN AND REGISTER ROUTES
 app.use('/auth', authRoutes)
+app.use("/nutrition", nutritionRoutes)
 
 
 //APP GET REQUESTS
