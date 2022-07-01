@@ -1,7 +1,7 @@
 import * as React from "react"
-import { Routes, Route} from "react-router-dom"
-import NutritionOverview from "components/NutritionOverview/NutritionOverview"
+import {Outlet} from "react-router-dom"
 import "./NutritionPage.css"
+
 
 export default function NutritionPage(props) {
     return (
@@ -10,7 +10,7 @@ export default function NutritionPage(props) {
                 <h1>Nutrition</h1>
             </div>
             <div className="content">
-                <NutritionOverview />
+                <Outlet />
             </div>
         </div>
     )

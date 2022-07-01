@@ -1,0 +1,25 @@
+.nutrition-card{
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 16px 32px;
+    background: linear-gradient(64.7deg,#03c5d1,#03c5d1);
+}
+
+.nutrition-card .card-header, .nutrition-card .card-meta, .nutrition-card .card-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nutrition-card .card-header {
+    justify-content: flex-start;
+}
+
+.nutrition-card .card-header .title, .nutrition-card .card-meta small {
+    color: white;
+}

@@ -1,9 +1,10 @@
 import * as React from "react"
 import { Link } from "react-router-dom"
+import NutritionCard from "components/NutritionCard/NutritionCard";
 import "./NutritionOverview.css"
 
 export default function NutritionOverview(props) {
-
+    console.log(props.nutritionItems);
     return (
         <div className="nutrition-overview">
             <div className="header">
@@ -11,7 +12,7 @@ export default function NutritionOverview(props) {
                 <Link to="/nutrition/create"><button className="Button outline small outline aqua">Record Nutrition</button></Link>
             </div>
             <div className="feed">
-                
+                {props.nutritionItems.map((item) => (<NutritionCard name={item.name}/>))}
             </div>
         </div>
     )
