@@ -1,8 +1,8 @@
 import * as React from "react"
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
+import apiClient from "../../../../services/apiClient"
 import "./RegistrationForm.css"
-import axios from "axios"
  
 export default function RegistrationForm() {
 
@@ -55,30 +55,37 @@ export default function RegistrationForm() {
         } else {
           setErrors((error) => ({ ...error, passwordConfirm: null }))
         }
-    
-        try {
-          const res = await axios.post("http://localhost:3001/auth/register", {
-            username: form.username,
-            password: form.password,
-            firstName: form.firstName,
-            lastName: form.lastName,
-            email: form.email,
-          })
-    
-          if (res?.data?.user) {
-            // setAppState(res.data)
-            setIsLoading(false)
-            navigate("/activity")
-          } else {
-            setErrors((error) => ({ ...error, form: "Something went wrong with registration" }))
-            setIsLoading(false)
-          }
-        } catch (err) {
-          console.log(err)
-          const message = err?.response?.data?.error?.message
-          setErrors((error) => ({ ...error, form: message ? String(message) : String(err) }))
-          setIsLoading(false)
+
+        const {data, error} = await apiClient.signupUser({ email: form.email, password: form.password})
+        if(error) setErrors((e) => ({ ...e, form: error}))
+        if(data?.user) {
+          setUser(data.user)
+          apiClient.setToken(data.token)
         }
+        setIsProcessing(false)
+        // try {
+        //   const res = await axios.post("http://localhost:3001/auth/register", {
+        //     username: form.username,
+        //     password: form.password,
+        //     firstName: form.firstName,
+        //     lastName: form.lastName,
+        //     email: form.email,
+        //   })
+    
+        //   if (res?.data?.user) {
+        //     // setAppState(res.data)
+        //     setIsLoading(false)
+        //     navigate("/activity")
+        //   } else {
+        //     setErrors((error) => ({ ...error, form: "Something went wrong with registration" }))
+        //     setIsLoading(false)
+        //   }
+        // } catch (err) {
+        //   console.log(err)
+        //   const message = err?.response?.data?.error?.message
+        //   setErrors((error) => ({ ...error, form: message ? String(message) : String(err) }))
+        //   setIsLoading(false)
+        // }
       }
 
     return (

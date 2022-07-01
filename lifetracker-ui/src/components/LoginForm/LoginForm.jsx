@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import axios from "axios"
+import apiClient from "../../../../services/apiClient"
 import "./LoginForm.css"
 
 export default function LoginForm(props) {
@@ -30,25 +30,33 @@ export default function LoginForm(props) {
       event.preventDefault()
       setIsLoading(true)
       setErrors((error) => ({ ...error, form: null }))
-  
-      try {
-        const res = await axios.post(`http://localhost:3001/auth/login`, form)
-        if (res?.data.user) {
-        //   setAppState(res.data)
-          props.setIsLoggedIn(true)
-        //   setIsLoading(false)
-        props.setUser(res.data.user)
-          navigate("/activity")
-        } else {
-          setErrors((error) => ({ ...error, form: "Invalid username/password combination" }))
-          setIsLoading(false)
-        }
-      } catch (err) {
-        console.log(err)
-        const message = err?.response?.data?.error?.message
-        setErrors((error) => ({ ...error, form: message ? String(message) : String(err) }))
-        setIsLoading(false)
+
+      const {data, error} = await apiClient.loginUser({ email: form.email, password: form.password})
+      if(error) setErrors((e) => ({ ...e, form: error}))
+      if(data?.user) {
+        setUser(data.user)
+        apiClient.setToken(data.token)
       }
+      setIsProcessing(false)
+      
+      // try {
+      //   const res = await axios.post(`http://localhost:3001/auth/login`, form)
+      //   if (res?.data.user) {
+      //   //   setAppState(res.data)
+      //     props.setIsLoggedIn(true)
+      //   //   setIsLoading(false)
+      //   props.setUser(res.data.user)
+      //     navigate("/activity")
+      //   } else {
+      //     setErrors((error) => ({ ...error, form: "Invalid username/password combination" }))
+      //     setIsLoading(false)
+      //   }
+      // } catch (err) {
+      //   console.log(err)
+      //   const message = err?.response?.data?.error?.message
+      //   setErrors((error) => ({ ...error, form: message ? String(message) : String(err) }))
+      //   setIsLoading(false)
+      // }
     }
 
     return (
