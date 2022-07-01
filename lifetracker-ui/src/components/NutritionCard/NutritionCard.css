@@ -1,0 +1,8 @@
+.nutrition-card{
+    border-radius: 6px;
+    box-shadow: 1px 1px 10px pink;
+    width: fit-content;
+    padding: 60px;
+    background-color: rgb(248, 255, 246);
+    color: var(--dark-text);
+}

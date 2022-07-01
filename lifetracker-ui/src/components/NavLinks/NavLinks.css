@@ -26,4 +26,5 @@ a {
     color: var(--light-text);
     border: 0px solid black;
     font: inherit;
+    cursor: pointer;
 }

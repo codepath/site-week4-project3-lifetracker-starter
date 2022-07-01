@@ -1,0 +1,18 @@
+.nutrition-overview{
+    
+    height: 90vh;
+    padding: 60px;
+}
+.overview-header{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+.nutrition-btn{
+    border: 2px solid var(--light-text);
+    padding: 10px;
+    border-radius: 4px;
+}
