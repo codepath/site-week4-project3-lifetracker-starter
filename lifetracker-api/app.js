@@ -1,7 +1,6 @@
 const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
-const { PORT } = require("./config")
 const authRouter = require("./routes/auth")
 
 const { NotFoundError } = require("./utils/errors")
