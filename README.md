@@ -8,6 +8,46 @@ Everywhere around us is data waiting to be collected and utilized. In recent yea
 
 This application will be built using the battle-tested PERN stack - PostgreSQL, Express, React, and Node.
 
+Submitted by: **NAME**
+
+Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
+
+## Application Features
+
+### Core Features
+
+- [x] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
+  - [x] If the user is logged in, it should display a **Sign Out** button. 
+  - [x] If no user is logged in, it should display **Login** and **Register** buttons
+  - [x] Display a logo on the far left side, and contain links to the individual detailed activity page. 
+- [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
+- [x] **Login Page:** A form that allows users to login with email and password.
+- [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
+- [ ] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
+- [ ] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
+- [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
+- [ ] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
+- [ ] Deployed website with Heroku & Surge. 
+
+**Detailed Activity Page:**
+- [ ] The detailed activity page should display a feed of all previous tracked activities.
+- [ ] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
+- [ ] The activity tracked should be given a unique id for easy lookup.
+  `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
+  * [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!) 
+
+### Stretch Features
+
+Implement any of the following features to improve the application:
+- [ ] Each model (`nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource. Create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
+- [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
+- [ ] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
+- [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
+
+### Walkthrough Video
+
+![Lifetracker walkthrough week 1](lifetracker1.gif)
+
 ## Goals
 
 Building this application you will accomplish the following:
@@ -805,3 +845,27 @@ Here are the pieces of functionality that should be built out for the backend:
 ## Wrapping Up and Resources
 
 This is a huge project and represents a complete application with user-owned resources. Accordingly, it can, should, and will test the limits of your capabilities. Do your best and don't be afraid to Google! Especially in regards to any SQL that might be tricky.
+
+### Reflection
+
+* Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
+
+The topics discussed prepared me for some of the project, but also did not. There was definitely a lot to learn for the project and the readMe had a ton to implement, including things we have not covered yet.
+
+* If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
+  
+I would have tried to spend more time understanding how to connect my backend to my front end using JWT.
+
+* Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
+
+While my project is not complete, I believe that my demo went very well. I was able to clearly show what I did get working and what I still need to work on. When comparing to other's projects, I see how they were able to complete more features that I hope to do soon as well.
+
+### Open-source libraries used
+
+- Add any links to open-source libraries used in your project.
+
+### Shout out
+
+Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+I'd like to shout out Rebecca Li for being a hardworking, thorough and patient TA. I thank her for all of her help to me and my pod-mates. 
