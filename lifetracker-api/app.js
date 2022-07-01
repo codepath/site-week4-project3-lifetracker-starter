@@ -16,6 +16,10 @@ app.use(morgan("tiny"))
 
 app.use("/auth", authRouter)
 
+app.get("/", (req, res) => {
+    res.status(200).json({ping: "pong"});
+ });
+
 app.use((req, res, next) =>{
     return next(new NotFoundError())
 })
