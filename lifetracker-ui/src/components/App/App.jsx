@@ -8,6 +8,8 @@ import { useState } from "react";
 import LoginPage from "../LoginPage/LoginPage";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
 import ActivityPage from "../ActivityPage/ActivityPage";
+import ExercisePage from "components/ExercisePage/ExercisePage";
+import SleepPage from "components/SleepPage/SleepPage";
 import NotFound from "../NotFound/NotFound";
 import { AuthContextProvider, useAuthContext } from "../../contexts/contexts";
 
@@ -34,6 +36,8 @@ export function App() {
             <Route path="/register" element={<RegistrationPage />} />
             <Route path="/activity" element={<ActivityPage />} />
             <Route path="/nutrition/*" element={<NutritionPage />} />
+            <Route path="/exercise" element={<ExercisePage />} />
+            <Route path="/sleep" element={<SleepPage />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

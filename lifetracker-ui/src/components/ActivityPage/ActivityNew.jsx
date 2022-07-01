@@ -1,26 +1,26 @@
 import { useNavigate, Link } from "react-router-dom";
-import "./RegistrationPage.css";
+import "./ActivityNew.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function RegistrationPage() {
+export default function ActivityNew() {
   return (
-    <div className="registration-page">
-      <RegistrationForm></RegistrationForm>
+    <div className="activity-new">
+      <ActivityForm />
     </div>
   );
 }
 
-export function RegistrationForm() {
+export function ActivityForm() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    passwordConfirm: "",
+    name: "",
+    calories: 0,
+    quantity: 0,
+    imageUrl: "",
+    category: "",
   });
 
   const handleOnInputChange = (event) => {
@@ -68,12 +68,11 @@ export function RegistrationForm() {
     }
 
     try {
-      const res = await axios.post("http://localhost:3001/auth/register", {
-        username: form.username,
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        password: form.password,
+      const res = await axios.post("http://localhost:3001/auth/nutrition", {
+        name: form.name,
+        calories: form.calories,
+        imageUrl: form.imageUrl,
+        category: form.category,
       });
 
       if (res?.data?.user) {
@@ -99,106 +98,86 @@ export function RegistrationForm() {
   };
 
   return (
-    <div className="registration-form">
-      <h2>Register For an Account</h2>
+    <div className="activity-form">
+      <h2>Record Activity</h2>
       <div className="form">
         <div className="input-field">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Name</label>
           <input
-            type="email"
-            name="email"
-            placeholder="jane@doe.io"
-            value={form.email}
+            type="text"
+            name="name"
+            placeholder="Activity name"
+            value={form.name}
             onChange={handleOnInputChange}
           />
-          {errors.email && <span className="error">{errors.email}</span>}
+          {errors.name && <span className="error">{errors.name}</span>}
 
           <div className="input-field">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="category">Category</label>
             <input
               type="text"
-              name="username"
-              placeholder="your_username"
-              value={form.username}
+              name="category"
+              placeholder="Activity category"
+              value={form.category}
               onChange={handleOnInputChange}
             />
-            {errors.username && (
-              <span className="error">{errors.username}</span>
+            {errors.category && (
+              <span className="error">{errors.category}</span>
             )}
           </div>
 
           <div className="split-inputs">
             <div className="input-field">
-              <label htmlFor="name">First Name</label>
+              <label htmlFor="quantity">Quantity</label>
               <input
-                type="text"
-                name="firstName"
-                placeholder="Jane"
-                value={form.firstName}
+                type="number"
+                name="quantity"
+                placeholder="1"
+                value={form.quantity}
                 onChange={handleOnInputChange}
               />
-              {errors.firstName && (
-                <span className="error">{errors.firstName}</span>
+              {errors.quantity && (
+                <span className="error">{errors.quantity}</span>
               )}
             </div>
 
             <div className="input-field">
-              <label htmlFor="name">Last Name</label>
+              <label htmlFor="calories">Calories</label>
               <input
-                type="text"
-                name="lastName"
-                placeholder="Doe"
-                value={form.lastName}
+                type="number"
+                name="calories"
+                placeholder="1"
+                value={form.calories}
                 onChange={handleOnInputChange}
               />
-              {errors.lastName && (
-                <span className="error">{errors.lastName}</span>
+              {errors.calories && (
+                <span className="error">{errors.calories}</span>
               )}
             </div>
           </div>
 
           <div className="input-field">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="imageUrl">Image URL</label>
             <input
-              type="password"
-              name="password"
-              placeholder="password"
-              value={form.password}
+              type="text"
+              name="imageUrl"
+              placeholder="http://www.food-image.com/1"
+              value={form.imageUrl}
               onChange={handleOnInputChange}
             />
-            {errors.password && (
-              <span className="error">{errors.password}</span>
-            )}
-          </div>
-
-          <div className="input-field">
-            <label htmlFor="passwordConfirm">Confirm Password</label>
-            <input
-              type="password"
-              name="passwordConfirm"
-              placeholder="confirm password"
-              value={form.passwordConfirm}
-              onChange={handleOnInputChange}
-            />
-            {errors.passwordConfirm && (
-              <span className="error">{errors.passwordConfirm}</span>
+            {errors.imageUrl && (
+              <span className="error">{errors.imageUrl}</span>
             )}
           </div>
 
           <button
-            className="submit-registration"
+            className="submit-activity"
             disabled={isLoading}
             onClick={handleOnSubmit}
           >
-            {isLoading ? "Loading..." : "Create Account"}
+            {isLoading ? "Loading..." : "Save"}
           </button>
         </div>
-      </div>
-
-      <div className="footer">
-        <p>
-          Already have an account? Login <Link to="/login">here</Link>
-        </p>
       </div>
     </div>
   );

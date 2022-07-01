@@ -1,11 +1,11 @@
-.activity-page{
+.exercise-page{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.activity-page .banner{
+.exercise-page .banner{
     align-items: center;
     justify-content: center;
     background: whitesmoke;
@@ -13,36 +13,36 @@
     margin-top: 20px;
 }
 
-.activity-page .banner h1 {
+.exercise-page .banner h1 {
     font-size: 42px;
     color: #32292F;
     text-align: center;
     justify-content: center;
 }
-.activity-page .content{
+.exercise-page .content{
     max-width: 800px;
     margin: 0px;
     width: 100%;
 }
 
-.activity-overview {
+.exercise-overview {
     display: flex;
     flex-direction: column;
 }
-.activity-overview .header {
+.exercise-overview .header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.activity-overview h3 {
+.exercise-overview h3 {
     font-size: 42px;
     font-weight: 700;
     color: #32292F;
 }
 
-.activity-overview button {
+.exercise-overview button {
     display: flex;
     align-items: center;
     justify-content: center;

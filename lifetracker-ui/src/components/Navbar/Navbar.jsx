@@ -4,15 +4,17 @@ import "./Navbar.css";
 export default function Navbar({ isLoggedIn }) {
   return (
     <nav className="navbar">
-      <Logo />
-      <NavLinks isLoggedIn={isLoggedIn} />
+      <div className="content">
+        <Logo />
+        <NavLinks isLoggedIn={isLoggedIn} />
+      </div>
     </nav>
   );
 }
 
 export function Logo() {
-  const logoUrl =
-    "http://codepath-lifetracker.surge.sh/static/media/codepath.70a9a31f.svg";
+  const logoUrl = "../../media/balance-scale.png";
+
   return (
     <div className="logo">
       <Link to="/">
@@ -26,21 +28,20 @@ export function NavLinks({ isLoggedIn }) {
   return (
     <div className="nav-links">
       <Link to="/activity">
-        <label className="link-label">Activity</label>
+        <p className="link-label">Activity</p>
       </Link>
       <Link to="/nutrition/*">
         <label className="link-label">Nutrition</label>
       </Link>
-      <Link to="/">
+      <Link to="/exercise">
         <label className="link-label">Exercise</label>
       </Link>
-      <Link to="/">
+      <Link to="/sleep">
         <label className="link-label">Sleep</label>
       </Link>
-
       {isLoggedIn ? (
         <Link to="/">
-          <label className="link-label green">Logout</label>
+          <button className="link-label special">Logout</button>
         </Link>
       ) : (
         <>
@@ -48,7 +49,7 @@ export function NavLinks({ isLoggedIn }) {
             <label className="link-label">Login</label>
           </Link>
           <Link to="/register">
-            <label className="link-label green">Sign Up</label>
+            <button className="link-label special">Sign Up</button>
           </Link>
         </>
       )}
