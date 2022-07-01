@@ -21,6 +21,9 @@ import {AuthContextProvider, useAuthContext} from "../../contexts/auth"
 //  }
 
 export default function App() {
+  //STATE VARIABLES
+  const [userLoggedIn, setUserLoggedIn] = useState(false)
+  const[error, setError] = useState("")
   const [form, setForm] = useState({
     email: "",
     username: "",
@@ -35,13 +38,27 @@ export default function App() {
       <React.Fragment>
         {/* YOUR CODE HERE! */}
             <BrowserRouter>
-                <Navbar />
+                <Navbar userLoggedIn={userLoggedIn}
+                        setUserLoggedIn={setUserLoggedIn}/>
+                        
                 <Routes>
                       <Route path="/" element={<Landing />}></Route>
+
                       <Route path="/login" element={<LoginPage />}></Route>
-                      <Route path="/register" element={<RegistrationPage form={form} setForm={setForm}/>}></Route>
-                      <Route path="/activity" element={<ActivityPage />}></Route>
-                      <Route path="/nutrition/*" element={<NutritionPage />}></Route>
+
+                      <Route path="/register" element={<RegistrationPage form={form} 
+                                                                         setForm={setForm}
+                                                                         userLoggedIn={userLoggedIn}
+                                                                         setUserLoggedIn={setUserLoggedIn}
+                                                                         error={error}
+                                                                         setError={setError}/>}></Route>
+
+                      <Route path="/activity" element={<ActivityPage userLoggedIn={userLoggedIn}
+                                                                     setUserLoggedIn={setUserLoggedIn}/>}></Route>
+
+                      <Route path="/nutrition/*" element={<NutritionPage userLoggedIn={userLoggedIn}
+                                                                         setUserLoggedIn={setUserLoggedIn}/>}></Route>
+
                       <Route path="*" element={<NotFound />}></Route>
                 </Routes>
             </BrowserRouter>

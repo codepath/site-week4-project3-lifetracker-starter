@@ -1,7 +1,7 @@
 import * as React from "react"
 import {Link} from "react-router-dom"
 
-export default function NavLinks() {
+export default function NavLinks(props) {
   return (
     <ul className="nav-links">
         <li className="nav-item"><Link to="/activity" className="nav-item-link"><p>Activity</p></Link></li>
@@ -9,9 +9,21 @@ export default function NavLinks() {
         <li className="nav-item"><Link to="/nutrition" className="nav-item-link"><p>Nutrition</p></Link></li>
         <li className="nav-item"><Link to="/sleep" className="nav-item-link"><p>Sleep</p></Link></li>
 
-        <li className="nav-item"><Link to="/login" className="nav-item-link"><button id="nav-button">Login</button></Link></li>
-        <li className="nav-item"><Link to="/register" className="nav-item-link"><button id="nav-button">Sign Up</button></Link></li>
+       
+        {/* <li className="nav-item"><Link to="/login" className="nav-item-link"><button id="nav-button">Login</button></Link></li>
+        <li className="nav-item"><Link to="/register" className="nav-item-link"><button id="nav-button">Sign Up</button></Link></li> */}
         {/* <button className="logout-button">Log Out</button> */}
+
+        {props.userLoggedIn 
+        ? (
+          <Link to="/" className="nav-item-link"><button className="logout-button" id="nav-button">Log Out</button></Link>
+        )
+        : (
+          <div className="nav-links">
+            <li className="nav-item"><Link to="/login" className="nav-item-link"><button id="nav-button">Login</button></Link></li>
+            <li className="nav-item"><Link to="/register" className="nav-item-link"><button id="nav-button">Sign Up</button></Link></li>
+          </div>
+        )}
     </ul>
   )
 }
