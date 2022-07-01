@@ -34,6 +34,10 @@ export const NutritionContextProvider = ({children}) => {
 
     }, [])
 
+    function newNutrition() {
+        //post request to nutrition
+    }
+
 
     const nutValue = {nutritions, 
         setNutritions, 
