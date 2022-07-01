@@ -293,15 +293,15 @@ The components in the `App.jsx` file should render the following components (alo
 
     - [ ] Should render JSX that is wrapped by an element with the `className` of `activity-feed`
     - [ ] Should accept **at least** the following props:
-      - [ ] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
-      - [ ] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
+      - [X] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
+      - [X] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
       - [ ] Any other
     - [ ] Inside an element with the `className` of `per-category`, it should:
-      - [ ] Render the text: `"Average Calories Per Category` inside an `h4` element
-      - [ ] Take the first `6` or less items in the `avgCaloriesPerCategory` array and render a `SummaryStat.jsx` component for each item.
-        - [ ] It should pass the calories **rounded down to one decimal place** as the `stat` prop
-        - [ ] It should pass the string of `calories` as the `label` prop
-        - [ ] It should pass the `category` as the `substat` prop
+      - [X] Render the text: `"Average Calories Per Category` inside an `h4` element
+      - [X] Take the first `6` or less items in the `avgCaloriesPerCategory` array and render a `SummaryStat.jsx` component for each item.
+        - [X] It should pass the calories **rounded down to one decimal place** as the `stat` prop
+        - [X] It should pass the string of `calories` as the `label` prop
+        - [X] It should pass the `category` as the `substat` prop
     - [ ] Inside an element with the `className` of `per-day`, it should:
       - [ ] Render the text: `"Total Calories Per Day` inside an `h4` element
       - [ ] For each item in the `totalCaloriesPerDay` array, it should render a `SummaryStat.jsx` component.

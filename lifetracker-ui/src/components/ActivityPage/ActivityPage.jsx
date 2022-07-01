@@ -1,11 +1,14 @@
 import React from 'react'
 import Loading from "../Loading/Loading";
+import ActivityFeed from "../ActivityFeed/ActivityFeed";
 
 export default function ActivityPage() {
   let isProcessing=true
   return (
     <div className='activity-page'>
-      {isProcessing?<Loading/>:<SetThisUpPlease/>}
+      ActivityPage
+      <ActivityFeed/>
+      {/* {isProcessing?<Loading/>:<ActivityFeed/>} */}
     </div>
   )
 }
