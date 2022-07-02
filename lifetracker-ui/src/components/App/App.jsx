@@ -32,6 +32,10 @@ export default function App() {
     password: "",
     passwordConfirm: ""
   })
+  const [totalCaloriesPerDay, setTotalCaloriesPerDar] = useState([])
+  const [avgCaloriesPerCategory, setAvgCaloriesPerCategory] = useState([])
+
+  
 
   return (
     <div className="app">
@@ -44,7 +48,10 @@ export default function App() {
                 <Routes>
                       <Route path="/" element={<Landing />}></Route>
 
-                      <Route path="/login" element={<LoginPage />}></Route>
+                      <Route path="/login" element={<LoginPage userLoggedIn={userLoggedIn}
+                                                               setUserLoggedIn={setUserLoggedIn}
+                                                               error={error}
+                                                               setError={setError}/>}></Route>
 
                       <Route path="/register" element={<RegistrationPage form={form} 
                                                                          setForm={setForm}
@@ -54,7 +61,9 @@ export default function App() {
                                                                          setError={setError}/>}></Route>
 
                       <Route path="/activity" element={<ActivityPage userLoggedIn={userLoggedIn}
-                                                                     setUserLoggedIn={setUserLoggedIn}/>}></Route>
+                                                                     setUserLoggedIn={setUserLoggedIn}
+                                                                     totalCaloriesPerDay={totalCaloriesPerDay}
+                                                                     avgCaloriesPerCategory={avgCaloriesPerCategory}/>}></Route>
 
                       <Route path="/nutrition/*" element={<NutritionPage userLoggedIn={userLoggedIn}
                                                                          setUserLoggedIn={setUserLoggedIn}/>}></Route>

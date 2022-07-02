@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function RegistrationForm(props) {       
   //VARIABLES
   const navigate = useNavigate()
+  props.setError("")
 
   //FUNCTION FOR WHEN A USER IS INPUTTING INFORMATION
   function handleOnChange(evt)
@@ -52,11 +53,11 @@ export default function RegistrationForm(props) {
   {
        if(props.form.passwordConfirm !== props.form.password)
        {
-              setError("Passwords do not match! Try again!")
+              props.setError("Passwords do not match! Try again!")
        }
        else
        {
-              setError("")
+              props.setError("")
        }
 
        evt.preventDefault();
@@ -68,7 +69,6 @@ export default function RegistrationForm(props) {
               password: props.form.password,
        })
        .then((response) => {
-              setUserLoggedIn(true)
               navigate("/login")
        })
        .catch((error) => {

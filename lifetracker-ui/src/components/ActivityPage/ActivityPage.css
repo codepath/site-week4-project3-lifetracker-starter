@@ -1,0 +1,56 @@
+.category
+{
+    width: 400px;
+    height: 200px;
+}
+
+.per-category
+{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-evenly;
+    grid-gap: 5px;
+    grid-auto-rows: minmax(125px, auto);
+}
+
+#title
+{
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+#stats
+{
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+#exercise
+{
+    background-color: #FFA300;
+}
+
+#sleep
+{
+    background-color: #CF0060;
+}
+
+#calories
+{
+    background-color: #13A8FE;
+}
+#max-calories
+{
+    background-color: #00c573;
+}
+
+#avg-exercise
+{
+    background-color: #c700da
+}
+
+#max-sleep
+{
+    background-color: #fe1313;
+}
