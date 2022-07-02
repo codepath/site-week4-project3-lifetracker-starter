@@ -50,13 +50,13 @@ Implement any of the following features to improve the application:
 
 `ADD_EMBEDDED_CODE_HERE`
 LANDING PAGE AND NAVIGATION BAR
-!()[http://g.recordit.co/rImwuPMB8L.gif]
+![](http://g.recordit.co/rImwuPMB8L.gif)
 
 LOGIN FORM
-!()[http://g.recordit.co/KNDqyI7sJ3.gif]
+![](http://g.recordit.co/KNDqyI7sJ3.gif)
 
 REGISTRATION FORM
-!()[http://g.recordit.co/uDqySGIOXU.gif]
+![](http://g.recordit.co/uDqySGIOXU.gif)
 
 
 ## Goals
