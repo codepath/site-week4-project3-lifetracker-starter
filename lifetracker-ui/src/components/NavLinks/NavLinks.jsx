@@ -3,15 +3,15 @@ import * as React from "react"
 import { Link } from "react-router-dom"
 import "./NavLinks.css"
 
-export default function NavLinks(props) {
-  const {user} = useAuthContext()
+export default function NavLinks() {
+  const {user, handleLogout} = useAuthContext()
     return (
       <nav className="nav-links">
         <ul>
           <li><Link to="/activity" label="Activity">Activity</Link></li>
           <li><Link to="/nutrition" label="Nutrition">Nutrition</Link></li>
           {user.email ? 
-          (<li onClick={props.handleLogout}><Link to="/" className="nav-btn">Logout</Link></li>) : 
+          (<li onClick={handleLogout}><Link to="/" className="nav-btn">Logout</Link></li>) : 
           (
             <>
             <li><Link to="/login" label="Login">Login</Link></li>

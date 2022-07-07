@@ -4,11 +4,11 @@ import { Link } from "react-router-dom"
 import Logo from "components/Logo/Logo"
 import NavLinks from "components/NavLinks/NavLinks"
 
-export default function Navbar(props) {
+export default function Navbar() {
     return (
       <nav className="navbar">
         <Logo/>
-        <NavLinks handleLogout={props.handleLogout}/>
+        <NavLinks/>
       </nav>
     )
   }

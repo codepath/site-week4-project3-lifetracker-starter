@@ -27,29 +27,7 @@ function App() {
   const [error, setError] = useState()
   const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const { data, error } = await API.fetchUserFromToken()
-      if (data) {
-        setUser(data.user)
-      }
-      if(error){
-        setError(error)
-      }
-    }
-
-    const token = localStorage.getItem("my_token")
-    if (token) {
-      API.setToken(token)
-      fetchUser()
-    }
-  }, [setUser])
-
-  const handleLogout = async () => {
-    await API.logoutUser()
-    setUser({})
-    setError(null)
-  }
+  
 
 
   return (
@@ -57,7 +35,7 @@ function App() {
       <React.Fragment>
         <BrowserRouter>
           <main>
-            <Navbar handleLogout={handleLogout}></Navbar>
+            <Navbar/>
             <Routes>
               <Route path="/" element={<Landing/>}></Route>
               <Route path="/login" element={<LoginPage/>}></Route>
