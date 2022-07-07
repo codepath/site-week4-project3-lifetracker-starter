@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react"
 import API from "../../services/apiClient";
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
+import { ActivityContextProvider, useActivityContext } from "../../contexts/activity";
+
 
 import Navbar from "components/Navbar/Navbar"
 import Landing from "components/Landing/Landing"
@@ -17,17 +19,16 @@ import NutritionPage from "components/NutritionPage/NutritionPage";
 export default function AppContainer() {
   return (
     <AuthContextProvider>
-      <App />
+      <ActivityContextProvider>
+        <App />
+      </ActivityContextProvider>
     </AuthContextProvider>
   )
 }
 
 function App() {
   const {user, setUser} = useAuthContext()
-  const [error, setError] = useState()
   const [isLoading, setIsLoading] = useState(false)
-
-  
 
 
   return (
