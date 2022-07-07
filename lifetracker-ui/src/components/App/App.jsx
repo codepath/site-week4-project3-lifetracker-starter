@@ -8,9 +8,11 @@ import ActivityPage from "components/ActivityPage/ActivityPage"
 import NutritionPage from "components/NutritionPage/NutritionPage"
 import NutritionOverview from "components/NutritionOverview/NutritionOverview"
 import NutritionNew from "components/NutritionNew/NutritionNew"
+import NutritionDetail from "components/NutritionDetail/NutritionDetail"
 import AccessForbidden from "components/AccessForbidden/AccessForbidden"
 import NotFound from "components/NotFound/NotFound"
 import "./App.css"
+
 
 export default function App() {
   const [loginForm, setLoginForm] = React.useState({ "email" : "", "password" : ""})
@@ -40,6 +42,7 @@ export default function App() {
             <Route path= "/nutrition" element= { isLogged ? <NutritionPage nutritionItems={nutritionItems} setNutritionItems={setNutritionItems}/> : <AccessForbidden />} >
               <Route path="/nutrition/" element={<NutritionOverview nutritionItems={nutritionItems} setNutritionItems={setNutritionItems}/>}></Route>
               <Route path="/nutrition/create" element={<NutritionNew nutritionItems={nutritionItems} setNutritionItems={setNutritionItems} error={error} setError={setError} totalCaloriesPerDay={totalCaloriesPerDay} setTotalCaloriesPerDay={setTotalCaloriesPerDay}/>}></Route>
+              <Route path="/nutrition/id/:nutritionId" element={<NutritionDetail nutritionItems={nutritionItems}/>} />
               <Route path="*" element={<NotFound/>}/>
             </Route>
           </Routes> 

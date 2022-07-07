@@ -1,8 +1,8 @@
 const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
-const security = require("./middleware/security")
 const authRouter = require("./routes/auth")
+const security = require("./middleware/security")
 
 const { NotFoundError } = require("./utils/errors")
 
@@ -17,6 +17,7 @@ app.use(morgan("tiny"))
 app.use(security.extractUserFromJwt)
 
 app.use("/auth", authRouter)
+
 
 app.use((req, res, next) =>{
     return next(new NotFoundError())
