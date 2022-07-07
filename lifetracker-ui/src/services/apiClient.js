@@ -4,7 +4,7 @@ class ApiClient {
   constructor(remoteHostUrl) {
     this.remoteHostUrl = remoteHostUrl
     this.token = null
-    this.tokenName = "rate_my_setup_token"
+    this.tokenName = "lifetracker_token"
   }
 
   setToken(token) {
@@ -31,39 +31,24 @@ class ApiClient {
     }
   }
 
-  async createRatingForPost({ postId, rating }) {
-    return await this.request({ endpoint: `posts/${postId}/ratings`, method: `POST`, data: { rating } })
-  }
-
-  async updatePost({ postId, postUpdate }) {
-    return await this.request({ endpoint: `posts/${postId}`, method: `PATCH`, data: postUpdate })
-  }
-
-  async fetchPostById(postId) {
-    return await this.request({ endpoint: `posts/${postId}`, method: `GET` })
-  }
-
-  async listPosts() {
-    return await this.request({ endpoint: `posts`, method: `GET` })
-  }
-
   async listNutritions() {
     return await this.request({ endpoint: `nutrition`, method: `GET` })
   }
 
-  async createPost(post) {
-    return await this.request({ endpoint: `posts`, method: `POST`, data: post })
+  async createNutrition(nutrition) {
+    return await this.request({ endpoint: `nutrition`, method: `POST`, data: nutrition })
   }
 
   async fetchUserFromToken() {
     return await this.request({ endpoint: `auth/me`, method: `GET` })
   }
 
-  async signupUser(credentials) {
+  async registerUser(credentials) {
     return await this.request({ endpoint: `auth/register`, method: `POST`, data: credentials })
   }
 
   async loginUser(credentials) {
+    console.log("login in")
     return await this.request({ endpoint: `auth/login`, method: `POST`, data: credentials })
   }
 
@@ -76,6 +61,5 @@ class ApiClient {
 // const API = new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
 
 const API = new ApiClient("http://localhost:3001")
-
 
 export default API

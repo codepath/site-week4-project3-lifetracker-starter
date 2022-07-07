@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useAuthContext } from "../../contexts/auth";
 
-export default function Navbar({ isLoggedIn }) {
+export default function Navbar() {
+  const { user, setUser, handleLogout } = useAuthContext();
   return (
     <nav className="navbar">
       <div className="content">
         <Logo />
-        <NavLinks isLoggedIn={isLoggedIn} />
+        <NavLinks user={user} setUser={setUser} handleLogout={handleLogout} />
       </div>
     </nav>
   );
@@ -24,7 +26,8 @@ export function Logo() {
   );
 }
 
-export function NavLinks({ isLoggedIn }) {
+export function NavLinks({ handleLogout }) {
+  const { user, setUser } = useAuthContext();
   return (
     <div className="nav-links">
       <Link to="/activity">
@@ -39,9 +42,11 @@ export function NavLinks({ isLoggedIn }) {
       <Link to="/sleep">
         <label className="link-label">Sleep</label>
       </Link>
-      {isLoggedIn ? (
+      {user.email ? (
         <Link to="/">
-          <button className="link-label special">Logout</button>
+          <button className="link-label special" onClick={handleLogout}>
+            Logout
+          </button>
         </Link>
       ) : (
         <>

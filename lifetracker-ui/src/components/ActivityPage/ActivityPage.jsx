@@ -7,8 +7,8 @@ export default function ActivityPage() {
   const [newActivity, setNewActivity] = useState(false);
   const handleNewActivityOnClick = () => {
     setNewActivity(true);
-    console.log("clicked");
   };
+
   return (
     <div className="activity-page">
       <div className="banner">

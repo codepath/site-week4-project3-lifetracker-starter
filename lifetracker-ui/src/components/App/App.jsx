@@ -1,18 +1,22 @@
 import * as React from "react";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
-import NutritionPage from "../NutritionPage/NutritionPage";
-import Landing from "../Landing/Landing";
 import { useState, useEffect } from "react";
-import LoginPage from "../LoginPage/LoginPage";
-import RegistrationPage from "../RegistrationPage/RegistrationPage";
-import ActivityPage from "../ActivityPage/ActivityPage";
-import ExercisePage from "components/ExercisePage/ExercisePage";
-import SleepPage from "components/SleepPage/SleepPage";
-import NotFound from "../NotFound/NotFound";
-import { AuthContextProvider, useAuthContext } from "../../contexts/contexts";
-import apiClient from "../../../services/apiClient";
+import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
+import {
+  Navbar,
+  NutritionPage,
+  Landing,
+  LoginPage,
+  RegistrationPage,
+  ActivityPage,
+  ExercisePage,
+  SleepPage,
+  NotFound,
+  AccessForbidden,
+  ProtectedRoute,
+} from "components";
+import apiClient from "../../services/apiClient";
+import "./App.css";
 
 export default function AppContainer() {
   return (
@@ -23,16 +27,17 @@ export default function AppContainer() {
 }
 
 export function App() {
-  const [user, setUser] = useState({});
+  const { user, setUser } = useAuthContext();
   const [nutritions, setNutritions] = useState([]);
   const [error, setError] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   useEffect(() => {
     const fetchNutritionList = async () => {
       setIsFetching(true);
 
-      const { data, error } = await apiClient.listNutrition();
+      const { data, error } = await apiClient.listNutritions();
       if (data) {
         setNutritions(data.nutritions);
       }
@@ -50,15 +55,27 @@ export function App() {
     <div className="app">
       <React.Fragment>
         <BrowserRouter>
-          <Navbar isLoggedIn={isLoggedIn} />
+          <Navbar />
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegistrationPage />} />
-            <Route path="/activity" element={<ActivityPage />} />
-            <Route path="/nutrition/*" element={<NutritionPage />} />
-            <Route path="/exercise" element={<ExercisePage />} />
-            <Route path="/sleep" element={<SleepPage />} />
+            <Route
+              path="/activity"
+              element={<ProtectedRoute element={<ActivityPage />} />}
+            />
+            <Route
+              path="/nutrition/*"
+              element={<ProtectedRoute element={<NutritionPage />} />}
+            />
+            <Route
+              path="/exercise"
+              element={<ProtectedRoute element={<ExercisePage />} />}
+            />
+            <Route
+              path="/sleep"
+              element={<ProtectedRoute element={<SleepPage />} />}
+            />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

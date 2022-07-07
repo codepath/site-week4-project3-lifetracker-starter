@@ -1,8 +1,8 @@
 .navbar{
     width: 100%;
     max-width: 100vw;
-    background: rgb(162, 143, 157);
-    height: 100px;
+    background: var(--muted-purple);
+    height: 75px;
     display: flex;
     flex-direction: row;
     align-items: center;
