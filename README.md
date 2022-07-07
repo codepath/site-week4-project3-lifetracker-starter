@@ -205,9 +205,9 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] Create an **`auth`** context:
 
-    - [ ] First, create a `contexts` directory at the root of the project
-    - [ ] Inside it, touch the `contexts/auth.jsx` file
-    - [ ] In that file, define a new `AuthContext` with `React.createContext`
+    - [x] First, create a `contexts` directory at the root of the project
+    - [x] Inside it, touch the `contexts/auth.jsx` file
+    - [x] In that file, define a new `AuthContext` with `React.createContext`
     - [ ] Use that context to create an `AuthContextProvider` component
       - [ ] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
       - [ ] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
