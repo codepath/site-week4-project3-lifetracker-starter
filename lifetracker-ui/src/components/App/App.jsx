@@ -57,13 +57,13 @@ function App() {
       <React.Fragment>
         <BrowserRouter>
           <main>
-            <Navbar user={user} setUser={setUser} handleLogout={handleLogout}></Navbar>
+            <Navbar handleLogout={handleLogout}></Navbar>
             <Routes>
               <Route path="/" element={<Landing/>}></Route>
-              <Route path="/login" element={<LoginPage user={user} setUser={setUser}/>}></Route>
-              <Route path="/register" element={<RegistrationPage user={user} setUser={setUser}/>}></Route>
+              <Route path="/login" element={<LoginPage/>}></Route>
+              <Route path="/register" element={<RegistrationPage/>}></Route>
               <Route path="/activity" element={user?.email ? (<ActivityPage/>) : (<AccessForbidden/>)} ></Route>
-              <Route path="/nutrition/*" element={user?.email ? (<NutritionPage user={user}/>) : (<AccessForbidden/>)}></Route>
+              <Route path="/nutrition/*" element={user?.email ? (<NutritionPage/>) : (<AccessForbidden/>)}></Route>
               <Route path="*" element={<NotFound/>}></Route>
             </Routes>
           </main>

@@ -3,20 +3,21 @@ import { useState, useEffect } from "react"
 import API from "../../services/apiClient"
 import "./LoginForm.css"
 import { useNavigate, Link } from "react-router-dom"
+import { useAuthContext } from "../../contexts/auth"
 
 
-export default function LoginForm(props) {
-    console.log(props)
+export default function LoginForm() {
+    const {user, setUser} = useAuthContext()
 
     const [form, setForm] = useState({email: "", password: ""})
     const [error, setError] = useState({})
     const navigate = useNavigate()
     
     useEffect(() => {
-        if(props.user?.email){
+        if(user?.email){
             navigate("/")
         }
-    }, [props.user, navigate])
+    }, [user, navigate])
 
     const handleOnInputChange = (event) => {
         // Check for valid email
@@ -45,7 +46,7 @@ export default function LoginForm(props) {
                     password: form.password})
         if(error) setError((state) => ({ ...state, form: error }))
         if (data?.user){
-            props.setUser(data.user)
+            setUser(data.user)
             API.setToken(data.token)
         }
         console.log(data, error)
