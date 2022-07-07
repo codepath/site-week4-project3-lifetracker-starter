@@ -28,6 +28,5 @@ module.exports = {
     PORT,
     IS_TESTING,
     BCRYPT_WORK_FACTOR,
-    IS_TESTING,
     getDatabaseUri
 }
