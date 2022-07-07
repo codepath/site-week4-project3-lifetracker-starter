@@ -45,6 +45,7 @@ Implement any of the following features to improve the application:
 ### Walkthrough Video
 Week 4
 ![](https://github.com/aileen-ji/tdd-lifetracker-starter/blob/main/lifetracker-ui/src/assets/walkthrough-new.gif)
+x
 
 `ADD_EMBEDDED_CODE_HERE`
 
