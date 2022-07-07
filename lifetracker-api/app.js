@@ -1,6 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
+const security = require("./middleware/security")
 const authRouter = require("./routes/auth")
 
 const { NotFoundError } = require("./utils/errors")
@@ -13,11 +14,9 @@ app.use(express.json())
 
 app.use(morgan("tiny"))
 
-app.use("/auth", authRouter)
+app.use(security.extractUserFromJwt)
 
-app.get("/", (req, res) => {
-    res.status(200).json({ping: "pong"});
- });
+app.use("/auth", authRouter)
 
 app.use((req, res, next) =>{
     return next(new NotFoundError())
