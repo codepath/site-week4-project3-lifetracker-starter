@@ -3,8 +3,10 @@ import * as React from "react"
 import { useState, useEffect } from "react"
 import "./NutritionForm.css"
 import { useNavigate } from "react-router-dom"
+import { useAuthContext } from "../../contexts/auth"
 
 export default function NutritionForm(props) {
+    const {user} = useAuthContext()
     console.log(props)
     const [form, setForm] = useState({
         name: "",

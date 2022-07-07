@@ -3,6 +3,7 @@ import "./App.css"
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react"
 import API from "../../services/apiClient";
+import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
 
 import Navbar from "components/Navbar/Navbar"
 import Landing from "components/Landing/Landing"
@@ -13,19 +14,27 @@ import ActivityPage from "components/ActivityPage/ActivityPage";
 import AccessForbidden from "components/AccessForbidden/AccessForbidden";
 import NutritionPage from "components/NutritionPage/NutritionPage";
 
-export default function App() {
-  const [user, setUser] = useState({})
+export default function AppContainer() {
+  return (
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
+  )
+}
+
+function App() {
+  const {user, setUser} = useAuthContext()
   const [error, setError] = useState()
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const fetchUser = async () => {
-      const { data, err } = await API.fetchUserFromToken()
+      const { data, error } = await API.fetchUserFromToken()
       if (data) {
         setUser(data.user)
       }
-      if(err){
-        setError(err)
+      if(error){
+        setError(error)
       }
     }
 
@@ -34,7 +43,7 @@ export default function App() {
       API.setToken(token)
       fetchUser()
     }
-  }, [])
+  }, [setUser])
 
   const handleLogout = async () => {
     await API.logoutUser()
