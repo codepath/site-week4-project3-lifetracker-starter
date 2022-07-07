@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import "./NutritionForm.css"
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../contexts/auth"
+import { useActivityContext } from "../../contexts/activity"
 
 export default function NutritionForm(props) {
     const {user} = useAuthContext()
@@ -18,9 +19,11 @@ export default function NutritionForm(props) {
     const [error, setError] = useState({})
     const [posted, setPosted] = useState(false)
     const navigate = useNavigate()
+    //const {fetchActivity} = useActivityContext()
     
     useEffect(() => {
         if(posted){
+            
             navigate("/nutrition")
         }
     }, [posted, navigate])
@@ -61,6 +64,7 @@ export default function NutritionForm(props) {
                 })
             setPosted(true)
         }
+        //fetchActivity()
         // try{
         //     const json = await axios.post("http://localhost:3001/nutrition", {
         //         name: form.name,

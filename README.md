@@ -333,58 +333,58 @@ The components in the `App.jsx` file should render the following components (alo
     - [x] In that file, define a new `ActivityContext` with `React.createContext`
     - [x] Use that context to create an `ActivityContextProvider` component
       - [x] The `ActivityContextProvider` component should create state variables and updaters needed for `activity`, `initialized`, `isLoading`, and `error`.
-      - [ ] It should call the `useAuthContext` hook and check to see if a valid user is logged in.
-      - [ ] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
-        - [ ] That hook should check to see if a user is logged in.
-        - [ ] If a user is logged in...
-          - [ ] Set the `isLoading` state variable to `true` and the `error` state variable to `null`
-          - [ ] Then, it should make a `GET` request to the `/activity` endpoint
-            - [ ] If there is an error with the request, it should set a message as the `error` state variable
-            - [ ] If all goes well...
-              - [ ] It should set the data as the `activity` state variable
-              - [ ] It should set the `error` state variable to `null`
-          - [ ] Regardless, at the end, set the `isLoading` state variable to `false` and the `initialized` state variable to `true`
-      - [ ] Make sure to pass an object containing all the state variables to the `value` prop of the `ActivityContext.Provider` component
-    - [ ] Create and export a `useActivityContext` hook that calls the `React.useContext` hook with the newly created `ActivityContext` and returns it.
-    - [ ] In the `App.jsx` file, nest the `ActivityContextProvider` inside the `AuthContextProvider`.
+      - [x] It should call the `useAuthContext` hook and check to see if a valid user is logged in.
+      - [x] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
+        - [x] That hook should check to see if a user is logged in.
+        - [x] If a user is logged in...
+          - [x] Set the `isLoading` state variable to `true` and the `error` state variable to `null`
+          - [x] Then, it should make a `GET` request to the `/activity` endpoint
+            - [x] If there is an error with the request, it should set a message as the `error` state variable
+            - [x] If all goes well...
+              - [x] It should set the data as the `activity` state variable
+              - [x] It should set the `error` state variable to `null`
+          - [x] Regardless, at the end, set the `isLoading` state variable to `false` and the `initialized` state variable to `true`
+      - [x] Make sure to pass an object containing all the state variables to the `value` prop of the `ActivityContext.Provider` component
+    - [x] Create and export a `useActivityContext` hook that calls the `React.useContext` hook with the newly created `ActivityContext` and returns it.
+    - [x] In the `App.jsx` file, nest the `ActivityContextProvider` inside the `AuthContextProvider`.
 
-  - [ ] The **`ActivityPage.jsx`** component:
+  - [x] The **`ActivityPage.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `activity-page`
-    - [ ] It should call the `useActivityContext` hook and extract all the necessary data from it.
-    - [ ] If the `isProcessing` flag is `true`, it should render the `Loading.jsx` component
-    - [ ] If the `isProcessing` flag is `false`, it should render the `ActivityFeed.jsx` component and pass it the appropriate props
+    - [x] It should call the `useActivityContext` hook and extract all the necessary data from it.
+    - [x] If the `isProcessing` flag is `true`, it should render the `Loading.jsx` component
+    - [x] If the `isProcessing` flag is `false`, it should render the `ActivityFeed.jsx` component and pass it the appropriate props
 
   - [ ] The **`ActivityFeed.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `activity-feed`
     - [ ] Should accept **at least** the following props:
-      - [ ] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
-      - [ ] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
+      - [x] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
+      - [x] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
       - [ ] Any other
-    - [ ] Inside an element with the `className` of `per-category`, it should:
-      - [ ] Render the text: `"Average Calories Per Category` inside an `h4` element
-      - [ ] Take the first `6` or less items in the `avgCaloriesPerCategory` array and render a `SummaryStat.jsx` component for each item.
-        - [ ] It should pass the calories **rounded down to one decimal place** as the `stat` prop
-        - [ ] It should pass the string of `calories` as the `label` prop
-        - [ ] It should pass the `category` as the `substat` prop
-    - [ ] Inside an element with the `className` of `per-day`, it should:
-      - [ ] Render the text: `"Total Calories Per Day` inside an `h4` element
-      - [ ] For each item in the `totalCaloriesPerDay` array, it should render a `SummaryStat.jsx` component.
-        - [ ] It should pass the calories **rounded down to the nearest whole number** as the `stat` prop
-        - [ ] It should pass the string of `calories` as the `label` prop
-        - [ ] It should pass the `date` in the format `dd/mm/yyyy` - example: `07/02/2022` - as the `substat` prop
+    - [x] Inside an element with the `className` of `per-category`, it should:
+      - [x] Render the text: `"Average Calories Per Category` inside an `h4` element
+      - [x] Take the first `6` or less items in the `avgCaloriesPerCategory` array and render a `SummaryStat.jsx` component for each item.
+        - [x] It should pass the calories **rounded down to one decimal place** as the `stat` prop
+        - [x] It should pass the string of `calories` as the `label` prop
+        - [x] It should pass the `category` as the `substat` prop
+    - [x] Inside an element with the `className` of `per-day`, it should:
+      - [x] Render the text: `"Total Calories Per Day` inside an `h4` element
+      - [x] For each item in the `totalCaloriesPerDay` array, it should render a `SummaryStat.jsx` component.
+        - [x] It should pass the calories **rounded down to the nearest whole number** as the `stat` prop
+        - [x] It should pass the string of `calories` as the `label` prop
+        - [x] It should pass the `date` in the format `dd/mm/yyyy` - example: `07/02/2022` - as the `substat` prop
 
   - [ ] The **`SummaryStat.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `summary-stat`
-    - [ ] Should accept **at least** the following props:
-      - [ ] `stat` - the primary statistic to display
-      - [ ] `label` - the unit label assigned to the statistic
-      - [ ] `substat` - a secondary statistic related to the primary statistic
-    - [ ] It should render the `stat` prop inside an element with the `className` of `primary-statistic`
-    - [ ] It should render the `label` prop inside an element with the `className` of `stat-label`
-    - [ ] It should render the `substat` prop inside an element with the `className` of `secondary-statistic`
+    - [x] Should accept **at least** the following props:
+      - [x] `stat` - the primary statistic to display
+      - [x] `label` - the unit label assigned to the statistic
+      - [x] `substat` - a secondary statistic related to the primary statistic
+    - [x] It should render the `stat` prop inside an element with the `className` of `primary-statistic`
+    - [x] It should render the `label` prop inside an element with the `className` of `stat-label`
+    - [x] It should render the `substat` prop inside an element with the `className` of `secondary-statistic`
 
   - [ ] The **`nutrition`** context
 
@@ -805,12 +805,12 @@ Here are the pieces of functionality that should be built out for the backend:
 - **Summary Statistics**
   - [ ] One of the last features of the API will be a model that calculates summary statistic on the different resources that users are tracking. This includes statistics like average calories per day, or max calories per category. To do that, we'll create a new `Activity` model and an `activity` route that will be used to populate the frontend.
   - [ ] The **Activity** model
-    - [ ] In the `models` directory, create two new files: `models/Activity.js` and `models/Activity.test.js`
+    - [x] In the `models` directory, create two new files: `models/Activity.js` and `models/Activity.test.js`
       - [ ] The `Activity` model should have **at least** the following static methods:
-        - [ ] `calculateDailyCaloriesSummaryStats`
-          - [ ] Should execute a SQL query that calculates **at least** the total calories consumed per day (aliased as `totalCaloriesPerDay`), along with the day (aliased as `date`).
-          - [ ] The query should return a row for **each day** containing the total calories consumed per day, and the average calric content per nutrition entry.
-            - [ ] For instance, here's a set of 7 **simplified** nutrition item entries (actual data will look different):
+        - [x] `calculateDailyCaloriesSummaryStats`
+          - [x] Should execute a SQL query that calculates **at least** the total calories consumed per day (aliased as `totalCaloriesPerDay`), along with the day (aliased as `date`).
+          - [x] The query should return a row for **each day** containing the total calories consumed per day, and the average calric content per nutrition entry.
+            - [x] For instance, here's a set of 7 **simplified** nutrition item entries (actual data will look different):
               - 1. `{ id: 1, user_id: 1, calories: 100, category: "candy", created_at: "12-22-2022" }`
               - 2. `{ id: 2, user_id: 1, calories: 200, category: "drink", created_at: "12-22-2022" }`
               - 3. `{ id: 3, user_id: 1, calories: 200, category: "fruit", created_at: "12-23-2022" }`
@@ -818,14 +818,14 @@ Here are the pieces of functionality that should be built out for the backend:
               - 5. `{ id: 5, user_id: 1, calories: 400, category: "drink", created_at: "12-23-2022" }`
               - 6. `{ id: 6, user_id: 1, calories: 700, category: "fruit", created_at: "12-24-2022" }`
               - 7. `{ id: 7, user_id: 1, calories: 100, category: "fruit", created_at: "12-24-2022" }`
-            - [ ] The summary stats returned from the query should look like this:
+            - [x] The summary stats returned from the query should look like this:
               - 1. `{ date: "12-22-2022", totalCaloriesPerDay: 300 }`
               - 2. `{ date: "12-23-2022", totalCaloriesPerDay: 1000 }`
               - 3. `{ date: "12-24-2022", totalCaloriesPerDay: 800 }`
-        - [ ] `calculatePerCategoryCaloriesSummaryStats`
-          - [ ] Should execute a SQL query that calculates **at least** the average calories consumed per category (aliased as `avgCaloriesPerCategory` and **rounded down to one decimal place**), along with the category (aliased as `category`).
-          - [ ] The query should return a row for **each day** containing the total calories consumed per day, and the average calric content per nutrition entry.
-            - [ ] For instance, here's a set of 7 **simplified** nutrition item entries (actual data will look different):
+        - [x] `calculatePerCategoryCaloriesSummaryStats`
+          - [x] Should execute a SQL query that calculates **at least** the average calories consumed per category (aliased as `avgCaloriesPerCategory` and **rounded down to one decimal place**), along with the category (aliased as `category`).
+          - [x] The query should return a row for **each day** containing the total calories consumed per day, and the average calric content per nutrition entry.
+            - [x] For instance, here's a set of 7 **simplified** nutrition item entries (actual data will look different):
               - 1. `{ id: 1, user_id: 1, calories: 100, category: "candy", created_at: "12-22-2022" }`
               - 2. `{ id: 2, user_id: 1, calories: 200, category: "drink", created_at: "12-22-2022" }`
               - 3. `{ id: 3, user_id: 1, calories: 200, category: "fruit", created_at: "12-23-2022" }`
@@ -833,7 +833,7 @@ Here are the pieces of functionality that should be built out for the backend:
               - 5. `{ id: 5, user_id: 1, calories: 400, category: "drink", created_at: "12-23-2022" }`
               - 6. `{ id: 6, user_id: 1, calories: 700, category: "fruit", created_at: "12-24-2022" }`
               - 7. `{ id: 7, user_id: 1, calories: 100, category: "fruit", created_at: "12-24-2022" }`
-            - [ ] The summary stats returned from the query should look like this:
+            - [x] The summary stats returned from the query should look like this:
               - 1. `{ category: "candy", avgCaloriesPerCategory: 100.0 }`
               - 2. `{ category: "drink", avgCaloriesPerCategory: 300.0 }`
               - 3. `{ category: "fruit", avgCaloriesPerCategory: 266.6 }`
@@ -851,11 +851,11 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] Commit all work to `git`
   - [ ] The **/activity** routes
-    - [ ] In the `routes` directory, create two new files: `routes/activity.js` and `routes/activity.test.js`
-      - [ ] A new Express router should be created that will be mounted at the `/activity` endpoint. It should handle:
-        - [ ] `GET` requests to the `/` endpoint
-          - [ ] It should send a JSON response back to the client with summary stats for each resource in the following format:
-            - [ ] `{ "nutrition": { "calories": { "perDay": [...], "perCategory": [...] }, ...anyOtherStats }, ...statsForOtherResources }`
+    - [x] In the `routes` directory, create two new files: `routes/activity.js` and `routes/activity.test.js`
+      - [x] A new Express router should be created that will be mounted at the `/activity` endpoint. It should handle:
+        - [x] `GET` requests to the `/` endpoint
+          - [x] It should send a JSON response back to the client with summary stats for each resource in the following format:
+            - [x] `{ "nutrition": { "calories": { "perDay": [...], "perCategory": [...] }, ...anyOtherStats }, ...statsForOtherResources }`
     - [ ] In the `routes/activity.test.js` file:
       - [ ] Test the `GET /activity` endpoint
         - [ ] Write test cases for:

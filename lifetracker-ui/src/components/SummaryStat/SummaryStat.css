@@ -1,0 +1,8 @@
+.summary-stat{
+    display: grid;
+    grid-template-columns: 5vw 10vw 10vw;
+    background-color: #e0e1e0;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+}

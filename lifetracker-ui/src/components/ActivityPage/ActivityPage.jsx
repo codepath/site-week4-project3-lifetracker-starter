@@ -1,11 +1,14 @@
 import ActivityFeed from "components/ActivityFeed/ActivityFeed"
+import { useActivityContext } from "../../contexts/activity"
 import * as React from "react"
 import "./ActivityPage.css"
+import Loading from "components/Loading/Loading"
 
-export default function ActivityPage(props) {
+export default function ActivityPage() {
+    const {activity, isLoading} = useActivityContext()
+    
     return (
         <div className="activity-page">
-            <h1>Activity Page</h1>
-            <ActivityFeed/>
+            {isLoading? <Loading/>: <ActivityFeed totalCaloriesPerDay={activity.nutrition?.calories.perDay} avgCaloriesPerCategory={activity.nutrition?.calories.perCategory}/>}
         </div>
     )}

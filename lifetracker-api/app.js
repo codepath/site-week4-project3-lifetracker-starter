@@ -3,6 +3,7 @@ const cors = require("cors")
 const morgan = require("morgan")
 const authRoutes = require("./routes/auth")
 const nutritionRoutes = require("./routes/nutrition")
+const activityRoutes = require("./routes/activity")
 const security = require("./middleware/security")
 
 const {BadRequestError, NotFoundError} = require("./utils/errors")
@@ -21,6 +22,7 @@ app.use(security.extractUserFromJwt)
 
 app.use("/auth", authRoutes)
 app.use("/nutrition", nutritionRoutes)
+app.use("/activity", activityRoutes)
 
 app.get("/", (req, res, next) => {
     return res.status(200).json({ping: "pong"})
