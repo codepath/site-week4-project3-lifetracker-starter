@@ -26,7 +26,7 @@ This application will be built using the battle-tested PERN stack - PostgreSQL, 
 - [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
 - [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
 - [x] Deployed website with Heroku & Surge. 
-[](https://new-lifetracker.surge.sh/)
+* [Link](https://new-lifetracker.surge.sh/)
 
 **Detailed Activity Page:**
 - [x] The detailed activity page should display a feed of all previous tracked activities.
@@ -47,7 +47,7 @@ Week 4
 ![](https://github.com/aileen-ji/tdd-lifetracker-starter/blob/main/lifetracker-ui/src/assets/walkthrough-new.gif)
 Week 5
 ![](https://github.com/aileen-ji/tdd-lifetracker-starter/blob/main/lifetracker-ui/src/assets/walkthrough-newest.gif)
-`ADD_EMBEDDED_CODE_HERE`
+
 
 ### Reflection
 
