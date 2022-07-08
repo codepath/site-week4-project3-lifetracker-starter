@@ -43,6 +43,7 @@ router.get("/users", security.requireAuthenticatedUser, async (req, res, next) =
     } catch(err){
         next(err)
     }
+
 })
 
 module.exports = router

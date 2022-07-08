@@ -19,5 +19,11 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.18",
     "pg": "^8.7.3"
+  },
+  "engines": {
+    "node": "16.15.0"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL"
   }
 }

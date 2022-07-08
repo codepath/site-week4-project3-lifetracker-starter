@@ -9,6 +9,7 @@ import "./NutritionPage.css"
 
 
 export default function NutritionPage(props) {
+  
     const [nutrition, setNutrition] = useState([])
 
     return (

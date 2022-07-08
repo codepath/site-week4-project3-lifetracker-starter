@@ -25,7 +25,8 @@ This application will be built using the battle-tested PERN stack - PostgreSQL, 
 - [x] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
 - [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
 - [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
-- [ ] Deployed website with Heroku & Surge. 
+- [x] Deployed website with Heroku & Surge. 
+[](https://new-lifetracker.surge.sh/)
 
 **Detailed Activity Page:**
 - [x] The detailed activity page should display a feed of all previous tracked activities.
@@ -44,7 +45,8 @@ Implement any of the following features to improve the application:
 ### Walkthrough Video
 Week 4
 ![](https://github.com/aileen-ji/tdd-lifetracker-starter/blob/main/lifetracker-ui/src/assets/walkthrough-new.gif)
-
+Week 5
+![](https://github.com/aileen-ji/tdd-lifetracker-starter/blob/main/lifetracker-ui/src/assets/walkthrough-newest.gif)
 `ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
@@ -170,7 +172,7 @@ The components in the `App.jsx` file should render the following components (alo
 
 - To build out the front-end, start with the `App.jsx` component:
 
-  - [ ] **`App.jsx`**
+  - [x] **`App.jsx`**
     - [x] Should be wrapped by an element with the `className` of `app`
     - [x] The core App component that contains the routes for the app wrapped in Context providers
     - [x] Renders the `Navbar` component on every route
@@ -181,13 +183,13 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
       - [x] `/nutrition/* - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
       - [x] `*` - anything else should render the `NotFound` component
-  - [ ] To standarize API requests throughout the application, set up an **`ApiClient`** class
+  - [x] To standarize API requests throughout the application, set up an **`ApiClient`** class
 
-    - [ ] Start by creating a `constants.js` file at the root of the project
-      - [ ] In it, export a few variables:
-      - [ ] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
-      - [ ] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
-      - [ ] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
+    - [x] Start by creating a `constants.js` file at the root of the project
+      - [x] In it, export a few variables:
+      - [x] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
+      - [x] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
+      - [x] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
     - [x] Next, create a `services` directory at the root of the project
     - [x] Inside that directory, touch an `apiClient.js` file
     - [x] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
@@ -201,7 +203,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
       - [x] **Add as many other methods as needed when making API requests**
 
-  - [ ] Create an **`auth`** context:
+  - [x] Create an **`auth`** context:
 
     - [x] First, create a `contexts` directory at the root of the project
     - [x] Inside it, touch the `contexts/auth.jsx` file
@@ -243,7 +245,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] Inside that `Link` component should be the application's logo (text or image)
     - [x] Should render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route
 
-  - [ ] The **`NavLinks.jsx`** component:
+  - [x] The **`NavLinks.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with a `className` of `nav-links`
     - [x] Should render a `Link` element from `react-router-dom` for:
@@ -257,7 +259,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] It should render a `Link` element that redirects to the `/login` route with the label `Login`
       - [x] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
 
-  - [ ] The **`LoginForm.jsx`** component:
+  - [x] The **`LoginForm.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `login-form`
     - [x] Should render an input element for the following fields:
@@ -277,14 +279,14 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] It should contain the text `"Login"`
       - [x] When clicked, it should call the `loginUser` function
 
-  - [ ] The **`LoginPage.jsx`** component:
+  - [x] The **`LoginPage.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `login-page`
     - [x] Using either a custom hook, context, or manually set state, this component should check to see if a user is already logged in
       - [x] If the user is already logged in, it should redirect them to the `/activity` page
       - [x] If no user is authenticated, it should render the `LoginForm.jsx` component and pass it any props it needs
 
-  - [ ] The **`RegistrationForm.jsx`** component:
+  - [x] The **`RegistrationForm.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `registration-form`
     - [x] Should render an input element for the following fields:
@@ -303,21 +305,21 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
     - [x] The component should validate the `password` and `passwordConfirm` fields:
       - [x] If the user has entered text into the `password` and `passwordConfirm` fields and they don't match, then a message should be displayed in an element with the `className` of `error` with a message that contains the text: `passwords don't match`
-    - [ ] The component should gracefully handle errors:
+    - [x] The component should gracefully handle errors:
       - [x] If the user has attempted to login and gotten a `401` error, then the `errors` object should contain a `form` property that contains a message indicating that the `email` and `password` combination is incorrect.
       - [x] If the user has attempted to login and gotten a `400` or `422` error, then the `errors` object should contain a `form` property that contains a message indicating what went wrong.
     - [x] There should be a `button` element with the `className` of `submit-registration`:
       - [x] It should contain the text `"Create Account"`
       - [x] When clicked, it should call the `signupUser` function
 
-  - [ ] The **`RegistrationPage.jsx`** component:
+  - [x] The **`RegistrationPage.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `registration-page`
     - [x] Using either a custom hook, context, or manually handled state, this component should check to see if a user is already logged in
       - [x] If the user is already logged in, it should redirect them to the `/activity` page
       - [x] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
 
-  - [ ] The **`LandingPage.jsx`** component:
+  - [x] The **`LandingPage.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `landing-page`
     - [x] Should render an element with the `className` of `hero`
@@ -325,7 +327,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
     - [x] Should allow unauthenticated access
 
-  - [ ] The **`activity`** context
+  - [x] The **`activity`** context
 
     - [x] Create a file in the `contexts directory - `/contexts/activity.jsx`
     - [x] In that file, define a new `ActivityContext` with `React.createContext`
@@ -353,7 +355,7 @@ The components in the `App.jsx` file should render the following components (alo
     - [x] If the `isProcessing` flag is `true`, it should render the `Loading.jsx` component
     - [x] If the `isProcessing` flag is `false`, it should render the `ActivityFeed.jsx` component and pass it the appropriate props
 
-  - [ ] The **`ActivityFeed.jsx`** component:
+  - [x] The **`ActivityFeed.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `activity-feed`
     - [x] Should accept **at least** the following props:
@@ -373,7 +375,7 @@ The components in the `App.jsx` file should render the following components (alo
         - [x] It should pass the string of `calories` as the `label` prop
         - [x] It should pass the `date` in the format `dd/mm/yyyy` - example: `07/02/2022` - as the `substat` prop
 
-  - [ ] The **`SummaryStat.jsx`** component:
+  - [x] The **`SummaryStat.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `summary-stat`
     - [x] Should accept **at least** the following props:
@@ -384,7 +386,7 @@ The components in the `App.jsx` file should render the following components (alo
     - [x] It should render the `label` prop inside an element with the `className` of `stat-label`
     - [x] It should render the `substat` prop inside an element with the `className` of `secondary-statistic`
 
-  - [ ] The **`nutrition`** context
+  - [x] The **`nutrition`** context
 
     - [x] Create a file in the `contexts directory - `/contexts/nutrition.jsx`
     - [x] In that file, define a new `NutritionContext` with `React.createContext`
@@ -403,7 +405,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] Make sure to pass an object containing all the state variables to the `value` prop of the `NutritionContext.Provider` component
     - [x] Create and export a `useNutritionContext` hook that calls the `React.useContext` hook with the newly created `NutritionContext` and returns it.
 
-  - [ ] The **`NutritionPage.jsx`** component:
+  - [x] The **`NutritionPage.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
     - [x] Should render a nested `Routes` component from `react-router-dom`.
@@ -413,7 +415,7 @@ The components in the `App.jsx` file should render the following components (alo
         - [x] The `/nutrition/id/:nutritionId` should render the `NutritionDetail.jsx` component
         - [x] Any other route should render the `NotFound` component
 
-  - [ ] The **`NutritionOverview.jsx`** component:
+  - [x] The **`NutritionOverview.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-overview`
     - [x] It should call the `useNutritionContext` hook and extract all the necessary data from it.
@@ -422,7 +424,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] If the `isLoading` boolean is `false`, it should render the `NutritionFeed.jsx` component and pass it the appropriate props
     - [x] Near the top of the component, it should render a `Link` component that directs to the `/nutrition/create` route and contains the text: `"Record Nutrition"`
 
-  - [ ] The **`NutritionFeed.jsx`** component:
+  - [x] The **`NutritionFeed.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-feed`
     - [x] It should receive **at least** the following props:
@@ -431,12 +433,12 @@ The components in the `App.jsx` file should render the following components (alo
     - [x] If the `nutritions` array does have items in it:
       - [x] For each item in the `nutritions` array, it should render a `NutritionCard.jsx` component
 
-  - [ ] The **`NutritionNew.jsx`** component:
+  - [x] The **`NutritionNew.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-new`
     - [x] Should render the `NutritionForm.jsx` component and pass it the appropriate props
 
-  - [ ] The **`NutritionForm.jsx`** component:
+  - [x] The **`NutritionForm.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-form`
     - [x] Should render an input element for the following fields:
@@ -455,11 +457,11 @@ The components in the `App.jsx` file should render the following components (alo
     - [x] There should be a `button` element with the `className` of `submit-nutrition`:
       - [x] It should contain the text `"Save"`
       - [x] When clicked, it should call a function that creates a new nutrition entry
-    - [ ] After the form has been succesfully submitted:
+    - [x] After the form has been succesfully submitted:
       - [x] Ensure that the new nutrition entry is stored in the `nutrition` context's `nutritions` array and is displayed in the `NutritionFeed.jsx` component
       - [x] Refetch the `activity` data so that new summary stats will be calculated
 
-  - [ ] The **`NutritionDetail.jsx`** component:
+  - [x] The **`NutritionDetail.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-detail`
     - [x] It should leverage the `useParams` hook from `react-router-dom` to extract the `nutritionId` param from the url
@@ -470,7 +472,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [x] It should store the `nutrition` received by the request in state and then render a `NutritionCard.jsx` component for that nutrition.
       - [x] If no `nutrition` is found with that `id`, it should render the `NotFound.jsx` component
 
-  - [ ] The **`NutritionCard.jsx`** component:
+  - [x] The **`NutritionCard.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-card`
     - [x] Should accept **at least** the following props:
@@ -539,8 +541,8 @@ Here are the pieces of functionality that should be built out for the backend:
     - [x] Use the `dotenv` package to parse the environment variables from the `.env` file.
     - [x] Export each of the environment variables from the `config.js` file until the tests pass
     - [x] Write a `getDatabaseUri` function so that all the tests pass
-  - [ ] Commit all work to `git`
-  - [ ] The project should now be ready to go!
+  - [x] Commit all work to `git`
+  - [x] The project should now be ready to go!
 - **PostgreSQL database**
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
@@ -577,8 +579,8 @@ Here are the pieces of functionality that should be built out for the backend:
     - [x] Initialize a new postgres client with the `pg` package and connect to PostgreSQL using any necessary config variables.
     - [x] Connect to postgres and log a message to the terminal on success or failure.
     - [x] Export the connected database client
-  - [ ] Commit all work to `git`
-  - [ ] A database client is now ready to be used!
+  - [x] Commit all work to `git`
+  - [x] A database client is now ready to be used!
 - **Server**
   - [x] Build out a bare-bones Express server with a healthcheck route and an adequate middleware pipeline.
   - [x] Create a `utils` directory
@@ -594,8 +596,8 @@ Here are the pieces of functionality that should be built out for the backend:
   - [x] In the `server.js` file:
     - [x] Import the Express app and the `config.js` file
     - [x] Have the `app` listen on the port specified by `config.PORT`.
-  - [ ] Commit all work to `git`
-  - [ ] Test out the fancy new Express server by starting it up in a new terminal window!
+  - [x] Commit all work to `git`
+  - [x] Test out the fancy new Express server by starting it up in a new terminal window!
 - **Common Test Configuration**
   - [ ] It would probably be helpful to create some common test functions that can be used throughout the application's testing suite.
   - [ ] Create a new directory called `tests`
@@ -628,17 +630,17 @@ Here are the pieces of functionality that should be built out for the backend:
         - [x] `fetchUserByEmail`
     - [ ] In the `models/user.test.js` file:
       - [ ] Test the `login` method. Write test cases for:
-        - [ ] User can login successfully with proper credentials
-        - [ ] Unknown email throws `UnauthorizedError`
-        - [ ] Invalid credentials throws `UnauthorizedError`
+        - [x] User can login successfully with proper credentials
+        - [x] Unknown email throws `UnauthorizedError`
+        - [x] Invalid credentials throws `UnauthorizedError`
       - [ ] Test the `register` method. Write test cases for:
         - [x] User can successfully register with proper credentials
         - [x] Registering with duplicate email throws `BadRequestError`
         - [x] Registering with duplicate username throws `BadRequestError`
         - [x] Registering with invalid email throws `BadRequestError`
       - [ ] Test the `fetchUserByEmail` method:. Write test cases for:
-        - [ ] A valid email returns a user from the database
-        - [ ] Invalid emails are handled correctly
+        - [x] A valid email returns a user from the database
+        - [x] Invalid emails are handled correctly
       - [ ] It will probably be important to use the `beforeAll`, `afterAll`, `beforeEach`, and `afterEach` hooks to add and delete users from the database before running the tests
     - [ ] In the `models/user.js` file:
       - [x] Import the `bcrypt` package, the `db` client, and the app `config`.
@@ -651,9 +653,9 @@ Here are the pieces of functionality that should be built out for the backend:
         - [x] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
     - [ ] In the `utils/tokens.test.js` file:
       - [ ] Write test cases for:
-        - [ ] Can create valid JWT tokens for user payloads
-        - [ ] Can extract a payload from a valid JWT with the correct secret
-        - [ ] No payload gets returned when invalid tokens are parsed
+        - [x] Can create valid JWT tokens for user payloads
+        - [x] Can extract a payload from a valid JWT with the correct secret
+        - [x] No payload gets returned when invalid tokens are parsed
     - [ ] In the `utils/tokens.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`
@@ -687,19 +689,19 @@ Here are the pieces of functionality that should be built out for the backend:
           - [x] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
         - [x] A `POST` request to the `/login` endpoint
           - [x] It should accept a request body with `email` and `password` keys
-          - [ ] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
+          - [x] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
         - [x] A `POST` request to the `/register` endpoint
           - [x] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
-          - [ ] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
+          - [x] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
       - [x] It should be mounted at the `/auth` endpoint in the `app.js` file
     - [ ] In the `routes/auth.test.js` file:
       - [ ] Test the `POST /auth/login` endpoint
         - [ ] Write test cases for:
           - [ ] Allows user to register with valid credentials and responds with JSON containing a valid token and user in the "token" and "user" fields
-          - [ ] Throws `UnauthorizedError` when user doesn't exist in db
-          - [ ] Throws `UnauthorizedError` when user provides wrong password
-          - [ ] Throws `BadRequestError` when user doesn't provide password
-          - [ ] Throws `BadRequestError` when user doesn't provide email
+          - [x] Throws `UnauthorizedError` when user doesn't exist in db
+          - [x] Throws `UnauthorizedError` when user provides wrong password
+          - [x] Throws `BadRequestError` when user doesn't provide password
+          - [x] Throws `BadRequestError` when user doesn't provide email
       - [ ] Test the `POST /auth/register` endpoint
         - [ ] Write test cases for:
           - [ ] Allows user to login successfully with valid credentials and responds with a `201` status code, along with JSON containing a valid token and user in the "token" and "user" fields
@@ -719,18 +721,18 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] There should now be a full-fledged authentication system in place!
 - **Resources and Permissions**
   - [ ] Next, implement the functionality to allow users to save instances of things they've drank/eaten, so that they can track their own nutrition data! Also make sure users can only access the data that they themselves have created. No other user should be able to see any data owned by another user!
-  - [ ] The **Nutrition** model
-    - [ ] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
-      - [ ] The `Nutrition` model should have **at least** the following static methods:
+  - [x] The **Nutrition** model
+    - [x] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
+      - [x] The `Nutrition` model should have **at least** the following static methods:
         - [x] `createNutrition`
           - [x] Should insert a new nutrition instance into the database when values are supplied for all of the required fields: `"name"`, `"category"`, `"calories"`, and `"image_url"`. The `quantity` field should default to `1`.
-          - [ ] The new nutrition instance should have its `user_id` field set to the `id` of the authenticated user
+          - [x] The new nutrition instance should have its `user_id` field set to the `id` of the authenticated user
           - [x] Should throw a `BadRequestError` (`400` status code) or `UnprocessableEntityError` (`422` status code) when any of those values are not supplied.
         - [x] `fetchNutritionById`
           - [x] When supplied with a valid `id`, fetches the a nutrition instance from the database that matches that `id`.
           - [x] If no nutrition instance matches that `id`, throws a `NotFoundError` (`404` status code)
-        - [ ] `listNutritionForUser`
-          - [ ] Should list all nutrition instances in the database that are owned by a particular user
+        - [x] `listNutritionForUser`
+          - [x] Should list all nutrition instances in the database that are owned by a particular user
     - [ ] In the `models/nutrition.test.js` file:
       - [ ] Test the `createNutrition` method. Write test cases for:
         - [ ] A user can create a nutrition instance when they supply the appropriate values
@@ -743,10 +745,10 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] Fetches all nutrition instances belonging to a particular user
         - [ ] Doesn't include any nutrition instances belonging to a different user
         - [ ] Returns an empty array if no nutrition instances are found in the database that belong to that user
-    - [ ] In the `models/nutrition.js` file:
-      - [ ] Implement the features outlined in the tests until they're all passing
-    - [ ] Commit all work to `git`
-  - [ ] The **permissions** middleware
+    - [x] In the `models/nutrition.js` file:
+      - [x] Implement the features outlined in the tests until they're all passing
+    - [x] Commit all work to `git`
+  - [x] The **permissions** middleware
     - [x] In the `middleware` directory, create two new files: `middleware/permissions.js` and `middleware/permissions.test.js`
       - [x] Though more functions will need to be added here as the number of resources grows, for now only 1 function needs to be created.
       - [x] The `authedUserOwnsNutrition` middleware function should:
@@ -763,12 +765,12 @@ Here are the pieces of functionality that should be built out for the backend:
           - [ ] Throws `NotFoundError` if `id` of nutrition isn't found in database
           - [ ] Doesn't throw error if authed user is nutrition owner
           - [ ] (OPTIONAL) Attaches the `nutrition` to the `locals` property of the response when the user owns the nutrition instance
-    - [ ] In the `middleware/permissions.js` file:
-      - [ ] Implement the features outlined in the tests until they're all passing
-    - [ ] Commit all work to `git`
-  - [ ] The **/nutrition** routes
-    - [ ] In the `routes` directory, create two new files: `routes/nutrition.js` and `routes/nutrition.test.js`
-      - [ ] A new Express router should be created that will be mounted at the `/nutrition` endpoint. It should handle:
+    - [x] In the `middleware/permissions.js` file:
+      - [x] Implement the features outlined in the tests until they're all passing
+    - [x] Commit all work to `git`
+  - [x] The **/nutrition** routes
+    - [x] In the `routes` directory, create two new files: `routes/nutrition.js` and `routes/nutrition.test.js`
+      - [x] A new Express router should be created that will be mounted at the `/nutrition` endpoint. It should handle:
         - [x] `GET` requests to the `/` endpoint
           - [x] It should send a JSON response back to the client with all of the user-owned nutrition instances in an array like so: `{ "nutritions": [...] }`
         - [x] `POST` requests to the `/` endpoint
@@ -794,9 +796,9 @@ Here are the pieces of functionality that should be built out for the backend:
           - [ ] Throws a `403 ForbiddenError` if a user tries to access a `nutrition` instance that does not belong to them
           - [ ] Throws a `404 NotFoundError` when the `nutritionId` does not match any nutrition in the database
           - [ ] Throws a `401 UnauthorizedError` if no valid user is logged in
-    - [ ] In the `routes/nutrition.js` file:
-      - [ ] Implement the features outlined in the tests until they're all passing
-  - [ ] Commit all work to `git`
+    - [x] In the `routes/nutrition.js` file:
+      - [x] Implement the features outlined in the tests until they're all passing
+  - [x] Commit all work to `git`
 - **Additional Resources**
   - [ ] Create model and routes files for 1-2 additional resources that your app will track (sleep, exercise, steps, floors climbed, meditation, mood, heartrate, music practice, etc)
   - [ ] Commit all work to `git`
@@ -847,8 +849,8 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] Returns an empty array when the user has no `nutrition` entries
     - [ ] In the `models/Activity.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
-    - [ ] Commit all work to `git`
-  - [ ] The **/activity** routes
+    - [x] Commit all work to `git`
+  - [x] The **/activity** routes
     - [x] In the `routes` directory, create two new files: `routes/activity.js` and `routes/activity.test.js`
       - [x] A new Express router should be created that will be mounted at the `/activity` endpoint. It should handle:
         - [x] `GET` requests to the `/` endpoint
@@ -864,7 +866,7 @@ Here are the pieces of functionality that should be built out for the backend:
           - [ ] Throws an `UnauthenticatedError` if no valid user is logged in
     - [ ] In the `routes/activity.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
-  - [ ] Commit all work to `git`
+  - [x] Commit all work to `git`
 
 ## Wrapping Up and Resources
 

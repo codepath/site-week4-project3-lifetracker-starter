@@ -1,7 +1,7 @@
 require("dotenv").config()
 require("colors")
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
+const PORT = process.env.PORT ? Number(process.env.PORT) : 5000
 const SECRET_KEY = process.env.SECRET_KEY || "secret_dev"
 
 function getDatabaseUri() {
@@ -13,7 +13,7 @@ function getDatabaseUri() {
 
     // if DATABASE_URI environment variable, use that
     // otherwise create it ourselves
-    return process.env.DATABASE_URI || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
+    return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
 }
 
 const BCRYPT_WORK_FACTOR = 13

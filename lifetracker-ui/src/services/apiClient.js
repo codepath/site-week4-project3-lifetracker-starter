@@ -1,4 +1,5 @@
 import axios from "axios";
+import {API_BASE_URL} from "../../constants"
 
 class ApiClient {
     constructor(remoteHostUrl) {
@@ -71,6 +72,8 @@ class ApiClient {
     }
 }
 
-const API =  new ApiClient("http://localhost:3001")
+let REACT_APP_REMOTE_HOST_URL = "https://lftc.herokuapp.com"
+
+const API =  new ApiClient("http://localhost:5000")
 
 export default API
