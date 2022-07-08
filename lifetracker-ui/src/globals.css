@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
@@ -8,4 +10,22 @@ body {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik"
 }
+
+/* CSS HEX */
+/* --gray-nurse: #e0e1e0;
+--shark: #1e1f28;
+--au-chico: #8d5652;
+--quicksand: #bf9991;
+--pewter: #92a89d;
+--sandal: #a67e67;
+--rodeo-dust: #cdb79d;
+--cold-turkey: #c9b9b4;
+--cotton-seed: #bab7b3; */
+
+
+
+

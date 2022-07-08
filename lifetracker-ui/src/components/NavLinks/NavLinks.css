@@ -1,0 +1,41 @@
+.nav-links ul{
+    font-size: large;
+    list-style-type: none;
+    position: absolute;
+    right: 0;
+    display: flex;
+    font-size: large;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 20px;
+}
+
+.nav-links a{
+    display: block;
+    padding: 8px;
+    margin: 8px;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn{
+    background: linear-gradient(to right, #ffffff 50%, #8d5652 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.3s;
+    color: white
+}
+
+.nav-btn:hover{
+    background-position:0 0;
+    color: #8d5652
+}

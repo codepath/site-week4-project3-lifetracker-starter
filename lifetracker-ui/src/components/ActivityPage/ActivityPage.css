@@ -1,0 +1,10 @@
+.activity-page {
+    min-height: 100vh;
+    background-image: url("../../assets/pexels-karolina-grabowska-4041230.jpg");
+    background-position:center;
+    background-size: 130vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

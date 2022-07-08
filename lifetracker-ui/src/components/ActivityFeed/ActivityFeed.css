@@ -1,0 +1,46 @@
+.stat-grid {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    text-align: start;
+}
+
+.activity-feed h4{
+    font-size: large;
+}
+
+.activity-feed{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 5px;
+}
+
+
+.agg-stats {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    text-align: start;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.activity-feed h1{
+    padding-top: 2vw;
+}
+
+.agg-stats .summary-stat{
+    background: linear-gradient(to right, rgb(251, 165, 116) 50%, rgb(254, 207, 215) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.3s;
+    text-align: center;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.agg-stats .summary-stat:hover{
+    background-position:0 0;
+    color: black
+}

@@ -1,0 +1,39 @@
+.hero-img{
+    width: 90%;
+}
+
+.hero{
+    display: grid;
+    grid-template-columns: 30vw 30vw;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfe1e0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.cta{
+    display: block;
+    justify-content: center;
+}
+
+.cta h1{
+    padding-bottom: 20px;
+}
+
+.cta h2{
+    width: 500px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 5px solid #d22960;
+    animation: types 3s steps(30, end), cursorblink 1s step-end infinite;
+  }
+  @keyframes types {
+     from { width: 0; }
+     to { width:500px; }
+  }
+   
+  @keyframes cursorblink{
+    from, to {border-color: transparent}
+    50%{ border-color:black}
+  }
