@@ -35,9 +35,9 @@ class Nutrition {
                         category,
                         calories,
                         quantity,
-                        image_url,
-                        user_id,
-                        created_at
+                        image_url AS "imageUrl",
+                        user_id AS "userId",
+                        created_at "createdAt"
             `,
             [
                 nutrition.name,
@@ -60,10 +60,10 @@ class Nutrition {
                     n.category,
                     n.calories,
                     n.quantity,
-                    n.image_url,
-                    n.user_id,
-                    u.email,
-                    n.created_at
+                    n.image_url AS "imageUrl",
+                    n.user_id AS "userId",
+                    u.email AS "userEmail",
+                    n.created_at AS "createdAt"
             FROM nutrition AS n
                 JOIN users AS u ON u.id = n.user_id
             WHERE n.id = $1
@@ -88,10 +88,10 @@ class Nutrition {
                     n.category,
                     n.calories,
                     n.quantity,
-                    n.image_url,
-                    n.user_id,
-                    u.email,
-                    n.created_at
+                    n.image_url AS "imageUrl",
+                    n.user_id AS "userId",
+                    u.email AS "userEmail",
+                    n.created_at AS "createdAt"
             FROM nutrition AS n
                 JOIN users AS u ON u.id = n.user_id
             WHERE n.user_id = (SELECT id FROM users WHERE email = $1)
