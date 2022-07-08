@@ -4,12 +4,12 @@ const { validateFields } = require("./validate")
 
 const generateToken = (data) => jwt.sign(data, SECRET_KEY)
 
-const createUserJwt = (creds) => {
-    validateFields({ required: ["email"], obj: creds, location: "token generation" })
+const createUserJwt = (user) => {
+    validateFields({ required: ["email"], obj: user, location: "token generation" })
     
   const payload = {
-    email: creds.email,
-    isAdmin: creds.isAdmin || false,
+    email: user.email,
+    isAdmin: user.isAdmin || false,
   }
 
   return generateToken(payload)
