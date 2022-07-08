@@ -46,7 +46,7 @@ Implement any of the following features to improve the application:
 Week 4
 ![](https://github.com/aileen-ji/tdd-lifetracker-starter/blob/main/lifetracker-ui/src/assets/walkthrough-new.gif)
 Week 5
-![](https://github.com/aileen-ji/tdd-lifetracker-starter/blob/main/lifetracker-ui/src/assets/walkthrough-newest.gif)
+![](https://github.com/aileen-ji/tdd-lifetracker-starter/blob/week5/lifetracker-ui/src/assets/walkthrough-newest.gif)
 
 
 ### Reflection
