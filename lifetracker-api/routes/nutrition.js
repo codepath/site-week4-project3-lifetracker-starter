@@ -1,9 +1,10 @@
 const express = require("express")
 const Nutrition = require("../models/nutrition")
 const security = require("../middleware/security")
+const permissions = require("../middleware/permissions")
 const router = express.Router()
 
-router.get("/", async (req, res, next) =>{
+router.get("/", security.requireAuthenticatedUser, permissions.authedUserOwnsNutrition, async (req, res, next) =>{
     try {
         // get all nutrition items
         const { user } = res.locals
@@ -14,7 +15,7 @@ router.get("/", async (req, res, next) =>{
     }
 })
 
-router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
+router.post("/create", security.requireAuthenticatedUser, permissions.authedUserOwnsNutrition, async (req, res, next) => {
     try{
         // create a new nutrition item
         const { user } = res.locals
@@ -25,7 +26,7 @@ router.post("/", security.requireAuthenticatedUser, async (req, res, next) => {
     }
 })
 
-router.get("/:nutritionId", async (req, res, next) =>{
+router.get("/:nutritionId", security.requireAuthenticatedUser, permissions.authedUserOwnsNutrition, async (req, res, next) =>{
     try {
         // get a nutrition item by its id
         const { nutritionId } = req.params

@@ -2,11 +2,10 @@ const express = require("express")
 const User = require("../models/user")
 const { createUserJwt } = require("../utils/tokens")
 const security = require("../middleware/security")
-const permissions = require("../middleware/permissions")
 const router = express.Router()
 
 
-router.get("/me", security.requireAuthenticatedUser, permissions.authedUserOwnsNutrition, async (req, res, next) => {
+router.get("/me", security.requireAuthenticatedUser, async (req, res, next) => {
     try {
       const { email } = res.locals.user
       const user = await User.fetchUserByEmail(email)
