@@ -28,9 +28,9 @@ This application will be built using the battle-tested PERN stack - PostgreSQL, 
 - [ ] Deployed website with Heroku & Surge. 
 
 **Detailed Activity Page:**
-- [ ] The detailed activity page should display a feed of all previous tracked activities.
-- [ ] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
-- [ ] The activity tracked should be given a unique id for easy lookup.
+- [x] The detailed activity page should display a feed of all previous tracked activities.
+- [x] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
+- [x] The activity tracked should be given a unique id for easy lookup.
   `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
   * [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!) 
 
@@ -39,7 +39,7 @@ This application will be built using the battle-tested PERN stack - PostgreSQL, 
 Implement any of the following features to improve the application:
 - [x] Each model (`nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource. Create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
 - [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
-- [ ] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
+- [x] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
 - [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
 
 ### Walkthrough Video
@@ -486,7 +486,7 @@ The components in the `App.jsx` file should render the following components (alo
     - [x] If the `nutrition` entry has a valid `imageUrl` attribute, it should render an `img` element with the `className` of `nutrition-image` and use that `imageUrl` as its `src`
     - [x] It should render the `calories` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-calories`
     - [x] It should render the `category` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-category`
-    - [ ] It should render the `createdAt` attribute of the `nutrition` entry in the format `dd/mm/yyyy` - example: `07/02/2022` - inside an element with the `className` of `nutrition-date`.
+    - [x] It should render the `createdAt` attribute of the `nutrition` entry in the format `dd/mm/yyyy` - example: `07/02/2022` - inside an element with the `className` of `nutrition-date`.
 
   - [ ] DO THE SAME FOR ANY OTHER RESOURCE THAT IS IN THE APPLICATION
 
@@ -512,7 +512,7 @@ Here are the pieces of functionality that should be built out for the backend:
   - [x] Make sure `node_modules` are added to the `.gitignore` file.
   - [x] Add dependencies for `express@next`, `morgan`, `cors`, and `nodemon`
   - [x] Install new dependencies for `bcrypt`, `jsonwebtoken`, `colors`, `dotenv`, `pg`
-  - [ ] Commit all work to `git`
+  - [x] Commit all work to `git`
   - [x] Add a `.env` file to the root of the repo and include the following environment variables
     - [x] `PORT` (default to `3001`)
     - [x] `SECRET_KEY` (set to a long random string)
@@ -538,9 +538,9 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] When `IS_TESTING` is `true`, the `getDatabaseUri` function should use the test database
         - [ ] Otherwise, it should combine the proper database environment variables into a database connection string if no `process.env.DATABASE_URL` environment variable exists
   - [x] Add a `config.js` file
-    - [ ] Use the `dotenv` package to parse the environment variables from the `.env` file.
-    - [ ] Export each of the environment variables from the `config.js` file until the tests pass
-    - [ ] Write a `getDatabaseUri` function so that all the tests pass
+    - [x] Use the `dotenv` package to parse the environment variables from the `.env` file.
+    - [x] Export each of the environment variables from the `config.js` file until the tests pass
+    - [x] Write a `getDatabaseUri` function so that all the tests pass
   - [ ] Commit all work to `git`
   - [ ] The project should now be ready to go!
 - **PostgreSQL database**
@@ -620,10 +620,10 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Commit all work to `git`
   - [ ] In any new test file, make sure to import these functions and use them with the correct `jest` lifecycle hooks
 - **Authentication**
-  - [ ] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
-  - [ ] Add new directories for `models`, `routes`, and `middleware`
-  - [ ] The **User** model
-    - [ ] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
+  - [x] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
+  - [x] Add new directories for `models`, `routes`, and `middleware`
+  - [x] The **User** model
+    - [x] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
       - [x] The `User` model should have **at least** the following static methods:
         - [x] `login`
         - [x] `register`
@@ -660,14 +660,14 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`
   - [ ] The **security** middleware
-    - [ ] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
-      - [ ] One middleware will be responsible for extracting a user from a valid JWT in the request:
-        - [ ] Checking the `Authentication` header of each request for the existence of a JWT.
-        - [ ] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
-      - [ ] One middleware will be responsible for ensuring that an authenticated user exists:
-        - [ ] Checking that a valid user exists on the response's `locals` property
-        - [ ] If one does, the middleware should simply call next
-        - [ ] If no valid user exists, it should throw an `UnauthorizedError`
+    - [x] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
+      - [x] One middleware will be responsible for extracting a user from a valid JWT in the request:
+        - [x] Checking the `Authentication` header of each request for the existence of a JWT.
+        - [x] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
+      - [x] One middleware will be responsible for ensuring that an authenticated user exists:
+        - [x] Checking that a valid user exists on the response's `locals` property
+        - [x] If one does, the middleware should simply call next
+        - [x] If no valid user exists, it should throw an `UnauthorizedError`
     - [ ] In the `middleware/security.test.js` file:
       - [ ] Test the `Authentication` header parsing middleware
         - [ ] Write test cases for:
@@ -678,8 +678,8 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] Write test cases for:
           - [ ] Doesn't throw an error when a valid user is present
           - [ ] Throws an `UnauthorizedError` when no valid user is present
-    - [ ] In the `middleware/security.js` file:
-      - [ ] Implement the features outlined in the tests until they're all passing
+    - [x] In the `middleware/security.js` file:
+      - [x] Implement the features outlined in the tests until they're all passing
     - [ ] In the `app.js` file, add the `Authentication` header parsing middleware to the Express app's middleware pipeline
   - [ ] Commit all work to `git`
   - [ ] The **/auth** routes
@@ -750,14 +750,14 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] Commit all work to `git`
   - [ ] The **permissions** middleware
     - [x] In the `middleware` directory, create two new files: `middleware/permissions.js` and `middleware/permissions.test.js`
-      - [ ] Though more functions will need to be added here as the number of resources grows, for now only 1 function needs to be created.
-      - [ ] The `authedUserOwnsNutrition` middleware function should:
-        - [ ] Probably be called after the `requireAuthenticatedUser` security middleware in any route's middleware pipeline
-        - [ ] Extract a parameter from the request endpoint that corresponds to the `id` of the nutrition instance
-        - [ ] Query the database for that nutrition instance
-        - [ ] Check that it is owned by the authenticated user
-          - [ ] If it doesn't, it should throw a `ForbiddenError` (`403` status code)
-          - [ ] If the nutrition instance does belong to the authed user, it should attach it to the `locals` property of the `response` as its `nutrition` property so that it doesn't need to be fetched again by the database (this isn't required, but is probably a good idea).
+      - [x] Though more functions will need to be added here as the number of resources grows, for now only 1 function needs to be created.
+      - [x] The `authedUserOwnsNutrition` middleware function should:
+        - [x] Probably be called after the `requireAuthenticatedUser` security middleware in any route's middleware pipeline
+        - [x] Extract a parameter from the request endpoint that corresponds to the `id` of the nutrition instance
+        - [x] Query the database for that nutrition instance
+        - [x] Check that it is owned by the authenticated user
+          - [x] If it doesn't, it should throw a `ForbiddenError` (`403` status code)
+          - [x] If the nutrition instance does belong to the authed user, it should attach it to the `locals` property of the `response` as its `nutrition` property so that it doesn't need to be fetched again by the database (this isn't required, but is probably a good idea).
     - [ ] In the `middleware/permissions.test.js` file:
       - [ ] Test the `authedUserOwnsNutrition` middleware function
         - [ ] Write test cases for:
@@ -803,10 +803,10 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Create model and routes files for 1-2 additional resources that your app will track (sleep, exercise, steps, floors climbed, meditation, mood, heartrate, music practice, etc)
   - [ ] Commit all work to `git`
 - **Summary Statistics**
-  - [ ] One of the last features of the API will be a model that calculates summary statistic on the different resources that users are tracking. This includes statistics like average calories per day, or max calories per category. To do that, we'll create a new `Activity` model and an `activity` route that will be used to populate the frontend.
-  - [ ] The **Activity** model
+  - [x] One of the last features of the API will be a model that calculates summary statistic on the different resources that users are tracking. This includes statistics like average calories per day, or max calories per category. To do that, we'll create a new `Activity` model and an `activity` route that will be used to populate the frontend.
+  - [x] The **Activity** model
     - [x] In the `models` directory, create two new files: `models/Activity.js` and `models/Activity.test.js`
-      - [ ] The `Activity` model should have **at least** the following static methods:
+      - [x] The `Activity` model should have **at least** the following static methods:
         - [x] `calculateDailyCaloriesSummaryStats`
           - [x] Should execute a SQL query that calculates **at least** the total calories consumed per day (aliased as `totalCaloriesPerDay`), along with the day (aliased as `date`).
           - [x] The query should return a row for **each day** containing the total calories consumed per day, and the average calric content per nutrition entry.

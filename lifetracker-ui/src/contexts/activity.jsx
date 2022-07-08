@@ -6,13 +6,13 @@ import { useAuthContext} from "./auth";
 const ActivityContext = createContext(null)
 
 export const ActivityContextProvider = ({children}) => {
-    const [activity, setActivity] = useState([])
+    const [activity, setActivity] = useState(null)
     const [initialized, setInitialzed] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
-
+    const {user} = useAuthContext()
+    
     useEffect(() => {    
-        const {user} = useAuthContext()
         const fetchActivity = async () => {
                     setIsLoading(true)
                     setError(null)
@@ -26,10 +26,16 @@ export const ActivityContextProvider = ({children}) => {
                 setInitialzed(true)
                 setIsLoading(false)
             }
-        if(user){fetchActivity()}
+
+            const token = localStorage.getItem("my_token")
+            if (token && user) {
+              API.setToken(token)
+              fetchActivity()
+            }
+
     }, [setActivity])
 
-    const activityValue = {activity, setActivity, initialized, setInitialzed, isLoading, setIsLoading, error, setError, fetchActivity}
+    const activityValue = {activity, setActivity, initialized, setInitialzed, isLoading, setIsLoading, error, setError}
     return (
         <ActivityContext.Provider value={activityValue}>
             <>{children}</>

@@ -1,5 +1,8 @@
 .nutrition-page {
     min-height: 100vh;
     background-color: #bf9991;
+    background-image: url("../../assets\pexels-moose-photos-1037993.jpg");
+    background-position: center;
+    background-size: cover;
     padding-bottom: 5vw;
 }

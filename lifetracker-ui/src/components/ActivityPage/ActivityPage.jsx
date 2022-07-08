@@ -9,6 +9,7 @@ export default function ActivityPage() {
     
     return (
         <div className="activity-page">
-            {isLoading? <Loading/>: <ActivityFeed totalCaloriesPerDay={activity.nutrition?.calories.perDay} avgCaloriesPerCategory={activity.nutrition?.calories.perCategory}/>}
+            {isLoading? <Loading/>: <ActivityFeed totalCaloriesPerDay={activity.nutrition?.calories.perDay} avgCaloriesPerCategory={activity.nutrition?.calories.perCategory}
+            aggData={activity.nutrition?.aggData}/>}
         </div>
     )}

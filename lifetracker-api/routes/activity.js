@@ -9,7 +9,8 @@ router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
         const {user} = res.locals
         const perDay = await Activity.calculateDailyCaloriesSummaryStats(user)
         const perCategory = await Activity.calculatePerCategoryCaloriesSummaryStats(user)
-        return res.status(200).json({nutrition: {calories: {perDay, perCategory}}})
+        const aggData = await Activity.calculateAggCalories(user)
+        return res.status(200).json({nutrition: {calories: {perDay, perCategory}, aggData}})
     } catch(err){
         next(err)
     }
