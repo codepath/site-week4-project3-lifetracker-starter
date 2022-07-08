@@ -1,0 +1,24 @@
+.input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 8px 0;
+    flex: 1 1;
+}
+
+.input-field label {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.input-field input {
+    height: 60px;
+    padding: 0 15px;
+    font-size: 16px;
+    border: 1px solid #e4e4e4;
+    width: 100%;
+    background: transparent;
+    color: white;
+}
+

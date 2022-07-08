@@ -1,0 +1,93 @@
+.login-page {
+    min-height: calc(100vh - 100px);
+    height: 100%;
+    max-height: calc(100vh - 100px);
+    width: 100%;
+    max-width: 100vw;
+    justify-content: center;
+}
+
+.login-page, .login-page .card {
+    display: flex;
+    align-items: center;
+}
+
+.login-page .card {
+    min-height: 600px;
+    width: 520px;
+    padding: 24px 36px 0;
+    flex-direction: column;
+}
+
+.login-page .card h2 {
+    font-size: 42px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: white;
+}
+
+.login-page .card .login-form, .login-page .card .login-form .input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.login-page .card .login-form {
+    padding-bottom: 10px;
+    color: white;
+}
+
+.login-page .card .login-form .input-field {
+    margin: 8px 0;
+}
+
+.login-page .card .login-form .input-field label {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.login-page .card .login-form .input-field input {
+    height: 60px;
+    padding: 0 15px;
+    font-size: 16px;
+    border: 1px solid #e4e4e4;
+    width: 100%;
+    background: transparent;
+    color: white;
+}
+
+.login-page .card .footer, .login-page .card .login-form .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-page .card .login-form .btn {
+    height: 70px;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.login-page .card .footer {
+    border-top: 1px solid #e4e4e4;
+    margin-top: auto;
+    height: 100px;
+}
+
+.login-page .card .footer, .login-page .card .footer p, .Navbar {
+    color: white;
+}
+
+.login-page .card .footer a {
+    text-decoration: none;
+    color: #00c98e;
+}
+
+.login-page .card .error {
+    color: #fe3210;
+}

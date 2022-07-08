@@ -1,0 +1,39 @@
+.LandingPage {
+    max-width: 100vw;
+    height: calc(100% - 100px);
+    min-height: calc(100vh - 100px);
+    overflow-x: hidden;
+    background: #2c4147;
+}
+
+.LandingPage, .landing-page .hero {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.landing-page .hero {
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.landing-page .hero img {
+    position: absolute;
+}
+
+.landing-page .hero h1 {
+    font-size: 76px;
+    font-weight: 700;
+}
+
+.landing-page .hero h1, .landing-page .hero p {
+    color: white;
+    position: relative;
+    z-index: 10;
+}
+
+.landing-page .hero p {
+    font-size: 24px;
+}

@@ -1,0 +1,59 @@
+.nutrition-card{
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 16px 32px;
+    background: linear-gradient(64.7deg,#03c5d1,#03c5d1);
+}
+
+.nutrition-card .card-header, .nutrition-card .card-meta, .nutrition-card .card-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nutrition-card .card-header {
+    justify-content: flex-start;
+}
+
+.nutrition-card .card-header .title, .nutrition-card .card-meta small {
+    color: white;
+}
+
+.nutrition-card .card-header img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+.card-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-stat p, .card-stat span {
+    color: white;
+    font-weight: 400;
+}
+
+.card-stat p, .card-stat span {
+    color: white;
+    font-weight: 400;
+}
+
+.card-stat span {
+    font-size: 40px;
+}
+
+.nutrition-card .card-meta small.category {
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
