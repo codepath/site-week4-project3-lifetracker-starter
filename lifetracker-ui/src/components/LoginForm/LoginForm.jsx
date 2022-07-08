@@ -4,6 +4,8 @@ import API from "../../services/apiClient"
 import "./LoginForm.css"
 import { useNavigate, Link } from "react-router-dom"
 import { useAuthContext } from "../../contexts/auth"
+import { useActivityContext } from "../../contexts/activity"
+import { useNutritionContext } from "../../contexts/nutrition"
 
 
 export default function LoginForm() {
@@ -12,10 +14,14 @@ export default function LoginForm() {
     const [form, setForm] = useState({email: "", password: ""})
     const [error, setError] = useState({})
     const navigate = useNavigate()
+    const{fetchActivity} = useActivityContext()
+    const {fetchNutritions} = useNutritionContext()
     
     useEffect(() => {
         if(user?.email){
-            navigate("/")
+            fetchActivity()
+            fetchNutritions()
+            navigate("/activity")
         }
     }, [user, navigate])
 

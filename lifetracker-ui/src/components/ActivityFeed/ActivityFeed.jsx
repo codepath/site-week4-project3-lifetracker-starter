@@ -4,42 +4,11 @@ import "./ActivityFeed.css"
 
 export default function ActivityFeed({totalCaloriesPerDay, avgCaloriesPerCategory, aggData}) {
     console.log(totalCaloriesPerDay, avgCaloriesPerCategory, aggData)
-    // totalCaloriesPerDay = [
-    //     {
-    //         "date": "07/01/2022",
-    //         "totalCaloriesPerDay": "414"
-    //     },
-    //     {
-    //         "date": "07/06/2022",
-    //         "totalCaloriesPerDay": "1"
-    //     },
-    //     {
-    //         "date": "07/07/2022",
-    //         "totalCaloriesPerDay": "1"
-    //     }
-    // ]
-    // avgCaloriesPerCategory = [
-    //     {
-    //         "category": "fruit",
-    //         "avgCaloriesPerCategory": "12.0"
-    //     },
-    //     {
-    //         "category": "juice",
-    //         "avgCaloriesPerCategory": "100.0"
-    //     },
-    //     {
-    //         "category": "new",
-    //         "avgCaloriesPerCategory": "1.0"
-    //     },
-    //     {
-    //         "category": "orange",
-    //         "avgCaloriesPerCategory": "200.0"
-    //     },
-    //     {
-    //         "category": "veggie",
-    //         "avgCaloriesPerCategory": "25.8"
-    //     }
-    // ]
+    if(!aggData.sumCalories){
+        aggData.sumCalories = 0
+        aggData.maxCalories = 0
+        aggData.avgCalories = 0
+    }
 
     console.log(aggData)
     return (

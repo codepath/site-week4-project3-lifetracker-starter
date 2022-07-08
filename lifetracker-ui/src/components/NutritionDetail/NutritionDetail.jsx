@@ -4,20 +4,25 @@ import NotFound from "components/NotFound/NotFound"
 import NutritionCard from "components/NutritionCard/NutritionCard"
 import API from "../../services/apiClient"
 import { useState, useEffect } from "react"
+import Loading from "components/Loading/Loading"
 import "./NutritionDetail.css"
 
-export default function NutritionDetail(props) {
+export default function NutritionDetail() {
     const [nutrition, setNutrition] = useState({})
-    const [notFound, setNotFound] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const {nutritionId} = useParams()
+    const [notFound, setNotFound] = useState(true)
 
     async function getNutrition(){
+      setIsLoading(true)
       const {data, err} = await API.fetchNutritionById(nutritionId)
       if(err) setError(err)
       if(data){
         console.log(data)
         setNutrition(data.nutrition)
+        setNotFound(false)
       }
+      setIsLoading(false)
         // try{
         //     let json = await axios.get('http://localhost:3001/nutrition/id/'+nutritionId)
         //     setNutrition(json.data.nutrition)
@@ -35,7 +40,7 @@ export default function NutritionDetail(props) {
 
   return (
     <div className="nutrition-detail">
-        {notFound ? (<NotFound/>) : <NutritionCard quantity={nutrition.quantity} id={nutrition.id} key={nutrition.name} name={nutrition.name} calories={nutrition.calories} imageUrl={nutrition.imageUrl} category={nutrition.category} createdAt={nutrition.createdAt}/>}
+        {isLoading ? (<Loading/>) : (notFound ? <NotFound/> : <NutritionCard quantity={nutrition.quantity} id={nutrition.id} key={nutrition.name} name={nutrition.name} calories={nutrition.calories} imageUrl={nutrition.imageUrl} category={nutrition.category} createdAt={nutrition.createdAt}/>)}
     </div>
   )
 }

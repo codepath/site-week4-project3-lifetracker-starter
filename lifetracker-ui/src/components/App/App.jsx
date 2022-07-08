@@ -15,12 +15,15 @@ import NotFound from "components/NotFound/NotFound";
 import ActivityPage from "components/ActivityPage/ActivityPage";
 import AccessForbidden from "components/AccessForbidden/AccessForbidden";
 import NutritionPage from "components/NutritionPage/NutritionPage";
+import { NutritionontextProvider } from "../../contexts/nutrition";
 
 export default function AppContainer() {
   return (
     <AuthContextProvider>
       <ActivityContextProvider>
+        <NutritionontextProvider>
         <App />
+        </NutritionontextProvider>
       </ActivityContextProvider>
     </AuthContextProvider>
   )

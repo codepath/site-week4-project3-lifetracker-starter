@@ -19,7 +19,7 @@ export default function NutritionForm(props) {
     const [error, setError] = useState({})
     const [posted, setPosted] = useState(false)
     const navigate = useNavigate()
-    //const {fetchActivity} = useActivityContext()
+    const {fetchActivity} = useActivityContext()
     
     useEffect(() => {
         if(posted){
@@ -63,6 +63,7 @@ export default function NutritionForm(props) {
                     quantity: 1
                 })
             setPosted(true)
+            fetchActivity()
         }
         //fetchActivity()
         // try{
