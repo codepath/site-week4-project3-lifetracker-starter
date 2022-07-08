@@ -31,14 +31,13 @@ This application will be built using the battle-tested PERN stack - PostgreSQL, 
 - [x] The detailed activity page should display a feed of all previous tracked activities.
 - [x] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
 - [x] The activity tracked should be given a unique id for easy lookup.
-  `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
   * [Table Schema](https://github.com/aileen-ji/tdd-lifetracker-starter/blob/week5/lifetracker-api/lifetracker-schema.sql) 
 
 ### Stretch Features
 
 Implement any of the following features to improve the application:
 - [x] Each model (`nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource. Create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
-- [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
+- [x] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
 - [x] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
 - [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
 
@@ -491,13 +490,13 @@ The components in the `App.jsx` file should render the following components (alo
 
     - [ ] Choose whatever resources you want!
 
-  - [ ] The **`ProtectedRoute.jsx`** component:
-    - [ ] Create a `ProtectedRoute.jsx` component that uses the `useAuthContext` hook to get access to the `initialized` and `user` variables.
-    - [ ] It should accept a component as the `element` prop and render that component.
-    - [ ] If the application isn't currently loading and no user is found, it should render the `LoginPage.jsx` component instead of rendering the route the user intended to go to. This way, we can ensure that only authenticated users can access the provided component.
-    - [ ] Any unauthenticated user should be shown the `LoginPage.jsx` component with a message indicating that they need to authenticate first
-    - [ ] Update the `LoginPage.jsx` component so that it accepts a `message` prop that is displayed in the login form - if it exists.
-    - [ ] Make sure to protect the entire `ActivityPage` component route and the `NutritionPage` component route (along with any other private resource pages). Don't protect the `LandingPage` component or the `LoginPage` and `RegistrationPage` components, as they should be public.
+  - [x] The **`ProtectedRoute.jsx`** component:
+    - [x] Create a `ProtectedRoute.jsx` component that uses the `useAuthContext` hook to get access to the `initialized` and `user` variables.
+    - [x] It should accept a component as the `element` prop and render that component.
+    - [x] If the application isn't currently loading and no user is found, it should render the `LoginPage.jsx` component instead of rendering the route the user intended to go to. This way, we can ensure that only authenticated users can access the provided component.
+    - [x] Any unauthenticated user should be shown the `LoginPage.jsx` component with a message indicating that they need to authenticate first
+    - [x] Update the `LoginPage.jsx` component so that it accepts a `message` prop that is displayed in the login form - if it exists.
+    - [x] Make sure to protect the entire `ActivityPage` component route and the `NutritionPage` component route (along with any other private resource pages). Don't protect the `LandingPage` component or the `LoginPage` and `RegistrationPage` components, as they should be public.
 
 ### API
 
@@ -546,8 +545,8 @@ Here are the pieces of functionality that should be built out for the backend:
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
   - Create two files at the root of the project:
-    - [ ] `lifetracker-schema.sql`
-      - [ ] This script should:
+    - [x] `lifetracker-schema.sql`
+      - [x] This script should:
         - [x] Create a `users` table with the following columns:
           - [x] `id`
           - [x] `username`
@@ -566,8 +565,8 @@ Here are the pieces of functionality that should be built out for the backend:
           - [x] `user_id`
           - [x] `created_at`
         - [ ] **Any other tables** that the application might depend on
-    - [ ] `lifetracker.sql`
-      - [ ] This script should:
+    - [x] `lifetracker.sql`
+      - [x] This script should:
         - [x] 1. Let the user know that they're about to delete the `lifetracker` db and prompt them to confirm that is what they want.
         - [x] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
         - [x] 3. It should then run the `lifetracker-schema.sql` file.

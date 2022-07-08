@@ -14,6 +14,16 @@ class User {
         }
     }
 
+    static async listUsers(){
+        const query = `SELECT username, first_name, last_name, email FROM users`
+
+        const result = await db.query(query)
+
+        const user = result.rows
+
+        return user
+    }
+
     static async login(credentials){
         // user submit email, password
         // if any fields missing, throw error
