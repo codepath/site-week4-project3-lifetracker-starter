@@ -1,0 +1,7 @@
+.nutrition-feed{
+    display: flex;
+    justify-content: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    flex-wrap: wrap;
+}

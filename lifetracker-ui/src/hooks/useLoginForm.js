@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useNutritionContext } from "../contexts/nutrition";
+
 import apiClient from "../services/apiClient"
 
 export const useLoginForm = ({user, setUser}) => {
   const navigate = useNavigate();
+  const { nutrition, fetchNutritions, createNutrition } = useNutritionContext();
+
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
@@ -11,11 +15,11 @@ export const useLoginForm = ({user, setUser}) => {
     password: "",
   });
 
-  useEffect(() => {
-    if (user?.email) {
-      navigate("/")
-    }
-  }, [user, navigate])
+  // useEffect(() => {
+  //   if (user?.email) {
+  //     navigate("/activity")
+  //   }
+  // }, [user, navigate])
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
@@ -30,17 +34,16 @@ export const useLoginForm = ({user, setUser}) => {
   };
 
   const handleOnSubmit = async () => {
-    console.log("submitting...")
     setIsLoading(true);
     setErrors((e) => ({ ...e, form: null }));
   
-      const { data, error } = await apiClient.loginUser({
+      const { data, error } = await apiClient.login({
         email: form.email,
         password: form.password,
       });
-      console.log("after api call")
       if (data) {
         setUser(data.user);
+        fetchNutritions();
         apiClient.setToken(data.token);
       }
       if (error) {

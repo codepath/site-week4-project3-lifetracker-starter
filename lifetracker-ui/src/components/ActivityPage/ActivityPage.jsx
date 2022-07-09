@@ -15,37 +15,21 @@ export default function ActivityPage() {
         <h1>Activity Page</h1>
       </div>
       <div className="content">
-        {newActivity ? (
-          <ActivityNew setNewActivity={setNewActivity} />
-        ) : (
-          <>
-            <ActivityOverview handleOnClick={handleNewActivityOnClick} />
-            <ActivityFeed />
-          </>
-        )}
+        <ActivityFeed />
       </div>
     </div>
   );
 }
 
-export function ActivityOverview({ handleOnClick }) {
-  return (
-    <div className="activity-overview">
-      <div className="header">
-        <h3>Overview</h3>
-      </div>
-    </div>
-  );
-}
-
-export function ActivityFeed({ activities }) {
+export function ActivityFeed({ totalCaloriesPerDay, avgCaloriesPerCategory }) {
   return (
     <div className="activity-feed">
-      {activities ? (
-        activities.map(<ActivityCard />)
-      ) : (
-        <h1 className="empty-message">Nothing here yet</h1>
-      )}
+      <div className="per-category">
+        <h4>Average Calories Per Category</h4>
+      </div>
+      <div className="per-day">
+        <h4>Average Calories Per Day</h4>
+      </div>
     </div>
   );
 }

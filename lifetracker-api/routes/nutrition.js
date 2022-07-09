@@ -6,8 +6,8 @@ const router = express.Router()
 
 router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
-    const user = res.locals
-    const nutritions = await Nutrition.listNutritions(user)
+    console.log("this is the user: ", res.locals.user)
+    const nutritions = await Nutrition.listNutritions({ user: res.locals.user })
     return res.status(200).json({ "nutritions" : nutritions })
   } catch (err) {
     next(err)
@@ -16,8 +16,9 @@ router.get("/", security.requireAuthenticatedUser, async (req, res, next) => {
 
 router.post("/create", security.requireAuthenticatedUser, async (req, res, next) => {
   try {
-    const { user } = res.locals
-    const nutrition = await Nutrition.createNutrition({user, nutrition: req.body})
+   // const { user } = res.locals
+    console.log("RES in /create route: ", res.locals.user)
+    const nutrition = await Nutrition.createNutrition({ user: res.locals.user, nutrition: req.body})
     return res.status(201).json({ nutrition })
   } catch (err) {
     next(err)

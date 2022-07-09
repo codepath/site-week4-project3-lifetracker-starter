@@ -1,53 +1,22 @@
 import "./NutritionPage.css";
-import NutritionNew from "../NutritionPage/NutritionNew";
-import { useState } from "react";
+import NutritionNew from "../NutritionNew/NutritionNew";
+import NutritionOverview from "../NutritionOverview/NutritionOverview";
+import NutritionDetail from "../NutritionDetail/NutritionDetail";
+import { Routes, Route } from "react-router-dom";
+import NotFound from "../NotFound/NotFound";
 
 export default function NutritionPage() {
-  const [newNutrition, setNewNutrition] = useState(false);
-
-  const handleNewNutritionOnClick = () => {
-    console.log("clicked");
-    setNewNutrition(true);
-  };
-
   return (
     <div className="nutrition-page">
       <div className="banner">
         <h1>Nutrition</h1>
       </div>
-      <div className="content">
-        {newNutrition ? (
-          <NutritionNew setNewNutrition={setNewNutrition} />
-        ) : (
-          <>
-            <NutritionOverview handleOnClick={handleNewNutritionOnClick} />
-            <NutritionFeed />
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
-
-export function NutritionOverview({ handleOnClick }) {
-  return (
-    <div className="nutrition-overview">
-      <div className="header">
-        <h3>Overview</h3>
-        <button onClick={handleOnClick}>Record Nutrition</button>
-      </div>
-    </div>
-  );
-}
-
-export function NutritionFeed({ nutritions }) {
-  return (
-    <div className="nutrition-feed">
-      {nutritions ? (
-        nutritions.map(<NutritionCard />)
-      ) : (
-        <h1 className="empty-message">Nothing here yet</h1>
-      )}
+      <Routes>
+        <Route path="/" element={<NutritionOverview />} />
+        <Route path="/create" element={<NutritionNew />} />
+        <Route path="/id/:nutritionId" element={<NutritionDetail />} />
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }

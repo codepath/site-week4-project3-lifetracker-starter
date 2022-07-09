@@ -1,0 +1,8 @@
+.nutrition-card{
+    width: 250px;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px lightblue;
+    margin: 20px;
+}

@@ -9,7 +9,7 @@ export { default as LoginPage } from "./LoginPage/LoginPage";
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as NotFound } from "./NotFound/NotFound";
 export { default as NutritionPage } from "./NutritionPage/NutritionPage";
-export { default as NutritionNew } from "./NutritionPage/NutritionNew";
+export { default as NutritionNew } from "./NutritionNew/NutritionNew";
 export { default as ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
 export { default as RegistrationPage } from "./RegistrationPage/RegistrationPage";
 export { default as SleepPage } from "./SleepPage/SleepPage";

@@ -15,8 +15,9 @@ export const useRegistrationForm = ({ user, setUser}) => {
     });
 
     useEffect(() => {
+      console.log("REgustration email: ", user.email)
         if (user?.email) {
-          navigate("/")
+          navigate("/activity")
         }
       }, [user, navigate])
   
@@ -64,7 +65,7 @@ export const useRegistrationForm = ({ user, setUser}) => {
         setErrors((e) => ({ ...e, passwordConfirm: null }));
       }
   
-      const { data, error } = await apiClient.registerUser({
+      const { data, error } = await apiClient.signup({
         username: form.username,
         firstName: form.firstName,
         lastName: form.lastName,
@@ -81,7 +82,6 @@ export const useRegistrationForm = ({ user, setUser}) => {
       setIsLoading(false);
     };
 
-    
     return {
         form, 
         errors, 

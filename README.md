@@ -25,8 +25,8 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 - [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
 - [x] **Login Page:** A form that allows users to login with email and password.
 - [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
-- [] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
-- [] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
+- [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
+- [x] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
 - [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves.
 - [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] Deployed website with Heroku & Surge.
@@ -36,8 +36,7 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 - [ ] The detailed activity page should display a feed of all previous tracked activities.
 - [ ] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.)
 - [ ] The activity tracked should be given a unique id for easy lookup.
-      `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
-  - [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!)
+  - [Table Schema](lifetracker.sql)
 
 ### Stretch Features
 
@@ -54,6 +53,7 @@ Week 4 gif
 ![](media\LifeTrackerWeek1.gif)
 
 Week 5 gif
+![](media\LifeTrackerWeek2.gif)
 
 [Link to Kanban board for this project](https://trello.com/b/wdtibvQj/lifetracker-project)
 
@@ -65,7 +65,7 @@ The bank labs and vaccine hub prepared me for some parts of this project. I did 
 
 - If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-[Add your response here]
+If I had more time, I would have wanted to add additional components like sleep and exercise and been able to track them on the activity page.
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
@@ -179,11 +179,11 @@ The components in the `App.jsx` file should render the following components (alo
 
 - To build out the front-end, start with the `App.jsx` component:
 
-  - [] **`App.jsx`**
-    - [] Should be wrapped by an element with the `className` of `app`
-    - [] The core App component that contains the routes for the app wrapped in Context providers
-    - [ ] Renders the `Navbar` component on every route
-    - [ ] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
+  - [x] **`App.jsx`**
+    - [x] Should be wrapped by an element with the `className` of `app`
+    - [x] The core App component that contains the routes for the app wrapped in Context providers
+    - [x] Renders the `Navbar` component on every route
+    - [x] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
       - [ ] `/` - Should render the `Landing.jsx` component
       - [ ] `/login` - Should render the `LoginPage.jsx` component
       - [ ] `/register` - Should render the `RegistrationPage.jsx` component
@@ -192,31 +192,31 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] `*` - anything else should render the `NotFound` component
   - [ ] To standarize API requests throughout the application, set up an **`ApiClient`** class
 
-    - [ ] Start by creating a `constants.js` file at the root of the project
-      - [ ] In it, export a few variables:
-      - [ ] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
-      - [ ] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
-      - [ ] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
-    - [ ] Next, create a `services` directory at the root of the project
-    - [ ] Inside that directory, touch an `apiClient.js` file
-    - [ ] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
-    - [ ] Define a new class in that file called `ApiClient`.
-      - [ ] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
-      - [ ] Export default a new instance of the `ApiClient` class
-      - [ ] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
-      - [ ] Create a utility method called `request` that uses `axios` to issue HTTP requests
-      - [ ] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
-      - [ ] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
-      - [ ] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
+    - [x] Start by creating a `constants.js` file at the root of the project
+      - [x] In it, export a few variables:
+      - [] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
+      - [x] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
+      - [x] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
+    - [x] Next, create a `services` directory at the root of the project
+    - [x] Inside that directory, touch an `apiClient.js` file
+    - [x] In that file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file
+    - [x] Define a new class in that file called `ApiClient`.
+      - [x] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
+      - [x] Export default a new instance of the `ApiClient` class
+      - [x] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
+      - [x] Create a utility method called `request` that uses `axios` to issue HTTP requests
+      - [x] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
+      - [x] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
+      - [x] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
       - [ ] **Add as many other methods as needed when making API requests**
 
-  - [ ] Create an **`auth`** context:
+  - [x] Create an **`auth`** context:
 
-    - [ ] First, create a `contexts` directory at the root of the project
-    - [ ] Inside it, touch the `contexts/auth.jsx` file
-    - [ ] In that file, define a new `AuthContext` with `React.createContext`
-    - [ ] Use that context to create an `AuthContextProvider` component
-      - [ ] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
+    - [x] First, create a `contexts` directory at the root of the project
+    - [x] Inside it, touch the `contexts/auth.jsx` file
+    - [x] In that file, define a new `AuthContext` with `React.createContext`
+    - [x] Use that context to create an `AuthContextProvider` component
+      - [x] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
       - [ ] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
         - [ ] That hook should check to see if a JWT token exists in local storage under the `lifetracker_token` key
           - [ ] If it does:
