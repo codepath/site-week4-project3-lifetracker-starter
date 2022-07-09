@@ -9,3 +9,18 @@ body {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --muted-purple: rgb(162, 143, 157);
+  --black-coffee: rgb(50, 41, 47);
+  --egg-shell: rgb(250, 243, 221);
+  --myrtle-green: rgb(29, 120, 116);
+  --wintergreen-dream: rgb(103, 146, 137);
+}
+
+i,
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
