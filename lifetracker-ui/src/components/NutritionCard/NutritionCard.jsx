@@ -1,10 +1,10 @@
 export default function NutritionCard({ name, calories, category, createdAt }) {
   return (
-    <div className="nutrition-feed">
-      <div>Name: {name}</div>
-      <div>Calories: {calories}</div>
-      <div>Category: {category}</div>
-      <div>createdAt: {createdAt} </div>
+    <div className="nutrition-card">
+      <p>Name: {name}</p>
+      <p>Calories: {calories}</p>
+      <p>Category: {category}</p>
+      <p>Date logged: {createdAt} </p>
     </div>
   );
 }

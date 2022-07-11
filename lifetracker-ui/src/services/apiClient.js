@@ -43,10 +43,6 @@ class ApiClient {
   async fetchUserFromToken() {
     return await this.request({ endpoint: `auth/me`, method: `GET` })
   }
-  
-  // async listActivities() {
-  //   return await this.request({ endpoint: `activities`, method: `GET` })
-  // }
 
   async listNutritions() {
     return await this.request({ endpoint: `nutrition`, method: `GET` })
@@ -54,6 +50,10 @@ class ApiClient {
 
   async createNutrition(nutrition) {
     return await this.request({ endpoint: `nutrition/create`, method: `POST`, data: nutrition})
+  }
+
+  async listActivity() {
+    return await this.request({ endpoint: `activity`, method: `GET` })
   }
 
   logoutUser() {

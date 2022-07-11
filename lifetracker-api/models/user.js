@@ -41,7 +41,6 @@ class User {
         // user should submit their email, pw
         // if any of those fields are missing, throw an error
         const requiredFields = ["password", "firstName", "lastName", "email", "username"]
-        console.log(credentials)
         requiredFields.forEach(field => {
             if(!credentials.hasOwnProperty(field)){
                 throw new BadRequestError(`Missing ${field} in request body.`)
@@ -85,7 +84,7 @@ class User {
                 email, 
                 username,
                 first_name,
-            last_name,
+                last_name,
                 password;
             `,[ 
                 lowercasedEmail, 

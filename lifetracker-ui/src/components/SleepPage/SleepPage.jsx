@@ -7,7 +7,6 @@ export default function SleepPage() {
   const [newSleep, setNewSleep] = useState(false);
   const handleNewSleepOnClick = () => {
     setNewSleep(true);
-    console.log("clicked");
   };
   return (
     <div className="sleep-page">

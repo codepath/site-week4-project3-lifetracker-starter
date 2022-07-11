@@ -1,15 +1,12 @@
 import NutritionCard from "../NutritionCard/NutritionCard";
 import { useNutritionContext } from "../../contexts/nutrition";
+import { useAuthContext } from "../../contexts/auth";
 
-export default function NutritionFeed() {
-  const { nutritions } = useNutritionContext();
-
-  console.log("NUTRITION FEED: ", nutritions);
-
+export default function NutritionFeed({ nutritions }) {
   return (
     <div className="nutrition-feed">
-      {nutritions?.nutritions ? (
-        nutritions.nutritions.map((n) => (
+      {nutritions ? (
+        nutritions.map((n) => (
           <NutritionCard
             name={n.name}
             calories={n.calories}
@@ -20,7 +17,6 @@ export default function NutritionFeed() {
       ) : (
         <h1 className="empty-message">Nothing here yet</h1>
       )}
-      <h1 className="empty-message">Nothing here yet</h1>
     </div>
   );
 }

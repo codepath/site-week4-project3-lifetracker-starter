@@ -89,7 +89,6 @@ export function ExerciseForm({ setNewExercise }) {
         setNewExercise(false);
       }
     } catch (err) {
-      console.log(err);
       const message = err?.response?.data?.error?.message;
       setErrors((e) => ({
         ...e,

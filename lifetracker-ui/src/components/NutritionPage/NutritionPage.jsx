@@ -3,6 +3,8 @@ import NutritionNew from "../NutritionNew/NutritionNew";
 import NutritionOverview from "../NutritionOverview/NutritionOverview";
 import NutritionDetail from "../NutritionDetail/NutritionDetail";
 import { Routes, Route } from "react-router-dom";
+import * as React from "react";
+
 import NotFound from "../NotFound/NotFound";
 
 export default function NutritionPage() {
@@ -15,7 +17,7 @@ export default function NutritionPage() {
         <Route path="/" element={<NutritionOverview />} />
         <Route path="/create" element={<NutritionNew />} />
         <Route path="/id/:nutritionId" element={<NutritionDetail />} />
-        <Route path="/*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

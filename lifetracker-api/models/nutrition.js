@@ -4,7 +4,6 @@ const { BadRequestError, NotFoundError } = require("../utils/errors")
 
 class Nutrition {
     static async createNutrition({user, nutrition}) {
-      console.log("User in create nutrition model: ", user)
       if (!nutrition) {
           throw new BadRequestError(`No nutrition sent.`)
       }
@@ -46,8 +45,6 @@ class Nutrition {
     }
     
     static async fetchNutritionById(id){
-      console.log("Fetch model nutrition user: ", user)
-
         if (!id) {throw new BadRequestError("No nutrition id provided")}
         const query = `SELECT * FROM nutrition WHERE id = $1`
         const result = await db.query(query, [id])
@@ -61,8 +58,6 @@ class Nutrition {
     }
     
     static async listNutritions({ user }) {
-      console.log("Fetch model nutrition user: ", user)
-
       const result = await db.query(
         `
         SELECT  n.id, 

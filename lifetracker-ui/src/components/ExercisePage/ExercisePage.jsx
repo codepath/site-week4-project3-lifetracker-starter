@@ -7,7 +7,6 @@ export default function ExercisePage() {
   const [newExercise, setNewExercise] = useState(false);
   const handleNewExerciseOnClick = () => {
     setNewExercise(true);
-    console.log("clicked");
   };
   return (
     <div className="exercise-page">

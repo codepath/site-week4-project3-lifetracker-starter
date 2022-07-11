@@ -2,13 +2,13 @@ import AccessForbidden from "../AccessForbidden/AccessForbidden";
 import { useAuthContext } from "../../contexts/auth";
 
 export default function ProtectedRoute({ element }) {
-  const { user, initialized } = useAuthContext();
-
-  if (!initialized) return null;
+  const { user, initialized, isProcessing } = useAuthContext();
+  if (isProcessing) {
+    return null;
+  }
 
   if (!user?.email) {
     return <AccessForbidden />;
   }
-
   return <>{element}</>;
 }

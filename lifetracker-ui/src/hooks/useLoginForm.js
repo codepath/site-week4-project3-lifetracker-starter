@@ -43,7 +43,6 @@ export const useLoginForm = ({user, setUser}) => {
       });
       if (data) {
         setUser(data.user);
-        fetchNutritions();
         apiClient.setToken(data.token);
       }
       if (error) {

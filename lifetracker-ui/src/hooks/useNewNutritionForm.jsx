@@ -21,7 +21,6 @@ export const useNewNutritionForm = () => {
   };
 
   const handleOnSubmit = async () => {
-    console.log("Step 1");
     setIsLoading(true);
     setErrors((e) => ({ ...e, form: null }));
     const newNutrition = {
@@ -32,8 +31,6 @@ export const useNewNutritionForm = () => {
       category: form.category,
     };
     const { data } = await apiClient.createNutrition(newNutrition);
-    console.log("Data from hook: ", data);
-    console.log("Nutrition: ", nutrition);
 
     setIsLoading(false);
   };

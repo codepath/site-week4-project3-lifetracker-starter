@@ -15,7 +15,6 @@ export const useRegistrationForm = ({ user, setUser}) => {
     });
 
     useEffect(() => {
-      console.log("REgustration email: ", user.email)
         if (user?.email) {
           navigate("/activity")
         }

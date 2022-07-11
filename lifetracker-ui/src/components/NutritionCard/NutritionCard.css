@@ -1,6 +1,6 @@
 .nutrition-card{
     width: 250px;
-    background: whitesmoke;
+    background: red;
     display: flex;
     flex-direction: column;
     border: solid 1px lightblue;

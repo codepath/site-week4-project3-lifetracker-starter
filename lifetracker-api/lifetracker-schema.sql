@@ -20,15 +20,5 @@ CREATE TABLE nutrition (
     created_at  TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE activities (
-    id          SERIAL PRIMARY KEY,
-    name        TEXT NOT NULL,
-    category    TEXT NOT NULL, 
-    calories    INTEGER NOT NULL,
-    image_url   TEXT NOT NULL,
-    quantity    INTEGER,
-    user_id     INTEGER NOT NULL,
-    created_at  TIMESTAMP NOT NULL DEFAULT NOW()
-);
 
 

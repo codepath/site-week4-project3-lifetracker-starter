@@ -2,6 +2,7 @@ import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth";
+import apiClient from "../../services/apiClient";
 import {
   NutritionContextProvider,
   useNutritionContext,
@@ -29,24 +30,39 @@ export default function AppContainer() {
   return (
     <AuthContextProvider>
       <NutritionContextProvider>
-        <App />
+        <ActivityContextProvider>
+          <App />
+        </ActivityContextProvider>
       </NutritionContextProvider>
     </AuthContextProvider>
   );
 }
 
 export function App() {
-  const { user } = useAuthContext();
-  const { setNutrition, fetchNutritions } = useNutritionContext();
-  // // useEffect(() => {
-  // //   const fetchNutritionList = async () => {
-  // //     if (error) {
-  // //       setError(error);
-  // //     }
-  // //   };
+  const { user, setUser, error, setError, setInitialized, setIsProcessing } =
+    useAuthContext();
 
-  //   fetchNutritionList();
-  // }, []);
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data } = await apiClient.fetchUserFromToken();
+      if (data) {
+        setUser(data.user);
+      }
+      setInitialized(true);
+      setIsProcessing(false);
+    };
+
+    const token = localStorage.getItem("lifetracker_token");
+
+    if (token) {
+      apiClient.setToken(token);
+      setIsProcessing(true);
+      setError(null);
+      fetchUser();
+    }
+
+    setInitialized(true);
+  }, []);
 
   return (
     <div className="app">
@@ -73,7 +89,7 @@ export function App() {
               path="/sleep"
               element={<ProtectedRoute element={<SleepPage />} />}
             />
-            <Route path="/*" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </React.Fragment>
