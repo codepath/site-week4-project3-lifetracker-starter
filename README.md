@@ -552,7 +552,6 @@ Here are the pieces of functionality that should be built out for the backend:
           - [ ] Actions that should occur after all tests in a particular file run.
           - [ ] This should include things like ending any open database client connections
   - [ ] Commit all work to `git`
-  - [ ] In any new test file, make sure to import these functions and use them with the correct `jest` lifecycle hooks
 - **Authentication**
   - [ ] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
   - [ ] Add new directories for `models`, `routes`, and `middleware`

@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "Express backend for the LifeTracker application",
   "main": "server.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "start": "nodemon --ignore 'db/*' server.js",
+    "dev-win": "set NODE_ENV=dev && nodemon --ignore 'db/*' server.js",
+    "dev": "NODE_ENV=dev nodemon --ignore 'db/*' server.js"
+  },
   "dependencies": {},
   "devDependencies": {}
 }
