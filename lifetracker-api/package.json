@@ -9,5 +9,8 @@
     "dev": "NODE_ENV=dev nodemon --ignore 'db/*' server.js"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.16.0"
+  }
 }
