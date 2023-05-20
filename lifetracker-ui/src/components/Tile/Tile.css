@@ -1,0 +1,16 @@
+.Tile {
+  border-radius: 10px;
+  background: white;
+  width: calc(50% - 10px);
+  padding: 16px;
+  min-width: 80px;
+  min-width: 250px;
+  min-height: 250px;
+  margin-bottom: 16px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: rgba(9, 6, 74, 0.15) 0px 2px 34px 0px;
+}
+.Tile:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
