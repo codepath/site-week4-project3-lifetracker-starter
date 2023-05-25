@@ -7,14 +7,14 @@ require("colors")
 
 const SECRET_KEY = process.env.SECRET_KEY || "secret-dev"
 
-const PORT = +process.env.PORT || 3001
+const PORT = process.env.PORT || 3001
 const IS_TESTING = process.env.NODE_ENV === "test"
 
 // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {
   const dbUser = process.env.DATABASE_USER || "postgres"
   const dbPass = process.env.DATABASE_PASS ? encodeURI(process.env.DATABASE_PASS) : "postgres"
-  const dbHost = process.env.DATABASE_HOST || "local"
+  const dbHost = process.env.DATABASE_HOST || "localhost"
   const dbPort = process.env.DATABASE_PORT || 5432
   const dbTestName = process.env.DATABASE_TEST_NAME || "lifetracker_test"
   const dbProdName = process.env.DATABASE_NAME || "lifetracker"

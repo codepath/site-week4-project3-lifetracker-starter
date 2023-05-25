@@ -1,15 +1,10 @@
-import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-export default defineConfig((envConfig) => ({
-  plugins: [
-    react({
-      include: ["./src/index.jsx"],
-    }),
-  ],
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
   server: {
-    port: 3000,
-    open: true,
-    host: true,
+    host: '0.0.0.0'
   },
-}))
+})
