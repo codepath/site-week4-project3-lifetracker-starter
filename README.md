@@ -4,105 +4,53 @@
 
 > Data is the new oil - Clive Humbly
 
-Everywhere around us is data waiting to be collected and utilized. In recent years we've seen the rise of applications and services that exist to quantify concepts that were previously hard to capture. FitBit, Apple Health, and Woop are all $1 billion dollar services to offer tracking statistics about how we live our lives. The LifeTracker app you'll be building will do exactly that - track your life by quantifying your activity.
-
-This application will be built using the battle-tested PERN stack - PostgreSQL, Express, React, and Node.
+Everywhere around us is data waiting to be collected and utilized. In recent years, we've seen the rise of applications and services that exist to quantify concepts that were previously hard to capture. FitBit, Apple Health, and Woop are all $1 billion dollar services to offer tracking statistics about how we live our lives. The LifeTracker app you'll be building will do exactly that - track your life by quantifying your activity.
 
 ## Goals
 
-Building this application you will accomplish the following:
+By the end of this project you will be able to...
 
-- [ ] Develop a full-fledged authentication system using PostgreSQL and Bcrypt
+- [ ] Develop a full-fledged authentication system using PostgreSQL and `bcrypt`
 - [ ] Provide users with an Express API they can interact with to store user-related activity
-- [ ] Construct multiple Models that implement the core business logic associated with tracking users' lives
+- [ ] Construct multiple models that implement the core business logic associated with tracking users' lives
 - [ ] Write SQL queries that aggregate user statistics and provide summary overviews about their activity
 - [ ] Design a React frontend that interacts with the API using an API service class
 - [ ] Build multiple pages and forms that communicate with the server using HTTP requests
+- [ ] Employ `useEffect` and `useState` hooks to manage application state on the frontend
 - [ ] Store user-authenticated JWT tokens in the browser's local storage for persisted authentication
-- [ ] Employ useEffect and useState hooks to manage application state on the frontend
 
 ## Application Features
 
-This assignment asks SITE interns to accomplish the following:
+### Core Features
 
-### Frontend
+- [ ] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
+- [ ] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
+- [ ] **Login Page:** A form that allows users to login with email and password.
+- [ ] When a user first authenticates, they should be redirected to an authenticated view (i.e., the detailed activity page). When they sign out, all frontend data should be reset.
+- [ ] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
+  - [ ] If the user is logged in, it should display a **Sign Out** button.
+  - [ ] If no user is logged in, it should display **Login** and **Register** buttons.
+  - [ ] Display a logo on the far left side, and contain links to the individual detailed activity pages.
+- [ ] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
+- [ ] **Detailed Activity Page:** Display and enter activities.
+  - [ ] Display a feed of all previously tracked activities.
+  - [ ] A form to enter relevant information (i.e., if tracking nutrition, the user can enter calories, timestamp, image, category, etc.).
+  - [ ] Each activity tracked is given a unique ID for easy lookup.
+- [ ] Deploy your website with Render. Check out our [Render Deployment Guide](https://courses.codepath.org/snippets/site/render_deployment_guide) for detailed instructions.
 
-### React UI
+### Stretch Features
 
-For the React frontend, Site interns will be building a number of components. Make sure to keep the same component structure as the starter code, as that is how the tests will know where to find each component.
+Implement any of the following features to improve the application:
 
-In general, the components directory should resemble:
+- [ ] Users have access to an overview Activity page that shows one summary statistic about each of the three types of activity tracked (i.e., total number of minutes exercised, average calories consumed, max hours of sleep in one night, etc.). These summary statistics should be created using the `AVG`, `SUM`, `COUNT`, `MIN`, `MAX`, functions in SQL queries and served from a dedicated API endpoint. *Note: Summary statistics should not be calculated on the frontend.*
+- [ ] Each model (i.e `nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource.
+  - You should also create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
+- [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item. Example: filter exercise or nutrition by category, or filter sleep by the week/month it was recorded.
+- [ ] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
+- [ ] Create a page that shows all other users that use the LifeTracker application and allow users to follow each other. You'll want to create a new table to store this data.
+- [ ] Implement `security` middleware on the API that allows only authenticated users to access resources and allows users to only access resources about themselves.
 
-```text
-│
-└── components
-    └── App
-        │
-        ├── Landing
-        │   └── Landing.jsx
-        │   └── Landing.css
-
-        ... other components
-
-        ├── Navbar
-        │   └── Navbar.jsx
-        │   └── Navbar.css
-        ├── NutritionPage
-        │   └── NutritionPage.jsx
-        │   └── NutritionPage.css
-
-        ... other components
-
-```
-
-> NOTE: Each components should be exported from the file as the `default` export!
-
-The components in the `App.jsx` file should render the following components (along with any others that might be needed):
-
-```text
-│
-└── App
-    │
-    ├── Navbar (all routes)
-    │   ├── Logo
-    │   └── NavLinks
-    │
-    ├── LandingPage (the `/` route)
-    ├── LoginPage (the `/login` route)
-    │   └── LoginForm
-    ├── RegistrationPage (the `/register` route)
-    │   └── RegistrationForm
-    │
-    ├── ActivityPage (the `/activity` route)
-    │   ├── SummaryStat
-    │   ├── SummaryStat
-    │   ├── ... as many as needed
-    │   └── SummaryStat
-    │
-    ├── NutritionPage (the `/nutrition` route, which renders more nested routes)
-    │   ├── NutritionOverview (the main component rendered at the `/nutrition` route)
-    │   │   └── NutritionFeed
-    │   │       ├── NutritionCard
-    │   │       ├── NutritionCard
-    │   │       ├── ... as many as needed
-    │   │       ├── NutritionCard
-    │   │       └── NutritionCard
-    │   │
-    │   ├── NutritionNew (rendered at the `/nutrition/create` route)
-    │   │   └── NutritionForm
-    │   │
-    │   ├── NutritionDetail (rendered at the `/nutrition/id/:nutritionId` route)
-    │   │   └── NutritionCard
-    │   │   └── NotFound (only if no `nutrition` with that `nutritionId` exists)
-    │   │
-    │   └── NotFound (all other routes that don't match any of the nested routes)
-    │
-    └── NotFound (all other routes that don't match)
-
-```
-
-> **IMPORTANT**:
-> NOTE - Make sure that each component can render without crashing, even when none of the required props are provided! Components will be rigorously tested using only a few props. So, to ensure that all the tests pass, either add default props to components where needed, or check that certain props exist before rendering JSX that depends on them.
+### Building the app
 
 - To build out the front-end, start with the `App.jsx` component:
 
@@ -115,14 +63,14 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] `/login` - Should render the `LoginPage.jsx` component
       - [ ] `/register` - Should render the `RegistrationPage.jsx` component
       - [ ] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
-      - [ ] `/nutrition/* - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
+      - [ ] `/nutrition/*` - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
       - [ ] `*` - anything else should render the `NotFound` component
-  - [ ] To standarize API requests throughout the application, set up an **`ApiClient`** class
+  - [ ] To standardize API requests throughout the application, set up an **`ApiClient`** class
 
     - [ ] Start by creating a `constants.js` file at the root of the project
       - [ ] In it, export a few variables:
-      - [ ] `PRODUCTION_API_BASE_URL` - set to whatever url the production API is deployed at
-      - [ ] `DEVELOPMENT_API_BASE_URL` - set to "http://localhost:3001" for development
+      - [ ] `PRODUCTION_API_BASE_URL` - set to whatever URL the production API is deployed at
+      - [ ] `DEVELOPMENT_API_BASE_URL` - set to `"http://localhost:3001"` for development
       - [ ] `API_BASE_URL` - if `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
     - [ ] Next, create a `services` directory at the root of the project
     - [ ] Inside that directory, touch an `apiClient.js` file
@@ -201,7 +149,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] `password`
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
       - [ ] `name` - the `name` of the `input` field being rendered (`email`, `password`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
       - [ ] `value` - the current value of the `input` element
       - [ ] `onChange` - the `onChange` handler function
     - [ ] The component should validate the `email` field:
@@ -232,7 +180,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] `passwordConfirm`
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
       - [ ] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
       - [ ] `value` - the current value of the `input` element
       - [ ] `onChange` - the `onChange` handler function
     - [ ] The component should validate the `email` field:
@@ -263,7 +211,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`activity`** context
 
-    - [ ] Create a file in the `contexts directory - `/contexts/activity.jsx`
+    - [ ] Create a file in the `contexts` directory - `/contexts/activity.jsx`
     - [ ] In that file, define a new `ActivityContext` with `React.createContext`
     - [ ] Use that context to create an `ActivityContextProvider` component
       - [ ] The `ActivityContextProvider` component should create state variables and updaters needed for `activity`, `initialized`, `isLoading`, and `error`.
@@ -322,7 +270,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`nutrition`** context
 
-    - [ ] Create a file in the `contexts directory - `/contexts/nutrition.jsx`
+    - [ ] Create a file in the `contexts` directory - `/contexts/nutrition.jsx`
     - [ ] In that file, define a new `NutritionContext` with `React.createContext`
     - [ ] Use that context to create a `NutritionContextProvider` component
       - [ ] The `NutritionContextProvider` component should create state variables and updaters needed for `nutritions`, `initialized`, `isLoading`, and `error`.
@@ -354,8 +302,8 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-overview`
     - [ ] It should call the `useNutritionContext` hook and extract all the necessary data from it.
       - [ ] If the `error` state variable has a valid string in it, it should render the `error` message inside an element with the `className` of `error`
-      - [ ] If the `isLoading` boolean is `true`, it should render the `Loading.jsx` component
-      - [ ] If the `isLoading` boolean is `false`, it should render the `NutritionFeed.jsx` component and pass it the appropriate props
+      - [ ] If `isLoading` is `true`, it should render the `Loading.jsx` component
+      - [ ] If `isLoading` is `false`, it should render the `NutritionFeed.jsx` component and pass it the appropriate props
     - [ ] Near the top of the component, it should render a `Link` component that directs to the `/nutrition/create` route and contains the text: `"Record Nutrition"`
 
   - [ ] The **`NutritionFeed.jsx`** component:
@@ -382,7 +330,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] `category` - the category that this nutrition item belongs to, like fruit, meat, soda, snack, nuts, etc. (defaults to an empty string)
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
       - [ ] `name` - the `name` of the `input` field being rendered (`name`, `calories`, `imageUrl`, `category`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
       - [ ] `value` - the current value of the `input` element
       - [ ] `onChange` - the `onChange` handler function
     - [ ] The component should gracefully handle errors:
@@ -391,17 +339,17 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] There should be a `button` element with the `className` of `submit-nutrition`:
       - [ ] It should contain the text `"Save"`
       - [ ] When clicked, it should call a function that creates a new nutrition entry
-    - [ ] After the form has been succesfully submitted:
+    - [ ] After the form has been successfully submitted:
       - [ ] Ensure that the new nutrition entry is stored in the `nutrition` context's `nutritions` array and is displayed in the `NutritionFeed.jsx` component
-      - [ ] Refetch the `activity` data so that new summary stats will be calculated
+      - [ ] Fetch the `activity` data again so that new summary stats will be calculated
 
   - [ ] The **`NutritionDetail.jsx`** component:
 
     - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-detail`
-    - [ ] It should leverage the `useParams` hook from `react-router-dom` to extract the `nutritionId` param from the url
+    - [ ] It should leverage the `useParams` hook from `react-router-dom` to extract the `nutritionId` param from the URL
     - [ ] When the component is mounted to the screen...
       - [ ] It should make a `GET` request to the `/nutrition/:nutritionId` endpoint with the `axios.get` method.
-      - [ ] The `:nutritionId` part of the request should be replaced with the `nutritionId` pulled from the url.
+      - [ ] The `:nutritionId` part of the request should be replaced with the `nutritionId` pulled from the URL.
       - [ ] When the initial request is loading, it should render an `h1` element with the `className` of `loading` and contain the text `"Loading..."`
       - [ ] It should store the `nutrition` received by the request in state and then render a `NutritionCard.jsx` component for that nutrition.
       - [ ] If no `nutrition` is found with that `id`, it should render the `NotFound.jsx` component
@@ -436,11 +384,9 @@ The components in the `App.jsx` file should render the following components (alo
 
 ### API
 
-Note that when developing the backend, SITE interns will be asked to write tests for each API feature. However, the test suite will NOT be checking to see if actual tests have been written. These tests are only there to guide development. The features themselves are what will be evaluated.
-
 Here are the pieces of functionality that should be built out for the backend:
 
-- **Project setup**
+- [ ] **Project setup**
   - [ ] First things first, bootstrap the Express application with some essential files and starter code
   - [ ] Create a `.gitignore` file, an `app.js` file, an `app.test.js` file, and a `server.js` file
   - [ ] Make sure `node_modules` are added to the `.gitignore` file.
@@ -477,7 +423,7 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] Write a `getDatabaseUri` function so that all the tests pass
   - [ ] Commit all work to `git`
   - [ ] The project should now be ready to go!
-- **PostgreSQL database**
+- [ ] **PostgreSQL database**
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
   - Create two files at the root of the project:
@@ -503,20 +449,20 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] **Any other tables** that the application might depend on
     - [ ] `lifetracker.sql`
       - [ ] This script should:
-        - [ ] 1. Let the user know that they're about to delete the `lifetracker` db and prompt them to confirm that is what they want.
+        - [ ] 1. Let the user know that they're about to delete the `lifetracker` database and prompt them to confirm that is what they want.
         - [ ] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
         - [ ] 3. It should then run the `lifetracker-schema.sql` file.
         - [ ] Follow the exact same steps for `1`, `2`, and `3`, but with the `lifetracker_test` database.
   - [ ] Setup the database by running `psql -f lifetracker.sql`
   - [ ] Create a new file at the root of the project called `db.js`. In that file:
     - [ ] Import the `getDatabaseUri` function from the `config.js` file.
-    - [ ] Initialize a new postgres client with the `pg` package and connect to PostgreSQL using any necessary config variables.
-    - [ ] Connect to postgres and log a message to the terminal on success or failure.
+    - [ ] Initialize a new PostgreSQL client with the `pg` package and connect to PostgreSQL using any necessary config variables.
+    - [ ] Connect to PostgreSQL and log a message to the terminal on success or failure.
     - [ ] Export the connected database client
   - [ ] Commit all work to `git`
   - [ ] A database client is now ready to be used!
-- **Server**
-  - [ ] Build out a bare-bones Express server with a healthcheck route and an adequate middleware pipeline.
+- [ ] **Server**
+  - [ ] Build out a bare-bones Express server with a health check route and an adequate middleware pipeline.
   - [ ] Create a `utils` directory
     - [ ] In the `utils` directory, create an `errors.js` file.
     - [ ] Create error classes inside the file that will be used throughout the app.
@@ -526,13 +472,13 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] Include an `afterAll` hook that calls `await db.end()` so that any open database connections close when all the tests are finished.
   - [ ] Add code to the `app.js` and `server.js` file to get a simple server running along with responding to `GET` requests to the `/` route
   - [ ] Create error classes inside the `utils/errors.js` file.
-  - [ ] Add `404` and generic error handler middlewares to the `app.js` file.
+  - [ ] Add `404` and generic error handler middleware to the `app.js` file.
   - [ ] In the `server.js` file:
     - [ ] Import the Express app and the `config.js` file
     - [ ] Have the `app` listen on the port specified by `config.PORT`.
   - [ ] Commit all work to `git`
   - [ ] Test out the fancy new Express server by starting it up in a new terminal window!
-- **Common Test Configuration**
+- [ ] **Common Test Configuration**
   - [ ] It would probably be helpful to create some common test functions that can be used throughout the application's testing suite.
   - [ ] Create a new directory called `tests`
   - [ ] Now, touch a new file at `tests/common.js`
@@ -552,7 +498,7 @@ Here are the pieces of functionality that should be built out for the backend:
           - [ ] Actions that should occur after all tests in a particular file run.
           - [ ] This should include things like ending any open database client connections
   - [ ] Commit all work to `git`
-- **Authentication**
+- [ ] **Authentication**
   - [ ] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
   - [ ] Add new directories for `models`, `routes`, and `middleware`
   - [ ] The **User** model
@@ -631,7 +577,7 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Test the `POST /auth/login` endpoint
         - [ ] Write test cases for:
           - [ ] Allows user to register with valid credentials and responds with JSON containing a valid token and user in the "token" and "user" fields
-          - [ ] Throws `UnauthorizedError` when user doesn't exist in db
+          - [ ] Throws `UnauthorizedError` when user doesn't exist in database
           - [ ] Throws `UnauthorizedError` when user provides wrong password
           - [ ] Throws `BadRequestError` when user doesn't provide password
           - [ ] Throws `BadRequestError` when user doesn't provide email
@@ -652,7 +598,7 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] Mount the router at the `/auth` endpoint
   - [ ] Commit all work to `git`
   - [ ] There should now be a full-fledged authentication system in place!
-- **Resources and Permissions**
+- [ ] **Resources and Permissions**
   - [ ] Next, implement the functionality to allow users to save instances of things they've drank/eaten, so that they can track their own nutrition data! Also make sure users can only access the data that they themselves have created. No other user should be able to see any data owned by another user!
   - [ ] The **Nutrition** model
     - [ ] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
@@ -690,13 +636,13 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] Query the database for that nutrition instance
         - [ ] Check that it is owned by the authenticated user
           - [ ] If it doesn't, it should throw a `ForbiddenError` (`403` status code)
-          - [ ] If the nutrition instance does belong to the authed user, it should attach it to the `locals` property of the `response` as its `nutrition` property so that it doesn't need to be fetched again by the database (this isn't required, but is probably a good idea).
+          - [ ] If the nutrition instance does belong to the authenticated user, it should attach it to the `locals` property of the `response` as its `nutrition` property so that it doesn't need to be fetched again by the database (this isn't required, but is probably a good idea).
     - [ ] In the `middleware/permissions.test.js` file:
       - [ ] Test the `authedUserOwnsNutrition` middleware function
         - [ ] Write test cases for:
-          - [ ] Throws error if authed user doesn't own nutrition
+          - [ ] Throws error if authenticated user doesn't own nutrition
           - [ ] Throws `NotFoundError` if `id` of nutrition isn't found in database
-          - [ ] Doesn't throw error if authed user is nutrition owner
+          - [ ] Doesn't throw error if authenticated user is nutrition owner
           - [ ] (OPTIONAL) Attaches the `nutrition` to the `locals` property of the response when the user owns the nutrition instance
     - [ ] In the `middleware/permissions.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
@@ -733,7 +679,7 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`
 - **Additional Resources**
-  - [ ] Create model and routes files for 1-2 additional resources that your app will track (sleep, exercise, steps, floors climbed, meditation, mood, heartrate, music practice, etc)
+  - [ ] Create model and routes files for 1-2 additional resources that your app will track (sleep, exercise, steps, floors climbed, meditation, mood, heartrate, music practice, etc.)
   - [ ] Commit all work to `git`
 - **Summary Statistics**
   - [ ] One of the last features of the API will be a model that calculates summary statistic on the different resources that users are tracking. This includes statistics like average calories per day, or max calories per category. To do that, we'll create a new `Activity` model and an `activity` route that will be used to populate the frontend.
@@ -742,7 +688,7 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] The `Activity` model should have **at least** the following static methods:
         - [ ] `calculateDailyCaloriesSummaryStats`
           - [ ] Should execute a SQL query that calculates **at least** the total calories consumed per day (aliased as `totalCaloriesPerDay`), along with the day (aliased as `date`).
-          - [ ] The query should return a row for **each day** containing the total calories consumed per day, and the average calric content per nutrition entry.
+          - [ ] The query should return a row for **each day** containing the total calories consumed per day, and the average caloric content per nutrition entry.
             - [ ] For instance, here's a set of 7 **simplified** nutrition item entries (actual data will look different):
               - 1. `{ id: 1, user_id: 1, calories: 100, category: "candy", created_at: "12-22-2022" }`
               - 2. `{ id: 2, user_id: 1, calories: 200, category: "drink", created_at: "12-22-2022" }`
@@ -757,7 +703,7 @@ Here are the pieces of functionality that should be built out for the backend:
               - 3. `{ date: "12-24-2022", totalCaloriesPerDay: 800 }`
         - [ ] `calculatePerCategoryCaloriesSummaryStats`
           - [ ] Should execute a SQL query that calculates **at least** the average calories consumed per category (aliased as `avgCaloriesPerCategory` and **rounded down to one decimal place**), along with the category (aliased as `category`).
-          - [ ] The query should return a row for **each day** containing the total calories consumed per day, and the average calric content per nutrition entry.
+          - [ ] The query should return a row for **each day** containing the total calories consumed per day, and the average caloric content per nutrition entry.
             - [ ] For instance, here's a set of 7 **simplified** nutrition item entries (actual data will look different):
               - 1. `{ id: 1, user_id: 1, calories: 100, category: "candy", created_at: "12-22-2022" }`
               - 2. `{ id: 2, user_id: 1, calories: 200, category: "drink", created_at: "12-22-2022" }`
@@ -800,7 +746,3 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] In the `routes/activity.js` file:
       - [ ] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`
-
-## Wrapping Up and Resources
-
-This is a huge project and represents a complete application with user-owned resources. Accordingly, it can, should, and will test the limits of your capabilities. Do your best and don't be afraid to Google! Especially in regards to any SQL that might be tricky.
