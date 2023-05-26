@@ -1,0 +1,6 @@
+.ExercisePage .button {
+  display: flex;
+}
+.ExercisePage .button button {
+  flex: 1;
+}
