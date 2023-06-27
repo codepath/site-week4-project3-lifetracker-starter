@@ -1,0 +1,56 @@
+.Hero {
+
+
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(7, 135, 88);
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-right: 140px;
+    margin-left: 140px;
+    
+}
+
+.Hero h2{
+
+margin: 0;
+text-align: left;
+margin-left: 60px;
+
+}
+
+.Hero h6{
+
+    margin: 0;
+    text-align: left;
+    margin-left: 60px;
+    font-size: 16pt;
+
+
+
+}
+
+.hero-content{
+
+    display: flex;
+    flex-direction: row;
+}
+
+.hero-paragraphs{
+
+    margin-right: 90px;
+    width: 80%;
+}
+
+.hero-img{
+
+    justify-content: center;
+    margin-top: 80px;
+    width: 120px;
+    height: 120px;
+    margin-right: 40px;
+}
+
