@@ -3,6 +3,8 @@ import * as React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
+import LoginPage from "../LoginPage/LoginPage";
+import RegistrationPage from "../RegistrationPage/RegistrationPage";
 
 export default function App() {
   return (
@@ -13,12 +15,12 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegistrationPage />} />
-          <Route path="/activity" element={<ActivityPage />} />
+         <Route path="/register" element={<RegistrationPage/>} />
+          {/* <Route path="/activity" element={<ActivityPage />} />  */}
           {/* <Route path="/activity" element={<AccessForbidden />} />  only if the user is NOT logged in*/}
-          <Route path="/nutrition/*" element={<NutritionPage />} />
+          {/* <Route path="/nutrition/*" element={<NutritionPage />} />
           <Route path="/nutrition/*" element={<AccessForbidden />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

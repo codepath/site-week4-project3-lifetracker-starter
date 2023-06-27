@@ -1,0 +1,291 @@
+.css-9cjjy5 {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.css-15xvz01 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: var(--chakra-space-2);
+}
+
+.css-11g7hql:not([data-loaded]) {
+    --avatar-background: var(--chakra-colors-gray-400);
+}
+
+.css-11g7hql {
+    border-radius: var(--chakra-radii-full);
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: var(--chakra-fontWeights-medium);
+    position: relative;
+    flex-shrink: 0;
+    color: var(--chakra-colors-white);
+    --avatar-border-color: var(--chakra-colors-white);
+    border-color: var(--avatar-border-color);
+    vertical-align: top;
+    width: var(--chakra-sizes-12);
+    height: var(--chakra-sizes-12);
+    font-size: calc(1.2rem);
+    background: var(--chakra-colors-teal-500);
+}
+
+.css-16ite8i {
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+}
+
+.css-15xvz01 > :not(style) ~ :not(style) {
+    margin-top: 0.5rem;
+    margin-inline: 0px;
+    margin-bottom: 0px;
+}
+
+.css-3q8efk {
+    font-size: var(--chakra-fontSizes-4xl);
+    line-height: 1.2;
+}
+
+.css-3q8efk {
+    font-family: var(--chakra-fonts-heading);
+    font-weight: var(--chakra-fontWeights-bold);
+    font-size: var(--chakra-fontSizes-3xl);
+    line-height: 1.33;
+    color: var(--chakra-colors-teal-400);
+}
+
+.css-15xvz01 > :not(style) ~ :not(style) {
+    margin-top: 0.5rem;
+    margin-inline: 0px;
+    margin-bottom: 0px;
+}
+
+.css-ebzegt {
+    min-width: 468px;
+}
+
+.css-1opnp10 {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--chakra-colors-whiteAlpha-900);
+    box-shadow: var(--chakra-shadows-md);
+}
+
+.css-1kxonj9 {
+    width: 100%;
+    position: relative;
+}
+
+.css-bx0blc {
+    width: 100%;
+    display: flex;
+    position: relative;
+    isolation: isolate;
+}
+
+
+.css-1cw84h2 {
+    left: 0px;
+    width: var(--chakra-sizes-10);
+    height: var(--chakra-sizes-10);
+    font-size: var(--chakra-fontSizes-md);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.css-119zpey {
+    color: var(--chakra-colors-gray-300);
+}
+
+.css-trvw4f {
+    width: 100%;
+    min-width: 0px;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    appearance: none;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    font-size: var(--chakra-fontSizes-md);
+    padding-inline-start: var(--chakra-space-10);
+    padding-inline-end: var(--chakra-space-4);
+    height: var(--chakra-sizes-10);
+    border-radius: var(--chakra-radii-md);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: inherit;
+    background: inherit;
+}
+
+.css-1opnp10 > :not(style) ~ :not(style) {
+    margin-top: var(--chakra-space-4);
+    margin-inline: 0px;
+    margin-bottom: 0px;
+}
+
+.css-1kxonj9 {
+    width: 100%;
+    position: relative;
+}
+
+.css-bx0blc {
+    width: 100%;
+    display: flex;
+    position: relative;
+    isolation: isolate;
+}
+
+.css-17ke578 {
+    left: 0px;
+    width: var(--chakra-sizes-10);
+    height: var(--chakra-sizes-10);
+    font-size: var(--chakra-fontSizes-md);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    pointer-events: none;
+    color: var(--chakra-colors-gray-300);
+}
+
+.css-119zpey {
+    color: var(--chakra-colors-gray-300);
+}
+
+.css-67vh0 {
+    width: 100%;
+    min-width: 0px;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    appearance: none;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    font-size: var(--chakra-fontSizes-md);
+    padding-inline-start: var(--chakra-space-10);
+    padding-inline-end: var(--chakra-space-10);
+    height: var(--chakra-sizes-10);
+    border-radius: var(--chakra-radii-md);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: inherit;
+    background: inherit;
+}
+
+.css-1qww07b {
+    right: 0px;
+    height: var(--chakra-sizes-10);
+    font-size: var(--chakra-fontSizes-md);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    width: 4.5rem;
+}
+
+.show-button {
+    display: inline-flex;
+    appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    line-height: 1.2;
+    border-radius: var(--chakra-radii-md);
+    font-weight: var(--chakra-fontWeights-semibold);
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    min-width: var(--chakra-sizes-8);
+    font-size: var(--chakra-fontSizes-sm);
+    padding-inline-start: var(--chakra-space-3);
+    padding-inline-end: var(--chakra-space-3);
+    background: var(--chakra-colors-gray-100);
+    height: 1.75rem;
+    border-color: white;
+}
+
+.css-4lvvxn {
+    display: inline-flex;
+    appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    line-height: 1.2;
+    font-weight: var(--chakra-fontWeights-semibold);
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    height: var(--chakra-sizes-10);
+    min-width: var(--chakra-sizes-10);
+    font-size: var(--chakra-fontSizes-md);
+    padding-inline-start: var(--chakra-space-4);
+    padding-inline-end: var(--chakra-space-4);
+    background: var(--chakra-colors-teal-500);
+    color: var(--chakra-colors-white);
+    border-radius: 0px;
+    width: var(--chakra-sizes-full);
+}
+
+.css-1opnp10 > :not(style) ~ :not(style) {
+    margin-top: var(--chakra-space-4);
+    margin-inline: 0px;
+    margin-bottom: 0px;
+}
+
+.footer{
+
+    font-family: var(--chakra-fonts-heading);
+}
+
+.sign-up{
+
+    color: var(--chakra-colors-teal-400)
+}
+
+
+
