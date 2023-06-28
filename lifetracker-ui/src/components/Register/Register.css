@@ -1,0 +1,91 @@
+.register {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#register-icon {
+  margin: 0 auto;
+  color: var(--stark);
+  font-size: xx-large;
+  border-radius: 50%;
+}
+
+#register-form {
+  margin: 0 auto;
+  width: 100%;
+  max-height: 300px;
+}
+
+.register-input {
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  padding-left: 10px;
+  border: none;
+}
+
+::placeholder {
+  color: var(--dark-theme);
+  font-size: 15px;
+}
+
+#first-name,
+#last-name {
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  padding-left: 10px;
+  border: none;
+}
+#first-name {
+  width: 38%;
+}
+#last-name {
+  width: 38%;
+  margin-left: 5px;
+}
+
+.register-button {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 81%;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+.register-button button {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 13%;
+  background-color: var(--jewel);
+  color: white;
+  border: none;
+}
+.register-button button:hover,
+#register-signup:hover {
+  cursor: pointer;
+  background-color: var(--dark-theme);
+  border: solid 3px var(--jewel);
+}
+
+.button-input {
+  flex-grow: 2;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-left: 10px;
+  border: none;
+}
+
+#register-signup {
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--jewel);
+  color: white;
+  font-size: medium;
+  cursor: pointer;
+}
