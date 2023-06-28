@@ -1,14 +1,27 @@
 require('dotenv').config()
 require('colors')
 
-const PORT = process.env.PORT || 3000
-// const IS_TESTING = process.env.NODE_ENV == "test";
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
+const IS_TESTING = process.env.NODE_ENV == "test";
 
 function getDatabaseUri() {
-    const dbUser = process.env.DATABASE_USER
-    const dbPass = process.env.DATABASE_PASS
-    const dbHost = process.env.DATABASE_HOST
-    const dbPort = process.env.DATABASE_PORT
-    const dbName = process.env.DATABASE_NAME
+    const dbUser = process.env.DATABASE_USER || "postgres"
+    const dbPass = process.env.DATABASE_PASS ? encodeURI(process.env.DATABASE_PASS) : "postgres"
+    const dbHost = process.env.DATABASE_HOST || "local"
+    const dbPort = process.env.DATABASE_PORT || 5432
+    const dbName = process.env.DATABASE_NAME || "lifetracker"
+
+    return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
 }
 
+console.log("Vaccine Hub Config:".red)
+console.log("PORT:".blue, PORT)
+console.log("BCRYPT_WORK_FACTOR".blue, BCRYPT_WORK_FACTOR)
+console.log("Database:".blue, getDatabaseUri())
+console.log("---")
+
+const BCRYPT_WORK_FACTOR = IS_TESTING ? 1 : 13
+module.exports = {
+    PORT,
+    getDatabaseUri
+}

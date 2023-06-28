@@ -22,10 +22,10 @@ class BadRequestError extends ExpressErrors {
     }
 }
 
-/**502 Bad Gateway Error */
-class BadGatewayError extends ExpressErrors {
-    constructor(message="Bad Gateway"){
-        super(message, 502)
+/**403 Error */
+class ForbiddenError extends ExpressErrors {
+    constructor(message="Forbidden"){
+        super(message, 403)
     }
 }
 
@@ -35,3 +35,19 @@ class UnauthorizedError extends ExpressErrors {
         super(message, 401)
     }
 }
+
+/** 422 Unprocessable Entity error */
+class UnprocessableEntityError extends ExpressError {
+    constructor(message = "Unprocessable Entity") {
+      super(message, 422)
+    }
+  }
+
+module.exports = {
+    ExpressError,
+    BadRequestError,
+    UnauthorizedError,
+    ForbiddenError,
+    NotFoundError,
+    UnprocessableEntityError,
+  }

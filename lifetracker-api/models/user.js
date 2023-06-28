@@ -1,26 +1,33 @@
 const db = require('../db')
 const bcrypt = require('bcrypt')
-const config = require('../config')
+const { BadRequestError, UnauthorizedError } = require('../utils/errors')
+const { validateFields } = require('../utils/validate')
 
 class Users {
     static _createPublicUser(user) {
-        // return (
-        //     id: user.id,
-        //     firstName: user.firstName,
-        //     lastName: user.lastName,
-        //     email: user.email,
-        //     location: user.location,
-        //     date: user.date
-        // )
+        return {
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            location: user.location,
+            date: user.date
+        }
     }
     static authenticate(creds) {
         const { email, password } = creds
+        const requiredCreds = ["email", "password"]
         //try this
-        if(user) {
-            //compare the user pw
-                //bcrypt.compare(password, user.password)
-            //if true, 
-                //return user
+        try {
+            validateFields({required: requiredCreds, obj: creds, location: "user authentication" })
+            if(user) {
+                //compare the user pw
+                    //bcrypt.compare(password, user.password)
+                //if true, 
+                    //return user
+            }
+        } catch (err) {
+
         }
         //throw unauthorized error after try
     }
