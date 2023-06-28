@@ -14,6 +14,14 @@ class Users {
             date: user.date
         }
     }
+    static async getName(name){
+        try {
+            const result = await db.query('SELECT name FROM user WHERE name = $1', [name])
+            return result
+        } catch (error) {
+            console.error({error})
+        }
+    }
     static authenticate(creds) {
         const { email, password } = creds
         const requiredCreds = ["email", "password"]

@@ -398,8 +398,8 @@ Here are the pieces of functionality that should be built out for the backend:
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
   - Create two files at the root of the project:
-    - [ ] `lifetracker-schema.sql`
-      - [ ] This script should:
+    - [x] `lifetracker-schema.sql`
+      - [x] This script should:
         - [x] Create a `users` table with the following columns:
           - [x] `id`
           - [x] `username`
@@ -424,14 +424,14 @@ Here are the pieces of functionality that should be built out for the backend:
         - [x] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
         - [x] 3. It should then run the `lifetracker-schema.sql` file.
         - [x] Follow the exact same steps for `1`, `2`, and `3`, but with the `lifetracker_test` database.
-  - [ ] Setup the database by running `psql -f lifetracker.sql`
-  - [ ] Create a new file at the root of the project called `db.js`. In that file:
+  - [x] Setup the database by running `psql -f lifetracker.sql`
+  - [x] Create a new file at the root of the project called `db.js`. In that file:
     - [x] Import the `getDatabaseUri` function from the `config.js` file.
-    - [ ] Initialize a new PostgreSQL client with the `pg` package and connect to PostgreSQL using any necessary config variables.
-    - [ ] Connect to PostgreSQL and log a message to the terminal on success or failure.
-    - [ ] Export the connected database client
-  - [ ] Commit all work to `git`
-  - [ ] A database client is now ready to be used!
+    - [x] Initialize a new PostgreSQL client with the `pg` package and connect to PostgreSQL using any necessary config variables.
+    - [x] Connect to PostgreSQL and log a message to the terminal on success or failure.
+    - [x] Export the connected database client
+  - [x] Commit all work to `git`
+  - [x] A database client is now ready to be used!
 - [ ] **Server**
   - [ ] Build out a bare-bones Express server with a health check route and an adequate middleware pipeline.
   - [x] Create a `utils` directory

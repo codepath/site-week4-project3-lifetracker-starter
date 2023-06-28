@@ -1,5 +1,5 @@
 
-class ExpressErrors extends Errors{
+class ExpressErrors extends Error{
     constructor(message, status) {
         super()
 
@@ -37,14 +37,14 @@ class UnauthorizedError extends ExpressErrors {
 }
 
 /** 422 Unprocessable Entity error */
-class UnprocessableEntityError extends ExpressError {
+class UnprocessableEntityError extends ExpressErrors {
     constructor(message = "Unprocessable Entity") {
       super(message, 422)
     }
   }
 
 module.exports = {
-    ExpressError,
+    ExpressErrors,
     BadRequestError,
     UnauthorizedError,
     ForbiddenError,
