@@ -64,8 +64,8 @@ class User {
    **/
 
   static async register(creds) {
-    const { email, password, firstName, lastName , createdAt} = creds
-    const requiredCreds = ["email", "password", "firstName", "lastName", "createdAt"]
+    const { email, password, firstName, lastName} = creds
+    const requiredCreds = ["email", "password", "firstName", "lastName"]
     try {
       validateFields({ required: requiredCreds, obj: creds, location: "user registration" })
     } catch (err) {
@@ -85,17 +85,17 @@ class User {
           password,
           first_name,
           last_name,
-          email,
-          created_at
+          email
+          
         )
-        VALUES ($1, $2, $3, $4, $5, $6)
+        VALUES ($1, $2, $3, $4)
         RETURNING id,
                   email,            
                   first_name AS "firstName", 
-                  last_name AS "lastName",
-                  created_at AS "createdAt"
+                  last_name AS "lastName"
+                  
                   `,
-      [hashedPassword, firstName, lastName, normalizedEmail, createdAt]
+      [hashedPassword, firstName, lastName, normalizedEmail]
     )
 
     const user = result.rows[0]

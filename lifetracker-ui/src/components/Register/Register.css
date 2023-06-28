@@ -1,0 +1,87 @@
+.css-15xvz01 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: var(--chakra-space-2);
+}
+
+.css-11g7hql:not([data-loaded]) {
+    --avatar-background: var(--chakra-colors-gray-400);
+}
+.css-15xvz01 > :not(style) ~ :not(style) {
+    margin-top: 0.5rem;
+    margin-inline: 0px;
+    margin-bottom: 0px;
+}
+.css-16ite8i {
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+}
+.css-15xvz01 > :not(style) ~ :not(style) {
+    margin-top: 0.5rem;
+    margin-inline: 0px;
+    margin-bottom: 0px;
+}
+.css-1opnp10 {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--chakra-colors-whiteAlpha-900);
+    box-shadow: var(--chakra-shadows-md);
+}
+.css-1kxonj9 {
+    width: 100%;
+    position: relative;
+}
+.css-bx0blc {
+    width: 100%;
+    display: flex;
+    position: relative;
+    isolation: isolate;
+}
+
+.css-1cw84h2 {
+    left: 0px;
+    width: var(--chakra-sizes-10);
+    height: var(--chakra-sizes-10);
+    font-size: var(--chakra-fontSizes-md);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+    pointer-events: none;
+}
+.css-119zpey {
+    color: var(--chakra-colors-gray-300);
+}
+
+.css-trvw4f {
+    width: 100%;
+    min-width: 0px;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    appearance: none;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    font-size: var(--chakra-fontSizes-md);
+    padding-inline-start: var(--chakra-space-10);
+    padding-inline-end: var(--chakra-space-4);
+    height: var(--chakra-sizes-10);
+    border-radius: var(--chakra-radii-md);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: inherit;
+    background: inherit;
+}
+
+
