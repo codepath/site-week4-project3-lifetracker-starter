@@ -1,3 +1,26 @@
 .Navbar {
-  padding-top: 20px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  background-color: #0D1B2A;
+}
+
+.Navbar ul {
+  text-decoration: none;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.Navbar ul li {
+  padding: 10px;
+  text-decoration: none;
+}
+
+.Navbar button{
+  color: white;
+  border-radius: 7px;
+  border-color: #415A77;
+  font-size: 20px;
+  background-color: #415A77;
 }
