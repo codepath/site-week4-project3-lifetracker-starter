@@ -4,3 +4,8 @@
   width: 100%;
   gap: 20px;
 }
+
+img {
+  height: 200px;
+  width: 200px;
+}
