@@ -7,7 +7,7 @@
     "start": "nodemon --ignore 'db/*' server.js",
     "dev-win": "set NODE_ENV=dev && nodemon --ignore 'db/*' server.js",
     "dev": "NODE_ENV=dev nodemon --ignore 'db/*' server.js",
-    "setup": "psql -f ./life_tracker-schema.sql"
+    "setup": "psql -f life-tracker.sql"
   },
   "engines": {
     "node": ">=18.16.0"
