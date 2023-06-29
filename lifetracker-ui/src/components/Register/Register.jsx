@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./Register.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -14,11 +14,10 @@ export default function Register() {
     last_name: "",
     password: "",
     confirmPassword: "",
-    created_at: "",
-    updated_at: "",
   });
+  const [isLoading, setIsLoading] = useState(false)
 
-  function handleSumbit(e) {
+  async function handleSumbit(e) {
     e.preventDefault();
     if (
       userInfo.email &&
@@ -31,38 +30,31 @@ export default function Register() {
       userInfo.password === userInfo.confirmPassword &&
       userInfo.email.includes("@")
     ) {
-      const currentDate = new Date();
-      const year = currentDate.getFullYear();
-      const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
-      const date = currentDate.getDate().toString().padStart(2, "0");
-      const hours = currentDate.getHours().toString().padStart(2, "0");
-      const minutes = currentDate.getMinutes().toString().padStart(2, "0");
-      const seconds = currentDate.getSeconds().toString().padStart(2, "0");
-
-      const datetime = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
-
-      setUserInfo((prevState) => ({
-        ...prevState,
-        created_at: datetime,
-        updated_at: datetime,
-      }));
-
-      const res = async () => {
-        await axios.post("http://localhost:3001/auth/register", {
+      try {
+        const res = await axios.post("http://localhost:3001/auth/register", {
           email: userInfo.email,
           username: userInfo.username,
           first_name: userInfo.first_name,
           last_name: userInfo.last_name,
           password: userInfo.password,
-          created_at: userInfo.created_at,
-          updated_at: userInfo.updated_at,
         });
-      };
-      console.log(res)
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+        const message = error?.response?.data?.error?.message;
+        console.log(message);
+      }
+      setUserInfo((prevState) => ({
+        ...prevState,
+        email: "",
+        username: "",
+        first_name:"",
+        last_name: "",
+        password: "",
+        confirmPassword: ""
+      }));
     }
   }
-
-  console.log(userInfo);
 
   function showPass(event, id) {
     event.preventDefault();

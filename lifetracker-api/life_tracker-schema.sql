@@ -6,7 +6,7 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL UNIQUE CHECK(POSITION('@' IN email) > 1),
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE nutrition(
