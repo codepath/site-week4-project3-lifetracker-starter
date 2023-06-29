@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Register() {
   const [userInfo, setUserInfo] = useState({
@@ -12,9 +13,57 @@ export default function Register() {
     first_name: "",
     last_name: "",
     password: "",
+    confirmPassword: "",
+    created_at: "",
+    updated_at: "",
   });
-  
-  const [confirmPassword, setConfirmPassword] = useState("");
+
+  function handleSumbit(e) {
+    e.preventDefault();
+    if (
+      userInfo.email &&
+      userInfo.username &&
+      userInfo.first_name &&
+      userInfo.first_name &&
+      userInfo.last_name &&
+      userInfo.password &&
+      userInfo.password.length > 8 &&
+      userInfo.password === userInfo.confirmPassword &&
+      userInfo.email.includes("@")
+    ) {
+      const currentDate = new Date();
+      const year = currentDate.getFullYear();
+      const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+      const date = currentDate.getDate().toString().padStart(2, "0");
+      const hours = currentDate.getHours().toString().padStart(2, "0");
+      const minutes = currentDate.getMinutes().toString().padStart(2, "0");
+      const seconds = currentDate.getSeconds().toString().padStart(2, "0");
+
+      const datetime = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
+
+      setUserInfo((prevState) => ({
+        ...prevState,
+        created_at: datetime,
+        updated_at: datetime,
+      }));
+
+      const res = async () => {
+        await axios.post("http://localhost:3001/auth/register", {
+          email: userInfo.email,
+          username: userInfo.username,
+          first_name: userInfo.first_name,
+          last_name: userInfo.last_name,
+          password: userInfo.password,
+          created_at: userInfo.created_at,
+          updated_at: userInfo.updated_at,
+        });
+      };
+      console.log(res)
+    }
+  }
+
+  console.log(userInfo);
+
   function showPass(event, id) {
     event.preventDefault();
     var x = document.getElementById(id);
@@ -54,7 +103,7 @@ export default function Register() {
           <br />
           <input
             className="register-input"
-            type="text"
+            type="username"
             value={userInfo.username}
             onChange={(e) =>
               setUserInfo((prevState) => ({
@@ -117,8 +166,13 @@ export default function Register() {
               className="button-input"
               id="button-input2"
               type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={userInfo.confirmPassword}
+              onChange={(e) =>
+                setUserInfo((prevState) => ({
+                  ...prevState,
+                  confirmPassword: e.target.value,
+                }))
+              }
               autoComplete="on"
               placeholder="Confirm Password"
             />
@@ -126,12 +180,32 @@ export default function Register() {
               Show
             </button>
           </div>
-          {userInfo.password !== confirmPassword ? (
-            <span style={{ color: "white", float: "right" }}>
-              Passwords do not match
-            </span>
+          {userInfo.password !== userInfo.confirmPassword ? (
+            <>
+              <span style={{ color: "red", marginLeft: "60%" }}>
+                Passwords do not match
+              </span>{" "}
+              <br />
+            </>
           ) : null}
-          <button id="register-signup">Sign Up</button>
+          {userInfo.password.length > 8 ||
+          userInfo.password.length === 0 ? null : (
+            <>
+              <span style={{ color: "red", marginLeft: "34%" }}>
+                Your password must have a minimum of 8 characters.
+              </span>
+              <br />
+            </>
+          )}
+          {userInfo.email.length === 0 ||
+          userInfo.email.includes("@") ? null : (
+            <span style={{ color: "red", marginLeft: "55%" }}>
+              Your email must have an '@'.
+            </span>
+          )}
+          <button onClick={handleSumbit} type="submit" id="register-signup">
+            Sign Up
+          </button>
           <br />
         </form>
         <p style={{ color: "var(--stark)", fontSize: "x-large" }}>

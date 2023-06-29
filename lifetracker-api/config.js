@@ -21,9 +21,9 @@ function getDatabaseUri() {
   );
 }
 
-// const BCRYPT_WORK_FACTOR = IS_TESTING ? 1 : 13;
+const BCRYPT_WORK_FACTOR =  13;
 
-console.log("Vaccine Hub Config:".red);
+console.log("Life Tracker Config:".red);
 console.log("PORT:".blue, PORT);
 // console.log("BCRYPT_WORK_FACTOR".blue, BCRYPT_WORK_FACTOR);
 console.log("Database:".blue, getDatabaseUri());
@@ -32,6 +32,6 @@ console.log("---");
 module.exports = {
   PORT,
 //   IS_TESTING,
-//   BCRYPT_WORK_FACTOR,
+  BCRYPT_WORK_FACTOR,
   getDatabaseUri,
 };
