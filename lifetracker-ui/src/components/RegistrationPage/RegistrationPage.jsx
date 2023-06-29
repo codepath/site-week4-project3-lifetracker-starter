@@ -1,8 +1,68 @@
 import * as React from "react";
 import "./RegistrationPage.css";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import { useNavigate, Link } from "react-router-dom"
+import axios from "axios";
 
-export default function RegistrationPage() {
+export default function RegistrationPage({setAppState, setIsLoggedIn}) {
+  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false)
+  const [errors, setErrors] = useState({})
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    username: "",
+    password: "",
+  })
+
+  const handleOnInputChange = (event) => {
+    
+    if (event.target.name === "email") {
+      if (event.target.value.indexOf("@") === -1) {
+        setErrors((e) => ({ ...e, email: "Please enter a valid email." }))
+      } else {
+        setErrors((e) => ({ ...e, email: null }))
+      }
+    }
+
+    setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
+  }
+  
+
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoading(true)
+    setErrors((e) => ({ ...e, form: null }))
+
+    try {
+      const res = await axios.post("http://localhost:3001/auth/register", {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email,
+        password: form.password,
+        username: form.username,
+      })
+
+      if (res?.data?.user) {
+        console.log('before',setAppState)
+        setAppState(res.data)
+        console.log('after',setAppState)
+        setIsLoading(false)
+        setIsLoggedIn(true)
+        navigate("/activity")
+      } else {
+        setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+        setIsLoading(false)
+      }
+    } catch (err) {
+      console.log(err)
+      const message = err?.response?.data?.error?.message
+      setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+      setIsLoading(false)
+    }
+  }
+  
   return (
     <div className="RegistrationPage">
       <div class="css-9cjjy5">
@@ -49,10 +109,10 @@ export default function RegistrationPage() {
                       type="email"
                       placeholder="Email"
                       id="field-:ro:"
-                      required=""
                       aria-required="true"
                       class="chakra-input css-trvw4f"
-                      value=""
+                      value={form.email}
+                      onChange={handleOnInputChange}
                     />
                   </div>
                 </div>
@@ -80,7 +140,8 @@ export default function RegistrationPage() {
                       required=""
                       aria-required="true"
                       class="chakra-input css-trvw4f"
-                      value=""
+                      value={form.username}
+                      onChange={handleOnInputChange}
                     />
                   </div>
                 </div>
@@ -98,7 +159,8 @@ export default function RegistrationPage() {
                         required=""
                         aria-required="true"
                         class="chakra-input css-qz53jc"
-                        value=""
+                        value={form.firstName}
+                        onChange={handleOnInputChange}
                       />
                     </div>
                   </div>
@@ -116,7 +178,8 @@ export default function RegistrationPage() {
                         required=""
                         aria-required="true"
                         class="chakra-input css-qz53jc"
-                        value=""
+                        value={form.lastName}
+                        onChange={handleOnInputChange}
                       />
                     </div>
                   </div>
@@ -139,13 +202,14 @@ export default function RegistrationPage() {
                     </div>
                     <input
                       name="password"
-                      type="password"
+                      // type="password"
                       placeholder="Password"
                       id="field-:rs:"
                       required=""
                       aria-required="true"
                       class="chakra-input css-67vh0"
-                      value=""
+                      value={form.password}
+                      onChange={handleOnInputChange}
                     />
                     <div class="chakra-input__right-element css-1qww07b">
                       <button type="button" class="show-button">
@@ -154,7 +218,7 @@ export default function RegistrationPage() {
                     </div>
                   </div>
                 </div>
-                <div role="group" class="chakra-form-control css-1kxonj9">
+                {/* <div role="group" class="chakra-form-control css-1kxonj9">
                   <div class="chakra-input__group css-bx0blc" data-group="true">
                     <div class="chakra-input__left-element css-17ke578">
                       <svg
@@ -186,9 +250,9 @@ export default function RegistrationPage() {
                       </button>
                     </div>
                   </div>
-                </div>
-                <button type="submit" class="chakra-button css-4lvvxn">
-                  Sign up
+                </div> */}
+                <button class="chakra-button css-4lvvxn" onClick={handleOnSubmit} disabled={isLoading}>
+                  {isLoading ? "Loading..." : "Sign up"}
                 </button>
               </div>
             </form>

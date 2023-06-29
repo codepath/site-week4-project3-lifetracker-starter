@@ -1,12 +1,12 @@
 CREATE TABLE users (
   id         SERIAL PRIMARY KEY,
   username   VARCHAR(20) NOT NULL,
-  password   VARCHAR(20) NOT NULL,
+  password   TEXT NOT NULL,
   first_name CHAR(20) NOT NULL,
   last_name  CHAR(20) NOT NULL,
   email      VARCHAR(50) NOT NULL UNIQUE CHECK (position('@' IN email) > 1),
-  created_at TIMESTAMP NOT NULL, 
-  updated_at TIMESTAMP NOT NULL
+  created_at TIMESTAMP DEFAULT NOW() NOT NULL, 
+  updated_at TIMESTAMP DEFAULT NOW() NOT NULL
 );
 
 CREATE TABLE nutrition (
@@ -16,5 +16,5 @@ CREATE TABLE nutrition (
   calories   INT NOT NULL,
   image_url  TEXT,
   user_id    INT NOT NULL,
-  created_at TIMESTAMP NOT NULL
+  created_at TIMESTAMP DEFAULT NOW() NOT NULL
 );

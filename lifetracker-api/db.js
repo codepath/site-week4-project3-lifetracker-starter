@@ -1,6 +1,6 @@
 "use strict"
 
-/** Database setup for vaccine hub. */
+/** Database setup for lifetracker. */
 
 const { Client } = require("pg")
 const { getDatabaseUri } = require("./config")

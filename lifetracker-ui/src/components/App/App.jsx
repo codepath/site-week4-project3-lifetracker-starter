@@ -5,18 +5,22 @@ import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import LoginPage from "../LoginPage/LoginPage";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
+import ActivityPage from "../ActivityPage/ActivityPage";
+import { useState } from "react"
 
 export default function App() {
+  const [appState, setAppState] = useState({})
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
     <div className="app">
       <BrowserRouter>
-        <Navbar />
+        <Navbar isLoggedIn = {isLoggedIn} setIsLoggedIn= {setIsLoggedIn} setAppState={setAppState}/>
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginPage />} />
-         <Route path="/register" element={<RegistrationPage/>} />
-          {/* <Route path="/activity" element={<ActivityPage />} />  */}
+          <Route path="/login" element={<LoginPage setAppState={setAppState} setIsLoggedIn= {setIsLoggedIn}/>} />
+         <Route path="/register" element={<RegistrationPage setAppState={setAppState} setIsLoggedIn= {setIsLoggedIn}/>} />
+          <Route path="/activity" element={<ActivityPage appState={appState} isLoggedIn = {isLoggedIn}/>} /> 
           {/* <Route path="/activity" element={<AccessForbidden />} />  only if the user is NOT logged in*/}
           {/* <Route path="/nutrition/*" element={<NutritionPage />} />
           <Route path="/nutrition/*" element={<AccessForbidden />} />

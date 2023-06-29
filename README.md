@@ -389,11 +389,11 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] When `IS_TESTING` is `true`, the `getDatabaseUri` function should use the test database
         - [ ] Otherwise, it should combine the proper database environment variables into a database connection string if no `process.env.DATABASE_URL` environment variable exists
   - [x] Add a `config.js` file
-    - [ ] Use the `dotenv` package to parse the environment variables from the `.env` file.
-    - [ ] Export each of the environment variables from the `config.js` file until the tests pass
-    - [ ] Write a `getDatabaseUri` function so that all the tests pass
-  - [ ] Commit all work to `git`
-  - [ ] The project should now be ready to go!
+    - [x] Use the `dotenv` package to parse the environment variables from the `.env` file.
+    - [x] Export each of the environment variables from the `config.js` file until the tests pass
+    - [x] Write a `getDatabaseUri` function so that all the tests pass
+  - [x] Commit all work to `git`
+  - [x] The project should now be ready to go!
 - [ ] **PostgreSQL database**
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
@@ -430,25 +430,25 @@ Here are the pieces of functionality that should be built out for the backend:
     - [x] Initialize a new PostgreSQL client with the `pg` package and connect to PostgreSQL using any necessary config variables.
     - [x] Connect to PostgreSQL and log a message to the terminal on success or failure.
     - [x] Export the connected database client
-  - [ ] Commit all work to `git`
-  - [ ] A database client is now ready to be used!
+  - [x] Commit all work to `git`
+  - [x] A database client is now ready to be used!
 - [ ] **Server**
   - [ ] Build out a bare-bones Express server with a health check route and an adequate middleware pipeline.
-  - [ ] Create a `utils` directory
-    - [ ] In the `utils` directory, create an `errors.js` file.
-    - [ ] Create error classes inside the file that will be used throughout the app.
+  - [x] Create a `utils` directory
+    - [x] In the `utils` directory, create an `errors.js` file.
+    - [x] Create error classes inside the file that will be used throughout the app.
   - [ ] In the `app.test.js` file, write tests that:
     - [ ] Ensure that the Express application responds to `GET` requests to the `/` route with a JSON object of `{ "ping": "pong" }`
     - [ ] Check that middleware like `morgan` and `cors` exist, along with the JSON `body-parser` middleware from `express`
     - [ ] Include an `afterAll` hook that calls `await db.end()` so that any open database connections close when all the tests are finished.
-  - [ ] Add code to the `app.js` and `server.js` file to get a simple server running along with responding to `GET` requests to the `/` route
-  - [ ] Create error classes inside the `utils/errors.js` file.
-  - [ ] Add `404` and generic error handler middleware to the `app.js` file.
-  - [ ] In the `server.js` file:
-    - [ ] Import the Express app and the `config.js` file
-    - [ ] Have the `app` listen on the port specified by `config.PORT`.
-  - [ ] Commit all work to `git`
-  - [ ] Test out the fancy new Express server by starting it up in a new terminal window!
+  - [x] Add code to the `app.js` and `server.js` file to get a simple server running along with responding to `GET` requests to the `/` route
+  - [x] Create error classes inside the `utils/errors.js` file.
+  - [x] Add `404` and generic error handler middleware to the `app.js` file.
+  - [x] In the `server.js` file:
+    - [x] Import the Express app and the `config.js` file
+    - [x] Have the `app` listen on the port specified by `config.PORT`.
+  - [x] Commit all work to `git`
+  - [x] Test out the fancy new Express server by starting it up in a new terminal window!
 - [ ] **Common Test Configuration**
   - [ ] It would probably be helpful to create some common test functions that can be used throughout the application's testing suite.
   - [ ] Create a new directory called `tests`
@@ -471,13 +471,13 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Commit all work to `git`
 - [ ] **Authentication**
   - [ ] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
-  - [ ] Add new directories for `models`, `routes`, and `middleware`
-  - [ ] The **User** model
-    - [ ] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
+  - [x] Add new directories for `models`, `routes`, and `middleware`
+  - [x] The **User** model
+    - [x] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
       - [ ] The `User` model should have **at least** the following static methods:
-        - [ ] `login`
-        - [ ] `register`
-        - [ ] `fetchUserByEmail`
+        - [x] `login`
+        - [x] `register`
+        - [x] `fetchUserByEmail`
     - [ ] In the `models/user.test.js` file:
       - [ ] Test the `login` method. Write test cases for:
         - [ ] User can login successfully with proper credentials
@@ -493,11 +493,11 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] Invalid emails are handled correctly
       - [ ] It will probably be important to use the `beforeAll`, `afterAll`, `beforeEach`, and `afterEach` hooks to add and delete users from the database before running the tests
     - [ ] In the `models/user.js` file:
-      - [ ] Import the `bcrypt` package, the `db` client, and the app `config`.
+      - [x] Import the `bcrypt` package, the `db` client, and the app `config`.
       - [ ] Implement the features outlined in the tests until they're all passing.
-  - [ ] Commit all work to `git`
+  - [x] Commit all work to `git`
   - [ ] The **tokens** utility functions
-    - [ ] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
+    - [x] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
       - [ ] At the bare minimum, two functions will be needed:
         - [ ] One that accepts a JSON payload as an argument and converts it into a JWT
         - [ ] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
@@ -510,7 +510,7 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`
   - [ ] The **security** middleware
-    - [ ] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
+    - [x] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
       - [ ] One middleware will be responsible for extracting a user from a valid JWT in the request:
         - [ ] Checking the `Authentication` header of each request for the existence of a JWT.
         - [ ] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
@@ -533,17 +533,17 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] In the `app.js` file, add the `Authentication` header parsing middleware to the Express app's middleware pipeline
   - [ ] Commit all work to `git`
   - [ ] The **/auth** routes
-    - [ ] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
+    - [x] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
       - [ ] A new Express router should be created. It should handle:
         - [ ] A `GET` request to the `/me` endpoint
           - [ ] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/login` endpoint
-          - [ ] It should accept a request body with `email` and `password` keys
+        - [x] A `POST` request to the `/login` endpoint
+          - [x] It should accept a request body with `email` and `password` keys
           - [ ] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/register` endpoint
-          - [ ] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
+        - [x] A `POST` request to the `/register` endpoint
+          - [x] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
           - [ ] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
-      - [ ] It should be mounted at the `/auth` endpoint in the `app.js` file
+      - [x] It should be mounted at the `/auth` endpoint in the `app.js` file
     - [ ] In the `routes/auth.test.js` file:
       - [ ] Test the `POST /auth/login` endpoint
         - [ ] Write test cases for:
@@ -565,8 +565,8 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] In the `routes/auth.js` file:
       - [ ] Create a new Express router
       - [ ] Implement the features outlined in the tests until they're all passing
-    - [ ] In the `app.js` file:
-    - [ ] Mount the router at the `/auth` endpoint
+    - [x] In the `app.js` file:
+    - [x] Mount the router at the `/auth` endpoint
   - [ ] Commit all work to `git`
   - [ ] There should now be a full-fledged authentication system in place!
 - [ ] **Resources and Permissions**
