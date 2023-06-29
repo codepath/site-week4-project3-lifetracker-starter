@@ -1,9 +1,8 @@
 const { Client } = require("pg")
 const { getDatabaseUri } = require('./config')
 const db = new Client({ connectionString: getDatabaseUri() })
-
-
 require('colors')
+
 db.connect((err) => {
     if (err) {
         console.error('Connection error', err.stack)

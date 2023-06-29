@@ -54,12 +54,12 @@ Implement any of the following features to improve the application:
 
 #### The `App` Component
 
-- [ ] Build the `App` component to:
-  - [ ] Be wrapped by an element with the class name of `app`
-  - [ ] Contain the routes for the app
-  - [ ] Render the `Navbar` component on every route
-  - [ ] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
-    - [ ] `/` - Render the `Landing` component
+- [x] Build the `App` component to:
+  - [x] Be wrapped by an element with the class name of `app`
+  - [x] Contain the routes for the app
+  - [x] Render the `Navbar` component on every route
+  - [x] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
+    - [x] `/` - Render the `Landing` component
     - [ ] `/login` - Render the `LoginPage` component
     - [ ] `/register` - Render the `RegistrationPage` component
     - [ ] `/activity` - Render the `ActivityPage` component **only** if the user is logged in, otherwise it renders the `AccessForbidden` component
@@ -392,9 +392,9 @@ Here are the pieces of functionality that should be built out for the backend:
     - [x] Use the `dotenv` package to parse the environment variables from the `.env` file.
     - [x] Export each of the environment variables from the `config.js` file until the tests pass
     - [x] Write a `getDatabaseUri` function so that all the tests pass
-  - [ ] Commit all work to `git`
-  - [ ] The project should now be ready to go!
-- [ ] **PostgreSQL database**
+  - [x] Commit all work to `git`
+  - [x] The project should now be ready to go!
+- [x] **PostgreSQL database**
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
   - Create two files at the root of the project:
@@ -433,7 +433,7 @@ Here are the pieces of functionality that should be built out for the backend:
   - [x] Commit all work to `git`
   - [x] A database client is now ready to be used!
 - [ ] **Server**
-  - [ ] Build out a bare-bones Express server with a health check route and an adequate middleware pipeline.
+  - [x] Build out a bare-bones Express server with a health check route and an adequate middleware pipeline.
   - [x] Create a `utils` directory
     - [x] In the `utils` directory, create an `errors.js` file.
     - [x] Create error classes inside the file that will be used throughout the app.
@@ -441,14 +441,14 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] Ensure that the Express application responds to `GET` requests to the `/` route with a JSON object of `{ "ping": "pong" }`
     - [ ] Check that middleware like `morgan` and `cors` exist, along with the JSON `body-parser` middleware from `express`
     - [ ] Include an `afterAll` hook that calls `await db.end()` so that any open database connections close when all the tests are finished.
-  - [ ] Add code to the `app.js` and `server.js` file to get a simple server running along with responding to `GET` requests to the `/` route
-  - [ ] Create error classes inside the `utils/errors.js` file.
-  - [ ] Add `404` and generic error handler middleware to the `app.js` file.
-  - [ ] In the `server.js` file:
-    - [ ] Import the Express app and the `config.js` file
-    - [ ] Have the `app` listen on the port specified by `config.PORT`.
+  - [x] Add code to the `app.js` and `server.js` file to get a simple server running along with responding to `GET` requests to the `/` route
+  - [x] Create error classes inside the `utils/errors.js` file.
+  - [x] Add `404` and generic error handler middleware to the `app.js` file.
+  - [x] In the `server.js` file:
+    - [x] Import the Express app and the `config.js` file
+    - [x] Have the `app` listen on the port specified by `config.PORT`.
   - [ ] Commit all work to `git`
-  - [ ] Test out the fancy new Express server by starting it up in a new terminal window!
+  - [x] Test out the fancy new Express server by starting it up in a new terminal window!
 - [ ] **Common Test Configuration**
   - [ ] It would probably be helpful to create some common test functions that can be used throughout the application's testing suite.
   - [ ] Create a new directory called `tests`

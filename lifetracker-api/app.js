@@ -9,14 +9,14 @@ app.use(express.json())
 app.use(cors())
 app.use(morgan('tiny'))
 
-const PORT = process.env.PORT || 3000
-
-
 app.get('/', (req,res) => {
     res.status(200).json({ping:'pong'})
 })
 
-app.use(function (req, res, next) {
+app.get('/user', (req, res) => {
+  
+})
+app.use((req, res, next) => {
     return next(new NotFoundError())
   })
 

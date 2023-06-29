@@ -15,10 +15,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd lifetracker-api && nodemon --ignore 'db/*' server.js",
+    "api start": "cd lifetracker-api && nodemon --ignore 'db/*' server.js",
     "dev-win": "set NODE_ENV=dev && nodemon --ignore 'db/*' server.js",
     "dev": "NODE_ENV=dev nodemon --ignore 'db/*' server.js",
-    "setup": "cd lifetracker-api && psql -f lifetracker.sql",
+    "api setup": "cd lifetracker-api && psql -f lifetracker.sql",
     "client": "cd lifetracker-ui && vite dev"
   },
   "dependencies": {
