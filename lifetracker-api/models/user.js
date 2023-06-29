@@ -3,13 +3,12 @@ const bcrypt = require("bcrypt");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
 const { validateFields } = require("../utils/validate");
 const { BCRYPT_WORK_FACTOR } = require("../config");
-const jwt = require('jsonwebtoken')
-const crypto = require('crypto')
+const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 
-const secretKey = crypto.randomBytes(64).toString('hex');
+const secretKey = crypto.randomBytes(64).toString("hex");
 
 class User {
-
   static async createPublicUser(user) {
     return {
       id: user.id,
@@ -18,16 +17,15 @@ class User {
       username: user.username,
       firstName: user.first_name,
       lastName: user.last_name,
-      createdAt: user.created_at
-    }
+      createdAt: user.created_at,
+    };
   }
   static async login(creds) {
-
     const { email, password } = creds;
-    const requiredCreds = [ "email", "password" ]
+    const requiredCreds = ["email", "password"];
 
-    if (email.indexOf("@") <= 0 ){
-      throw new BadRequestError("Invalid email.")
+    if (email.indexOf("@") <= 0) {
+      throw new BadRequestError("Invalid email.");
     }
 
     try {
@@ -40,16 +38,16 @@ class User {
       throw err;
     }
 
-    const user = await User.fetchUserByEmail(email)
+    const user = await User.fetchUserByEmail(email);
     if (user) {
-      const isValid = await bcrypt.compare(password, user.password)
+      const isValid = await bcrypt.compare(password, user.password);
       if (isValid) {
-        return user
+        return user;
       }
     }
-    throw new UnauthorizedError("Invalid email/password combo")
+    throw new UnauthorizedError("Invalid email/password combo");
   }
-  
+
   static async getName(name) {
     try {
       const result = await db.query("SELECT name FROM user WHERE name = $1", [
@@ -71,8 +69,8 @@ class User {
       "lastName",
     ];
 
-    if (email.indexOf("@") <= 0 ){
-      throw new BadRequestError("Invalid email.")
+    if (email.indexOf("@") <= 0) {
+      throw new BadRequestError("Invalid email.");
     }
 
     try {
@@ -109,7 +107,8 @@ class User {
                           last_name AS "lastName",
                           created_at
                         `,
-      [username, hashedPassword, firstName, lastName, normalizedEmail]);
+      [username, hashedPassword, firstName, lastName, normalizedEmail]
+    );
 
     const user = result.rows[0];
 
@@ -117,9 +116,9 @@ class User {
   }
 
   static async fetchUserByEmail(email) {
-    const result = await db.query(
-      `SELECT * FROM users WHERE email = $1`,
-      [email.toLowerCase()]);
+    const result = await db.query(`SELECT * FROM users WHERE email = $1`, [
+      email.toLowerCase(),
+    ]);
 
     const user = result.rows[0];
     return user;
@@ -128,9 +127,9 @@ class User {
   static async verifyAuthToken(token) {
     try {
       const decoded = jwt.verify(token, secretKey);
-      return decoded
+      return decoded;
     } catch (err) {
-      return null
+      return null;
     }
   }
 
@@ -139,9 +138,9 @@ class User {
       id: user.id,
       firstname: user.first_name,
       lastname: user.last_name,
-      email: user.email
-    }
-    const token = jwt.sign(payload, secretKey, { expiresIn: '1h' })
+      email: user.email,
+    };
+    const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
   }
 }
 

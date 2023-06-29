@@ -12,7 +12,7 @@ function getDatabaseUri() {
     const dbName = process.env.DATABASE_NAME || "lifetracker"
     return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
 }
-const BCRYPT_WORK_FACTOR = IS_TESTING ? 1 : 13
+const BCRYPT_WORK_FACTOR = IS_TESTING ? 1 : parseInt(process.env.BCRYPT_WORK_FACTOR)
 
 console.log("Lifetracker Config".red)
 console.log("PORT:".blue, PORT)

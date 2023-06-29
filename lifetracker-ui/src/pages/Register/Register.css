@@ -1,0 +1,34 @@
+.register {
+    display: flex;
+    flex-direction: column;
+}
+.register .registration-form {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 450px;
+    margin: 0 auto;
+    border: solid black;
+}
+.register h2 {
+    display: flex;
+    justify-content: center;
+}
+.register .registration-form .reg-names {
+    display: flex;
+    flex-direction: row;
+}
+
+.registration-form button {
+    background-color: #AEA4BF;
+    font-size: 25px;
+    width: 100%;
+    border: 1px solid;
+}
+.register .registration-form input {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 7px;
+}
