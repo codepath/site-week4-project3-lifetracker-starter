@@ -64,8 +64,8 @@ class User {
    **/
 
   static async register(creds) {
-    const { email, password, firstName, lastName} = creds
-    const requiredCreds = ["email", "password", "firstName", "lastName"]
+    const { email, username, password, firstName, lastName} = creds
+    const requiredCreds = ["email", "username", "password", "firstName", "lastName"]
     try {
       validateFields({ required: requiredCreds, obj: creds, location: "user registration" })
     } catch (err) {
@@ -83,19 +83,20 @@ class User {
     const result = await db.query(
       `INSERT INTO users (
           password,
+          username,
           first_name,
           last_name,
           email
           
         )
-        VALUES ($1, $2, $3, $4)
+        VALUES ($1, $2, $3, $4, $5)
         RETURNING id,
                   email,            
                   first_name AS "firstName", 
                   last_name AS "lastName"
                   
                   `,
-      [hashedPassword, firstName, lastName, normalizedEmail]
+      [hashedPassword, username, firstName, lastName, normalizedEmail]
     )
 
     const user = result.rows[0]
@@ -112,7 +113,8 @@ class User {
   static async fetchUserByEmail(email) {
     const result = await db.query(
       `SELECT id,
-              email, 
+              email,
+              username, 
               password,
               first_name AS "firstName",
               last_name AS "lastName",
@@ -136,7 +138,8 @@ class User {
   static async fetchById(userId) {
     const result = await db.query(
       `SELECT id,
-              email,    
+              email,
+              username,    
               password,
               first_name AS "firstName",
               last_name AS "lastName",

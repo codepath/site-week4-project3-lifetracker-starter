@@ -18,7 +18,7 @@ router.post("/register", async function (req, res, next) {
   console.log("hit register route")
   console.log("regsiter body", req.body)
   try {
-    const user = await User.register(req.body)
+    const user = await User.register(req.body) //controller 
     return res.status(201).json({ user })
   } catch (err) {
     next(err)
