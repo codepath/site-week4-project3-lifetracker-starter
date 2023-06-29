@@ -1,0 +1,252 @@
+
+.ActivityPage{
+
+    margin-left: 215px;
+    margin-right: 215px;
+}
+.noAuthenticated{
+
+    font-family: var(--chakra-fonts-heading);
+}
+
+.css-ra15rn {
+    display: flex;
+    min-height: 100%;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.css-1m340o4 {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline-start: var(--chakra-space-4);
+    padding-inline-end: var(--chakra-space-4);
+    max-width: var(--chakra-sizes-container-lg);
+    padding-top: 1.5rem;
+}
+
+.css-12mzq72 {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.css-1jb3vzl {
+    font-size: var(--chakra-fontSizes-3xl);
+    line-height: 1.2;
+}
+
+.css-1jb3vzl {
+    font-family: var(--chakra-fonts-heading);
+    font-weight: var(--chakra-fontWeights-bold);
+    font-size: var(--chakra-fontSizes-2xl);
+    line-height: 1.33;
+}
+
+.css-1qwhsm9 {
+    flex-direction: row;
+}
+
+.css-1qwhsm9 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.css-moltat {
+    display: inline-flex;
+    appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    line-height: 1.2;
+    border-radius: var(--chakra-radii-md);
+    font-weight: var(--chakra-fontWeights-semibold);
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    height: var(--chakra-sizes-8);
+    min-width: var(--chakra-sizes-8);
+    font-size: var(--chakra-fontSizes-sm);
+    padding-inline-start: var(--chakra-space-3);
+    padding-inline-end: var(--chakra-space-3);
+    background: var(--chakra-colors-teal-500);
+    color: var(--chakra-colors-white);
+}
+
+.css-l6faz9 {
+    display: inline-flex;
+    appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    line-height: 1.2;
+    border-radius: var(--chakra-radii-md);
+    font-weight: var(--chakra-fontWeights-semibold);
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    height: var(--chakra-sizes-8);
+    min-width: var(--chakra-sizes-8);
+    font-size: var(--chakra-fontSizes-sm);
+    padding-inline-start: var(--chakra-space-3);
+    padding-inline-end: var(--chakra-space-3);
+    border: 1px solid currentcolor;
+    color: var(--chakra-colors-cyan-600);
+    background: var(--chakra-colors-transparent);
+}
+
+.css-n3canj {
+    display: inline-flex;
+    appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    line-height: 1.2;
+    border-radius: var(--chakra-radii-md);
+    font-weight: var(--chakra-fontWeights-semibold);
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    height: var(--chakra-sizes-8);
+    min-width: var(--chakra-sizes-8);
+    font-size: var(--chakra-fontSizes-sm);
+    padding-inline-start: var(--chakra-space-3);
+    padding-inline-end: var(--chakra-space-3);
+    border: 1px solid currentcolor;
+    color: var(--chakra-colors-blue-600);
+    background: var(--chakra-colors-transparent);
+}
+
+.css-18qrtb8 {
+    grid-template-columns: repeat(2, minmax(0px, 1fr));
+}
+
+.css-18qrtb8 {
+    grid-template-columns: repeat(1, minmax(0px, 1fr));
+}
+
+.css-18qrtb8 {
+    display: grid;
+    grid-gap: var(--chakra-space-10);
+}
+
+.css-xkuesw {
+    width: 100%;
+    background: var(--chakra-colors-teal-500);
+    color: var(--chakra-colors-white);
+    border-radius: var(--chakra-radii-lg);
+    padding: var(--chakra-space-5);
+}
+
+.css-12mzq72 {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.css-8g8ihq {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.css-18j379d {
+    font-family: var(--chakra-fonts-heading);
+    font-weight: var(--chakra-fontWeights-bold);
+    font-size: var(--chakra-fontSizes-xl);
+    line-height: 1.2;
+}
+
+.css-1gipxey {
+    font-family: var(--chakra-fonts-heading);
+    font-weight: var(--chakra-fontWeights-bold);
+    font-size: var(--chakra-fontSizes-sm);
+    line-height: 1.2;
+    color: var(--chakra-colors-gray-500);
+}
+
+.css-1qwhsm9 {
+    flex-direction: row;
+}
+
+/* my not work */
+
+/* .css-1qwhsm9 { 
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+} */
+
+.css-1lekzkb {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.css-51dhyc {
+    font-size: 4em;
+    line-height: 4rem;
+    font-weight: 700;
+}
+
+.css-tl3ftk {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    /* flex-direction: column; */
+    gap: 0.5rem;
+}
+
+.css-9dla43 {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    line-height: 1em;
+    flex-shrink: 0;
+    color: var(--chakra-colors-gray-100);
+    font-size: 2em;
+}
+
+.css-1g1qw76 {
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding-inline-start: var(--chakra-space-1);
+    padding-inline-end: var(--chakra-space-1);
+    text-transform: uppercase;
+    font-size: var(--chakra-fontSizes-xs);
+    border-radius: var(--chakra-radii-sm);
+    font-weight: var(--chakra-fontWeights-bold);
+    background: var(--badge-bg);
+    color: var(--badge-color);
+    box-shadow: var(--badge-shadow);
+    --badge-bg: var(--chakra-colors-green-100);
+    --badge-color: var(--chakra-colors-green-800);
+}
+
