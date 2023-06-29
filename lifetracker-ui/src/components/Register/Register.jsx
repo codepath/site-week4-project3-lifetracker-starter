@@ -1,12 +1,13 @@
-import React, { Fragment, useEffect, useState } from "react";
-import "./Register.css";
+import React, { Fragment, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import { Puff } from "react-loading-icons";
+import Navbar from "../Navbar/Navbar";
+import "./Register.css";
 import axios from "axios";
 
-export default function Register() {
+export default function Register({ setAppState }) {
   const [userInfo, setUserInfo] = useState({
     email: "",
     username: "",
@@ -15,7 +16,7 @@ export default function Register() {
     password: "",
     confirmPassword: "",
   });
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleSumbit(e) {
     e.preventDefault();
@@ -26,10 +27,11 @@ export default function Register() {
       userInfo.first_name &&
       userInfo.last_name &&
       userInfo.password &&
-      userInfo.password.length > 8 &&
+      userInfo.password.length >= 8 &&
       userInfo.password === userInfo.confirmPassword &&
       userInfo.email.includes("@")
     ) {
+      setIsLoading(true);
       try {
         const res = await axios.post("http://localhost:3001/auth/register", {
           email: userInfo.email,
@@ -38,6 +40,12 @@ export default function Register() {
           last_name: userInfo.last_name,
           password: userInfo.password,
         });
+        if (res.data.user){
+          setAppState((prevState) => ({
+            ...prevState,
+            user: res.data.user,
+            isAuthenticated: true}))
+        }
         console.log(res);
       } catch (error) {
         console.log(error);
@@ -48,11 +56,12 @@ export default function Register() {
         ...prevState,
         email: "",
         username: "",
-        first_name:"",
+        first_name: "",
         last_name: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
       }));
+      setIsLoading(false);
     }
   }
 
@@ -180,7 +189,7 @@ export default function Register() {
               <br />
             </>
           ) : null}
-          {userInfo.password.length > 8 ||
+          {userInfo.password.length >= 8 ||
           userInfo.password.length === 0 ? null : (
             <>
               <span style={{ color: "red", marginLeft: "34%" }}>
@@ -196,13 +205,17 @@ export default function Register() {
             </span>
           )}
           <button onClick={handleSumbit} type="submit" id="register-signup">
-            Sign Up
+            {isLoading ? (
+              <Puff stroke="white" speed={1.25} />
+            ) : (
+              <span>Sign up</span>
+            )}
           </button>
           <br />
         </form>
         <p style={{ color: "var(--stark)", fontSize: "x-large" }}>
           Have an account? &nbsp;
-          <Link to="/login" style={{ color: "var(--fushia)" }} href="">
+          <Link to="/login" style={{ color: "var(--fushia)" }}>
             Login
           </Link>
         </p>
