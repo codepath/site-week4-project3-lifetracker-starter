@@ -60,9 +60,9 @@ Implement any of the following features to improve the application:
   - [x] Render the `Navbar` component on every route
   - [x] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
     - [x] `/` - Render the `Landing` component
-    - [ ] `/login` - Render the `LoginPage` component
-    - [ ] `/register` - Render the `RegistrationPage` component
-    - [ ] `/activity` - Render the `ActivityPage` component **only** if the user is logged in, otherwise it renders the `AccessForbidden` component
+    - [x] `/login` - Render the `LoginPage` component
+    - [x] `/register` - Render the `RegistrationPage` component
+    - [x] `/activity` - Render the `ActivityPage` component **only** if the user is logged in, otherwise it renders the `AccessForbidden` component
     - [ ] `/nutrition/*` - Render the `NutritionPage`component **only** if the user is logged in, otherwise it renders the`AccessForbidden` component
     - [ ] `*` - Anything else renders the `NotFound` component
 
@@ -111,9 +111,9 @@ Update the `App` component to manage authentication state:
 
 #### Implement the `Loading` Component
 
-- [ ] Build the **`Loading`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `loading`
-  - [ ] Render an element with the class name of `loading-message` that contains the text `"Loading"`
+- [x] Build the **`Loading`** component to:
+  - [x] Render JSX that is wrapped by an element with the class name of `loading`
+  - [x] Render an element with the class name of `loading-message` that contains the text `"Loading"`
 
 #### Implement the `Navbar` Component
 
@@ -211,15 +211,15 @@ Update the `App` component to manage authentication state:
 #### Implement the `ActivityPage` Component
 
 - [ ] Build the **`ActivityPage`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `activity-page`
+  - [x] Render JSX that is wrapped by an element with the class name of `activity-page`
   - [ ] Take the `appState` and `setAppState` as props and extract all the necessary data from it.
   - [ ] If the `isProcessing` flag is `true`, it should render the `Loading` component.
-  - [ ] If the `isProcessing` flag is `false`, it should render the `ActivityFeed` component and pass it the appropriate props.
+  - [x] If the `isProcessing` flag is `false`, it should render the `ActivityFeed` component and pass it the appropriate props.
 
 #### Implement the `ActivityFeed` Component
 
 - [ ] Build the **`ActivityFeed`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `activity-feed`
+  - [x] Render JSX that is wrapped by an element with the class name of `activity-feed`
   - [ ] Accept **at least** the following props:
     - [ ] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
     - [ ] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
@@ -447,7 +447,7 @@ Here are the pieces of functionality that should be built out for the backend:
   - [x] In the `server.js` file:
     - [x] Import the Express app and the `config.js` file
     - [x] Have the `app` listen on the port specified by `config.PORT`.
-  - [ ] Commit all work to `git`
+  - [x] Commit all work to `git`
   - [x] Test out the fancy new Express server by starting it up in a new terminal window!
 - [ ] **Common Test Configuration**
   - [ ] It would probably be helpful to create some common test functions that can be used throughout the application's testing suite.
@@ -474,10 +474,10 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Add new directories for `models`, `routes`, and `middleware`
   - [ ] The **User** model
     - [ ] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
-      - [ ] The `User` model should have **at least** the following static methods:
-        - [ ] `login`
-        - [ ] `register`
-        - [ ] `fetchUserByEmail`
+      - [x] The `User` model should have **at least** the following static methods:
+        - [x] `login`
+        - [x] `register`
+        - [x] `fetchUserByEmail`
     - [ ] In the `models/user.test.js` file:
       - [ ] Test the `login` method. Write test cases for:
         - [ ] User can login successfully with proper credentials
@@ -492,8 +492,8 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] A valid email returns a user from the database
         - [ ] Invalid emails are handled correctly
       - [ ] It will probably be important to use the `beforeAll`, `afterAll`, `beforeEach`, and `afterEach` hooks to add and delete users from the database before running the tests
-    - [ ] In the `models/user.js` file:
-      - [ ] Import the `bcrypt` package, the `db` client, and the app `config`.
+    - [x] In the `models/user.js` file:
+      - [x] Import the `bcrypt` package, the `db` client, and the app `config`.
       - [ ] Implement the features outlined in the tests until they're all passing.
   - [ ] Commit all work to `git`
   - [ ] The **tokens** utility functions

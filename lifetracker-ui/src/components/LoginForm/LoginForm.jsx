@@ -45,6 +45,10 @@ export default function Login({ setAppState }) {
       }));
       setIsLoading(false);
     }
+    setLoginForm({
+      email: "",
+      password: ""
+    });
   }
 
   function handleOnChange(e) {

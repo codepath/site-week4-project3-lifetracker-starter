@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function RegistrationForm({ setAppState }) {
   const [errors, setErrors] = useState({});
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
   const [regForm, setRegForm] = useState({
     username: "",
     firstName: "",
@@ -17,7 +17,10 @@ export default function RegistrationForm({ setAppState }) {
 
   const handleChange = (e) => {
     if (e.target.name === "password") {
-      if (regForm.passwordConfirm && regForm.passwordConfirm !== e.target.value) {
+      if (
+        regForm.passwordConfirm &&
+        regForm.passwordConfirm !== e.target.value
+      ) {
         setErrors((err) => ({
           ...err,
           passwordConfirm: "Password's do not match",
@@ -45,12 +48,12 @@ export default function RegistrationForm({ setAppState }) {
         setErrors((err) => ({ ...err, email: null }));
       }
     }
-    
+
     setRegForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-  }
+  };
 
   function handleShowPassword() {
-    setShowPassword(!showPassword)
+    setShowPassword(!showPassword);
   }
 
   async function signupUser() {
@@ -74,7 +77,7 @@ export default function RegistrationForm({ setAppState }) {
       });
 
       if (result?.data?.user) {
-        setAppState(result.data)
+        setAppState(result.data);
         //navigate to "/portal"
         setIsLoading(false);
       } else {
@@ -93,13 +96,22 @@ export default function RegistrationForm({ setAppState }) {
       }));
       setIsLoading(false);
     }
+    setRegForm({
+      username: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      passwordConfirm: "",
+    });
   }
 
   return (
     <div className="registration-form">
       <h2>Create An Account</h2>
       <form className="card">
-        <input className="form-input"
+        <input
+          className="form-input"
           type="text"
           name="email"
           value={regForm.email}
@@ -107,8 +119,9 @@ export default function RegistrationForm({ setAppState }) {
           placeholder="✉️  someone@mail.com"
           required
         />
-        
-        <input className="form-input"
+
+        <input
+          className="form-input"
           type="text"
           name="username"
           value={regForm.username}
@@ -117,7 +130,8 @@ export default function RegistrationForm({ setAppState }) {
           required
         />
         <div className="reg-names">
-          <input className="form-input"
+          <input
+            className="form-input"
             type="text"
             name="firstName"
             value={regForm.firstName}
@@ -125,7 +139,8 @@ export default function RegistrationForm({ setAppState }) {
             placeholder="First Name"
             required
           />
-          <input className="form-input"
+          <input
+            className="form-input"
             type="text"
             name="lastName"
             value={regForm.lastName}
@@ -134,7 +149,8 @@ export default function RegistrationForm({ setAppState }) {
             required
           />
         </div>
-        <input className="form-input"
+        <input
+          className="form-input"
           type={showPassword ? "text" : "password"}
           name="password"
           value={regForm.password}
@@ -142,7 +158,8 @@ export default function RegistrationForm({ setAppState }) {
           placeholder="🔒  Password"
           required
         />
-        <input className="form-input"
+        <input
+          className="form-input"
           type={showPassword ? "text" : "password"}
           name="passwordConfirm"
           value={regForm.passwordConfirm}
@@ -150,14 +167,15 @@ export default function RegistrationForm({ setAppState }) {
           placeholder="🔒  Confirm Password"
           required
         />
-       <div className="show-password-button">
-            <input className="form-input"
-              type="checkbox"
-              onClick={handleShowPassword}
-              value={showPassword}
-            />
-            Show Password
-          </div>
+        <div className="show-password-button">
+          <input
+            className="form-input"
+            type="checkbox"
+            onClick={handleShowPassword}
+            value={showPassword}
+          />
+          Show Password
+        </div>
         <button
           className="submit-registration"
           disabled={isLoading}

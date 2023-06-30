@@ -5,11 +5,13 @@ const morgan = require('morgan')
 const cors = require('cors')
 const { NotFoundError } = require("./utils/errors")
 const authRoutes = require('./routes/auth')
+const security = require('./middleware/security')
 
 app.use(express.json())
 app.use(cors())
 app.use(morgan('tiny'))
 app.use('/auth', authRoutes)
+app.use(security.extractUserFromJWT)
 
 app.get('/', (req,res) => {
     res.status(200).json({ping:'pong'})

@@ -3,10 +3,8 @@ const bcrypt = require("bcrypt");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
 const { validateFields } = require("../utils/validate");
 const { BCRYPT_WORK_FACTOR } = require("../config");
-const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 
-const secretKey = crypto.randomBytes(64).toString("hex");
 
 class User {
   static async createPublicUser(user) {
@@ -124,24 +122,6 @@ class User {
     return user;
   }
 
-  // static async verifyAuthToken(token) {
-  //   try {
-  //     const decoded = jwt.verify(token, secretKey);
-  //     return decoded;
-  //   } catch (err) {
-  //     return null;
-  //   }
-  // }
-
-  // static async generateAuthToken(user) {
-  //   const payload = {
-  //     id: user.id,
-  //     firstname: user.first_name,
-  //     lastname: user.last_name,
-  //     email: user.email,
-  //   };
-  //   const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
-  // }
 }
 
 module.exports = User;

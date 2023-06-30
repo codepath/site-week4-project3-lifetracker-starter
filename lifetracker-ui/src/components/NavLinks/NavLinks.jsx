@@ -6,6 +6,9 @@ export default function NavLinks() {
     <div className="nav-links">
       <ul className="links">
         <li>
+          <Link to="/activity">Activity</Link>
+        </li>
+        <li>
           <Link to="/login">Login</Link>
         </li>
         <li>

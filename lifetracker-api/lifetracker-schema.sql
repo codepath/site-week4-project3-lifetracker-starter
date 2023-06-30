@@ -33,3 +33,4 @@ CREATE TABLE sleep (
     end_time   TIMESTAMP NOT NULL,
     user_id    VARCHAR(255) NOT NULL,
     created_at TIMESTAMP NOT NULL);
+
