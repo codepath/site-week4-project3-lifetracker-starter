@@ -4,6 +4,7 @@ const User = require("../models/user")
 
 //route for login-need to create a user variable which is created once user is authenticated by checking database
 router.post("/login", async function(req,res, next){
+    console.log("in login post")
     try{
         const user = await User.authenticate(req.body) //takes in user input from body of page as a paramater for authenticate method
         return res.status(200).json({user})
