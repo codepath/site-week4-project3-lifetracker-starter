@@ -15,6 +15,7 @@ function getDatabaseUri(){
    //if user supplies database url use that else make it yourself
    return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}` //full database connection string
 }
+const BCRYPT_WORK_FACTOR=13
 
 console.log(getDatabaseUri())
 module.exports = {

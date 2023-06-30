@@ -1,6 +1,8 @@
 const db = require("../db")
-const bcyrpt = require("bcyrpt")
+const bcyrpt = require("bcry pt")
 const {validateFields} = require("../utils/validate")
+const { BadRequestError } = require("../utils/errors")
+const {BCRYPT_WORK_FACTOR}=require("../config")
 
 class User{
     //convert user from database into a user object that can be manipulated and viewed publically
@@ -46,25 +48,53 @@ class User{
 
     //register function 
     static async register(creds){
-        const {email, password, firstName,lastName, location, date} = creds;
-        const requiredCreds = ["email","password","firstName","lastName","location","date"]
+        
+        const requiredFields = ["email","password","firstName","lastName","location","date"]
+        requiredFields.forEach(field=>{
+            if(!creds.hasOwnProperty(field)){
+                throw new BadRequestError(`Missing ${field} in request body`)
+
+            }
+        })
+        if (creds.email.indexOf("@")<=0){
+            throw new BadRequestError("invalid email.")
+        }
+       const existingUser=await user.fetchUserByEmail(creds.email)
+       if (existingUser){
+        throw new BadRequestError(`Duplicate email: ${creds.email} `)
+       }
+       const hashedPassword=await bcyrpt.hash(creds.password.BCRYPT_WORK_FACTOR)
+       const lowerCasedEmail=credential.email.toLowerCase()
+
+       const result =  await db.query(`
+       INSERT INTO users(
+        email,
+        password,
+        firstName,
+        LastName,
+        location,
+        date)
+        VALUES($1, $2 , $3 , $4, $5 ,$6)
+        RETURNING id, email , firstName, LastName,location,   date
+       `)
+       [lowerCasedEmail, hashedPassword, creds.firstName, creds.lastName,creds.location, creds.date]
+
+
     }
 
     //
     static async fetchUserByEmail(email){
-        const result = await db.query(
-        `SELECT id, 
-                email,
-                password,
-                first_name AS "firstName",
-                last_name AS "lastName",
-                location,
-            xdate
-        FROM users WHERE email = $1`,[email.toLowerCase()]
+        if (!email){
+            throw new BadRequestError("No email provided")
+        }
+        const query = await db.query(
+        `SELECT * FROM users WHERE email=$1`
+    
         )
-
+        const result=await db.query(query,[email.toLowerCase()])
         const user = result.rows[0]
+        return user
     }
 }
 
-module.exports = User;
+module.exports=user
