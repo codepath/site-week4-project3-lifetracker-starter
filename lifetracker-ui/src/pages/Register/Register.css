@@ -1,34 +1,40 @@
-.register {
+.register-form {
     display: flex;
     flex-direction: column;
 }
-.register .registration-form {
+.card {
     padding: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
     max-width: 450px;
     margin: 0 auto;
-    border: solid black;
+    box-shadow: 0 4px 6px -1px lightgray;
 }
-.register h2 {
+.register-form h2 {
     display: flex;
     justify-content: center;
 }
-.register .registration-form .reg-names {
+.register-form .card .reg-names {
     display: flex;
     flex-direction: row;
 }
 
-.registration-form button {
+.card button {
     background-color: #AEA4BF;
     font-size: 25px;
     width: 100%;
     border: 1px solid;
 }
-.register .registration-form input {
+
+.card input {
     padding: 10px;
     margin: 10px;
     border: 1px solid;
     border-radius: 7px;
+}
+
+.card .reg-names input{
+    width: 100%
 }
