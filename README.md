@@ -21,6 +21,12 @@ By the end of this project you will be able to...
 
 ## Application Features
 
+## Walkthrough Video Week 1 ##
+
+<a href="https://www.loom.com/share/1e9d6e06966b49efb0e03a4442221441">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/1e9d6e06966b49efb0e03a4442221441-with-play.gif">
+  </a>
+
 ### Core Features
 
 - [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
