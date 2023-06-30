@@ -10,6 +10,7 @@ import { useState } from 'react'
 import ExercisePage from '../ExercisePage/ExcersisePage'
 import NutritionPage from '../NutritionPage/NutritionPage'
 import SleepPage from '../SleepPage/SleepPage'
+import axios from 'axios'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -18,25 +19,19 @@ function App() {
   const handleLogin = async (email, password) => {
    
     try {
-      const response = await fetch("http://localhost:5173/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      let response = await axios.post('http://localhost:3001/auth/login', { email, password })
 
-      const data = await response.json();
+      console.log("Response output: ", response)
 
       if (response.ok) {
         //Successful Login
         setLoggedIn(true);
         setLoginError("");
-        console.log(data.message); //optional - display a success message
+       // console.log(response); //optional - display a success message
       } else {
         //Login failed
-        setLoginError(data.message);
-        console.log(data.message); //optional - display error message
+        setLoginError(response);
+      //  console.log(response); //optional - display error message
       }
     } catch (error) {
       console.error("Error:", error);
