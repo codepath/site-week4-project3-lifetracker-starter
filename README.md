@@ -21,6 +21,13 @@ By the end of this project you will be able to...
 
 ## Application Features
 
+## Walkthrough Video Week 1
+
+<a href="https://www.loom.com/share/94bdaaefebff4e95a529d1bf956d0fa4">
+    <p>Loom Message - 30 June 2023 - Watch Video</p>
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/94bdaaefebff4e95a529d1bf956d0fa4-with-play.gif">
+  </a>
+
 ### Core Features
 
 - [ ] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
