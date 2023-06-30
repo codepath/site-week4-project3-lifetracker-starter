@@ -1,4 +1,4 @@
-.css-1opnp10 > :not(style) ~ :not(style) {
+.user-info-container > :not(style) ~ :not(style) {
     margin-top: var(--chakra-space-4);
     margin-inline: 0px;
     margin-bottom: 0px;

@@ -1,5 +1,6 @@
 import * as React from "react"
 import "./ActivityPage.css"
+import { Link } from "react-router-dom"
 
 export default function ActivityPage({appState, isLoggedIn}) {
 
@@ -12,7 +13,11 @@ export default function ActivityPage({appState, isLoggedIn}) {
         <div className="chakra-stack css-12mzq72">
             <h2 className="chakra-heading css-1jb3vzl">Activity Feed</h2>
             <div className="chakra-stack css-1qwhsm9" >
-                <button type="button" className="chakra-button css-moltat">Add Exercise</button><button type="button" className="chakra-button css-l6faz9">Log Sleep</button>
+                <Link to= "/exercise/create">
+                <button type="button" className="chakra-button css-moltat">Add Exercise</button>
+                </Link>
+                
+                <button type="button" className="chakra-button css-l6faz9">Log Sleep</button>
                 <button type="button" className="chakra-button css-n3canj">Record Nutrition</button>
             </div>
         </div>

@@ -36,14 +36,14 @@
 }
 
 .css-1jb3vzl {
-    font-size: var(--chakra-fontSizes-3xl);
+    
     line-height: 1.2;
 }
 
 .css-1jb3vzl {
     font-family: var(--chakra-fonts-heading);
     font-weight: var(--chakra-fontWeights-bold);
-    font-size: var(--chakra-fontSizes-2xl);
+    font-size: 25pt;
     line-height: 1.33;
 }
 
@@ -324,6 +324,7 @@
 .css-14go5ty {
     font-weight: var(--chakra-fontWeights-medium);
     font-size: var(--chakra-fontSizes-sm);
+    font-family: var(--chakra-fonts-body);
 }
 
 .css-1axeus7 {
@@ -331,5 +332,6 @@
     font-weight: var(--chakra-fontWeights-semibold);
     font-size: var(--chakra-fontSizes-2xl);
     font-variant-numeric: proportional-nums;
+    font-family: var(--chakra-fonts-body);
 }
 

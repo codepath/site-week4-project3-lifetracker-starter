@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.css-14rj303 {
+.logo-margin {
   transition-property: var(--chakra-transition-property-common);
   transition-duration: var(--chakra-transition-duration-fast);
   transition-timing-function: var(--chakra-transition-easing-ease-out);
@@ -32,7 +32,7 @@
   margin-right: 50px;
 }
 
-.css-74uit1 {
+.navlinks {
   transition-property: var(--chakra-transition-property-common);
   transition-duration: var(--chakra-transition-duration-fast);
   transition-timing-function: var(--chakra-transition-easing-ease-out);
@@ -58,7 +58,7 @@
   color: inherit;
 }
 
-.css-1t9i4zo {
+.lightblue-button {
   display: inline-flex;
   appearance: none;
   -webkit-box-align: center;
@@ -87,7 +87,7 @@
   margin-right: 20px;
 }
 
-.css-td8gbm {
+.blue-button {
   display: inline-flex;
   -webkit-box-align: center;
   align-items: center;

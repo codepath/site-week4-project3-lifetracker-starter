@@ -1,5 +1,6 @@
 import * as React from "react"
 import "./ExercisePage.css"
+import { Link } from "react-router-dom"
 
 export default function ExercisePage() {
   return (
@@ -11,7 +12,11 @@ export default function ExercisePage() {
         <div className="css-1qfrez2">
             <div className="css-uiodal">
                 <div className="exercise-feed">
-                    <a className="chakra-link button css-spn4bz" href="/exercise/create"><button type="button" className="chakra-button css-ez23ye">Add Exercise</button></a>
+                    <a className="chakra-link button css-spn4bz">
+                        <Link to= "/exercise/create">
+                        <button type="button" className="chakra-button css-ez23ye">Add Exercise</button>
+                        </Link>
+                        </a>
                     <div className="chakra-stack css-xixnl8">
                         <span className="css-89mcmc">Today at 7:56 PM</span>
                         <div className="css-1d1dt3r">

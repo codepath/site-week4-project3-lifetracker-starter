@@ -8,6 +8,7 @@ import RegistrationPage from "../RegistrationPage/RegistrationPage";
 import ActivityPage from "../ActivityPage/ActivityPage";
 import { useState } from "react"
 import ExercisePage from "../ExercisePage/ExercisePage";
+import ExerciseForm from "../ExerciseForm/ExerciseForm";
 
 export default function App() {
   const [appState, setAppState] = useState({})
@@ -23,9 +24,9 @@ export default function App() {
          <Route path="/register" element={<RegistrationPage setAppState={setAppState} setIsLoggedIn= {setIsLoggedIn}/>} />
           <Route path="/activity" element={<ActivityPage appState={appState} isLoggedIn = {isLoggedIn}/>} /> 
           <Route path="/exercise" element={<ExercisePage />} />  
-          {/* <Route path="/nutrition/*" element={<NutritionPage />} />
-          <Route path="/nutrition/*" element={<AccessForbidden />} />
-          <Route path="*" element={<NotFound />} /> */}
+          <Route path="/exercise/create" element={<ExerciseForm/>} />
+          {/* <Route path="/nutrition/*" element={<AccessForbidden />} />
+          <Route path="*" element={<NotFound />} />  */}
         </Routes>
       </BrowserRouter>
     </div>

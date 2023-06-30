@@ -1,4 +1,4 @@
-.css-9cjjy5 {
+.page-container {
     display: flex;
     flex-direction: column;
     min-height: 80vh;
@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.css-15xvz01 {
+.information-container {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -18,11 +18,11 @@
     margin-bottom: var(--chakra-space-2);
 }
 
-.css-11g7hql:not([data-loaded]) {
+.person-logo:not([data-loaded]) {
     --avatar-background: var(--chakra-colors-gray-400);
 }
 
-.css-11g7hql {
+.person-logo {
     border-radius: var(--chakra-radii-full);
     display: inline-flex;
     -webkit-box-align: center;
@@ -50,18 +50,18 @@
     height: 100%;
 }
 
-.css-15xvz01 > :not(style) ~ :not(style) {
+.information-container > :not(style) ~ :not(style) {
     margin-top: 0.5rem;
     margin-inline: 0px;
     margin-bottom: 0px;
 }
 
-.css-3q8efk {
+.form-title {
     font-size: var(--chakra-fontSizes-4xl);
     line-height: 1.2;
 }
 
-.css-3q8efk {
+.form-title {
     font-family: var(--chakra-fonts-heading);
     font-weight: var(--chakra-fontWeights-bold);
     font-size: var(--chakra-fontSizes-3xl);
@@ -69,17 +69,17 @@
     color: var(--chakra-colors-teal-400);
 }
 
-.css-15xvz01 > :not(style) ~ :not(style) {
+.information-container > :not(style) ~ :not(style) {
     margin-top: 0.5rem;
     margin-inline: 0px;
     margin-bottom: 0px;
 }
 
-.css-ebzegt {
+.information-structure {
     min-width: 468px;
 }
 
-.css-1opnp10 {
+.user-info-container {
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -141,7 +141,7 @@
     background: inherit;
 }
 
-.css-1opnp10 > :not(style) ~ :not(style) {
+.user-info-container > :not(style) ~ :not(style) {
     margin-top: var(--chakra-space-4);
     margin-inline: 0px;
     margin-bottom: 0px;
@@ -271,7 +271,7 @@
     width: var(--chakra-sizes-full);
 }
 
-.css-1opnp10 > :not(style) ~ :not(style) {
+.user-info-container > :not(style) ~ :not(style) {
     margin-top: var(--chakra-space-4);
     margin-inline: 0px;
     margin-bottom: 0px;

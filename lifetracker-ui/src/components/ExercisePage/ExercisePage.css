@@ -73,6 +73,7 @@
   outline: transparent solid 2px;
   outline-offset: 2px;
   color: inherit;
+  justify-content: center;
 }
 
 .ExercisePage .button button {

@@ -65,9 +65,9 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
   
   return (
     <div className="RegistrationPage">
-      <div className="css-9cjjy5">
-        <div className="chakra-stack css-15xvz01">
-          <span className="chakra-avatar css-11g7hql">
+      <div className="page-container">
+        <div className="chakra-stack information-container">
+          <span className="chakra-avatar person-logo">
             <svg
               viewBox="0 0 128 128"
               className="chakra-avatar__svg css-16ite8i"
@@ -84,10 +84,10 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
               ></path>
             </svg>
           </span>
-          <h2 className="chakra-heading css-3q8efk">Create an Account</h2>
-          <div className="css-ebzegt">
+          <h2 className="chakra-heading form-title">Create an Account</h2>
+          <div className="information-structure">
             <form>
-              <div className="chakra-stack css-1opnp10">
+              <div className="chakra-stack user-info-container">
                 <div role="group" className="chakra-form-control css-1kxonj9">
                   <div className="chakra-input__group css-bx0blc" data-group="true">
                     <div className="chakra-input__left-element css-1cw84h2">

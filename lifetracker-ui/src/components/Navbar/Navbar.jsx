@@ -19,7 +19,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
       <a className="chakra-link css-spn4bz">
         <button
           type="button"
-          className="chakra-button css-td8gbm"
+          className="chakra-button blue-button"
           onClick={handleLogout}
         >
           Logout
@@ -32,7 +32,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
     <>
       <Link to="/login">
         <a className="chakra-link css-spn4bz" href="/login">
-          <button type="button" className="chakra-button css-1t9i4zo">
+          <button type="button" className="chakra-button lightblue-button">
             Sign In
           </button>
         </a>
@@ -40,7 +40,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
 
       <Link to="/register">
         <a className="chakra-link css-spn4bz">
-          <button type="button" className="chakra-button css-td8gbm">
+          <button type="button" className="chakra-button blue-button">
             Register
           </button>
         </a>
@@ -52,7 +52,7 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
   return (
     <div className="Navbar ">
       <div className="content">
-        <a className="chakra-link css-14rj303" href="/">
+        <a className="chakra-link logo-margin" href="/">
           <Logo />
         </a>
         <NavLinks />
