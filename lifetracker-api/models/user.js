@@ -64,5 +64,29 @@ class User{
         )
 
         const user = result.rows[0]
+
+        return user
+    }
+
+    static async fetchById(userId){
+
+        const query = `SELECT from users WHERE id = $1`
+        const result = await db.query(query, [id])
+        // const result = await db.query(
+        //     `SELECT id,
+        //     email, 
+        //     password,
+        //     first_name AS "firstName"
+        //     last_name AS "lastName"
+        //     location,
+        //     date
+        //     FROM users WHERE id = $1,
+        // `, [userId])
+
+        const user = result.rows[0]
+
+        return user
     }
 }
+
+module.exports = User
