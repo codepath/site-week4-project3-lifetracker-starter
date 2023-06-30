@@ -12,8 +12,8 @@ export default function SignIn(onLogin, loginError) {
     }
     return (
  <div className="css-9cjjy5">
-    <div className="chakra-stack css-15xvz01">
-        <span className="chakra-avatar css-11g7hql">
+    <div className="chakra-stack css-13ra036">
+        <span className="chakra-avatar css-3fy9wq">
             <svg viewBox="0 0 128 128" className="chakra-avatar__svg css-16ite8i" role="img" aria-label=" avatar">
                 <path
                     fill="currentColor"
@@ -40,7 +40,7 @@ export default function SignIn(onLogin, loginError) {
                                 type="email"
                                 placeholder="Email"
                                 id="field-:rm:"
-                                className="chakra-input css-trvw4f"
+                                className="chakra-input css-1aepka5"
                                 value= {email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -61,7 +61,7 @@ export default function SignIn(onLogin, loginError) {
                                 type="password"
                                 placeholder="Password"
                                 id="field-:rn:"
-                                className="chaksra-input css-67vh0"
+                                className="chaksra-input css-1aepka5"
                                 value= {password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
