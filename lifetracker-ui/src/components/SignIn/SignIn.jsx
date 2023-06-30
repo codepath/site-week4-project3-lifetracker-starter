@@ -1,7 +1,7 @@
 import './SignIn.css'
 import {useState} from 'react'
 
-export default function SignIn(onLogin, loginError) {
+export default function SignIn({onLogin, loginError}) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

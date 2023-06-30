@@ -10,42 +10,37 @@ import { useState } from 'react'
 import ExercisePage from '../ExercisePage/ExcersisePage'
 import NutritionPage from '../NutritionPage/NutritionPage'
 import SleepPage from '../SleepPage/SleepPage'
+import axios from 'axios'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginError, setLoginError] = useState("");
   
   const handleLogin = async (email, password) => {
-    setLoggedIn(true)
-    // try {
-    //   const response = await fetch("http://localhost:3001/api/auth/login", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ email, password }),
-    //   });
+   
+    try {
+      let response = await axios.post('http://localhost:3001/auth/login', { email, password })
 
-    //   const data = await response.json();
+      console.log("Response output: ", response)
 
-    //   if (response.ok) {
-    //     //Successful Login
-    //     setLoggedIn(true);
-    //     setLoginError("");
-    //     console.log(data.message); //optional - display a success message
-    //   } else {
-    //     //Login failed
-    //     setLoginError(data.message);
-    //     console.log(data.message); //optional - display error message
-    //   }
-    // } catch (error) {
-    //   console.error("Error:", error);
-    // }
+      if (response.ok) {
+        //Successful Login
+        setLoggedIn(true);
+        setLoginError("");
+       // console.log(response); //optional - display a success message
+      } else {
+        //Login failed
+        setLoginError(response);
+      //  console.log(response); //optional - display error message
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
     //Registration function to handle registration
     const handleRegistration = async (name, email, password) => {
-      setLoggedIn(true)
+     
     //   try {
     //     const response = await fetch("http://localhost:3001/api/auth/register", {
     //       method: "POST",
