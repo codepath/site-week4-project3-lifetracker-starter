@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Puff } from "react-loading-icons";
 import axios from "axios";
 
-export default function Login({ appState, setAppState }) {
+export default function Login({ setAppState }) {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
@@ -27,6 +27,7 @@ export default function Login({ appState, setAppState }) {
             user: res.data.user,
             isAuthenticated: true,
           }));
+          console.log(res);
         } else {
           setLoginError("Invalid email or password.");
         }
@@ -45,7 +46,6 @@ export default function Login({ appState, setAppState }) {
 
   return (
     <Fragment>
-      <Navbar appState={appState} setAppState={setAppState}/>
       <div style={{ marginTop: "5%" }} className="register">
         <span id="register-icon">
           <FontAwesomeIcon icon={faUser} />

@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 import "./Register.css";
 import axios from "axios";
 
-export default function Register({ appState, setAppState }) {
+export default function Register({ setAppState }) {
   const [userInfo, setUserInfo] = useState({
     email: "",
     username: "",
@@ -48,6 +48,7 @@ export default function Register({ appState, setAppState }) {
             user: res.data.user,
             isAuthenticated: true,
           }));
+          console.log(res);
         } else {
           setRegisError("Something went wrong with registration.");
         }
@@ -80,7 +81,6 @@ export default function Register({ appState, setAppState }) {
 
   return (
     <Fragment>
-      <Navbar appState={appState} setAppState={setAppState}/>
       <div style={{ marginTop: "5%" }} className="register">
         <span id="register-icon">
           <FontAwesomeIcon icon={faUser} />

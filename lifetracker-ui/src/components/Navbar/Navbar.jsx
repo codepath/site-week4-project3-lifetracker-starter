@@ -1,16 +1,16 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 import "./Navbar.css";
 
-export default function Navbar({ setAppState, appState}) {
-  console.log(appState)
+export default function Navbar({ setAppState, appState }) {
+  console.log(appState);
 
-  function handleSignOut(e){
+  function handleSignOut(e) {
     setAppState((prevState) => ({
       ...prevState,
-      isAuthenticated: false
-    }))
+      isAuthenticated: false,
+    }));
   }
   return (
     <Fragment>
@@ -20,37 +20,39 @@ export default function Navbar({ setAppState, appState}) {
         </Link>
         <ul className="menu-links">
           <li>
-          <Link to="/activity">
-            <a href="" className="nav-link">
-              Activity
-            </a>
+            <Link to="/activity">
+              <a href="" className="nav-link">
+                Activity
+              </a>
             </Link>
           </li>
           <li>
             <Link to="/exercise">
-            <a href="" className="nav-link">
-              Exercise
-            </a>
+              <a href="" className="nav-link">
+                Exercise
+              </a>
             </Link>
           </li>
           <li>
             <Link to="/nutrition">
-            <a href="" className="nav-link">
-              Nutrition
-            </a>
+              <a href="" className="nav-link">
+                Nutrition
+              </a>
             </Link>
           </li>
           <li>
             <Link to="/sleep">
-            <a href="" className="nav-link">
-              Sleep
-            </a>
+              <a href="" className="nav-link">
+                Sleep
+              </a>
             </Link>
           </li>
           {appState.isAuthenticated ? (
             <li>
               <Link to="/">
-                <button onClick={handleSignOut} id="navbar-button1">Sign Out</button>
+                <button onClick={handleSignOut} id="navbar-button1">
+                  Sign Out
+                </button>
               </Link>
             </li>
           ) : (
@@ -69,7 +71,7 @@ export default function Navbar({ setAppState, appState}) {
           )}
         </ul>
       </nav>
-      {/* <Outlet /> */}
+      <Outlet />
     </Fragment>
   );
 }

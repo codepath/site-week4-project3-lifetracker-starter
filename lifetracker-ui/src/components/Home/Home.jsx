@@ -15,10 +15,9 @@ import {
 import Navbar from "../Navbar/Navbar";
 import "./Home.css";
 
-export default function Home({ appState, setAppState }) {
+export default function Home({ appState }) {
   return (
     <Fragment>
-      <Navbar appState={appState} setAppState={setAppState} />
       <div className="all-home">
         <div className="home">
           <div className="home-about">
