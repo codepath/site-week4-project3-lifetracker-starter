@@ -1,8 +1,8 @@
-import "./Login.css";
+import "./LoginForm.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function Login() {
+export default function Login({ setAppState }) {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loginForm, setLoginForm] = useState({
@@ -14,16 +14,21 @@ export default function Login() {
   function handleShowPassword() {
     setShowPassword(!showPassword);
   }
-  async function handleOnSubmit(e) {
+  async function loginUser(e) {
     e.preventDefault();
     setIsLoading(true);
     setErrors((e) => ({ ...e, form: null }));
 
     try {
-      const result = axios.post("http://localhost/3000/auth/login", loginForm);
+      const result = await axios.post(
+        "http://localhost:3000/auth/login",
+        loginForm
+      );
+
       if (result?.data) {
         setIsLoading(false);
-        console.log(result.data);
+        setAppState(result.data);
+        //navigate to "/portal"
       } else {
         setErrors((e) => ({
           ...e,
@@ -45,7 +50,7 @@ export default function Login() {
   function handleOnChange(e) {
     if (e.target.name === "email") {
       if (e.target.value.indexOf("@") === -1)
-        setErrors((e) => ({ ...e, email: "Please enter a valid ema)il" }));
+        setErrors((e) => ({ ...e, email: "Please enter a valid email" }));
       else {
         setErrors((e) => ({ ...e, email: null }));
       }
@@ -59,6 +64,7 @@ export default function Login() {
       <div className="card">
         <form>
           <input
+            className="form-input"
             value={loginForm.email}
             type="text"
             name="email"
@@ -66,6 +72,7 @@ export default function Login() {
             onChange={handleOnChange}
           />
           <input
+            className="form-input"
             type={showPassword ? "text" : "password"}
             name="password"
             placeholder="Password"
@@ -77,9 +84,9 @@ export default function Login() {
             Show Password
           </div>
           <button
-            className="login-button"
+            className="submit-login"
             disabled={isLoading}
-            onClick={handleOnSubmit}
+            onClick={loginUser}
           >
             {isLoading ? "Loading... " : "Login"}
           </button>

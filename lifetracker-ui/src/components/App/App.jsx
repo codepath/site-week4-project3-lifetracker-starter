@@ -1,12 +1,13 @@
 import './App.css'
 import React from 'react'
 import Navbar from '../Navbar/Navbar'
-import Home from "../Home/Home"
 import Landing from '../../pages/Landing/Landing'
-import Register from '../../pages/Register/Register'
-import Login from "../../pages/Login/Login"
+import RegisterPage from '../../pages/RegistrationPage/RegistrationPage'
+import LoginPage from "../../pages/LoginPage/LoginPage"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useState } from "react"
 function App() {
+  const [appState, setAppState] = useState({})
 
   return (
     <div className="app">
@@ -14,8 +15,8 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Landing/>}/>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<RegisterPage setAppState={setAppState}/>}/>
+          <Route path="/login" element={<LoginPage setAppState={setAppState}/>}/>
        </Routes>
       </BrowserRouter>
     </div>

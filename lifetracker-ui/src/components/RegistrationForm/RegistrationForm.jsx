@@ -1,8 +1,8 @@
-import "./Register.css";
+import "./RegistrationForm.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function Register() {
+export default function RegistrationForm({ setAppState }) {
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false)
   const [regForm, setRegForm] = useState({
@@ -11,30 +11,30 @@ export default function Register() {
     lastName: "",
     email: "",
     password: "",
-    confPassword: "",
+    passwordConfirm: "",
   });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     if (e.target.name === "password") {
-      if (regForm.confPassword && regForm.confPassword !== e.target.value) {
+      if (regForm.passwordConfirm && regForm.passwordConfirm !== e.target.value) {
         setErrors((err) => ({
           ...err,
-          confPassword: "Password's do not match",
+          passwordConfirm: "Password's do not match",
         }));
       } else {
-        setErrors((err) => ({ ...err, confPassword: null }));
+        setErrors((err) => ({ ...err, passwordConfirm: null }));
       }
     }
 
-    if (e.target.name === "confPassword") {
+    if (e.target.name === "passwordConfirm") {
       if (regForm.password && regForm.password !== e.target.value) {
         setErrors((err) => ({
           ...err,
-          confPassword: "Password's do not match",
+          passwordConfirm: "Password's do not match",
         }));
       } else {
-        setErrors((err) => ({ ...err, confPassword: null }));
+        setErrors((err) => ({ ...err, passwordConfirm: null }));
       }
     }
 
@@ -53,15 +53,15 @@ export default function Register() {
     setShowPassword(!showPassword)
   }
 
-  async function handleOnSubmit() {
+  async function signupUser() {
     setErrors((e) => ({ ...e, regForm: null }));
     setIsLoading(true);
-    if (regForm.password !== regForm.confPassword) {
-      setErrors((e) => ({ ...e, confPassword: "Passwords do not match." }));
+    if (regForm.password !== regForm.passwordConfirm) {
+      setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }));
       setIsLoading(false);
       return;
     } else {
-      setErrors((e) => ({ ...e, confPassword: null }));
+      setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
 
     try {
@@ -74,7 +74,7 @@ export default function Register() {
       });
 
       if (result?.data?.user) {
-        //setAppState to result.data
+        setAppState(result.data)
         //navigate to "/portal"
         setIsLoading(false);
       } else {
@@ -96,10 +96,10 @@ export default function Register() {
   }
 
   return (
-    <div className="register-form">
+    <div className="registration-form">
       <h2>Create An Account</h2>
       <form className="card">
-        <input
+        <input className="form-input"
           type="text"
           name="email"
           value={regForm.email}
@@ -108,7 +108,7 @@ export default function Register() {
           required
         />
         
-        <input
+        <input className="form-input"
           type="text"
           name="username"
           value={regForm.username}
@@ -117,7 +117,7 @@ export default function Register() {
           required
         />
         <div className="reg-names">
-          <input
+          <input className="form-input"
             type="text"
             name="firstName"
             value={regForm.firstName}
@@ -125,7 +125,7 @@ export default function Register() {
             placeholder="First Name"
             required
           />
-          <input
+          <input className="form-input"
             type="text"
             name="lastName"
             value={regForm.lastName}
@@ -134,7 +134,7 @@ export default function Register() {
             required
           />
         </div>
-        <input
+        <input className="form-input"
           type={showPassword ? "text" : "password"}
           name="password"
           value={regForm.password}
@@ -142,16 +142,16 @@ export default function Register() {
           placeholder="🔒  Password"
           required
         />
-        <input
+        <input className="form-input"
           type={showPassword ? "text" : "password"}
-          name="confPassword"
-          value={regForm.confPassword}
+          name="passwordConfirm"
+          value={regForm.passwordConfirm}
           onChange={handleChange}
           placeholder="🔒  Confirm Password"
           required
         />
        <div className="show-password-button">
-            <input
+            <input className="form-input"
               type="checkbox"
               onClick={handleShowPassword}
               value={showPassword}
@@ -159,9 +159,9 @@ export default function Register() {
             Show Password
           </div>
         <button
-          className="sign-up-button"
+          className="submit-registration"
           disabled={isLoading}
-          onClick={handleOnSubmit}
+          onClick={signupUser}
         >
           {isLoading ? "Loading... " : "Create Account"}
         </button>

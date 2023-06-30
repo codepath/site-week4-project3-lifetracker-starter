@@ -1,0 +1,12 @@
+.nav-links .links {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+  }
+  .nav-links .links li {
+    border: 1px solid white;
+    background-color: #E2DFD2;
+    margin: 10px;
+    border-radius: 7px;
+  }

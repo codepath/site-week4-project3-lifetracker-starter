@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import NavLinks from "../NavLinks/NavLinks"
 
 export default function Navbar() {
   function handleSubmit(e) {
@@ -15,18 +16,8 @@ export default function Navbar() {
           </Link>
         </li>
       </ul>
-      <ul className="links">
-        <li>
-          <Link to="/login">
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link to="/register">
-            Register
-          </Link>
-        </li>
-      </ul>
+      <NavLinks/> 
+      
     </nav>
   );
 }

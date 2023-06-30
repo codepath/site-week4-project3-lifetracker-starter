@@ -1,4 +1,4 @@
-.register-form {
+.registration-form {
     display: flex;
     flex-direction: column;
 }
@@ -12,17 +12,17 @@
     margin: 0 auto;
     box-shadow: 0 4px 6px -1px lightgray;
 }
-.register-form h2 {
+.registration-form h2 {
     display: flex;
     justify-content: center;
 }
-.register-form .card .reg-names {
+.registration-form .card .reg-names {
     display: flex;
     flex-direction: row;
 }
 
 .card button {
-    background-color: #AEA4BF;
+    background-color: #C7DAD4;
     font-size: 25px;
     width: 100%;
     border: 1px solid;

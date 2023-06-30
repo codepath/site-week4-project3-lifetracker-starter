@@ -124,24 +124,24 @@ class User {
     return user;
   }
 
-  static async verifyAuthToken(token) {
-    try {
-      const decoded = jwt.verify(token, secretKey);
-      return decoded;
-    } catch (err) {
-      return null;
-    }
-  }
+  // static async verifyAuthToken(token) {
+  //   try {
+  //     const decoded = jwt.verify(token, secretKey);
+  //     return decoded;
+  //   } catch (err) {
+  //     return null;
+  //   }
+  // }
 
-  static async generateAuthToken(user) {
-    const payload = {
-      id: user.id,
-      firstname: user.first_name,
-      lastname: user.last_name,
-      email: user.email,
-    };
-    const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
-  }
+  // static async generateAuthToken(user) {
+  //   const payload = {
+  //     id: user.id,
+  //     firstname: user.first_name,
+  //     lastname: user.last_name,
+  //     email: user.email,
+  //   };
+  //   const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
+  // }
 }
 
 module.exports = User;
