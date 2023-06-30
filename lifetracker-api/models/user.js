@@ -1,14 +1,19 @@
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
 const db = require("../database");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const crypto = require('crypto')
 const { BCRYPT_WORK_FACTOR } = require("../config");
+
+const secretKey = crypto.randomBytes(64).toString("hex");
 
 class User {
   static _createPublicUser(user) {
     return {
       first_name: user.first_name,
       last_name: user.last_name,
-      username: user.username
+      username: user.username,
+      email_adress: user.email_address
     };
   }
 
@@ -69,6 +74,7 @@ class User {
                   first_name, 
                   last_name,
                   username  
+                  email_address
         `,
       [
         normalizedEmail,
@@ -82,7 +88,7 @@ class User {
     );
 
     const user = result.rows[0];
-    console.log(user)
+    console.log(user);
 
     return user;
   }
@@ -123,5 +129,21 @@ class User {
       return null;
     }
   }
-}
-module.exports = User;
+
+  static generateUserToken(user) {
+
+    const generateToken = (data) =>
+      jwt.sign(data, secretKey, { expiresIn: "1h" });
+
+    
+      const payload = {
+        firstname: user.firstname,
+        lastname: user.lastname,
+        username: user.username,
+      };
+
+      return generateToken(payload);
+    };
+  }
+
+module.exports = User ;

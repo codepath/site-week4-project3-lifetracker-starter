@@ -1,10 +1,9 @@
 import React, { Fragment } from "react";
 import Navbar from "../Navbar/Navbar";
 
-import "./ActivityPage.css";
+import "./ExercisePage.css";
 
-export default function ActivityPage( { setAppState, appState } ){
-
+export default function ExercisePage( { setAppState, appState } ){
     return (
         <>
         <Navbar appState={appState} setAppState={setAppState}/>

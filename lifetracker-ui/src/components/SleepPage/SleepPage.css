@@ -1,6 +1,6 @@
-.SleepPage .button {
-  display: flex;
-}
-.SleepPage .button button {
-  flex: 1;
+.nav-auth{
+  margin-left: 26%;
+  margin-top: 2%;
+  color: var(--stark);
+  font-size: 250%;
 }

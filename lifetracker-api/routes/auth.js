@@ -6,7 +6,8 @@ router.post("/register", async function (req, res, next) {
   try {
     console.log("here");
     const user = await User.register(req.body);
-    return res.status(201).json({ user });
+    const token = await User.generateUserToken(user)
+    return res.status(201).json({ user, token });
   } catch (err) {
     next(err);
   }
@@ -16,7 +17,8 @@ router.post("/login", async function (req, res, next) {
   try {
     console.log("here in login");
     const user = await User.authenticate(req.body);
-    return res.status(201).json({ user });
+    const token = await User.generateUserToken(user)
+    return res.status(201).json({ user, token });
   } catch (err) {
     next(err);
   }

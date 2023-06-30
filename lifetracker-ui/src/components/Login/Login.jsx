@@ -6,44 +6,46 @@ import { Link } from "react-router-dom";
 import { Puff } from "react-loading-icons";
 import axios from "axios";
 
-export default function Login({ setAppState }) {
+export default function Login({ appState, setAppState }) {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
-
   const [isLoading, setIsLoading] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
     if (userInfo.email.includes("@")) {
-        setIsLoading(true)
-        try {
-            const res = await axios.post("http://localhost:3001/auth/login", {
-              email: userInfo.email,
-              password: userInfo.password
-            });
-            if (res.data.user){
-                setAppState((prevState) => ({
-                  ...prevState,
-                  user: res.data.user,
-                  isAuthenticated: true}))
-              }
-            console.log(res);
-          } catch (error) {
-            console.log(error);
-            const message = error?.response?.data?.error?.message;
-            console.log(message);
-          }    
-          setUserInfo((prevState) => ({
+      setIsLoading(true);
+      try {
+        const res = await axios.post("http://localhost:3001/auth/login", {
+          email: userInfo.email,
+          password: userInfo.password,
+        });
+        if (res?.data?.user) {
+          setLoginError("");
+          setAppState((prevState) => ({
             ...prevState,
-            email: "",
-            password: "",
+            user: res.data.user,
+            isAuthenticated: true,
           }));
-          setIsLoading(false)
+        } else {
+          setLoginError("Invalid email or password.");
+        }
+        console.log(res);
+      } catch (error) {
+        setLoginError("Invalid email or password.");
+      }
+      setUserInfo((prevState) => ({
+        ...prevState,
+        email: "",
+        password: "",
+      }));
+      setIsLoading(false);
     }
   }
 
   return (
     <Fragment>
-      <Navbar />
+      <Navbar appState={appState} setAppState={setAppState}/>
       <div style={{ marginTop: "5%" }} className="register">
         <span id="register-icon">
           <FontAwesomeIcon icon={faUser} />
@@ -51,6 +53,7 @@ export default function Login({ setAppState }) {
         <h1 style={{ color: "var(--stark)", fontSize: "280%" }}>Welcome</h1>
         <form id="register-form">
           <input
+            name="email"
             className="register-input"
             type="email"
             value={userInfo.email}
@@ -66,6 +69,7 @@ export default function Login({ setAppState }) {
           <br />
           <div className="register-button">
             <input
+              name="password"
               id="register-input"
               className="button-input"
               value={userInfo.password}
@@ -95,12 +99,20 @@ export default function Login({ setAppState }) {
           </div>
           {userInfo.email.length === 0 ||
           userInfo.email.includes("@") ? null : (
-            <span style={{ color: "red", marginLeft: "55%" }}>
-              Your email must have an '@'.
+            <>
+              <span style={{ color: "red", marginLeft: "55%" }}>
+                Your email must have an '@'.
+              </span>
+              <br />
+            </>
+          )}
+          {loginError !== "" && (
+            <span style={{ color: "red", marginLeft: "58%" }}>
+              {loginError}
             </span>
           )}
           <button onClick={handleSubmit} id="register-signup">
-          {isLoading ? (
+            {isLoading ? (
               <Puff stroke="white" speed={1.25} />
             ) : (
               <span>Login</span>

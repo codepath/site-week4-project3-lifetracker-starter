@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 import "./Register.css";
 import axios from "axios";
 
-export default function Register({ setAppState }) {
+export default function Register({ appState, setAppState }) {
   const [userInfo, setUserInfo] = useState({
     email: "",
     username: "",
@@ -17,6 +17,7 @@ export default function Register({ setAppState }) {
     confirmPassword: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [regisError, setRegisError] = useState("");
 
   async function handleSumbit(e) {
     e.preventDefault();
@@ -40,17 +41,19 @@ export default function Register({ setAppState }) {
           last_name: userInfo.last_name,
           password: userInfo.password,
         });
-        if (res.data.user){
+        if (res?.data?.user) {
+          setRegisError("");
           setAppState((prevState) => ({
             ...prevState,
             user: res.data.user,
-            isAuthenticated: true}))
+            isAuthenticated: true,
+          }));
+        } else {
+          setRegisError("Something went wrong with registration.");
         }
-        console.log(res);
       } catch (error) {
         console.log(error);
-        const message = error?.response?.data?.error?.message;
-        console.log(message);
+        setRegisError("Something went wrong with registration.");
       }
       setUserInfo((prevState) => ({
         ...prevState,
@@ -77,7 +80,7 @@ export default function Register({ setAppState }) {
 
   return (
     <Fragment>
-      <Navbar />
+      <Navbar appState={appState} setAppState={setAppState}/>
       <div style={{ marginTop: "5%" }} className="register">
         <span id="register-icon">
           <FontAwesomeIcon icon={faUser} />
@@ -89,6 +92,7 @@ export default function Register({ setAppState }) {
         </h1>
         <form id="register-form">
           <input
+            name="email"
             className="register-input"
             type="email"
             value={userInfo.email}
@@ -103,6 +107,7 @@ export default function Register({ setAppState }) {
           />
           <br />
           <input
+            name="username"
             className="register-input"
             type="username"
             value={userInfo.username}
@@ -117,6 +122,7 @@ export default function Register({ setAppState }) {
           />
           <br />
           <input
+            name="first_name"
             id="first-name"
             type="text"
             value={userInfo.first_name}
@@ -130,6 +136,7 @@ export default function Register({ setAppState }) {
             placeholder="First name"
           />
           <input
+            name="last_name"
             id="last-name"
             type="text"
             autoComplete="on"
@@ -145,6 +152,7 @@ export default function Register({ setAppState }) {
           <br />
           <div className="register-button">
             <input
+              name="password"
               className="button-input"
               id="button-input1"
               type="password"
@@ -164,6 +172,7 @@ export default function Register({ setAppState }) {
           </div>
           <div className="register-button">
             <input
+              name="password"
               className="button-input"
               id="button-input2"
               type="password"
@@ -200,8 +209,16 @@ export default function Register({ setAppState }) {
           )}
           {userInfo.email.length === 0 ||
           userInfo.email.includes("@") ? null : (
-            <span style={{ color: "red", marginLeft: "55%" }}>
-              Your email must have an '@'.
+            <>
+              <span style={{ color: "red", marginLeft: "55%" }}>
+                Your email must have an '@'.
+              </span>
+              <br />
+            </>
+          )}
+          {regisError !== "" && (
+            <span style={{ color: "red", marginLeft: "45%" }}>
+              {regisError}
             </span>
           )}
           <button onClick={handleSumbit} type="submit" id="register-signup">
@@ -213,6 +230,7 @@ export default function Register({ setAppState }) {
           </button>
           <br />
         </form>
+
         <p style={{ color: "var(--stark)", fontSize: "x-large" }}>
           Have an account? &nbsp;
           <Link to="/login" style={{ color: "var(--fushia)" }}>

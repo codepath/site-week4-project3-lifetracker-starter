@@ -10,19 +10,29 @@ import {
   faBurger,
   faCloudMoon,
   faCalendarDays,
-  faStopwatch
+  faStopwatch,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../Navbar/Navbar";
 import "./Home.css";
 
-export default function Home() {
+export default function Home({ appState, setAppState }) {
   return (
     <Fragment>
-      <Navbar/>
+      <Navbar appState={appState} setAppState={setAppState} />
       <div className="all-home">
         <div className="home">
           <div className="home-about">
-            <h1>LifeTracker <FontAwesomeIcon icon={faStopwatch} beat/></h1>
+            {appState.isAuthenticated ? (
+              <h1>
+                Greetings, <br /> {appState.user.first_name}! &nbsp;
+                <FontAwesomeIcon fontSize="80%" icon={faStopwatch} beat />
+              </h1>
+            ) : (
+              <h1>
+                {" "}
+                LifeTracker <FontAwesomeIcon icon={faStopwatch} beat />
+              </h1>
+            )}
             <p> Helping you get your shit back together. </p>
           </div>
           <div className="home-img">
