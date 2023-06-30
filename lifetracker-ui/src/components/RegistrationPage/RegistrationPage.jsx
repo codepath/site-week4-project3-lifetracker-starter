@@ -65,12 +65,12 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
   
   return (
     <div className="RegistrationPage">
-      <div class="css-9cjjy5">
-        <div class="chakra-stack css-15xvz01">
-          <span class="chakra-avatar css-11g7hql">
+      <div className="css-9cjjy5">
+        <div className="chakra-stack css-15xvz01">
+          <span className="chakra-avatar css-11g7hql">
             <svg
               viewBox="0 0 128 128"
-              class="chakra-avatar__svg css-16ite8i"
+              className="chakra-avatar__svg css-16ite8i"
               role="img"
               aria-label=" avatar"
             >
@@ -84,19 +84,19 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
               ></path>
             </svg>
           </span>
-          <h2 class="chakra-heading css-3q8efk">Create an Account</h2>
-          <div class="css-ebzegt">
+          <h2 className="chakra-heading css-3q8efk">Create an Account</h2>
+          <div className="css-ebzegt">
             <form>
-              <div class="chakra-stack css-1opnp10">
-                <div role="group" class="chakra-form-control css-1kxonj9">
-                  <div class="chakra-input__group css-bx0blc" data-group="true">
-                    <div class="chakra-input__left-element css-1cw84h2">
+              <div className="chakra-stack css-1opnp10">
+                <div role="group" className="chakra-form-control css-1kxonj9">
+                  <div className="chakra-input__group css-bx0blc" data-group="true">
+                    <div className="chakra-input__left-element css-1cw84h2">
                       <svg
                         stroke="currentColor"
                         fill="currentColor"
-                        stroke-width="0"
+                        strokeWidth="0"
                         viewBox="0 0 512 512"
-                        class="css-119zpey"
+                        className="css-119zpey"
                         height="1em"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -110,21 +110,21 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
                       placeholder="Email"
                       id="field-:ro:"
                       aria-required="true"
-                      class="chakra-input css-trvw4f"
+                      className="chakra-input css-trvw4f"
                       value={form.email}
                       onChange={handleOnInputChange}
                     />
                   </div>
                 </div>
-                <div role="group" class="chakra-form-control css-1kxonj9">
-                  <div class="chakra-input__group css-bx0blc" data-group="true">
-                    <div class="chakra-input__left-element css-1cw84h2">
+                <div role="group" className="chakra-form-control css-1kxonj9">
+                  <div className="chakra-input__group css-bx0blc" data-group="true">
+                    <div className="chakra-input__left-element css-1cw84h2">
                       <svg
                         stroke="currentColor"
                         fill="currentColor"
-                        stroke-width="0"
+                        strokeWidth="0"
                         viewBox="0 0 512 512"
-                        class="css-119zpey"
+                        className="css-119zpey"
                         height="1em"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -139,16 +139,16 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
                       id="field-:rp:"
                       required=""
                       aria-required="true"
-                      class="chakra-input css-trvw4f"
+                      className="chakra-input css-trvw4f"
                       value={form.username}
                       onChange={handleOnInputChange}
                     />
                   </div>
                 </div>
-                <div class="css-9jay18">
-                  <div role="group" class="chakra-form-control css-1kxonj9">
+                <div className="css-9jay18">
+                  <div role="group" className="chakra-form-control css-1kxonj9">
                     <div
-                      class="chakra-input__group css-bx0blc"
+                      className="chakra-input__group css-bx0blc"
                       data-group="true"
                     >
                       <input
@@ -158,16 +158,16 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
                         id="field-:rq:"
                         required=""
                         aria-required="true"
-                        class="chakra-input css-qz53jc"
+                        className="chakra-input css-qz53jc"
                         value={form.firstName}
                         onChange={handleOnInputChange}
                       />
                     </div>
                   </div>
                   &nbsp;
-                  <div role="group" class="chakra-form-control css-1kxonj9">
+                  <div role="group" className="chakra-form-control css-1kxonj9">
                     <div
-                      class="chakra-input__group css-bx0blc"
+                      className="chakra-input__group css-bx0blc"
                       data-group="true"
                     >
                       <input
@@ -177,22 +177,22 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
                         id="field-:rr:"
                         required=""
                         aria-required="true"
-                        class="chakra-input css-qz53jc"
+                        className="chakra-input css-qz53jc"
                         value={form.lastName}
                         onChange={handleOnInputChange}
                       />
                     </div>
                   </div>
                 </div>
-                <div role="group" class="chakra-form-control css-1kxonj9">
-                  <div class="chakra-input__group css-bx0blc" data-group="true">
-                    <div class="chakra-input__left-element css-17ke578">
+                <div role="group" className="chakra-form-control css-1kxonj9">
+                  <div className="chakra-input__group css-bx0blc" data-group="true">
+                    <div className="chakra-input__left-element css-17ke578">
                       <svg
                         stroke="currentColor"
                         fill="currentColor"
-                        stroke-width="0"
+                        strokeWidth="0"
                         viewBox="0 0 448 512"
-                        class="css-119zpey"
+                        className="css-119zpey"
                         height="1em"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -207,26 +207,26 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
                       id="field-:rs:"
                       required=""
                       aria-required="true"
-                      class="chakra-input css-67vh0"
+                      className="chakra-input css-67vh0"
                       value={form.password}
                       onChange={handleOnInputChange}
                     />
-                    <div class="chakra-input__right-element css-1qww07b">
-                      <button type="button" class="show-button">
+                    <div className="chakra-input__right-element css-1qww07b">
+                      <button type="button" className="show-button">
                         Show
                       </button>
                     </div>
                   </div>
                 </div>
-                {/* <div role="group" class="chakra-form-control css-1kxonj9">
-                  <div class="chakra-input__group css-bx0blc" data-group="true">
-                    <div class="chakra-input__left-element css-17ke578">
+                {/* <div role="group" className="chakra-form-control css-1kxonj9">
+                  <div className="chakra-input__group css-bx0blc" data-group="true">
+                    <div className="chakra-input__left-element css-17ke578">
                       <svg
                         stroke="currentColor"
                         fill="currentColor"
-                        stroke-width="0"
+                        strokeWidth="0"
                         viewBox="0 0 448 512"
-                        class="css-119zpey"
+                        className="css-119zpey"
                         height="1em"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -241,27 +241,27 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
                       id="field-:rt:"
                       required=""
                       aria-required="true"
-                      class="chakra-input css-67vh0"
+                      className="chakra-input css-67vh0"
                       value=""
                     />
-                    <div class="chakra-input__right-element css-1qww07b">
-                      <button type="button" class="show-button">
+                    <div className="chakra-input__right-element css-1qww07b">
+                      <button type="button" className="show-button">
                         Show
                       </button>
                     </div>
                   </div>
                 </div> */}
-                <button class="chakra-button css-4lvvxn" onClick={handleOnSubmit} disabled={isLoading}>
+                <button className="chakra-button css-4lvvxn" onClick={handleOnSubmit} disabled={isLoading}>
                   {isLoading ? "Loading..." : "Sign up"}
                 </button>
               </div>
             </form>
           </div>
         </div>
-        <div class="footer">
+        <div className="footer">
           Have an account?{" "}
           <Link to= "/login">
-          <a class="sign-up">
+          <a className="sign-up">
             Login
           </a>
           </Link>

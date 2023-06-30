@@ -16,10 +16,10 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
   
     const loggedIn = (
     <>
-      <a class="chakra-link css-spn4bz">
+      <a className="chakra-link css-spn4bz">
         <button
           type="button"
-          class="chakra-button css-td8gbm"
+          className="chakra-button css-td8gbm"
           onClick={handleLogout}
         >
           Logout
@@ -31,16 +31,16 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
   const notLoggedIn = (
     <>
       <Link to="/login">
-        <a class="chakra-link css-spn4bz" href="/login">
-          <button type="button" class="chakra-button css-1t9i4zo">
+        <a className="chakra-link css-spn4bz" href="/login">
+          <button type="button" className="chakra-button css-1t9i4zo">
             Sign In
           </button>
         </a>
       </Link>
 
       <Link to="/register">
-        <a class="chakra-link css-spn4bz">
-          <button type="button" class="chakra-button css-td8gbm">
+        <a className="chakra-link css-spn4bz">
+          <button type="button" className="chakra-button css-td8gbm">
             Register
           </button>
         </a>
@@ -50,14 +50,14 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
 
 
   return (
-    <div class="Navbar ">
-      <div class="content">
-        <a class="chakra-link css-14rj303" href="/">
+    <div className="Navbar ">
+      <div className="content">
+        <a className="chakra-link css-14rj303" href="/">
           <Logo />
         </a>
         <NavLinks />
       </div>
-      <div class="content">{isLoggedIn ? loggedIn : notLoggedIn}</div>
+      <div className="content">{isLoggedIn ? loggedIn : notLoggedIn}</div>
     </div>
   );
 }
