@@ -1,0 +1,58 @@
+.Portal {
+    height: 100%;
+    max-width: 100vw;
+    display: flex;
+    margin: 50px;
+    padding: 50px;
+    border: solid 1px #ababb7;
+    border-radius: 8px;
+  }
+  .Portal .content {
+    flex: 1 1 500px;
+    display: flex;
+    flex-direction: column;
+  }
+  .Portal .content h1 {
+    font-weight: 800;
+    font-size: 40px;
+  }
+  .Portal .card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 300px;
+    font-size: 18px;
+  }
+  .Portal .card .appt {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .Portal .card .title {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 40px;
+  }
+  .Portal .card .title.green {
+    background: rgba(0, 156, 44, 0.1);
+    color: rgba(0, 156, 44, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .Portal .card .footer {
+    margin-top: auto;
+  }
+  .Portal .media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Portal .media img {
+    width: 100%;
+    max-width: 500px;
+  }

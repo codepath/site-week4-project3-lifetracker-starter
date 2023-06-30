@@ -4,3 +4,66 @@
   width: 100%;
   gap: 20px;
 }
+.lifetracker-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lifetracker-content {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.lifetracker-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.lifetracker-subheading {
+  font-size: 16px;
+  color: #666666;
+  margin-top: 10px;
+}
+
+.lifetracker-button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #09bc8a;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 24px;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.lifetracker-button:hover {
+  background-color: #207c62;
+}
+
+.lifetracker-button:active {
+  background-color: #207c62;
+}
+
+.lifetracker-image {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.lifetracker-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
