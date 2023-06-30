@@ -1,5 +1,5 @@
 require("dotenv").config
-require("colors")
+//require("colors")
 
 //to use values from .env need to put them into this folder
 const PORT = process.env.PORT ? Number(process.env.PORT):3001

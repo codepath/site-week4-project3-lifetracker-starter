@@ -75,25 +75,25 @@ class User{
         location,
         date)
         VALUES($1, $2 , $3 , $4, $5 ,$6)
-        RETURNING id, email , firstName, LastName,location,   date
+        RETURNING id, email , firstName, LastName,location,date
        `)
        [lowerCasedEmail, hashedPassword, creds.firstName, creds.lastName,creds.location, creds.date]
 
 
     }
 
-    //
     static async fetchUserByEmail(email){
-        if (!email){
-            throw new BadRequestError("No email provided")
-        }
-        const query = await db.query(
-        `SELECT * FROM users WHERE email=$1`
-    
+        const result = await db.query(
+        `SELECT id,
+                email,
+                password,
+                first_name AS "firstName",
+                last_name AS "lastName",
+                location,
+                date
+        FROM users WHERE email = $1`,[email.toLowerCase()]
         )
-        const result=await db.query(query,[email.toLowerCase()])
         const user = result.rows[0]
-        return user
     }
 }
 
