@@ -45,13 +45,12 @@ class User{
     }
 
     //register function 
-
     static async register(creds){
         const {email, password, firstName,lastName, location, date} = creds;
         const requiredCreds = ["email","password","firstName","lastName","location","date"]
     }
 
-    
+    //
     static async fetchUserByEmail(email){
         const result = await db.query(
         `SELECT id, 
