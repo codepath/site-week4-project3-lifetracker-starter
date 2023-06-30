@@ -66,3 +66,5 @@ class User{
         const user = result.rows[0]
     }
 }
+
+module.exports = User;

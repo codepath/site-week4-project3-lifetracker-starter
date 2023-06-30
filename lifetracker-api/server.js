@@ -13,10 +13,6 @@ app.use(cors()); // Enable CORS middleware to handle cross-origin requests
 app.use(morgan("dev")); // Use Morgan middleware with 'dev' format for request logging
 app.use(express.json()); // Parse incoming requests with JSON payloads
 
-app.use("/api/auth", authRoutes)
-//enabling the /api/auth route - using the imported auth routes
-//app.use("/api/auth", authRoutes);
-
 // Start the server
 //const PORT = 3001;
 
