@@ -5,6 +5,8 @@ const { NotFoundError } = require("./utils/errors")
 const config = require("./config")
 const authRoutes = require("./routes/auth")
 
+const app=express()
+
 app.use(cors())
 // parse incoming requests with JSON payloads
 app.use(express.json())
@@ -12,7 +14,7 @@ app.use(express.json())
 app.use(morgan("tiny"))
 
 //enabling the /api/auth route - using the imported auth routes
-app.use("/api/auth", authRoutes)
+app.use("/auth", authRoutes)
 
 app.get("/", function (req, res) {
     return res.status(200).json({

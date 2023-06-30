@@ -1,5 +1,5 @@
 const db = require("../db")
-const bcyrpt = require("bcry pt")
+const bcrypt = require("bcrypt")
 const {validateFields} = require("../utils/validate")
 const { BadRequestError } = require("../utils/errors")
 const {BCRYPT_WORK_FACTOR}=require("../config")
@@ -38,7 +38,7 @@ class User{
 
         if(user){
             //compares user given password to hashed password in db
-            const isValid = await bcyrpt.compare(password, user.password)
+            const isValid = await bcrypt.compare(password, user.password)
             if(isValid == true){
                 return User.createPublicUser(user)
             }
@@ -63,7 +63,7 @@ class User{
        if (existingUser){
         throw new BadRequestError(`Duplicate email: ${creds.email} `)
        }
-       const hashedPassword=await bcyrpt.hash(creds.password.BCRYPT_WORK_FACTOR)
+       const hashedPassword=await bcrypt.hash(creds.password.BCRYPT_WORK_FACTOR)
        const lowerCasedEmail=credential.email.toLowerCase()
 
        const result =  await db.query(`
@@ -97,4 +97,4 @@ class User{
     }
 }
 
-module.exports=user
+module.exports= User
