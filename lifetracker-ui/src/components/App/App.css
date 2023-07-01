@@ -6,3 +6,8 @@
   min-height: 100vh;
   background: #f7fafc;
 }
+
+.main-container{
+  margin-left: 200px;
+  margin-right: 200px;
+}

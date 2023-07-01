@@ -1,3 +1,23 @@
 .tiles {
   flex-direction: row;
+  background-color: aqua;
+}
+
+.mediatiles {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 70px;
+  margin-top: 300px;
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+
+.tile-img {
+  border: solid;
+  border-radius: 18px;
+  box-shadow: 10px 10px 5px lightblue;
+  color:rgb(0, 149, 255)
 }

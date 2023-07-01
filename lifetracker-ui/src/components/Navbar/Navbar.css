@@ -1,3 +1,53 @@
-.Navbar {
+.topnavbar a {
   padding-top: 20px;
+  width: 100px;
+  text-decoration: none;
+  color:rgb(34, 109, 159);
+  font-weight: bold;
+  text-shadow:2px 2px 8px 10px 10px 5px lightblue;
+  font-family: var(--chakra-fonts-body)
+}
+
+li {
+  display: inline;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly
+}
+
+.button {
+  background-color: whitesmoke;
+  border:solid;
+  text-align: center;
+  align-items: center;
+  border-radius: 18px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  cursor: pointer;
+  display: inline-flex;
+  color: rgb(0, 149, 255);
+  justify-content: space-between;
+  margin-left: 20px;
+
+}
+
+.button1 {
+  background-color: rgb(0, 149, 255);
+  border:solid;
+  text-align: center;
+  align-items: center;
+  border-radius: 100px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  cursor: pointer;
+  color: black;
+  margin-left: 20px;
+
 }
