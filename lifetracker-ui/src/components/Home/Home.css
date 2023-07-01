@@ -1,6 +1,48 @@
-.tiles {
+/* .tiles {
   display: flex;
   align-items: center;
   width: 100%;
   gap: 20px;
+} */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  padding-top: 3%;
+  max-height: 100vh;
+  margin-top: 5%;
 }
+
+.landing img{
+  border-radius: 5%;
+  width: 500px;
+  height: 400px
+}
+
+.landing h1{
+  font-size: 50px;
+  font-weight: bolder;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.landing p{
+  font-size: 25px;
+  font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.landing {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: baseline */
+  /* margin: ;s */
+}
+
+.link-and-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px
+}
+

@@ -1,0 +1,22 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    display: block;
+}
+
+.registration-page{
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 5%; */
+    
+}
+
+.reg-container{
+    display: flex;
+    flex-direction: column;
+    width: 600px
+
+}

@@ -6,11 +6,26 @@
   min-width: 80px;
   min-width: 250px;
   min-height: 250px;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
   transition: all 0.25s ease-in-out;
   box-shadow: rgba(9, 6, 74, 0.15) 0px 2px 34px 0px;
 }
 .Tile:hover {
   cursor: pointer;
   transform: scale(1.05);
+}
+
+.Tile h3{
+  font-size: 20px
+}
+
+.Tiles img{
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.Tiles{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }
