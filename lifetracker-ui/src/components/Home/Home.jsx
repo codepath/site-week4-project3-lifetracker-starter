@@ -1,6 +1,7 @@
 import ImageContainer from "./ImageContainer/ImageContainer";
 import '../Home/Home.css'
 import { Link } from "react-router-dom";
+import Titles from "./Titles/Titles";
 
 export default function Home({ setAppState }) {
   return (
@@ -17,7 +18,9 @@ export default function Home({ setAppState }) {
           </Link>
         </div>
         
-            <ImageContainer/>
+        <ImageContainer/>
+
+        <Titles/>
 
     </>
   );

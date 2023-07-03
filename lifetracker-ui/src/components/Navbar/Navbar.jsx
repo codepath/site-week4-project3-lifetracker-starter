@@ -1,8 +1,15 @@
 import * as React from "react"
 import "./Navbar.css"
-import { Link } from "react-router-dom"
+import { Link , useNavigate} from "react-router-dom"
 
-export default function Navbar() {
+export default function Navbar( {user, setAppState} ) {
+  const navigate = useNavigate()
+  const handleOnLogout = () => {
+    setAppState({});
+    navigate("/");
+  };
+  
+  
   return (
     <nav className="navbar">
       <div className="content">
@@ -12,7 +19,9 @@ export default function Navbar() {
         </Link>
         <ul className="links">
            
+           <Link to="/activities">
           <li >Activity</li>
+           </Link>
           
           
           <li>Exercise</li>
@@ -21,15 +30,23 @@ export default function Navbar() {
       
           <li>Sleep</li>
 
-            <Link to="/auth/login">
+
+          {user ? 
+          <button className="register-button" onClick={handleOnLogout}>Log Out</button>
+          :
+          <>
+          <Link to="/auth/login">
           <button className="login-button">Sign In</button>
             </Link>
             <Link to="/auth/register">
           <button className="register-button">Register</button>
             </Link>
+            </>
+          }
         
         </ul>
       </div>
     </nav>
+    
   )
 }

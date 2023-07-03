@@ -8,7 +8,7 @@
 }
 
 .header {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Questrial', sans-serif;
   font-weight: bold;
   font-size: 30px;
   line-height: 1.33;
@@ -21,6 +21,7 @@
   background-color: #f2f2f2;
   padding: 30px;
   border-radius: 4px;
+  width: 500px;
 }
 
 .input-container {

@@ -7,7 +7,6 @@ import ActivityPage from "../ActivityPage/ActivityPage"
 export default function Portal({ user, setAppState }) {
   const navigate = useNavigate()
   const isAuthenticated = Boolean(user?.email)
-
   const handleOnLogout = () => {
     setAppState({})
     navigate("/")
@@ -15,7 +14,24 @@ export default function Portal({ user, setAppState }) {
   const title = isAuthenticated ? "Below are your activities" : "Please login to see the portal"
 
   const content = isAuthenticated ? (
-    <ActivityPage user={user}/>
+    <>
+    <h2>Activity Feed</h2>
+
+      <div className="activity-container">
+        <div>
+          <p>Total Exercise Minutes</p>
+        </div>
+        <div>
+          <p>Average Hours of Sleep</p>
+        </div>
+        <div>
+          <p>Average Daily Calories</p>
+        </div>
+        <div>
+          <p>More Stats</p>
+        </div>
+      </div>
+      </>
   ) : (
     <p className="appt">Thank you!</p>
   )

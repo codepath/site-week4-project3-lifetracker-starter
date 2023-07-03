@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom"
 import { useState } from 'react'
 import Portal from '../Portal/Portal'
 import Home from '../Home/Home'
+import ActivityPage from '../ActivityPage/ActivityPage'
 
 function App() {
   const [appState, setAppState] = useState({})
@@ -14,7 +15,7 @@ function App() {
     <BrowserRouter>
     <div>
 
-      <Navbar/>
+      <Navbar user={appState?.user} setAppState={setAppState}/>
 
       <Routes>
 
@@ -34,6 +35,11 @@ function App() {
           path="/portal"
           element={<Portal setAppState={setAppState} appState={appState} user={appState?.user} />}
         />
+        <Route
+          path="/activities"
+          element={<ActivityPage user={appState?.user} setAppState={setAppState} />}
+        />
+
       </Routes>
     </div>
     </BrowserRouter>

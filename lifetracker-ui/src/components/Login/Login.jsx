@@ -60,11 +60,10 @@ export default function Login({ setAppState }) {
 
         <div className="form">
           <div className="input-field">
-            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
-              placeholder="user@gmail.com"
+              placeholder="Email"
               value={form.email}
               onChange={handleOnInputChange}
             />
@@ -72,7 +71,6 @@ export default function Login({ setAppState }) {
           </div>
 
           <div className="input-field">
-            <label htmlFor="password">Password</label>
             <input
               type="password"
               name="password"
@@ -87,7 +85,6 @@ export default function Login({ setAppState }) {
             {isLoading ? "Loading..." : "Login"}
           </button>
         </div>
-
         <div className="footer">
           <p>
             Don't have an account? Sign up <Link to="/auth/register">here</Link>
