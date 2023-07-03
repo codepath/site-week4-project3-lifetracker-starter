@@ -1,8 +1,7 @@
-import Navbar from "../Navbar/Navbar";
 import React, { Fragment, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Puff } from "react-loading-icons";
 import axios from "axios";
 
@@ -10,6 +9,7 @@ export default function Login({ setAppState }) {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
+  const navigateTo = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -24,16 +24,16 @@ export default function Login({ setAppState }) {
           setLoginError("");
           setAppState((prevState) => ({
             ...prevState,
-            user: res.data.user,
+            user: res.data.user.user,
             isAuthenticated: true,
+            exercise: res.data.user.exercise
           }));
-          console.log(res);
+          navigateTo("/")
         } else {
-          setLoginError("Invalid email or password.");
+          setLoginError("Invalid email and/or password.");
         }
-        console.log(res);
       } catch (error) {
-        setLoginError("Invalid email or password.");
+        setLoginError("Invalid email and/or password.");
       }
       setUserInfo((prevState) => ({
         ...prevState,
@@ -107,7 +107,7 @@ export default function Login({ setAppState }) {
             </>
           )}
           {loginError !== "" && (
-            <span style={{ color: "red", marginLeft: "58%" }}>
+            <span style={{ color: "red", marginLeft: "55%" }}>
               {loginError}
             </span>
           )}

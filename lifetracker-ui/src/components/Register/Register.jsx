@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Puff } from "react-loading-icons";
-import Navbar from "../Navbar/Navbar";
 import "./Register.css";
 import axios from "axios";
 
@@ -18,6 +17,7 @@ export default function Register({ setAppState }) {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [regisError, setRegisError] = useState("");
+  const navigateTo = useNavigate();
 
   async function handleSumbit(e) {
     e.preventDefault();
@@ -41,6 +41,7 @@ export default function Register({ setAppState }) {
           last_name: userInfo.last_name,
           password: userInfo.password,
         });
+        console.log(res)
         if (res?.data?.user) {
           setRegisError("");
           setAppState((prevState) => ({
@@ -48,7 +49,7 @@ export default function Register({ setAppState }) {
             user: res.data.user,
             isAuthenticated: true,
           }));
-          console.log(res);
+          navigateTo("/");
         } else {
           setRegisError("Something went wrong with registration.");
         }

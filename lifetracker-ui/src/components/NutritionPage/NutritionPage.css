@@ -1,6 +1,52 @@
-.NutritionPage {
-  background: #f7fafc;
+.barPage {
+  margin: 0 auto;
+  margin-top: 1%;
 }
+
+.bars-header {
+  color: white;
+  font-size: 180%;
+  width: 100%;
+  text-align: center;
+  padding-top: 2%;
+  background-color: var(--jewel);
+  height: 200px;
+}
+
+.bar-content {
+  padding: 20px;
+  height: 600px;
+  text-align: center;
+}
+
+.bar-content img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.bar-content p {
+  color: var(--stark);
+  font-size: 230%;
+}
+
+.bar-button {
+  background-color: var(--dark-theme);
+  height: 40px;
+  width: 270px;
+  border-radius: 10px;
+  color: white;
+  font-size: larger;
+  border: solid 2px var(--fushia);
+  margin-bottom: 2%;
+}
+
+.bar-button:hover {
+  background-color: var(--fushia);
+  cursor: pointer;
+}
+/*
 .NutritionPage .nutrition-feed {
   display: flex;
   align-items: center;
@@ -16,4 +62,4 @@
 }
 .NutritionPage .button button {
   flex: 1;
-}
+} */

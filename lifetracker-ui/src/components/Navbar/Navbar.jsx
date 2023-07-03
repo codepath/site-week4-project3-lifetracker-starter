@@ -20,31 +20,23 @@ export default function Navbar({ setAppState, appState }) {
         </Link>
         <ul className="menu-links">
           <li>
-            <Link to="/activity">
-              <a href="" className="nav-link">
-                Activity
-              </a>
+            <Link to="/activity" className="nav-link">
+              Activity
             </Link>
           </li>
           <li>
-            <Link to="/exercise">
-              <a href="" className="nav-link">
-                Exercise
-              </a>
+            <Link to="/exercise" className="nav-link">
+              Exercise
             </Link>
           </li>
           <li>
-            <Link to="/nutrition">
-              <a href="" className="nav-link">
-                Nutrition
-              </a>
+            <Link to="/nutrition" className="nav-link">
+              Nutrition
             </Link>
           </li>
           <li>
-            <Link to="/sleep">
-              <a href="" className="nav-link">
-                Sleep
-              </a>
+            <Link to="/sleep" className="nav-link">
+              Sleep
             </Link>
           </li>
           {appState.isAuthenticated ? (

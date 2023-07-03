@@ -20,7 +20,7 @@ function App() {
     exercise: {},
   });
 
-  console.log(appState.isAuthenticated, appState.user);
+  console.log(appState);
   return (
     <Fragment>
       <BrowserRouter>
@@ -32,7 +32,7 @@ function App() {
           />
           <Route
             path="/exercise"
-            element={<ExercisePage appState={appState} />}
+            element={<ExercisePage appState={appState} setAppState={setAppState} />}
           />
           <Route
             path="/nutrition"

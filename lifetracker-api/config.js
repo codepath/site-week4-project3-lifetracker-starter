@@ -5,18 +5,18 @@ const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
 // const IS_TESTING = process.env.NODE_ENV === "test"
 
 function getDatabaseUri() {
-  const dbUser = process.env.DATABASE_USER || "postgres";
-  const dbPass = process.env.DATABASE_PASS
-    ? encodeURI(process.env.DATABASE_PASS)
+  const dbUser = process.env.PG_USER || "postgres";
+  const dbPass = process.env.PG_PASSWORD
+    ? encodeURI(process.env.PG_PASSWORD)
     : "postgres";
-  const dbHost = process.env.DATABASE_HOST || "local";
-  const dbPort = process.env.DATABASE_PORT || 5432;
+  const dbHost = process.env.PG_HOST || "local";
+  const dbPort = process.env.PG_PORT || 5432;
 //   const dbTestName = process.env.DATABASE_TEST_NAME || "vaccine_hub_test";
-  const dbProdName = process.env.DATABASE_NAME || "life_tracker";
+  const dbProdName = process.env.PG_DATABASE || "life_tracker";
 //   const dbName = process.env.NODE_ENV === "test" ? dbTestName : dbProdName;
 
   return (
-    process.env.DATABASE_URL ||
+    process.env.PG_URL ||
     `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbProdName}`
   );
 }

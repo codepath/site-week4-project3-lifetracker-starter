@@ -2,7 +2,7 @@ const { BadRequestError, UnauthorizedError } = require("../utils/errors");
 const db = require("../database");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const crypto = require('crypto')
+const crypto = require("crypto");
 const { BCRYPT_WORK_FACTOR } = require("../config");
 
 const secretKey = crypto.randomBytes(64).toString("hex");
@@ -13,51 +13,25 @@ class User {
       first_name: user.first_name,
       last_name: user.last_name,
       username: user.username,
-      email_adress: user.email_address
+      email: user.email,
     };
   }
 
   static async register(creds) {
     const { email, username, first_name, last_name, password } = creds;
-    const requiredCreds = [
-      "email",
-      "password",
-      "username",
-      "first_name",
-      "last_name",
-    ];
-    // try {
-    //   validateFields({ required: requiredCreds, obj: creds, location: "user registration" })
-    // } catch (err) {
-    //   throw err
-    // }
 
     const existingUserWithEmail = await User.fetchUserByEmail(email);
     try {
       if (existingUserWithEmail) {
-        console.log("it is here");
         throw new BadRequestError(`Duplicate email: ${email}`);
       }
     } catch (error) {
       console.error(error);
       return null;
     }
-    console.log(existingUserWithEmail);
 
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
     const normalizedEmail = email.toLowerCase();
-
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
-    const date = currentDate.getDate().toString().padStart(2, "0");
-    const hours = currentDate.getHours().toString().padStart(2, "0");
-    const minutes = currentDate.getMinutes().toString().padStart(2, "0");
-    const seconds = currentDate.getSeconds().toString().padStart(2, "0");
-    const datetime = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
-
-    const created_at = datetime;
-    const updated_at = datetime;
 
     const result = await db.query(
       `INSERT INTO users (
@@ -65,30 +39,19 @@ class User {
             password, 
             username, 
             first_name, 
-            last_name, 
-            created_at, 
-            updated_at
+            last_name
             )
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            VALUES ($1, $2, $3, $4, $5)
             RETURNING             
                   first_name, 
                   last_name,
-                  username  
-                  email_address
+                  username,
+                  email
         `,
-      [
-        normalizedEmail,
-        hashedPassword,
-        username,
-        first_name,
-        last_name,
-        created_at,
-        updated_at,
-      ]
+      [normalizedEmail, hashedPassword, username, first_name, last_name]
     );
 
     const user = result.rows[0];
-    console.log(user);
 
     return user;
   }
@@ -111,15 +74,27 @@ class User {
 
   static async authenticate(creds) {
     const { email, password } = creds;
-    const requiredCreds = ["email", "password"];
+    const id = await User.fetchById(email);
 
     const user = await User.fetchUserByEmail(email);
+    const exercise = await db.query(
+      `SELECT 
+        name,
+        duration, 
+        intensity,
+        created_at
+          FROM exercise
+          WHERE user_id = $1`,
+      [id]
+    );
+
     try {
       if (user) {
         // compare hashed password to a new hash from password
         const isValid = await bcrypt.compare(password, user.password);
         if (isValid === true) {
-          return User._createPublicUser(user);
+          const publicUser = User._createPublicUser(user);
+          return { user: publicUser, exercise: exercise.rows };
         }
       }
 
@@ -129,21 +104,73 @@ class User {
       return null;
     }
   }
+  static async insertExercise(data) {
+    const { name, category, duration, intensity, email } = data;
+    const id = await User.fetchById(email);
 
+    const result = await db.query(
+      `INSERT INTO exercise (
+      name, 
+      category, 
+      duration, 
+      intensity, 
+      user_id
+      )
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING             
+                  name, 
+                  duration,
+                  intensity,
+                  created_at
+  `,
+      [name, category, duration, intensity, id]
+    );
+
+    // const createdAt = result.rows[0].created_at;
+    // const createdAtUTC = new Date(createdAt);
+    // const createdAtLocal = createdAtUTC.toLocaleString();
+
+    // result.rows[0].created_at = createdAtLocal;
+
+    // const result = await db.query(
+    //   `SELECT
+    //   name,
+    //               duration,
+    //               intensity,
+    //               created_at
+    //            FROM exercise
+    //            WHERE user_id = $1`,
+    //   [id]
+    // );
+
+    const user = result.rows[0];
+
+    return user;
+  }
   static generateUserToken(user) {
-
     const generateToken = (data) =>
       jwt.sign(data, secretKey, { expiresIn: "1h" });
 
-    
-      const payload = {
-        firstname: user.firstname,
-        lastname: user.lastname,
-        username: user.username,
-      };
-
-      return generateToken(payload);
+    const payload = {
+      firstname: user.first_name,
+      lastname: user.last_name,
+      username: user.username,
     };
+
+    return generateToken(payload);
   }
 
-module.exports = User ;
+  static async fetchById(userId) {
+    const result = await db.query(
+      `SELECT id       
+           FROM users
+           WHERE email = $1`,
+      [userId]
+    );
+
+    const user = result.rows[0].id;
+    return user;
+  }
+}
+
+module.exports = User;
