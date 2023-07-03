@@ -20,5 +20,6 @@ const BCRYPT_WORK_FACTOR=13
 console.log(getDatabaseUri())
 module.exports = {
     PORT,
-    getDatabaseUri
+    getDatabaseUri,
+    BCRYPT_WORK_FACTOR
 }
