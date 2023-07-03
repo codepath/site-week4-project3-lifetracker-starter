@@ -49,6 +49,7 @@ export default function LoginPage({setAppState, setIsLoggedIn}) {
       setIsLoading(false)
     }
   }
+
   return (
     <div className="LoginPage">
       <div className="page-container">

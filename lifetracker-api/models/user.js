@@ -22,8 +22,6 @@ class User {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-      // location: user.location,
-      // date: user.date,
     }
   }
 
@@ -43,7 +41,6 @@ class User {
     // } catch (err) {
     //   throw err
     // }
-
     const user = await User.fetchUserByEmail(email)
 
     if (user) {
@@ -51,6 +48,7 @@ class User {
       const isValid = await bcrypt.compare(password, user.password)
       if (isValid === true) {
         console.log('logged in')
+        console.log(user)
         return User._createPublicUser(user) // 
       }
     }

@@ -1,8 +1,54 @@
 import * as React from "react"
 import "./ExerciseForm.css"
+import { useState } from "react"
+import axios from "axios";
 
-export default function ExerciseForm() {
-  return (
+export default function ExerciseForm({isLoggedIn, appState}) {
+
+    const [exercise, setExercise] = useState({
+        name: "",
+        category: "",
+        time: "",
+        intensity: "",
+    })
+
+    const handleOnInputChange = (event) => {
+        if (event.target.name === "category") {
+          setExercise((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.options[event.target.selectedIndex].value,
+          }));
+        } else {
+            console.log(appState.user.id)
+          setExercise((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.value,
+          }));
+        }
+      };
+
+    const handleOnSubmit = async (event) => {
+        event.preventDefault();
+    
+        const res = await axios.post("http://localhost:3001/auth/exercise/create", {
+            name: exercise.name,
+            category: exercise.category,
+            time: exercise.time,
+            intensity: exercise.intensity,
+            user_id: appState.user.id,
+          })
+          // CLEARING INPUTS
+          setExercise({
+            name: "",
+            category: "",
+            time: "",
+            intensity: "",
+          });
+    
+    }
+
+  
+    return (
     <div className="ExercisePage css-1bpnzr3">
     <div className="css-19cns6y">
         <div className="chakra-stack css-1cgbrw5"><h2 className="chakra-heading css-b5coes">Exercise</h2></div>
@@ -29,7 +75,8 @@ export default function ExerciseForm() {
                                                     required=""
                                                     aria-required="true"
                                                     class="chakra-input css-p20xy6"
-                                                    value=""
+                                                    value={exercise.name}
+                                                    onChange={handleOnInputChange}
                                                 />
                                             </div>
                                         </div>
@@ -38,13 +85,13 @@ export default function ExerciseForm() {
                                                 Category<span role="presentation" aria-hidden="true" class="chakra-form__required-indicator css-1tfjd1n">*</span>
                                             </label>
                                             <div class="chakra-select__wrapper css-42b2qy">
-                                                <select name="category" id="field-:rl:" required="" aria-required="true" class="chakra-select css-1gpsbw3">
+                                                <select name="category" class="chakra-select css-1gpsbw3" value={exercise.category} onChange={handleOnInputChange}>
                                                     <option value="">Select a category</option>
-                                                    <option value="run">Run</option>
-                                                    <option value="bike">Bike</option>
-                                                    <option value="lift">Lift</option>
-                                                    <option value="swim">Swim</option>
-                                                    <option value="sports">Sports</option>
+                                                    <option value="Run">Run</option>
+                                                    <option value="Bike">Bike</option>
+                                                    <option value="Lift">Lift</option>
+                                                    <option value="Swim">Swim</option>
+                                                    <option value="Sports">Sports</option>
                                                 </select>
                                                 <div class="chakra-select__icon-wrapper css-iohxn1">
                                                     <svg viewBox="0 0 24 24" role="presentation" class="chakra-select__icon" focusable="false" aria-hidden="true">
@@ -60,40 +107,12 @@ export default function ExerciseForm() {
                                                 </label>
                                                 <div value="" class="chakra-numberinput css-3e5t3k">
                                                     <input
-                                                        name="duration"
-                                                        inputmode="decimal"
+                                                        name="time"
                                                         type="text"
-                                                        pattern="[0-9]*(.[0-9]+)?"
-                                                        id="field-:rm:"
-                                                        aria-readonly="false"
-                                                        aria-required="true"
-                                                        required=""
-                                                        role="spinbutton"
-                                                        aria-valuemin="1"
-                                                        aria-valuemax="100"
-                                                        autocomplete="off"
-                                                        autocorrect="off"
                                                         class="chakra-numberinput__field css-1551roq"
-                                                        value=""
+                                                        value={exercise.time}
+                                                        onChange={handleOnInputChange}
                                                     />
-                                                    {/* <div aria-hidden="true" class="css-1jj9yua">
-                                                        <div role="button" tabindex="-1" class="css-1m5jnul">
-                                                            <svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi">
-                                                                <path
-                                                                    fill="currentColor"
-                                                                    d="M12.8,5.4c-0.377-0.504-1.223-0.504-1.6,0l-9,12c-0.228,0.303-0.264,0.708-0.095,1.047 C2.275,18.786,2.621,19,3,19h18c0.379,0,0.725-0.214,0.895-0.553c0.169-0.339,0.133-0.744-0.095-1.047L12.8,5.4z"
-                                                                ></path>
-                                                            </svg>
-                                                        </div>
-                                                        <div role="button" tabindex="-1" class="css-1m5jnul">
-                                                            <svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi">
-                                                                <path
-                                                                    fill="currentColor"
-                                                                    d="M21,5H3C2.621,5,2.275,5.214,2.105,5.553C1.937,5.892,1.973,6.297,2.2,6.6l9,12 c0.188,0.252,0.485,0.4,0.8,0.4s0.611-0.148,0.8-0.4l9-12c0.228-0.303,0.264-0.708,0.095-1.047C21.725,5.214,21.379,5,21,5z"
-                                                                ></path>
-                                                            </svg>
-                                                        </div>
-                                                    </div> */}
                                                 </div>
                                             </div>
                                             &nbsp;
@@ -104,45 +123,15 @@ export default function ExerciseForm() {
                                                 <div value="" class="chakra-numberinput css-3e5t3k">
                                                     <input
                                                         name="intensity"
-                                                        inputmode="decimal"
                                                         type="text"
-                                                        pattern="[0-9]*(.[0-9]+)?"
-                                                        id="field-:rn:"
-                                                        aria-readonly="false"
-                                                        aria-required="true"
-                                                        required=""
-                                                        role="spinbutton"
-                                                        aria-valuemin="1"
-                                                        aria-valuemax="10"
-                                                        aria-valuenow="1"
-                                                        aria-valuetext="1"
-                                                        autocomplete="off"
-                                                        autocorrect="off"
                                                         class="chakra-numberinput__field css-1551roq"
-                                                        value=""
+                                                        value={exercise.intensity}
+                                                        onChange={handleOnInputChange}
                                                     />
-                                                    {/* <div aria-hidden="true" class="css-1jj9yua">
-                                                        <div role="button" tabindex="-1" class="css-1m5jnul">
-                                                            <svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi">
-                                                                <path
-                                                                    fill="currentColor"
-                                                                    d="M12.8,5.4c-0.377-0.504-1.223-0.504-1.6,0l-9,12c-0.228,0.303-0.264,0.708-0.095,1.047 C2.275,18.786,2.621,19,3,19h18c0.379,0,0.725-0.214,0.895-0.553c0.169-0.339,0.133-0.744-0.095-1.047L12.8,5.4z"
-                                                                ></path>
-                                                            </svg>
-                                                        </div>
-                                                        <div role="button" tabindex="-1" disabled="" aria-disabled="true" class="css-1m5jnul">
-                                                            <svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi">
-                                                                <path
-                                                                    fill="currentColor"
-                                                                    d="M21,5H3C2.621,5,2.275,5.214,2.105,5.553C1.937,5.892,1.973,6.297,2.2,6.6l9,12 c0.188,0.252,0.485,0.4,0.8,0.4s0.611-0.148,0.8-0.4l9-12c0.228-0.303,0.264-0.708,0.095-1.047C21.725,5.214,21.379,5,21,5z"
-                                                                ></path>
-                                                            </svg>
-                                                        </div>
-                                                    </div> */}
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="chakra-button css-4lvvxn">Save</button>
+                                        <button class="chakra-button css-4lvvxn" onClick={handleOnSubmit}>Save</button>
                                     </div>
                                 </form>
                             </div>

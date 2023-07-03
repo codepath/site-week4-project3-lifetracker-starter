@@ -18,3 +18,13 @@ CREATE TABLE nutrition (
   user_id    INT NOT NULL,
   created_at TIMESTAMP DEFAULT NOW() NOT NULL
 );
+
+CREATE TABLE exercise (
+  id         SERIAL PRIMARY KEY,
+  name   VARCHAR(20) NOT NULL,
+  category   VARCHAR(20) NOT NULL,
+  time   INT NOT NULL,
+  intensity   INT NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+

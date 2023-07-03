@@ -1,6 +1,5 @@
 "use strict"
 
-/** Express app for Vaccine Hub */
 
 const express = require("express")
 const cors = require("cors")

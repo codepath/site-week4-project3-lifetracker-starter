@@ -2,7 +2,11 @@ import * as React from "react"
 import "./ActivityPage.css"
 import { Link } from "react-router-dom"
 
-export default function ActivityPage({appState, isLoggedIn}) {
+export default function ActivityPage({appState, isLoggedIn, exerciseArray, setExerciseArray}) {
+
+    const calculateTotalTime = () => {
+        return exerciseArray.reduce((total, exercise) => total + exercise.time, 0);
+      };
 
     const authenticathedUser = 
     <>
@@ -32,7 +36,7 @@ export default function ActivityPage({appState, isLoggedIn}) {
                 </div>
                 <div className="css-0">
                     <div className="css-1lekzkb">
-                        <p className="chakra-text css-51dhyc">50.0</p>
+                        <p className="chakra-text css-51dhyc">{calculateTotalTime()}</p>
                         <div className="chakra-stack css-tl3ftk">
                             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" focusable="false" className="chakra-icon css-9dla43" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path
