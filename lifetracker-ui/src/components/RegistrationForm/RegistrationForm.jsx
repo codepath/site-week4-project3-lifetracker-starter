@@ -1,8 +1,11 @@
 import "./RegistrationForm.css";
 import { useState } from "react";
 import axios from "axios";
+import apiClient from "../../../services/apiClient";
+import { useNavigate } from "react-router-dom"
 
 export default function RegistrationForm({ setAppState }) {
+  const navigate = useNavigate()
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [regForm, setRegForm] = useState({
@@ -14,7 +17,8 @@ export default function RegistrationForm({ setAppState }) {
     passwordConfirm: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-
+  const [user, setUser] = useState({})
+  
   const handleChange = (e) => {
     if (e.target.name === "password") {
       if (
@@ -67,6 +71,13 @@ export default function RegistrationForm({ setAppState }) {
       setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
 
+    // const { data, error} = await apiClient.signupUser({ email:regForm.email, password:regForm.password})
+    // if (error) setErrors((e) => ({...e, regForm: error}))
+    // if (data?.user) {
+    //   setUser(data.user)
+    //   apiClient.setToken(data.token)
+    // }
+    // setIsLoading(false)
     try {
       const result = await axios.post("http://localhost:3000/auth/register", {
         username: regForm.username,
@@ -77,8 +88,8 @@ export default function RegistrationForm({ setAppState }) {
       });
 
       if (result?.data?.user) {
-        setAppState(result.data);
-        //navigate to "/portal"
+        setAppState({user: result.data});
+        navigate('/')
         setIsLoading(false);
       } else {
         setErrors((err) => ({
@@ -119,7 +130,7 @@ export default function RegistrationForm({ setAppState }) {
           placeholder="✉️  someone@mail.com"
           required
         />
-
+        {errors.email && <span className="errors">{errors.email}</span>}
         <input
           className="form-input"
           type="text"
@@ -158,6 +169,8 @@ export default function RegistrationForm({ setAppState }) {
           placeholder="🔒  Password"
           required
         />
+        {errors.password && <span className="errors">{errors.password}</span>}
+
         <input
           className="form-input"
           type={showPassword ? "text" : "password"}
@@ -167,6 +180,7 @@ export default function RegistrationForm({ setAppState }) {
           placeholder="🔒  Confirm Password"
           required
         />
+        {errors.passwordConfirm && <span className="errors">{errors.passwordConfirm}</span>}
         <div className="show-password-button">
           <input
             className="form-input"

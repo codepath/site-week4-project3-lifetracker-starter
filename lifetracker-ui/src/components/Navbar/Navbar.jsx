@@ -2,11 +2,8 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import NavLinks from "../NavLinks/NavLinks"
 
-export default function Navbar() {
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log("hi");
-  }
+export default function Navbar({ appState, setAppState }) {
+
   return (
     <nav className="Navbar">
       <ul className="logo">
@@ -16,7 +13,7 @@ export default function Navbar() {
           </Link>
         </li>
       </ul>
-      <NavLinks/> 
+      <NavLinks appState={appState} setAppState={setAppState}/> 
       
     </nav>
   );

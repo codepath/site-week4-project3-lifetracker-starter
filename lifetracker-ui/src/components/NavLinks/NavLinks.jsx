@@ -1,20 +1,42 @@
 import "./Navlinks.css";
 import { Link } from "react-router-dom";
 
-export default function NavLinks() {
-  return (
-    <div className="nav-links">
-      <ul className="links">
-        <li>
-          <Link to="/activity">Activity</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/register">Sign Up</Link>
-        </li>
-      </ul>
-    </div>
-  );
+export default function NavLinks({ appState, setAppState }) {
+  if (!appState.user) {
+    return (
+      <div className="nav-links">
+        <ul className="links">
+          <li>
+            <Link to="/activity">Activity</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/register">Sign Up</Link>
+          </li>
+        </ul>
+      </div>
+    );
+  }
+
+  else {
+
+    function logoutUser() {
+      setAppState({user:""})
+    }
+    return (
+      <div className="nav-links">
+        <ul className="links">
+          <li>
+            <Link to="/activity">Activity</Link>
+          </li>
+          <li onClick={logoutUser}>
+            Log Out
+          </li>
+        </ul>
+      </div>
+    )
+  }
+  
 }

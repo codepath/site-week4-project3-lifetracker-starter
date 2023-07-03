@@ -68,20 +68,20 @@ Implement any of the following features to improve the application:
 
 #### Handling API Requests
 
-- [ ] Create a `constants.js` file at the root of the project that exports the following variables:
-  - [ ] `PRODUCTION_API_BASE_URL` - set to whatever URL the production API is deployed at
-  - [ ] `DEVELOPMENT_API_BASE_URL` - set to `"http://localhost:3001"` for development
-  - [ ] `API_BASE_URL` - If `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
-- [ ] Create a `services` directory at the root of the project.
-- [ ] Inside the `services` directory, create an `apiClient.js` file
-- [ ] In the `apiClient.js` file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file.
-- [ ] Define a new class in that file called `ApiClient`.
-  - [ ] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
-  - [ ] Export default a new instance of the `ApiClient` class.
-  - [ ] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
-  - [ ] Create a utility method called `request` that uses `axios` to issue HTTP requests
-  - [ ] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
-  - [ ] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
+- [x] Create a `constants.js` file at the root of the project that exports the following variables:
+  - [x] `PRODUCTION_API_BASE_URL` - set to whatever URL the production API is deployed at
+  - [x] `DEVELOPMENT_API_BASE_URL` - set to `"http://localhost:3001"` for development
+  - [x] `API_BASE_URL` - If `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
+- [x] Create a `services` directory at the root of the project.
+- [x] Inside the `services` directory, create an `apiClient.js` file
+- [x] In the `apiClient.js` file, import the `axios` package and the `API_BASE_URL` constant from the `constants.js` file.
+- [x] Define a new class in that file called `ApiClient`.
+  - [x] Give it a constructor function that accepts a single parameter - `remoteHostUrl`. The constructor should attach the `remoteHostUrl` parameter to a new instance with `this.remoteHostUrl = remoteHostUrl`. It should also set `this.token = null`.
+  - [x] Export default a new instance of the `ApiClient` class.
+  - [x] Add an additional method called `setToken` that accepts a single parameter - `token` and attaches it to the instance.
+  - [x] Create a utility method called `request` that uses `axios` to issue HTTP requests
+  - [x] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
+  - [x] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
   - [ ] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
   - [ ] **Add as many other methods as needed when making API requests.**
 
@@ -89,8 +89,8 @@ Implement any of the following features to improve the application:
 
 Update the `App` component to manage authentication state:
 
-- [ ] Create a state variable called `appState` with a function called `setAppState` to update that state.
-  - [ ] Initialize `appState` with an object containing properties like `user`, `isAuthenticated`, `nutrition`, `sleep`, and `exercise`.
+- [x] Create a state variable called `appState` with a function called `setAppState` to update that state.
+  - [x] Initialize `appState` with an object containing properties like `user`, `isAuthenticated`, `nutrition`, `sleep`, and `exercise`.
 - [ ] Implement a `useEffect` hook to fetch the user data.
   - [ ] Define an asynchronous function named `fetchUser` to fetch the user data.
     - [ ] Inside the `fetchUser` function, retrieve a token from `localStorage` using `localStorage.getItem("lifetracker_token")`
@@ -129,7 +129,7 @@ Update the `App` component to manage authentication state:
 - [ ] Build the **`NavLinks`** component to:
   - [x] Render JSX that is wrapped by an element with the class name of `nav-links`
   - [x] Render a `Link` element from `react-router-dom` for:
-    - [ ] The `/activity` route with a label of `Activity`.
+    - [x] The `/activity` route with a label of `Activity`.
     - [ ] The `/nutrition` route with a label of `Nutrition`.
     - [ ] A route for any other resource page
   - [ ] If a valid user is logged in, it should render an element with the class name of `logout-button` that calls the `logoutUser` function when clicked.
@@ -201,19 +201,19 @@ Update the `App` component to manage authentication state:
 
 #### Implement the `LandingPage` Component
 
-- [] Build the **`LandingPage`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `landing-page`
-  - [ ] Render an element with the class name of `hero`
-    - [ ] Inside it, display a large hero image using an `img` element with the class name of `hero-img`
-    - [ ] Render a brief blurb on what this application is about inside an element with the class name of `cta`
-  - [ ] Allow unauthenticated access
+- [x] Build the **`LandingPage`** component to:
+  - [x] Render JSX that is wrapped by an element with the class name of `landing-page`
+  - [x] Render an element with the class name of `hero`
+    - [x] Inside it, display a large hero image using an `img` element with the class name of `hero-img`
+    - [x] Render a brief blurb on what this application is about inside an element with the class name of `cta`
+  - [x] Allow unauthenticated access
 
 #### Implement the `ActivityPage` Component
 
 - [ ] Build the **`ActivityPage`** component to:
   - [x] Render JSX that is wrapped by an element with the class name of `activity-page`
   - [ ] Take the `appState` and `setAppState` as props and extract all the necessary data from it.
-  - [ ] If the `isProcessing` flag is `true`, it should render the `Loading` component.
+  - [x] If the `isProcessing` flag is `true`, it should render the `Loading` component.
   - [x] If the `isProcessing` flag is `false`, it should render the `ActivityFeed` component and pass it the appropriate props.
 
 #### Implement the `ActivityFeed` Component

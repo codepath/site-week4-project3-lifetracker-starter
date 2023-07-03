@@ -1,8 +1,11 @@
 import "./LoginForm.css";
 import { useState } from "react";
 import axios from "axios";
+import apiClient from "../../../services/apiClient";
+import { useNavigate } from "react-router-dom";
 
 export default function Login({ setAppState }) {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loginForm, setLoginForm] = useState({
@@ -10,15 +13,27 @@ export default function Login({ setAppState }) {
     password: "",
   });
   const [errors, setErrors] = useState({});
-
+  const [user, setUser] = useState();
   function handleShowPassword() {
     setShowPassword(!showPassword);
   }
+
   async function loginUser(e) {
     e.preventDefault();
     setIsLoading(true);
     setErrors((e) => ({ ...e, form: null }));
 
+    // const { data, error } = await apiClient.loginUser({
+    //   email: loginForm.email,
+    //   password: loginForm.password,
+    // });
+    // if (error) setErrors((e) => ({ ...e, loginForm: error }));
+    // if (data.user) {
+    //   setUser(data.user);
+    //   apiClient.setToken(data.token);
+    // }
+
+    // setIsLoading(false)
     try {
       const result = await axios.post(
         "http://localhost:3000/auth/login",
@@ -27,8 +42,8 @@ export default function Login({ setAppState }) {
 
       if (result?.data) {
         setIsLoading(false);
-        setAppState(result.data);
-        //navigate to "/portal"
+        setAppState({user: result.data});
+        navigate('/')
       } else {
         setErrors((e) => ({
           ...e,
@@ -47,7 +62,7 @@ export default function Login({ setAppState }) {
     }
     setLoginForm({
       email: "",
-      password: ""
+      password: "",
     });
   }
 
@@ -75,6 +90,7 @@ export default function Login({ setAppState }) {
             placeholder="Email"
             onChange={handleOnChange}
           />
+          {errors.email && <span className="error">{errors.email}</span>}
           <input
             className="form-input"
             type={showPassword ? "text" : "password"}
@@ -83,6 +99,7 @@ export default function Login({ setAppState }) {
             value={loginForm.password}
             onChange={handleOnChange}
           />
+          {errors.password && <span className="error">{errors.password}</span>}
           <div className="show-password-button">
             <input type="checkbox" onClick={handleShowPassword} />
             Show Password

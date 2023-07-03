@@ -7,6 +7,10 @@
   background: #f7fafc;
 }
 
+body {
+  margin: 0px;
+}
+
 /* alexandrite: #498877
    pearl: #E2DFD2
    moonstone: #C7DAD4

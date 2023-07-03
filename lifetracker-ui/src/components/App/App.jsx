@@ -8,12 +8,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 import ActivityPage from '../../pages/ActivityPage/ActivityPage'
 function App() {
-  const [appState, setAppState] = useState({})
+  const [appState, setAppState] = useState({
+    user:"",
+    isAuthenticated: false,
+    nutrition: "",
+    sleep: "",
+    exercise:""
+  })
 
   return (
     <div className="app">
       <BrowserRouter>
-        <Navbar/>
+        <Navbar appState={appState} setAppState={setAppState}/>
         <Routes>
           <Route path="/" element={<Landing/>}/>
           <Route path="/register" element={<RegisterPage setAppState={setAppState}/>}/>
