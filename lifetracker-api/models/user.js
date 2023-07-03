@@ -11,7 +11,6 @@ class User {
     return {
       id: user.id,
       email: user.email,
-      password: user.password,
       username: user.username,
       firstName: user.first_name,
       lastName: user.last_name,

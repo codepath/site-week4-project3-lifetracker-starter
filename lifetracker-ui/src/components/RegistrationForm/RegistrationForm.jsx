@@ -2,10 +2,10 @@ import "./RegistrationForm.css";
 import { useState } from "react";
 import axios from "axios";
 import apiClient from "../../../services/apiClient";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 export default function RegistrationForm({ setAppState }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [regForm, setRegForm] = useState({
@@ -17,8 +17,7 @@ export default function RegistrationForm({ setAppState }) {
     passwordConfirm: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [user, setUser] = useState({})
-  
+
   const handleChange = (e) => {
     if (e.target.name === "password") {
       if (
@@ -71,42 +70,52 @@ export default function RegistrationForm({ setAppState }) {
       setErrors((e) => ({ ...e, passwordConfirm: null }));
     }
 
-    // const { data, error} = await apiClient.signupUser({ email:regForm.email, password:regForm.password})
-    // if (error) setErrors((e) => ({...e, regForm: error}))
-    // if (data?.user) {
-    //   setUser(data.user)
-    //   apiClient.setToken(data.token)
-    // }
-    // setIsLoading(false)
-    try {
-      const result = await axios.post("http://localhost:3000/auth/register", {
-        username: regForm.username,
-        firstName: regForm.firstName,
-        lastName: regForm.lastName,
-        email: regForm.email,
-        password: regForm.password,
-      });
-
-      if (result?.data?.user) {
-        setAppState({user: result.data});
-        navigate('/')
-        setIsLoading(false);
-      } else {
-        setErrors((err) => ({
-          ...err,
-          form: "Something went wrong with registration",
-        }));
-        setIsLoading(false);
-      }
-    } catch (err) {
-      console.log(err);
-      const message = err?.response?.error?.message;
-      setErrors((e) => ({
-        ...e,
-        form: message ? String(message) : String(err),
-      }));
-      setIsLoading(false);
+    const { data, error } = await apiClient.signupUser({
+      email: regForm.email,
+      password: regForm.password,
+      username: regForm.username,
+      firstName: regForm.firstName,
+      lastName: regForm.lastName
+    });
+    if (error) setErrors((e) => ({ ...e, regForm: error }));
+    if (data?.user) {
+      setAppState(data.user);
+      apiClient.setToken(data.token);
+      console.log(data.token);
+      navigate("/")
     }
+    setIsLoading(false);
+
+    // try {
+    //   const result = await axios.post("http://localhost:3000/auth/register", {
+    //     username: regForm.username,
+    //     firstName: regForm.firstName,
+    //     lastName: regForm.lastName,
+    //     email: regForm.email,
+    //     password: regForm.password,
+    //   });
+
+    //   if (result?.data?.user) {
+    //     setAppState({user: result.data});
+    //     navigate('/')
+    //     setIsLoading(false);
+    //   } else {
+    //     setErrors((err) => ({
+    //       ...err,
+    //       form: "Something went wrong with registration",
+    //     }));
+    //     setIsLoading(false);
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    //   const message = err?.response?.error?.message;
+    //   setErrors((e) => ({
+    //     ...e,
+    //     form: message ? String(message) : String(err),
+    //   }));
+    //   setIsLoading(false);
+    // }
+
     setRegForm({
       username: "",
       firstName: "",
@@ -180,7 +189,9 @@ export default function RegistrationForm({ setAppState }) {
           placeholder="🔒  Confirm Password"
           required
         />
-        {errors.passwordConfirm && <span className="errors">{errors.passwordConfirm}</span>}
+        {errors.passwordConfirm && (
+          <span className="errors">{errors.passwordConfirm}</span>
+        )}
         <div className="show-password-button">
           <input
             className="form-input"

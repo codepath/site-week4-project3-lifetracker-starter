@@ -13,15 +13,31 @@ app.use(morgan('tiny'))
 app.use('/auth', authRoutes)
 app.use(security.extractUserFromJWT)
 
+
 app.get('/', (req,res) => {
-    res.status(200).json({ping:'pong'})
+  res.status(200).json({ping:'pong'})
 })
 
 app.get('/user', (req, res) => {
   
 })
 app.use((req, res, next) => {
-    return next(new NotFoundError())
+  return next(new NotFoundError())
+})
+
+//Not Found Error
+app.use('/', (req, res, next)=> {
+  return next(new NotFoundError)
+})
+
+//Generic Error Handling
+app.use( (err, req, res, next) => {
+  const status = err.status || 500
+  const message = err.message
+
+  return res.status(status).json({
+    error: { message, status },
   })
+})
 
 module.exports = app;

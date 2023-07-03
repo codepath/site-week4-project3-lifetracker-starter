@@ -498,26 +498,26 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Commit all work to `git`
   - [ ] The **tokens** utility functions
     - [ ] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
-      - [ ] At the bare minimum, two functions will be needed:
-        - [ ] One that accepts a JSON payload as an argument and converts it into a JWT
-        - [ ] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
+      - [x] At the bare minimum, two functions will be needed:
+        - [x] One that accepts a JSON payload as an argument and converts it into a JWT
+        - [x] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
     - [ ] In the `utils/tokens.test.js` file:
       - [ ] Write test cases for:
         - [ ] Can create valid JWT tokens for user payloads
         - [ ] Can extract a payload from a valid JWT with the correct secret
         - [ ] No payload gets returned when invalid tokens are parsed
-    - [ ] In the `utils/tokens.js` file:
-      - [ ] Implement the features outlined in the tests until they're all passing
+    - [x] In the `utils/tokens.js` file:
+      - [x] Implement the features outlined in the tests until they're all passing
   - [ ] Commit all work to `git`
   - [ ] The **security** middleware
-    - [ ] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
-      - [ ] One middleware will be responsible for extracting a user from a valid JWT in the request:
-        - [ ] Checking the `Authentication` header of each request for the existence of a JWT.
-        - [ ] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
-      - [ ] One middleware will be responsible for ensuring that an authenticated user exists:
-        - [ ] Checking that a valid user exists on the response's `locals` property
-        - [ ] If one does, the middleware should simply call next
-        - [ ] If no valid user exists, it should throw an `UnauthorizedError`
+    - [x] In the `middleware` directory, create two new files: `middleware/security.js` and `middleware/security.test.js`
+      - [x] One middleware will be responsible for extracting a user from a valid JWT in the request:
+        - [x] Checking the `Authentication` header of each request for the existence of a JWT.
+        - [x] If one exists, it should extract the token, validate it, extract the encoded JSON payload, and attach it to the response's `locals` property
+      - [x] One middleware will be responsible for ensuring that an authenticated user exists:
+        - [x] Checking that a valid user exists on the response's `locals` property
+        - [x] If one does, the middleware should simply call next
+        - [x] If no valid user exists, it should throw an `UnauthorizedError`
     - [ ] In the `middleware/security.test.js` file:
       - [ ] Test the `Authentication` header parsing middleware
         - [ ] Write test cases for:
@@ -533,17 +533,17 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] In the `app.js` file, add the `Authentication` header parsing middleware to the Express app's middleware pipeline
   - [ ] Commit all work to `git`
   - [ ] The **/auth** routes
-    - [ ] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
-      - [ ] A new Express router should be created. It should handle:
+    - [x] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
+      - [x] A new Express router should be created. It should handle:
         - [ ] A `GET` request to the `/me` endpoint
           - [ ] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/login` endpoint
-          - [ ] It should accept a request body with `email` and `password` keys
+        - [x] A `POST` request to the `/login` endpoint
+          - [x] It should accept a request body with `email` and `password` keys
           - [ ] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
-        - [ ] A `POST` request to the `/register` endpoint
-          - [ ] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
+        - [x] A `POST` request to the `/register` endpoint
+          - [x] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
           - [ ] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
-      - [ ] It should be mounted at the `/auth` endpoint in the `app.js` file
+      - [x] It should be mounted at the `/auth` endpoint in the `app.js` file
     - [ ] In the `routes/auth.test.js` file:
       - [ ] Test the `POST /auth/login` endpoint
         - [ ] Write test cases for:

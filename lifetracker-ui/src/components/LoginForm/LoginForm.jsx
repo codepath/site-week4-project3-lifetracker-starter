@@ -23,43 +23,44 @@ export default function Login({ setAppState }) {
     setIsLoading(true);
     setErrors((e) => ({ ...e, form: null }));
 
-    // const { data, error } = await apiClient.loginUser({
-    //   email: loginForm.email,
-    //   password: loginForm.password,
-    // });
-    // if (error) setErrors((e) => ({ ...e, loginForm: error }));
-    // if (data.user) {
-    //   setUser(data.user);
-    //   apiClient.setToken(data.token);
+    const { data, error } = await apiClient.loginUser({
+      email: loginForm.email,
+      password: loginForm.password,
+    });
+    if (error) setErrors((e) => ({ ...e, loginForm: error }));
+    if (data.user) {
+      setUser(data.user);
+      apiClient.setToken(data.token);
+    }
+    setIsLoading(false)
+    
+    // try {
+    //   const result = await axios.post(
+    //     "http://localhost:3000/auth/login",
+    //     loginForm
+    //   );
+
+    //   if (result?.data) {
+    //     setIsLoading(false);
+    //     setAppState({user: result.data});
+    //     navigate('/')
+    //   } else {
+    //     setErrors((e) => ({
+    //       ...e,
+    //       form: "Invalid username/password combination",
+    //     }));
+    //     setIsLoading(false);
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    //   const message = err?.response?.data?.error?.message;
+    //   setErrors((e) => ({
+    //     ...e,
+    //     form: message ? String(message) : String(err),
+    //   }));
+    //   setIsLoading(false);
     // }
 
-    // setIsLoading(false)
-    try {
-      const result = await axios.post(
-        "http://localhost:3000/auth/login",
-        loginForm
-      );
-
-      if (result?.data) {
-        setIsLoading(false);
-        setAppState({user: result.data});
-        navigate('/')
-      } else {
-        setErrors((e) => ({
-          ...e,
-          form: "Invalid username/password combination",
-        }));
-        setIsLoading(false);
-      }
-    } catch (err) {
-      console.log(err);
-      const message = err?.response?.data?.error?.message;
-      setErrors((e) => ({
-        ...e,
-        form: message ? String(message) : String(err),
-      }));
-      setIsLoading(false);
-    }
     setLoginForm({
       email: "",
       password: "",
