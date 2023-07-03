@@ -18,37 +18,39 @@ function App() {
   
   const handleLogin = async (email, password) => {
    
-    try {
-      let response = await axios.post('http://localhost:3001/auth/login', { email, password })
+    
+      let response = await axios.post('http://localhost:3001/auth/login', {email, password })
 
       console.log("Response output: ", response)
 
-      if (response.ok) {
-        //Successful Login
-        setLoggedIn(true);
-        setLoginError("");
-       // console.log(response); //optional - display a success message
-      } else {
-        //Login failed
-        setLoginError(response);
-      //  console.log(response); //optional - display error message
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+      // if (response.ok) {
+      //   //Successful Login
+      //   setLoggedIn(true);
+      //   setLoginError("");
+      //  // console.log(response); //optional - display a success message
+      // } else {
+      //   //Login failed
+      //   setLoginError(response);
+      // //  console.log(response); //optional - display error message
+      // }
+
+    // } catch (error) {
+    //   console.error("Error:", error);
+    // }
   };
 
     //Registration function to handle registration
     const handleRegistration = async (name, email, password) => {
      
-    //   try {
-    //     const response = await fetch("http://localhost:3001/api/auth/register", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({ name, email, password }),
-    //     });
+      
+        const response = await axios.post("http://localhost:3001/api/auth/register", {name,email,password})
+        console.log("Response output: ", response)
+          // method: "POST",
+          // headers: {
+          //   "Content-Type": "application/json",
+          // },
+          // body: JSON.stringify({ name, email, password }),
+        
   
     //     //wait for the response
     //     const data = await response.json();

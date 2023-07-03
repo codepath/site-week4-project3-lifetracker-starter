@@ -1,7 +1,7 @@
 import './Register.css'
 import {useState} from 'react'
 
-export default function Register  (onRegister)   {
+export default function Register  ({onRegister})   {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("")
