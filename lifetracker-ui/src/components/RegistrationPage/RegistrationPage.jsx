@@ -3,6 +3,7 @@ import "./RegistrationPage.css";
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import axios from "axios";
+import jwtDecode from "jwt-decode";
 
 export default function RegistrationPage({setAppState, setIsLoggedIn, appState}) {
   const navigate = useNavigate()
@@ -44,12 +45,11 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
         username: form.username,
       })
 
-      if (res?.data?.user) {
-        const { token } = res.data
-        localStorage.setItem("token", token)
-
-        setAppState(res.data)
-
+      if (res?.data) {
+        const { token } = res.data;
+        localStorage.setItem("token", token);
+        const decodedToken = jwtDecode(token);
+        setAppState(decodedToken);
         setIsLoading(false)
         setIsLoggedIn(true)
         navigate("/activity")
