@@ -26,7 +26,9 @@ export default function Navbar( {user, setAppState} ) {
           
           <li>Exercise</li>
         
+          <Link to="/nutrition">
           <li>Nutrition</li>
+          </Link>
       
           <li>Sleep</li>
 

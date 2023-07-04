@@ -13,10 +13,11 @@ CREATE TABLE users (
 );
 
 CREATE TABLE nutrition (
-  id         VARCHAR(20) PRIMARY KEY,
-  name       VARCHAR(20) NOT NULL,
-  category   VARCHAR(20) NOT NULL,
-  calories   VARCHAR(20) NOT NULL,
+  id         SERIAL PRIMARY KEY,
+  user_id    INT REFERENCES users(id),
+  name       TEXT NOT NULL,
+  category   TEXT NOT NULL,
+  calories   VARCHAR(220) NOT NULL,
   image_url  TEXT,
-  created_at VARCHAR(20) NOT NULL
+  created_at TIMESTAMP DEFAULT NOW() NOT NULL
 );

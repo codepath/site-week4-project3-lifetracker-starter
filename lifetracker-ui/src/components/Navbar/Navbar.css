@@ -42,6 +42,10 @@ a{
   text-decoration: none;
   color: white;
 }
+.navbar a:hover{
+  color: #75dddd;
+  font-weight: bolder;
+}
 .login-button{
   display: inline-block;
   border: solid;

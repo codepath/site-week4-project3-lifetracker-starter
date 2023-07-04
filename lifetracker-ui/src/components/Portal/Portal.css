@@ -6,6 +6,7 @@
     padding: 50px;
     border: solid 1px #ababb7;
     border-radius: 8px;
+    font-family: 'Questrial', sans-serif;
   }
   .Portal .content {
     flex: 1 1 500px;

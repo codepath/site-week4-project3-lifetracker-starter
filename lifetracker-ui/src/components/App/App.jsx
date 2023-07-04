@@ -7,6 +7,7 @@ import { useState } from 'react'
 import Portal from '../Portal/Portal'
 import Home from '../Home/Home'
 import ActivityPage from '../ActivityPage/ActivityPage'
+import NutritionPage from '../NutritionPage/NutritionPage'
 
 function App() {
   const [appState, setAppState] = useState({})
@@ -38,6 +39,10 @@ function App() {
         <Route
           path="/activities"
           element={<ActivityPage user={appState?.user} setAppState={setAppState} />}
+        />
+        <Route
+          path="/nutrition"
+          element={<NutritionPage user={appState?.user} setAppState={setAppState} />}
         />
 
       </Routes>

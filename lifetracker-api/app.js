@@ -8,6 +8,7 @@ const morgan = require("morgan")
 const { NotFoundError } = require("./utils/errors")
 const config = require("./config")
 const authRoutes = require("./routes/auth")
+const actRoutes = require("./routes/activities")
 
 const app = express()
 
@@ -22,6 +23,9 @@ app.use(morgan("tiny"))
 
 // routes
 app.use("/auth", authRoutes)
+
+// activities routes
+app.use("/", actRoutes)
 
 // health check
 app.get("/", function (req, res) {

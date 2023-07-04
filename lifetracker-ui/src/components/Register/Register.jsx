@@ -14,7 +14,7 @@ function Register({setAppState}) {
         email: "",
         password: "",
         passwordConfirm: "",
-        agreeToTerms: true // CHANGE LATER !!!!!
+        agreeToTerms: true
       })
 
     const handleOnInputChange = (event) => {
