@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import axios from "axios";
 
-export default function RegistrationPage({setAppState, setIsLoggedIn}) {
+export default function RegistrationPage({setAppState, setIsLoggedIn, appState}) {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
@@ -45,9 +45,11 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
       })
 
       if (res?.data?.user) {
-        console.log('before',setAppState)
+        const { token } = res.data
+        localStorage.setItem("token", token)
+
         setAppState(res.data)
-        console.log('after',setAppState)
+
         setIsLoading(false)
         setIsLoggedIn(true)
         navigate("/activity")
@@ -218,39 +220,6 @@ export default function RegistrationPage({setAppState, setIsLoggedIn}) {
                     </div>
                   </div>
                 </div>
-                {/* <div role="group" className="chakra-form-control css-1kxonj9">
-                  <div className="chakra-input__group css-bx0blc" data-group="true">
-                    <div className="chakra-input__left-element css-17ke578">
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth="0"
-                        viewBox="0 0 448 512"
-                        className="css-119zpey"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path>
-                      </svg>
-                    </div>
-                    <input
-                      name="passwordConfirm"
-                      type="password"
-                      placeholder="Confirm Password"
-                      id="field-:rt:"
-                      required=""
-                      aria-required="true"
-                      className="chakra-input css-67vh0"
-                      value=""
-                    />
-                    <div className="chakra-input__right-element css-1qww07b">
-                      <button type="button" className="show-button">
-                        Show
-                      </button>
-                    </div>
-                  </div>
-                </div> */}
                 <button className="chakra-button css-4lvvxn" onClick={handleOnSubmit} disabled={isLoading}>
                   {isLoading ? "Loading..." : "Sign up"}
                 </button>

@@ -1,17 +1,20 @@
 import * as React from "react";
 import "./LoginPage.css";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import axios from "axios";
+import jwtDecode from "jwt-decode"
 
-export default function LoginPage({setAppState, setIsLoggedIn}) {
+export default function LoginPage({setAppState, setIsLoggedIn, appState}) {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
+  const [userFirstName, setUserFirstName] = useState()
   const [form, setForm] = useState({
     email: "",
     password: "",
   })
+
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
@@ -26,29 +29,33 @@ export default function LoginPage({setAppState, setIsLoggedIn}) {
   }
 
   const handleOnSubmit = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setErrors((e) => ({ ...e, form: null }))
-
+    e.preventDefault();
+    setIsLoading(true);
+    setErrors((e) => ({ ...e, form: null }));
+  
     try {
-      const res = await axios.post(`http://localhost:3001/auth/login`, form)
+      const res = await axios.post(`http://localhost:3001/auth/login`, form);
+  
       if (res?.data) {
-        setAppState(res.data)
-        console.log('after',res.data)
-        setIsLoggedIn(true)
-        setIsLoading(false)
-        navigate("/activity")
+        const { token } = res.data;
+        localStorage.setItem("token", token);
+        const decodedToken = jwtDecode(token);
+        setAppState(decodedToken);
+        setIsLoggedIn(true);
+        setIsLoading(false);
+        navigate("/activity");
       } else {
-        setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
-        setIsLoading(false)
+        setErrors((e) => ({ ...e, form: "Invalid username/password combination" }));
+        setIsLoading(false);
       }
     } catch (err) {
-      console.log(err)
-      const message = err?.response?.data?.error?.message
-      setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-      setIsLoading(false)
+      console.log(err);
+      const message = err?.response?.data?.error?.message;
+      setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }));
+      setIsLoading(false);
     }
-  }
+  };
+  
 
   return (
     <div className="LoginPage">

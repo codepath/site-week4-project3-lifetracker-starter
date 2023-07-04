@@ -19,7 +19,7 @@ export default function ExerciseForm({isLoggedIn, appState}) {
             [event.target.name]: event.target.options[event.target.selectedIndex].value,
           }));
         } else {
-            console.log(appState.user.id)
+            console.log(appState.user_id)
           setExercise((prevState) => ({
             ...prevState,
             [event.target.name]: event.target.value,
@@ -35,7 +35,7 @@ export default function ExerciseForm({isLoggedIn, appState}) {
             category: exercise.category,
             time: exercise.time,
             intensity: exercise.intensity,
-            user_id: appState.user.id,
+            user_id: appState.user_id,
           })
           // CLEARING INPUTS
           setExercise({

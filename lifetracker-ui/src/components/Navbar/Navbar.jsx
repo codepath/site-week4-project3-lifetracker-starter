@@ -8,11 +8,12 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
     const navigate = useNavigate()
   
     const handleLogout = async (e) => {
-        e.preventDefault();
-        setAppState({});
-        setIsLoggedIn(false);
-        navigate("/");
-      };
+      e.preventDefault();
+      localStorage.removeItem("token");
+      setAppState({});
+      setIsLoggedIn(false);
+      navigate("/");
+    };
   
     const loggedIn = (
     <>
