@@ -1,14 +1,45 @@
 import React, { Fragment, useState } from "react";
 import emptybed from "../../assets/empty-bed.jpg";
+import axios from "axios";
 
 import "./SleepPage.css";
 
-export default function SleepPage({ appState }) {
+export default function SleepPage({ appState, setAppState}) {
   const [sleepForm, setSleepForm] = useState(false);
+  const [sleepInfo, setSleepInfo] = useState({
+    start_time: "",
+    end_time: "",
+  });
 
-  function handleRecord(e) {
+  async function handleRecord(e) {
     e.preventDefault();
     setSleepForm(!sleepForm);
+  }
+  console.log(sleepInfo)
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+     if (sleepInfo.start_time && sleepInfo.end_time) {
+      try {
+        const res = await axios.post("http://localhost:3001/auth/sleep", {
+          start_time: sleepInfo.start_time,
+          end_time: sleepInfo.end_time,
+          email: appState.user.email,
+        });
+        setAppState((prevState) => ({
+          ...prevState,
+          sleep: [res.data.sleep, ...prevState.sleep],
+        }));
+      } catch (error) {
+        console.log(error);
+      }
+      setSleepInfo((prevState) => ({
+        
+        start_time: "",
+    end_time: ""
+      }));
+      setSleepForm(!sleepForm);
+    }
   }
   return (
     <>
@@ -31,6 +62,13 @@ export default function SleepPage({ appState }) {
                     <br />
                     <input
                       className="barsForm-input"
+                      value={sleepInfo.start_time}
+                      onChange={(e) =>
+                        setSleepInfo((prevState) => ({
+                          ...prevState,
+                          start_time: e.target.value,
+                        }))
+                      }
                       type="datetime-local"
                       id="start-time"
                       name="start-time"
@@ -42,6 +80,13 @@ export default function SleepPage({ appState }) {
                     </label>
                     <br />
                     <input
+                      value={sleepInfo.end_time}
+                      onChange={(e) =>
+                        setSleepInfo((prevState) => ({
+                          ...prevState,
+                          end_time: e.target.value,
+                        }))
+                      }
                       className="barsForm-input"
                       type="datetime-local"
                       id="end-time"
@@ -49,25 +94,111 @@ export default function SleepPage({ appState }) {
                       required
                     />
                     <br />
-               
-                  <button className="bars-cancel">
-                    Save
-                  </button>
-                  <button className="bars-cancel" onClick={handleRecord}>
-                    Cancel
-                  </button>
+
+                    <button  onClick={handleSubmit} className="bars-cancel">Save</button>
+                    <button className="bars-cancel" onClick={handleRecord}>
+                      Cancel
+                    </button>
                   </form>
                 </div>
               </>
             ) : (
               <>
                 <div className="bar-content">
-                  <p>Nothing here yet.</p>
-                  <button onClick={handleRecord} className="bar-button">
-                    Record Sleep
-                  </button>
-                  <br />
-                  <img src={emptybed} alt="an image of an empty bed" />
+                  {appState.sleep.length === 0 ? (
+                    <Fragment>
+                      <p className="bar-contentp">Nothing here yet.</p>
+                      <button onClick={handleRecord} className="bar-button">
+                        Add Sleep
+                      </button>
+                      <br />
+                      <img src={emptybed} alt="an image of an empty bed" />
+                    </Fragment>
+                  ) : (
+                    <Fragment>
+                      <button style={{marginTop:"2%"}} onClick={handleRecord} className="bar-button">
+                        Add Sleep
+                      </button>
+                      <div id="exercise-whole">
+                        {appState.sleep.map((sleep) => {
+                          const createdAtUTC = new Date(sleep.start_time);
+                          const createdAtUTCend = new Date(sleep.end_time);
+                          const createdAtLocal = createdAtUTC.toLocaleString();
+                          const createdAtLocalend =
+                            createdAtUTCend.toLocaleString();
+                          const splitCreatedAtLocal = createdAtLocal.split(" ");
+                          const splitCreatedAtLocalend =
+                            createdAtLocalend.split(" ");
+
+                          const getOrdinalSuffix = (day) => {
+                            if (day >= 11 && day <= 13) {
+                              return "th";
+                            }
+
+                            switch (day % 10) {
+                              case 1:
+                                return "st";
+                              case 2:
+                                return "nd";
+                              case 3:
+                                return "rd";
+                              default:
+                                return "th";
+                            }
+                          };
+                          let day;
+                          const formatDate = (dateString) => {
+                            const date = new Date(dateString);
+                            const month = date.toLocaleString("en-US", {
+                              month: "short",
+                            });
+                            day = date.getDate();
+                            console.log(date.getDate());
+                            const year = date.getFullYear();
+                            const suffix = getOrdinalSuffix(day);
+
+                            return `${month} ${day}${suffix} ${year}`;
+                          };
+
+                          formatDate(splitCreatedAtLocal[0]);
+                          return (
+                            //ask about keys and how to make the unique
+                            <Fragment>
+                              <div style={{marginTop:"3%"}} className="exercise-tiles">
+                                <div className="bars-image">{day}</div>
+                                <p className="bars-name">
+                                  {formatDate(splitCreatedAtLocal[0])}
+                                </p>
+                                <div className="durint-flex">
+                                  <div className="dur-flex">
+                                    <span className="duration-label">
+                                      Start Time
+                                    </span>
+                                    <p className="bars-duration">
+                                      {splitCreatedAtLocal[1]
+                                        .replace(/:00/g, "")
+                                        .toLowerCase() + splitCreatedAtLocal[2]}
+                                    </p>
+                                  </div>
+                                  <div className="int-flex">
+                                    <span className="intensity-label">
+                                      End Time
+                                    </span>
+                                    <p className="bars-intensity">
+                                      {splitCreatedAtLocalend[1]
+                                        .replace(/:00/g, "")
+                                        .toLowerCase() +
+                                        splitCreatedAtLocalend[2]}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </Fragment>
+                          );
+                        })}
+                      </div>
+                    </Fragment>
+                  )}
                 </div>
               </>
             )}

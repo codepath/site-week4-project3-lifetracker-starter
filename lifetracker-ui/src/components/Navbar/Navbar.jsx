@@ -9,8 +9,9 @@ export default function Navbar({ setAppState, appState }) {
   function handleSignOut(e) {
     setAppState((prevState) => ({
       ...prevState,
-      isAuthenticated: false,
+      isAuthenticated: false
     }));
+    localStorage.removeItem("LifeTracker_Token")
   }
   return (
     <Fragment>

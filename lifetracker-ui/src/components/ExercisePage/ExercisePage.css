@@ -1,6 +1,51 @@
-.ExercisePage .button {
-  display: flex;
+#exercise-whole{
+  padding-bottom: 100px;
 }
-.ExercisePage .button button {
-  flex: 1;
+
+.exercise-tiles{
+  border: solid 2px var(--jewel);
+  width: 25%;
+  border-radius: 20px;
+  margin: 0 auto;
+  padding: 10px;
+
+}
+.bars-date{
+  margin-right: 15%;
+  color: var(--stark);
+  font-size: large;
+  margin-top: 3%;
+}
+
+.bars-image{
+  display: inline-block;
+  box-shadow: 7px 7px 7px var(--jewel);
+  object-fit: cover;
+  margin-right: 20px;
+  background-color: var(--dark-theme);
+  color: var(--stark);
+  width: 70px;
+  height: 50px;
+  border-radius: 50%;
+  padding-top: 20px;
+  font-size: xx-large;
+  font-weight: bold;
+  
+}
+
+.bars-name{
+  display: inline;
+  font-size: 230%;
+  font-weight: bolder;
+  color: var(--stark);
+
+}
+
+.durint-flex{
+  display: flex;
+  flex-direction:row ;
+  margin-top: 8%;
+  justify-content: space-around;
+  color: var(--stark);
+  font-size: 190%;
 }

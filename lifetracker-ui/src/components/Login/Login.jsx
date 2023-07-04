@@ -24,10 +24,13 @@ export default function Login({ setAppState }) {
           setLoginError("");
           setAppState((prevState) => ({
             ...prevState,
-            user: res.data.user.user,
+            user: res.data.user,
             isAuthenticated: true,
-            exercise: res.data.user.exercise
+            exercise: res.data.exercise,
+            sleep: res.data.sleep,
+            nutrition: res.data.nutrition
           }));
+          localStorage.setItem("LifeTracker_Token", res.data.token)
           navigateTo("/")
         } else {
           setLoginError("Invalid email and/or password.");

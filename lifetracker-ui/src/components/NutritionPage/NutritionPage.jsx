@@ -1,21 +1,69 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 import "./NutritionPage.css";
+import axios from "axios";
+import Tile from "../NutritionTile/NutritionTile";
 import emptycan from "../../assets/empty-fridge.jpg";
 
-export default function NutritionPage({ appState }) {
+export default function NutritionPage({ setAppState, appState }) {
   const [nutriForm, setNutriForm] = useState(false);
+  const [nutriInfo, setNutriInfo] = useState({
+    name: "",
+    category: "",
+    quantity: 0,
+    calories: 0,
+    image_url: null,
+  });
 
   function handleRecord(e) {
     e.preventDefault();
     setNutriForm(!nutriForm);
+  }
+
+  async function handleSumbit(e) {
+    e.preventDefault();
+    if (
+      nutriInfo.name &&
+      nutriInfo.category &&
+      nutriInfo.quantity &&
+      nutriInfo.calories
+    ) {
+      try {
+        const res = await axios.post("http://localhost:3001/auth/nutrition", {
+          name: nutriInfo.name,
+          category: nutriInfo.category,
+          quantity: nutriInfo.quantity,
+          calories: nutriInfo.calories,
+          image_url: nutriInfo.image_url,
+          email: appState.user.email,
+        });
+        setAppState((prevState) => ({
+          ...prevState,
+          nutrition: [res.data.nutrition, ...prevState.nutrition],
+        }));
+      } catch (error) {
+        console.log(error);
+      }
+      setNutriInfo((prevState) => ({
+        ...prevState,
+        name: "",
+        category: "",
+        quantity: 0,
+        calories: 0,
+        image_url: "",
+      }));
+      setNutriForm(!nutriForm);
+      setImageError(false);
+    }
   }
   return (
     <>
       {appState.isAuthenticated ? (
         <>
           <div className="barPage">
-            <div className="bars-header"><h1>Nutrition</h1></div>
+            <div className="bars-header">
+              <h1>Nutrition</h1>
+            </div>
             {nutriForm ? (
               <>
                 <div className="bars-form">
@@ -27,6 +75,13 @@ export default function NutritionPage({ appState }) {
                       className="barsForm-input"
                       type="text"
                       name="name"
+                      value={nutriInfo.name}
+                      onChange={(e) =>
+                        setNutriInfo((prevState) => ({
+                          ...prevState,
+                          name: e.target.value,
+                        }))
+                      }
                       placeholder="Name"
                     />{" "}
                     <br />
@@ -38,12 +93,19 @@ export default function NutritionPage({ appState }) {
                       style={{ width: "102%" }}
                       className="barsForm-input"
                       name="category"
+                      value={nutriInfo.category}
+                      onChange={(e) =>
+                        setNutriInfo((prevState) => ({
+                          ...prevState,
+                          category: e.target.value,
+                        }))
+                      }
                       required
                     >
                       <option value="">--Select a Category--</option>
-                      <option value="snack">Snack</option>
-                      <option value="beverage">Beverage</option>
-                      <option value="food">Food</option>
+                      <option value="Snack">Snack</option>
+                      <option value="Beverage">Beverage</option>
+                      <option value="Food">Food</option>
                     </select>
                     <br />
                     <div className="quantCal-input">
@@ -57,6 +119,13 @@ export default function NutritionPage({ appState }) {
                         </label>
                         <br />
                         <input
+                          value={nutriInfo.quantity}
+                          onChange={(e) =>
+                            setNutriInfo((prevState) => ({
+                              ...prevState,
+                              quantity: e.target.value,
+                            }))
+                          }
                           id="quantity-input"
                           type="number"
                           name="quantity"
@@ -75,6 +144,13 @@ export default function NutritionPage({ appState }) {
                         </label>
                         <br />
                         <input
+                          value={nutriInfo.calories}
+                          onChange={(e) =>
+                            setNutriInfo((prevState) => ({
+                              ...prevState,
+                              calories: e.target.value,
+                            }))
+                          }
                           id="calories-input"
                           type="number"
                           name="calories"
@@ -87,6 +163,13 @@ export default function NutritionPage({ appState }) {
                     </div>
                     <br />
                     <input
+                      value={nutriInfo.image_url}
+                      onChange={(e) =>
+                        setNutriInfo((prevState) => ({
+                          ...prevState,
+                          image_url: e.target.value,
+                        }))
+                      }
                       className="barsForm-input"
                       type="url"
                       name="url"
@@ -94,17 +177,39 @@ export default function NutritionPage({ appState }) {
                       pattern="https://.*"
                       required
                     />
-                  <button className="bars-cancel" >Save</button>
-                  <button className="bars-cancel" onClick={handleRecord}>Cancel</button>
+                    <button onClick={handleSumbit} className="bars-cancel">
+                      Save
+                    </button>
+                    <button className="bars-cancel" onClick={handleRecord}>
+                      Cancel
+                    </button>
                   </form>
                 </div>
               </>
-            )  : (
+            ) : (
               <>
                 <div className="bar-content">
-                <p>Nothing here yet.</p>
-                <button onClick={handleRecord} className="bar-button">Record Nutrition</button> <br />
-                <img src={emptycan} alt="empty can in a fridge" />
+                  {appState.nutrition.length === 0 ? (
+                    <Fragment>
+                      <p className="bar-contentp">Nothing here yet.</p>
+                      <button onClick={handleRecord} className="bar-button">
+                        Record Nutrition
+                      </button>{" "}
+                      <br />
+                      <img src={emptycan} alt="empty can in a fridge" />
+                    </Fragment>
+                  ) : (
+                    <Fragment>
+                      <button style={{marginTop:"2%"}} onClick={handleRecord} className="bar-button">
+                        Add Nutrition
+                      </button>
+                      <div id="exercise-whole">
+                        {appState.nutrition.map((nutrition) => {
+                          return <Tile nutrition={nutrition} />;
+                        })}
+                      </div>
+                    </Fragment>
+                  )}
                 </div>
               </>
             )}

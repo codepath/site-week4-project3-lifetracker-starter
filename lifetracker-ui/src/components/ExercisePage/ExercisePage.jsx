@@ -2,7 +2,6 @@ import React, { Fragment, useState } from "react";
 import bikepath from "../../assets/bikepath.jpg";
 import "./ExercisePage.css";
 import axios from "axios";
-import { Puff } from "react-loading-icons";
 
 export default function ExercisePage({ appState, setAppState }) {
   const [exerciseForm, setExerciseForm] = useState(false);
@@ -10,12 +9,10 @@ export default function ExercisePage({ appState, setAppState }) {
     name: "",
     category: "",
     duration: 0,
-    intensity: 0,
+    intensity: 0
   });
 
-  const [isLoading, setIsLoading] = useState(false);
 
-  console.log(appState.exercise);
   function handleRecord(e) {
     e.preventDefault();
     setExerciseForm(!exerciseForm);
@@ -29,7 +26,6 @@ export default function ExercisePage({ appState, setAppState }) {
       exerciseInfo.duration &&
       exerciseInfo.intensity
     ) {
-      setIsLoading(true);
       try {
         const res = await axios.post("http://localhost:3001/auth/exercise", {
           name: exerciseInfo.name,
@@ -40,7 +36,7 @@ export default function ExercisePage({ appState, setAppState }) {
         });
         setAppState((prevState) => ({
           ...prevState,
-          exercise: [...prevState.exercise, res.data.exercise],
+          exercise: [res.data.exercise, ...prevState.exercise],
         }));
       } catch (error) {
         console.log(error);
@@ -52,7 +48,6 @@ export default function ExercisePage({ appState, setAppState }) {
         duration: 0,
         intensity: 0,
       }));
-      setIsLoading(false);
       setExerciseForm(!exerciseForm);
     }
   }
@@ -164,11 +159,7 @@ export default function ExercisePage({ appState, setAppState }) {
                       </div>
                     </div>
                     <button onClick={handleSumbit} className="bars-cancel">
-                      {isLoading ? (
-                        <Puff stroke="white" speed={1.25} />
-                      ) : (
                         <span>Save</span>
-                      )}{" "}
                     </button>
                     <button className="bars-cancel" onClick={handleRecord}>
                       Cancel
@@ -179,12 +170,74 @@ export default function ExercisePage({ appState, setAppState }) {
             ) : (
               <>
                 <div className="bar-content">
-                  {appState.exercise === {} ? null : <p>Nothing here yet.</p>}
-                  <button onClick={handleRecord} className="bar-button">
-                    Record Exercise
-                  </button>
-                  <br />
+                  {appState.exercise.length === 0 ? (
+                    <Fragment>
+                      <p className="bar-contentp">Nothing here yet.</p>
+                      <button onClick={handleRecord} className="bar-button">
+                        Add Exercise
+                      </button>
+                      <br />
                   <img src={bikepath} alt="road with a bike on it" />
+                    </Fragment>
+                  ) : (
+                    <Fragment>
+                      <button style={{marginTop:"2%"}} onClick={handleRecord} className="bar-button">
+                        Add Exercise
+                      </button>
+                      <div id="exercise-whole">
+                      {appState.exercise.map((exercise) => {
+                        function separateFirstLetters(str) {
+                          return str
+                            .split(" ")
+                            .map((word) => word.charAt(0))
+                            .join("");
+                        }
+                        let wordImage;
+                        const words = exercise.name.split(/\W+/);
+
+                        if (words.length === 2) {
+                          wordImage = separateFirstLetters(
+                            exercise.name
+                          ).toUpperCase();
+                        } else {
+                          wordImage = exercise.name.charAt(0).toUpperCase();
+                        }
+
+                        const createdAtUTC = new Date(exercise.created_at);
+                        const createdAtLocal = createdAtUTC.toLocaleString();
+
+                        return (
+                          //ask about keys and how to make the unique
+                          <Fragment>
+                            <p className="bars-date"> {createdAtLocal}</p>
+                            <div className="exercise-tiles">
+                              <div className="bars-image">{wordImage}</div>
+                              <p className="bars-name"> {exercise.name}</p>
+                              <div className="durint-flex">
+                                <div className="dur-flex">
+                                  <span className="duration-label">
+                                    Duration
+                                  </span>
+                                  <p className="bars-duration">
+                                    {exercise.duration}
+                                  </p>
+                                </div>
+                                <div className="int-flex">
+                                  <span className="intensity-label">
+                                    Intensity
+                                  </span>
+                                  <p className="bars-intensity">
+                                    {exercise.intensity}/10
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </Fragment>
+                        );
+                      })}
+                      </div>
+                    </Fragment>
+                  )}
                 </div>
               </>
             )}

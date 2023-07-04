@@ -15,10 +15,22 @@ function App() {
   const [appState, setAppState] = useState({
     user: {},
     isAuthenticated: false,
-    nutrition: {},
-    sleep: {},
-    exercise: {},
+    nutrition: [],
+    sleep: [],
+    exercise: [],
   });
+
+  useEffect(() => {
+    const token = localStorage.getItem("LifeTracker_Token")
+    async function fetchUser() {
+      if (token) {
+        const res = await axios.post("http://localhost:3001/auth/me", {
+          email: appState.user.email
+        });
+      }
+    }
+    fetchUser()
+  }, [appState.isAuthenticated])
 
   console.log(appState);
   return (
@@ -36,9 +48,9 @@ function App() {
           />
           <Route
             path="/nutrition"
-            element={<NutritionPage appState={appState} />}
+            element={<NutritionPage appState={appState} setAppState={setAppState}/>}
           />
-          <Route path="/sleep" element={<SleepPage appState={appState} />} />
+          <Route path="/sleep" element={<SleepPage appState={appState} setAppState={setAppState}/>} />
           <Route path="/" element={<Home appState={appState} />} />
           <Route path="/login" element={<Login setAppState={setAppState} />} />
           <Route

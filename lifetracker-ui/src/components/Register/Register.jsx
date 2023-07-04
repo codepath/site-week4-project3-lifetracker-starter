@@ -48,7 +48,11 @@ export default function Register({ setAppState }) {
             ...prevState,
             user: res.data.user,
             isAuthenticated: true,
+            exercise: [],
+            nutrition: [],
+            sleep: []
           }));
+          localStorage.setItem("LifeTracker_Token", res.data.token)
           navigateTo("/");
         } else {
           setRegisError("Something went wrong with registration.");
