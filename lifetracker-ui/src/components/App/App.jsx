@@ -40,11 +40,15 @@ function App() {
   };
 
     //Registration function to handle registration
-    const handleRegistration = async (name, email, password) => {
-     
-      
-        const response = await axios.post("http://localhost:3001/api/auth/register", {name,email,password})
+    const handleRegistration = async (email, password, first_name, last_name, username) => {
+     try {
+        console.log("first name value in handleRegsiteration: ", first_name)
+        console.log("username value in handleRegsiteration: ", username)
+        let response = await axios.post('http://localhost:3001/auth/register', {email, password, first_name, last_name, username})
         console.log("Response output: ", response)
+     } catch (error) {
+      console.error(error.response.data);
+     }
           // method: "POST",
           // headers: {
           //   "Content-Type": "application/json",

@@ -10,7 +10,7 @@ export default function ExercisePage(loggedIn) {
     </div>
         ) : (
          <div className="ExercisePage css-ra15rn">
-            <h1>To be done</h1>
+            <h1>Log in to see your data.</h1>
             </div>
 //             <div className="ExercisePage css-1bpnzr3">
 //    <div className="css-19cns6y">

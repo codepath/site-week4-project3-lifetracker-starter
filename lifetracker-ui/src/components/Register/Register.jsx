@@ -11,7 +11,9 @@ export default function Register  ({onRegister})   {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      onRegister(name, email, password);
+      onRegister(email, password, firstName, lastName, username);
+      console.log("firstName value: ", firstName)
+    //  console.log("registered? i think")
     }
     return  (
         <div className="css-9cjjy5">
@@ -24,7 +26,8 @@ export default function Register  ({onRegister})   {
       </span>
       <h2 className="chakra-heading css-3q8efk">Create an Account</h2>
       <div className="css-ebzegt">
-         <form>
+         {/* onSubmit={handleSubmit} */}
+         <form onSubmit={handleSubmit}>
             <div className="chakra-stack css-1opnp10">
                <div role="group" className="chakra-form-control css-1kxonj9">
                   <div className="chakra-input__group css-bx0blc" data-group="true">

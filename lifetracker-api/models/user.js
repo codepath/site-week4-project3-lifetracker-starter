@@ -56,11 +56,10 @@ class User{
     //register function 
     static async register(creds){
         
-        const requiredFields = ["email","password","firstName","lastName","username"]
+        const requiredFields = ["email","password","first_name","last_name","username"]
         requiredFields.forEach(field=>{
             if(!creds.hasOwnProperty(field)){
-                throw new BadRequestError(`Missing ${field} in request body`)
-
+               throw new BadRequestError(`Missing ${field} in request body`)
             }
         })
         if (creds.email.indexOf("@")<=0){
@@ -81,9 +80,9 @@ class User{
         first_name,
         last_name,
         username)
-        VALUES($1, $2 , $3 , $4, $5)
-        RETURNING id, email , first_name, last_name, username
-       `, [lowerCasedEmail, hashedPassword, creds.firstName, creds.lastName, creds.username])
+        VALUES($1, $2, $3, $4, $5)
+        RETURNING id, email, first_name, last_name, username
+       `, [lowerCasedEmail, hashedPassword, creds.first_name, creds.last_name, creds.username])
       // [lowerCasedEmail, hashedPassword, creds.firstName, creds.lastName,creds.location, creds.date]
 
         const user = result.rows[0]; 
@@ -91,6 +90,16 @@ class User{
     }
 
     static async fetchUserByEmail(email){
+    //     if (!email){
+    //         throw new BadRequestError("No email provided")
+    //     }
+    //     const query = await db.query(
+    //     `SELECT * FROM users WHERE email=$1`
+    //     )
+    //     const result=await db.query(query,[email.toLowerCase()])
+    //     const user = result.rows[0]
+    //     return user
+    // }
         const result = await db.query(
         `SELECT id,
                 email,
@@ -104,6 +113,7 @@ class User{
         const user = result.rows[0]
         return user; 
     }
+
 }
 
 module.exports= User
