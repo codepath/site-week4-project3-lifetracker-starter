@@ -21,7 +21,6 @@ export default function NutritionForm({ user, setAppState, nutritionFormState, s
       };
       
 
-      console.log(nutritionFormState)
       const handleSubmit = async (event) => {
         event.preventDefault();
 

@@ -17,7 +17,18 @@ router.post("/nutrition", async function (req, res, next) {
     } catch (err) {
       next(err)
     }
-  })
+})
+
+router.post('/nutritionfeed', async function (req,res,next){
+
+  try {
+    const nutrition = await Nutrition.getAllNutrition(req.body.userId)
+    res.status(200);
+    res.json({nutrition});
+  } catch (err) {
+    next(err)
+  }
+})
 
 
 module.exports = router

@@ -38,7 +38,7 @@ By the end of this project you will be able to...
   - [X] If the user is logged in, it should display a **Sign Out** button.
   - [X] If no user is logged in, it should display **Login** and **Register** buttons.
   - [X] Display a logo on the far left side, and contain links to the individual detailed activity pages.
-- [ ] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
+- [X] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] **Detailed Activity Page:** Display and enter activities.
   - [ ] Display a feed of all previously tracked activities.
   - [ ] A form to enter relevant information (i.e., if tracking nutrition, the user can enter calories, timestamp, image, category, etc.).

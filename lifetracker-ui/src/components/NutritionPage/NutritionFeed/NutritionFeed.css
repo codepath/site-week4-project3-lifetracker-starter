@@ -1,0 +1,21 @@
+.nutrition-card {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.media img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.nutrition-info {
+  margin-left: 10px;
+}
+
+.nutrition-info p {
+  margin: 5px 0;
+}

@@ -58,25 +58,24 @@ class Nutrition {
    * Fetch a user in the database by email
    *
    * @param {String} email
-   * @returns user
+   * @returns nutrition
    */
-  static async fetchUserByEmail(email) {
+  static async getAllNutrition(userId) {
     const result = await db.query(
       `SELECT id,
-              email,
-              username, 
-              password,
-              first_name AS "firstName",
-              last_name AS "lastName",
-              created_at AS "createdAt"            
-           FROM users
-           WHERE email = $1`,
-      [email.toLowerCase()]
+              name,
+              category,
+              calories,
+              image_url AS "image"           
+           FROM nutrition
+           WHERE user_id = $1`,
+      [userId]
     )
+    
 
-    const user = result.rows[0]
+    const nutrition = result.rows
 
-    return user
+    return nutrition
   }
 }
 

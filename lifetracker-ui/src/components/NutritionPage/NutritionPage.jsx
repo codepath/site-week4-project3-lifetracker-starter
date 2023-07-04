@@ -2,6 +2,8 @@ import * as React from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react";
 import NutritionForm from "./NutritionForm/NutritionForm";
+import NutritionFeed from "./NutritionFeed/NutritionFeed";
+
 
 
 export default function NutritionPage({ user, setAppState }) {
@@ -23,39 +25,35 @@ export default function NutritionPage({ user, setAppState }) {
     image: ""
   })
 
-  const content = isAuthenticated ? (
+  const authContent = isAuthenticated ? (
     <>
     <h2>Nutrition Feed</h2>
     
     <button onClick={ () => { setIsActive(!isActive)}}>Record Nutrition</button>
     
+
+    <NutritionFeed user={user} setAppState={setAppState} nutritionFormState={nutritionFormState} setNutritionFormState={setNutritionFormState}/>
+
+
       </>
   ) : (
     <p className="appt">{title}</p>
   );
 
-  const form = isActive?
+  const content = isActive?
+    <>
+    <button onClick={ () => { setIsActive(!isActive)}}>Go Back</button>
     <NutritionForm user={user} setAppState={setAppState} nutritionFormState={nutritionFormState} setNutritionFormState={setNutritionFormState}/>
+    </>
   :
-  content
+  authContent
 
-
-  const button = isAuthenticated ? (
-    <button className="btn primary" onClick={handleOnLogout}>
-      Logout
-    </button>
-  ) : (
-    <Link to="/auth/login">
-      <button className="btn primary">Login</button>
-    </Link>
-  );
 
   return (
     <>
       
 
-    <div>{form}</div>
-    {button}
+    <div>{content}</div>
       
     
     </>
