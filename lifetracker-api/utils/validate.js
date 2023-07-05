@@ -7,7 +7,7 @@ const validateFields = ({ required, obj, location }) => {
 
   required.forEach((item) => {
     if (isNil(obj[item])) {
-      throw new UnprocessableEntityError(`Required field - ${item} missing${location ? ` at ${location}` : ""}`)
+      throw new UnprocessableEntityError(`Required field - ${item} missing`)
     }
   })
 }
