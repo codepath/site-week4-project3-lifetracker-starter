@@ -5,7 +5,6 @@ const { validateFields } = require("../utils/validate");
 const { BCRYPT_WORK_FACTOR } = require("../config");
 const crypto = require("crypto");
 
-
 class User {
   static async createPublicUser(user) {
     return {
@@ -120,7 +119,6 @@ class User {
     const user = result.rows[0];
     return user;
   }
-
 }
 
 module.exports = User;

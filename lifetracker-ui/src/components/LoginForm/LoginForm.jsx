@@ -4,7 +4,7 @@ import axios from "axios";
 import apiClient from "../../../services/apiClient";
 import { useNavigate } from "react-router-dom";
 
-export default function Login({ setAppState, appState }) {
+export default function Login({ setAppState }) {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +29,7 @@ export default function Login({ setAppState, appState }) {
     });
     if (error) setErrors((e) => ({ ...e, loginForm: error }));
     if (data?.user) {
-      setAppState({user:data.user, token:data.token});
+      setAppState({...appState, user:data.user});
       apiClient.setToken(data.token);
       navigate("/")
     }

@@ -31,7 +31,7 @@ class ForbiddenError extends ExpressErrors {
 
 /**401 Unauthorized Error */
 class UnauthorizedError extends ExpressErrors {
-    constructor(message="Unathorized"){
+    constructor(message="Unauthorized"){
         super(message, 401)
     }
 }

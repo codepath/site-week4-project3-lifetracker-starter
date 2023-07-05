@@ -24,7 +24,7 @@ export default function NavLinks({ appState, setAppState }) {
   else {
 
     function logoutUser() {
-      setAppState({user:"", token:""})
+      setAppState({user:""})
       apiClient.logoutUser()
     }
     return (
