@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
 
 import "./NutritionPage.css";
-import axios from "axios";
 import Tile from "../NutritionTile/NutritionTile";
 import emptycan from "../../assets/empty-fridge.jpg";
+import apiClient from "../../services/apiClient";
 
 export default function NutritionPage({ setAppState, appState }) {
   const [nutriForm, setNutriForm] = useState(false);
@@ -12,7 +12,7 @@ export default function NutritionPage({ setAppState, appState }) {
     category: "",
     quantity: 0,
     calories: 0,
-    image_url: null,
+    image_url: null
   });
 
   function handleRecord(e) {
@@ -29,20 +29,23 @@ export default function NutritionPage({ setAppState, appState }) {
       nutriInfo.calories
     ) {
       try {
-        const res = await axios.post("http://localhost:3001/auth/nutrition", {
-          name: nutriInfo.name,
-          category: nutriInfo.category,
-          quantity: nutriInfo.quantity,
-          calories: nutriInfo.calories,
-          image_url: nutriInfo.image_url,
-          email: appState.user.email,
-        });
-        setAppState((prevState) => ({
-          ...prevState,
-          nutrition: [res.data.nutrition, ...prevState.nutrition],
-        }));
-      } catch (error) {
-        console.log(error);
+        const token = localStorage.getItem("LifeTracker_Token")
+        apiClient.setToken(token)
+        const { data, error, message } = await apiClient.nutrition({
+              name: nutriInfo.name,
+              category: nutriInfo.category,
+              quantity: nutriInfo.quantity,
+              calories: nutriInfo.calories,
+              image_url: nutriInfo.image_url,
+              email: appState.user.email
+            });
+        console.log(data)
+          setAppState((prevState) => ({
+                ...prevState,
+                nutrition: [data.nutrition, ...prevState.nutrition],
+              }));
+    }  catch (err) {
+        console.log(err);
       }
       setNutriInfo((prevState) => ({
         ...prevState,
@@ -50,10 +53,9 @@ export default function NutritionPage({ setAppState, appState }) {
         category: "",
         quantity: 0,
         calories: 0,
-        image_url: "",
+        image_url: ""
       }));
       setNutriForm(!nutriForm);
-      setImageError(false);
     }
   }
   return (

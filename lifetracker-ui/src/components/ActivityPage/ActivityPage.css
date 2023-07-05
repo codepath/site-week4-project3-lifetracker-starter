@@ -1,0 +1,76 @@
+.activityPage {
+  margin: 0 auto;
+  width: 70%;
+  /* margin-top: 10px; */
+  padding: 20px;
+}
+
+.activity-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.activity-header p {
+  margin-left: 5.5%;
+  font-size: 220%;
+  color: white;
+  font-weight: bolder;
+}
+.activity-buttons {
+  /* background-color: red; */
+  margin-right: 4.5%;
+  padding-top: 35px;
+  height: 60px;
+}
+.activity-button {
+  margin-left: 20px;
+  height: 40px;
+  border-radius: 30px;
+  font-size: medium;
+  background-color: var(--dark-theme);
+  color: white;
+  font-weight: bold;
+  width: 150px;
+}
+.activity-button:hover {
+  cursor: pointer;
+}
+.exercise-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* font-size: 30px; */
+}
+
+#stats {
+  display: flex;
+  flex-direction: row;
+}
+.actExerMin {
+  width: 40%;
+  height: 180px;
+  border-radius: 20px;
+  color: white;
+  /* background-color: aquamarine; */
+  padding-left: 25px;
+  padding-bottom: 20px;
+  margin-bottom: 5%;
+  margin-left: 5%;
+}
+
+.actExerMin > p {
+  font-size: 180%;
+  font-weight: bold;
+}
+
+.stats-info {
+  width: 30%;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+/* 
+#more-stats{
+    background-color: aliceblue;
+} */

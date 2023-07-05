@@ -38,7 +38,7 @@ export default function Tile({ nutrition }) {
           style={{
             display: "inline-block",
             color: "white",
-            width: "80px",
+            width: "100px",
             height: "30px",
             backgroundColor: "var(--fushia)",
             fontSize: "x-large",

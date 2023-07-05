@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import { Puff } from "react-loading-icons";
-import axios from "axios";
+import apiClient from "../../services/apiClient";
 
 export default function Login({ setAppState }) {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
@@ -16,28 +16,38 @@ export default function Login({ setAppState }) {
     if (userInfo.email.includes("@")) {
       setIsLoading(true);
       try {
-        const res = await axios.post("http://localhost:3001/auth/login", {
+        const { data, error, message } = await apiClient.login({
           email: userInfo.email,
           password: userInfo.password,
         });
-        if (res?.data?.user) {
+        console.log(data);
+        if (error) {
+          setLoginError("Invalid email and/or password.");
+          setIsLoading(false);
+          return;
+        }
+
+        if (data) {
           setLoginError("");
           setAppState((prevState) => ({
             ...prevState,
-            user: res.data.user,
+            user: data.user,
             isAuthenticated: true,
-            exercise: res.data.exercise,
-            sleep: res.data.sleep,
-            nutrition: res.data.nutrition
+            exercise: data.exercise,
+            sleep: data.sleep,
+            nutrition: data.nutrition,
           }));
-          localStorage.setItem("LifeTracker_Token", res.data.token)
-          navigateTo("/")
+
+          localStorage.setItem("LifeTracker_Token", data.token);
+          navigateTo("/");
         } else {
           setLoginError("Invalid email and/or password.");
         }
-      } catch (error) {
+      } catch (err) {
+        console.log(err);
         setLoginError("Invalid email and/or password.");
       }
+
       setUserInfo((prevState) => ({
         ...prevState,
         email: "",

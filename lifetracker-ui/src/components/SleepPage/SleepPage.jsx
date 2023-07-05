@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
 import emptybed from "../../assets/empty-bed.jpg";
-import axios from "axios";
+import apiClient from "../../services/apiClient";
 
 import "./SleepPage.css";
 
-export default function SleepPage({ appState, setAppState}) {
+export default function SleepPage({ appState, setAppState }) {
   const [sleepForm, setSleepForm] = useState(false);
   const [sleepInfo, setSleepInfo] = useState({
     start_time: "",
@@ -15,28 +15,30 @@ export default function SleepPage({ appState, setAppState}) {
     e.preventDefault();
     setSleepForm(!sleepForm);
   }
-  console.log(sleepInfo)
+  console.log(sleepInfo);
 
   async function handleSubmit(e) {
-    e.preventDefault()
-     if (sleepInfo.start_time && sleepInfo.end_time) {
+    e.preventDefault();
+    if (sleepInfo.start_time && sleepInfo.end_time) {
       try {
-        const res = await axios.post("http://localhost:3001/auth/sleep", {
+        const token = localStorage.getItem("LifeTracker_Token");
+        apiClient.setToken(token);
+        const { data, error, message } = await apiClient.sleep({
           start_time: sleepInfo.start_time,
           end_time: sleepInfo.end_time,
           email: appState.user.email,
         });
+        console.log(data);
         setAppState((prevState) => ({
           ...prevState,
-          sleep: [res.data.sleep, ...prevState.sleep],
+          sleep: [data.sleep, ...prevState.sleep],
         }));
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        console.log(err);
       }
       setSleepInfo((prevState) => ({
-        
         start_time: "",
-    end_time: ""
+        end_time: "",
       }));
       setSleepForm(!sleepForm);
     }
@@ -95,7 +97,9 @@ export default function SleepPage({ appState, setAppState}) {
                     />
                     <br />
 
-                    <button  onClick={handleSubmit} className="bars-cancel">Save</button>
+                    <button onClick={handleSubmit} className="bars-cancel">
+                      Save
+                    </button>
                     <button className="bars-cancel" onClick={handleRecord}>
                       Cancel
                     </button>
@@ -116,7 +120,11 @@ export default function SleepPage({ appState, setAppState}) {
                     </Fragment>
                   ) : (
                     <Fragment>
-                      <button style={{marginTop:"2%"}} onClick={handleRecord} className="bar-button">
+                      <button
+                        style={{ marginTop: "2%" }}
+                        onClick={handleRecord}
+                        className="bar-button"
+                      >
                         Add Sleep
                       </button>
                       <div id="exercise-whole">
@@ -164,7 +172,10 @@ export default function SleepPage({ appState, setAppState}) {
                           return (
                             //ask about keys and how to make the unique
                             <Fragment>
-                              <div style={{marginTop:"3%"}} className="exercise-tiles">
+                              <div
+                                style={{ marginTop: "3%" }}
+                                className="exercise-tiles"
+                              >
                                 <div className="bars-image">{day}</div>
                                 <p className="bars-name">
                                   {formatDate(splitCreatedAtLocal[0])}

@@ -11,7 +11,7 @@ export default function Navbar({ setAppState, appState }) {
       ...prevState,
       isAuthenticated: false
     }));
-    localStorage.removeItem("LifeTracker_Token")
+    localStorage.setItem("LifeTracker_Token", null)
   }
   return (
     <Fragment>

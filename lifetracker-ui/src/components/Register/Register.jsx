@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import { Puff } from "react-loading-icons";
+import apiClient from "../../services/apiClient";
 import "./Register.css";
-import axios from "axios";
 
 export default function Register({ setAppState }) {
   const [userInfo, setUserInfo] = useState({
@@ -34,33 +34,70 @@ export default function Register({ setAppState }) {
     ) {
       setIsLoading(true);
       try {
-        const res = await axios.post("http://localhost:3001/auth/register", {
-          email: userInfo.email,
-          username: userInfo.username,
-          first_name: userInfo.first_name,
-          last_name: userInfo.last_name,
-          password: userInfo.password,
-        });
-        console.log(res)
-        if (res?.data?.user) {
+        const { data, error, message } = await apiClient.register({
+              email: userInfo.email,
+              username: userInfo.username,
+              first_name: userInfo.first_name,
+              last_name: userInfo.last_name,
+              password: userInfo.password,
+            });
+        console.log(data)
+        if (error) {
+          setRegisError("Something went wrong with registration.");
+      setIsLoading(false);
+          return;
+        }
+
+        if (data) {
           setRegisError("");
-          setAppState((prevState) => ({
+              setAppState((prevState) => ({
             ...prevState,
-            user: res.data.user,
+            user: data.user,
             isAuthenticated: true,
             exercise: [],
             nutrition: [],
             sleep: []
           }));
-          localStorage.setItem("LifeTracker_Token", res.data.token)
-          navigateTo("/");
-        } else {
-          setRegisError("Something went wrong with registration.");
+          localStorage.setItem("LifeTracker_Token", data.token)
+          apiClient.setToken(data.token)
+          navigateTo("/")
+    } else {
+                    setRegisError("Something went wrong with registration.");
+
         }
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        console.log(err);
+        // const message = err?.response?.data?.error?.message;
         setRegisError("Something went wrong with registration.");
       }
+      // try {
+      //   const res = await axios.post("http://localhost:3001/auth/register", {
+      //     email: userInfo.email,
+      //     username: userInfo.username,
+      //     first_name: userInfo.first_name,
+      //     last_name: userInfo.last_name,
+      //     password: userInfo.password,
+      //   });
+      //   console.log(res)
+      //   if (res?.data?.user) {
+      //     setRegisError("");
+      //     setAppState((prevState) => ({
+      //       ...prevState,
+      //       user: res.data.user,
+      //       isAuthenticated: true,
+      //       exercise: [],
+      //       nutrition: [],
+      //       sleep: []
+      //     }));
+      //     localStorage.setItem("LifeTracker_Token", res.data.token)
+      //     navigateTo("/");
+      //   } else {
+      //     setRegisError("Something went wrong with registration.");
+      //   }
+      // } catch (error) {
+      //   console.log(error);
+      //   setRegisError("Something went wrong with registration.");
+      // }
       setUserInfo((prevState) => ({
         ...prevState,
         email: "",
