@@ -79,9 +79,8 @@ export default function RegistrationForm({ setAppState }) {
     });
     if (error) setErrors((e) => ({ ...e, regForm: error }));
     if (data?.user) {
-      setAppState(data.user);
+      setAppState({user:data.user, token:data.token});
       apiClient.setToken(data.token);
-      console.log(data.token);
       navigate("/")
     }
     setIsLoading(false);

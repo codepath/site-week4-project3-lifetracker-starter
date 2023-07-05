@@ -1,5 +1,6 @@
 import "./Navlinks.css";
 import { Link } from "react-router-dom";
+import apiClient from "../../../services/apiClient"
 
 export default function NavLinks({ appState, setAppState }) {
   if (!appState.user) {
@@ -23,7 +24,8 @@ export default function NavLinks({ appState, setAppState }) {
   else {
 
     function logoutUser() {
-      setAppState({user:""})
+      setAppState({user:"", token:""})
+      apiClient.logoutUser()
     }
     return (
       <div className="nav-links">

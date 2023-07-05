@@ -7,7 +7,6 @@ function generateAuthToken(user) {
       email: user.email,
     };
     const token = jwt.sign(payload, SECRET_KEY, { algorithm: "HS256", expiresIn: "1h" });
-    console.log(token)
     return token
 }
 
