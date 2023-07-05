@@ -10,11 +10,14 @@ import { useState, useEffect } from "react"
 import ExercisePage from "../ExercisePage/ExercisePage";
 import ExerciseForm from "../ExerciseForm/ExerciseForm";
 import jwtDecode from "jwt-decode"
+import axios from "axios";
 
 export default function App() {
   const [appState, setAppState] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [exerciseArray, setExerciseArray] = useState([]);
+
+  console.log('app', exerciseArray)
 
   // useEffect(() => {
   //   const checkLoggedIn = () => {
@@ -30,6 +33,30 @@ export default function App() {
 
   //   checkLoggedIn();
   // }, []);
+
+  ////////////
+
+  React.useEffect(() => {
+    if (appState.user_id) {
+      axios
+        .get("http://localhost:3001/auth/exercise", {
+          params: {
+            user_id: appState.user_id,
+          },
+        })
+        .then((response) => {
+          const exercises = response.data.exercises;
+          setExerciseArray(exercises);
+          console.log("Response:", response.data.exercises); // Debugging console.log
+        })
+        .catch((error) => {
+          console.log("Error with axios:", error); // Debugging console.log
+        });
+    }
+  }, [appState.user_id]);
+
+
+  /////////
 
   useEffect(() => {
     const checkLoggedIn = () => {
@@ -62,7 +89,7 @@ export default function App() {
          <Route path="/register" element={<RegistrationPage appState={appState} setAppState={setAppState} setIsLoggedIn= {setIsLoggedIn}/>} />
           <Route path="/activity" element={<ActivityPage appState={appState} isLoggedIn = {isLoggedIn} exerciseArray ={exerciseArray} setExerciseArray={setExerciseArray}/>} /> 
           <Route path="/exercise" element={<ExercisePage isLoggedIn = {isLoggedIn} appState={appState} exerciseArray ={exerciseArray} setExerciseArray={setExerciseArray}/>} />  
-          <Route path="/exercise/create" element={<ExerciseForm isLoggedIn = {isLoggedIn} appState={appState}/>} />
+          <Route path="/exercise/create" element={<ExerciseForm isLoggedIn = {isLoggedIn} appState={appState} setExerciseArray={setExerciseArray}/>} />
           {/* <Route path="/nutrition/*" element={<AccessForbidden />} />
           <Route path="*" element={<NotFound />} />  */}
         </Routes>

@@ -5,7 +5,8 @@ import axios from "axios";
 
 export default function ExercisePage({ isLoggedIn, appState, exerciseArray, setExerciseArray }) {
 
-      const renderExercises = () => {
+        console.log("exercise array in exercise page", exerciseArray)
+        const renderExercises = () => {
         return exerciseArray?.map((exercise) => (
             <div className="chakra-stack css-xixnl8" key={exercise.id}>
             <div className="css-1d1dt3r">

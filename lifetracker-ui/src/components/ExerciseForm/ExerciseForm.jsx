@@ -3,7 +3,7 @@ import "./ExerciseForm.css"
 import { useState } from "react"
 import axios from "axios";
 
-export default function ExerciseForm({isLoggedIn, appState}) {
+export default function ExerciseForm({isLoggedIn, appState, setExerciseArray}) {
 
     const [exercise, setExercise] = useState({
         name: "",
@@ -43,7 +43,22 @@ export default function ExerciseForm({isLoggedIn, appState}) {
             category: "",
             time: "",
             intensity: "",
-          });
+        });
+
+        axios
+        .get("http://localhost:3001/auth/exercise", {
+          params: {
+            user_id: appState.user_id,
+          },
+        })
+        .then((response) => {
+          const exercises = response.data.exercises;
+          setExerciseArray(exercises);
+          console.log("Response:", response.data.exercises); // Debugging console.log
+        })
+        .catch((error) => {
+          console.log("Error with axios:", error); // Debugging console.log
+        });
     
     }
 

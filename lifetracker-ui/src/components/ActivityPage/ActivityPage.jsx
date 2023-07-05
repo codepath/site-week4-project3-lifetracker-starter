@@ -6,24 +6,24 @@ import axios from "axios";
 export default function ActivityPage({appState, isLoggedIn, exerciseArray, setExerciseArray}) {
 
     console.log("getting user when refresh", appState.user_id)
-    React.useEffect(() => {
-        if (appState.user_id) {
-          axios
-            .get("http://localhost:3001/auth/exercise", {
-              params: {
-                user_id: appState.user_id,
-              },
-            })
-            .then((response) => {
-              const exercises = response.data.exercises;
-              setExerciseArray(exercises);
-              console.log("Response:", response.data.exercises); // Debugging console.log
-            })
-            .catch((error) => {
-              console.log("Error with axios:", error); // Debugging console.log
-            });
-        }
-      }, [appState.user_id]);
+    // React.useEffect(() => {
+    //     if (appState.user_id) {
+    //       axios
+    //         .get("http://localhost:3001/auth/exercise", {
+    //           params: {
+    //             user_id: appState.user_id,
+    //           },
+    //         })
+    //         .then((response) => {
+    //           const exercises = response.data.exercises;
+    //           setExerciseArray(exercises);
+    //           console.log("Response:", response.data.exercises); // Debugging console.log
+    //         })
+    //         .catch((error) => {
+    //           console.log("Error with axios:", error); // Debugging console.log
+    //         });
+    //     }
+    //   }, [appState.user_id]);
 
     const calculateTotalTime = () => {
         console.log(appState)
