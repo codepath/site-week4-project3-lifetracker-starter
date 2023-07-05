@@ -15,7 +15,7 @@ CREATE TABLE nutrition (
     category VARCHAR(255) NOT NULL,
     quantity INT NOT NULL,
     calories INT NOT NULL,
-    image_url VARCHAR(255) NOT NULL UNIQUE CHECK(POSITION('https://' IN image_url) > 0),
+    image_url VARCHAR(255) CHECK(image_url IS NULL OR POSITION('https://' IN image_url) > 0),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)

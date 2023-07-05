@@ -1,7 +1,10 @@
 require("colors");
 require("dotenv").config();
+const crypto = require("crypto");
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
+const secretKey = crypto.randomBytes(64).toString("hex") || "secret_dev"
+
 // const IS_TESTING = process.env.NODE_ENV === "test"
 
 function getDatabaseUri() {
@@ -25,13 +28,15 @@ const BCRYPT_WORK_FACTOR =  13;
 
 console.log("Life Tracker Config:".red);
 console.log("PORT:".blue, PORT);
+console.log("SECRET_KEY:".blue, secretKey);
 // console.log("BCRYPT_WORK_FACTOR".blue, BCRYPT_WORK_FACTOR);
 console.log("Database:".blue, getDatabaseUri());
 console.log("---");
 
 module.exports = {
   PORT,
+  secretKey,
 //   IS_TESTING,
   BCRYPT_WORK_FACTOR,
-  getDatabaseUri,
+  getDatabaseUri
 };

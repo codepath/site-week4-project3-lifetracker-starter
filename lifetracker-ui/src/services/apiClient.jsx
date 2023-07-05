@@ -8,7 +8,6 @@ class ApiClient {
 
   setToken(token) {
     this.token = token;
-    console.log("setting the token to ", token);
   }
 
   async request({ endpoint, method, data = {} }) {
@@ -18,22 +17,12 @@ class ApiClient {
     const headers = {
       "Content-Type": "application/json",
     };
-    console.log("here");
     if (this.token) {
       headers["Authorization"] = `Bearer ${this.token}`;
     }
-    console.log("actually here");
 
     try {
-
       const res = await axios({ url, method, data, params, headers });
-      console.log("after here");
-      console.log(this.token);
-
-      console.log(headers);
-
-      console.log(res);
-      console.log(this.token);
       return { data: res.data, error: null, message: null };
     } catch (error) {
       console.error("APIclient.makeRequest.error", error.response);

@@ -8,7 +8,7 @@ export default function SleepPage({ appState, setAppState }) {
   const [sleepForm, setSleepForm] = useState(false);
   const [sleepInfo, setSleepInfo] = useState({
     start_time: "",
-    end_time: "",
+    end_time: ""
   });
 
   async function handleRecord(e) {
@@ -26,19 +26,19 @@ export default function SleepPage({ appState, setAppState }) {
         const { data, error, message } = await apiClient.sleep({
           start_time: sleepInfo.start_time,
           end_time: sleepInfo.end_time,
-          email: appState.user.email,
+          id: appState.user.id
         });
         console.log(data);
         setAppState((prevState) => ({
           ...prevState,
-          sleep: [data.sleep, ...prevState.sleep],
+          sleep: [data.sleep, ...prevState.sleep]
         }));
       } catch (err) {
         console.log(err);
       }
       setSleepInfo((prevState) => ({
         start_time: "",
-        end_time: "",
+        end_time: ""
       }));
       setSleepForm(!sleepForm);
     }

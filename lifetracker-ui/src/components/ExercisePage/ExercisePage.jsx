@@ -33,7 +33,7 @@ export default function ExercisePage({ appState, setAppState }) {
           category: exerciseInfo.category,
           duration: exerciseInfo.duration,
           intensity: exerciseInfo.intensity,
-          email: appState.user.email,
+          id: appState.user.id
         });
         console.log(data);
         setAppState((prevState) => ({

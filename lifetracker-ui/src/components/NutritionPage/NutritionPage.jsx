@@ -37,12 +37,12 @@ export default function NutritionPage({ setAppState, appState }) {
               quantity: nutriInfo.quantity,
               calories: nutriInfo.calories,
               image_url: nutriInfo.image_url,
-              email: appState.user.email
+              id: appState.user.id
             });
         console.log(data)
           setAppState((prevState) => ({
                 ...prevState,
-                nutrition: [data.nutrition, ...prevState.nutrition],
+                nutrition: [data.nutrition, ...prevState.nutrition]
               }));
     }  catch (err) {
         console.log(err);
