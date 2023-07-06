@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function NavLinks({ appState, setAppState }) {
   const navigate = useNavigate();
-  if (!appState.isAuthenticated) {
+  if (!appState.user) {
     return (
       <div className="nav-links">
         <ul className="links">
@@ -25,9 +25,10 @@ export default function NavLinks({ appState, setAppState }) {
       </div>
     );
   } else {
-    function logoutUser() {
+    
+    async function logoutUser() {
+      await apiClient.logoutUser();
       setAppState({ ...appState, user: "", isAuthenticated: false, token: "" });
-      apiClient.logoutUser();
       navigate("/");
       window.location.reload(true);
     }

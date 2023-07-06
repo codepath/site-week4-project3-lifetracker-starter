@@ -563,10 +563,10 @@ Here are the pieces of functionality that should be built out for the backend:
           - [ ] Provides the user with their user info when a valid JWT is present in the `Authentication` header of the request
           - [ ] Throws an `UnauthorizedError` when no valid user is logged in
     - [ ] In the `routes/auth.js` file:
-      - [ ] Create a new Express router
+      - [x] Create a new Express router
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] In the `app.js` file:
-    - [ ] Mount the router at the `/auth` endpoint
+    - [x] Mount the router at the `/auth` endpoint
   - [ ] Commit all work to `git`
   - [ ] There should now be a full-fledged authentication system in place!
 - [ ] **Resources and Permissions**

@@ -10,7 +10,7 @@ export default function ActivityPage({setAppState, appState}) {
             <Loading/>
         )
     }
-    if (appState.isAuthenticated){
+    if (appState.user){
         return (
             <div className="activity-page">
                 <h3>Activity Feed</h3>

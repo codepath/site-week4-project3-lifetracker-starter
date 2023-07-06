@@ -19,8 +19,7 @@ class ApiClient {
     const headers = {
       "Content-Type": "application/json",
     };
-
-
+    
     if (this.token) {
       headers["Authorization"] = `Bearer ${this.token}`;
     }

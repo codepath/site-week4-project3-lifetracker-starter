@@ -16,7 +16,7 @@ CREATE TABLE nutrition (
     calories   VARCHAR(255) NOT NULL,
     image_url  VARCHAR(255),
     user_id    VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP NOT NULL);
+    created_at TIMESTAMP DEFAULT NOW());
 
 CREATE TABLE exercise (
     id         SERIAL PRIMARY KEY,

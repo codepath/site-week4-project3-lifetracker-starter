@@ -19,21 +19,24 @@ function App() {
     exercise: "",
   });
 
-  // useEffect(() => {
-  //   if (appState.isAuthenticated) {
-  //     async function fetchUser() {
-  //       const { data, error } = await apiClient.fetchUserFromToken();
-  //       if (data) setAppState({ ...appState, user: data.user });
-  //       if (error) setAppState(error);
-  //     }
+  const [isFetching, setIsFetching] = useState();
 
-  //     const token = localStorage.getItem("lifetracker_token");
-  //     if (token) {
-  //       apiClient.setToken(token);
-  //       fetchUser();
-  //     }
-  //   }
-  // }, []);
+
+  useEffect(() => {
+
+      async function fetchUser() {
+        const { data, error } = await apiClient.fetchUserFromToken();
+        if (data) setAppState({ ...appState, user: data.user });
+        if (error) setAppState(error);
+      }
+
+      const token = localStorage.getItem("lifetracker_token");
+      if (token) {
+        apiClient.setToken(token);
+        fetchUser();
+      }
+  
+  }, []);
 
   return (
     <div className="app">
@@ -56,6 +59,7 @@ function App() {
               <ActivityPage setAppState={setAppState} appState={appState} />
             }
           />
+          <Route path="/nutrition" element={<NutritionPage setAppState={setAppState} appState={appState}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

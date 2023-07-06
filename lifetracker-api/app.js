@@ -6,21 +6,23 @@ const cors = require('cors')
 const { NotFoundError } = require("./utils/errors")
 const authRoutes = require('./routes/auth')
 const security = require('./middleware/security')
+const nutritionRoutes = require('./routes/nutrition')
 
 app.use(express.json())
 app.use(cors())
 app.use(morgan('tiny'))
 app.use(security.extractUserFromJWT)
 app.use('/auth', authRoutes)
-
+app.use('/nutrition', nutritionRoutes)
 
 app.get('/', (req,res) => {
   res.status(200).json({ping:'pong'})
 })
 
-app.get('/user', (req, res) => {
-  
-})
+
+app.get('/nutrition')
+
+
 app.use((req, res, next) => {
   return next(new NotFoundError())
 })

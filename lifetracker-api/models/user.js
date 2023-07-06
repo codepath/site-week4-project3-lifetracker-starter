@@ -6,16 +6,6 @@ const { BCRYPT_WORK_FACTOR } = require("../config");
 const crypto = require("crypto");
 
 class User {
-  static async createPublicUser(user) {
-    return {
-      id: user.id,
-      email: user.email,
-      username: user.username,
-      firstName: user.first_name,
-      lastName: user.last_name,
-      createdAt: user.created_at,
-    };
-  }
   static async login(creds) {
     const { email, password } = creds;
     const requiredCreds = ["email", "password"];
