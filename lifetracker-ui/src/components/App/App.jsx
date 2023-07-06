@@ -5,78 +5,77 @@ import SignIn from '../SignIn/SignIn'
 import Register from '../Register/Register'
 import Home from '../Home/Home'
 import ActivityPage from '../ActivityPage/ActivityPage'
-import { BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom';
-import { useState, useEffect } from 'react'
 import ExercisePage from '../ExercisePage/ExcersisePage'
 import NutritionPage from '../NutritionPage/NutritionPage'
 import SleepPage from '../SleepPage/SleepPage'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 import SleepCreate from '../SleepCreate/SleepCreate'
 
+
+import { BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import jwtDecode from "jwt-decode"
+
+
 function App() {
-  const [user, setUser] = useState(1)
+  const [userId , setUserId]=useState();
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginError, setLoginError] = useState("");
-  
 
-  const handleLogin = async (email, password) => {
-    // try {
-      let response = await axios.post('http://localhost:3001/auth/login', {email, password })
-      console.log("Response output: ", response)
-      setUser(response.data)
-      setLoggedIn(true)
-    // }
-    //    catch (error) {
-    //  console.error("Error:", error);
-     localStorage.setItem('user', response.data)
-     console.log(response.data)
-    }
 
-    // useEffect(() => {
-    //   const loggedInUser = localStorage.getItem("user");
-    //   if (loggedInUser) {
-    //     const foundUser = JSON.parse(loggedInUser);
-    //     setUser(foundUser);
-    //   }
-    // }, []);
-  
 
-    //Registration function to handle registration
-    const handleRegistration = async (email, password, first_name, last_name, username) => {
-     try {
-        console.log("first name value in handleRegsiteration: ", first_name)
-        console.log("username value in handleRegsiteration: ", username)
-        let response = await axios.post('http://localhost:3001/auth/register', {email, password, first_name, last_name, username})
-        console.log("Response output: ", response)
-        // setLoggedIn(true)
-     } catch (error) {
-      console.error(error.response.data);
-     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//login, logout stuff 
+  useEffect(() => {
+    const checkLoggedIn = () => {
+        const token = localStorage.getItem("token")
+        if (token) {
+            const decodedToken = jwtDecode(token)
+            console.log("decoded token is:", decodedToken)
+            setUserId(decodedToken.userId);
+
+            if (decodedToken.exp * 1000 > Date.now()) {
+                setLoggedIn(true)
+            } else {
+                console.log("should make a loggout function")
+            }
+        }
     };
+    checkLoggedIn();
+}, [])
 
-    const handleSleep = async (startTime, endTime) => {
-      try {
-        let response = await axios.post('http://localhost:3001/sleep', {startTime, endTime})
-        console.log("Response output ", response)
-      } catch (error) {
-        console.log(error.response.data)
-      }
-    }
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  setLoggedIn(false);
+}
 
-  return (
+
+
+    return (
     <div>
-      <Navbar loggedIn = {loggedIn}/>
+      <Navbar loggedIn = {loggedIn} logout = {handleLogout}/>
       <Router>
         <Routes>
           <Route path = "/" element={<Home/>}/>
-          <Route path="/login" element={<SignIn onLogin = {handleLogin} error = {loginError} />} />
-          <Route path = "/register" element= {<Register onRegister = {handleRegistration}/>}/>
+          <Route path="/login" element={<SignIn  userId={userId} setUserId={setUserId} loggedIn={loggedIn} setLoggedIn={setLoggedIn} loginError = {loginError} setLoginError={setLoginError} />} />
+          <Route path = "/register" element= {<Register userId= {userId} setUserId={setUserId} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
           <Route path="/activity" element={<ActivityPage loggedIn = {loggedIn} />}/>
           <Route path = "/exercise" element = {<ExercisePage loggedIn = {loggedIn}/>}/>
           <Route path = "/nutrition" element = {<NutritionPage loggedIn = {loggedIn}/>}/>
           <Route path = "/sleep" element = {<SleepPage loggedIn = {loggedIn}/>}/>
-          <Route path = "/sleep/create" element = {<SleepCreate onSleep = {handleSleep}/>}/>
+          <Route path = "/sleep/create" element = {<SleepCreate user_id = {userId}/>}/>
         </Routes>
         </Router>
     </div>

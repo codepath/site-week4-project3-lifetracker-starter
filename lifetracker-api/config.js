@@ -16,6 +16,7 @@ function getDatabaseUri(){
    return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}` //full database connection string
 }
 const BCRYPT_WORK_FACTOR=13
+const SECRET_KEY="waliaibex23"
 
 console.log(getDatabaseUri())
 module.exports = {

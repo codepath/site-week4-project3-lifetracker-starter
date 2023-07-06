@@ -1,20 +1,47 @@
 import './SignIn.css'
-import {useState} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import jwtDecode from "jwt-decode"
 
-export default function SignIn({onLogin, loginError}) {
+export default function SignIn({userId, setUserId, loggedIn, setLoggedIn, loginError, setLoginError}) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const handleLogin = async (email, password) => {
+   
+    
+        let response = await axios.post('http://localhost:3001/auth/login', {email, password })
+        
+        if (response.status === 200) {
+          // const { token } = response.data;
+          const { token } = response.data;
+          localStorage.setItem("token", token);
+  
+          //Successful Login
+          setLoggedIn(true);
+          setLoginError("");
+          console.log(response.data.message); //optional - display a success message
+          console.log(response.data.user.id); //another way to get the username
+  
+          const decodedToken = jwtDecode(token); //a way to get username from token
+          setUserId(decodedToken.userId);
+          
+        } else {
+          //Login failed
+          setLoginError(response.data.message);
+          console.log(response.data.message); //optional - display error message
+        }
+  
+        console.log("Response output: ", response)
+  
+      
+    };
+
     const handleSubmit = (e) => {
+        
         e.preventDefault();
-        try {
-        onLogin(email, password);
-         } catch (error)  {
-            console.log(error)
-            //render loginError component? 
-         }
+        handleLogin(email, password)
     }
     return (
  <div className="css-9cjjy5">

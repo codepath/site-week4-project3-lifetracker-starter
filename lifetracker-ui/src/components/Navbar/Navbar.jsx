@@ -1,6 +1,6 @@
 import './Navbar.css'
 
-export default function Navbar({ loggedIn }) {
+export default function Navbar({ loggedIn, logout }) {
     return (
         <div className="Navbar css-15bu2in">
     <div className="css-70qvj9">
@@ -16,7 +16,7 @@ export default function Navbar({ loggedIn }) {
 } 
 {loggedIn && 
         <div className="css-70qvj9">
-        <a className="chakra-link css-spn4bz" href="/login"><button type="button" className="chakra-button css-td8gbm">Sign Out</button></a>
+        <a className="chakra-link css-spn4bz" href="/login"><button onClick= {logout} type="button" className="chakra-button css-td8gbm">Sign Out</button></a>
     </div>
 
 }

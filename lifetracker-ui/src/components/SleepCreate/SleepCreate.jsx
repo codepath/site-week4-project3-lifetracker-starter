@@ -1,17 +1,28 @@
 import './SleepCreate.css'
 import { useState } from 'react'
+import axios from 'axios'
 
 
-export default function SleepCreate({onSleep}) {
+export default function SleepCreate({ user_id }) {
     const [startTime, setStartTime] = useState()
     const [endTime, setEndTime] = useState()
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSleep(startTime, endTime);
+        handleSleep(startTime, endTime, user_id);
         console.log(startTime)
         console.log(endTime)
+        console.log(user_id)
         // console.log(user_id)
+    }
+
+    const handleSleep = async (startTime, endTime, user_id) => {
+      try {
+        let response = await axios.post('http://localhost:3001/sleep', {startTime, endTime, user_id})
+        console.log("Response output ", response)
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     return (
