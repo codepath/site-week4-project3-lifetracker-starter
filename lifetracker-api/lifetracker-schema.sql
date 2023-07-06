@@ -17,5 +17,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE exercise(
+    id SERIAL PRIMARY KEY,
+    
 
 );
