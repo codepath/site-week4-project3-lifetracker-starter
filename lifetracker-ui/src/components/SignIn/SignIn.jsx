@@ -1,5 +1,6 @@
 import './SignIn.css'
 import {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 
 export default function SignIn({onLogin, loginError}) {
 
@@ -8,7 +9,12 @@ export default function SignIn({onLogin, loginError}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onLogin(email, password)
+        try {
+        onLogin(email, password);
+         } catch (error)  {
+            console.log(error)
+            //render loginError component? 
+         }
     }
     return (
  <div className="css-9cjjy5">

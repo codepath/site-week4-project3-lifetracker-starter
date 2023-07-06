@@ -7,13 +7,21 @@ CREATE TABLE IF NOT EXISTS users (
     email          TEXT NOT NULL UNIQUE CHECK (position('@' IN email) > 1)
 );
 
- CREATE TABLE nutrition (
-    id             SERIAL PRIMARY KEY,
-    name           TEXT NOT NULL,  
-    category       TEXT NOT NULL, 
-    calories       VARCHAR NOT NULL,
-    image_url      TEXT NOT NULL, 
-    created_at     TIMESTAMP NOT NULL
+--  CREATE TABLE nutrition (
+--     id             SERIAL PRIMARY KEY,
+--     name           TEXT NOT NULL,  
+--     category       TEXT NOT NULL, 
+--     calories       VARCHAR NOT NULL,
+--     image_url      TEXT NOT NULL, 
+--     created_at     TIMESTAMP NOT NULL
  
+-- );
+
+ CREATE TABLE IF NOT EXISTS sleep (
+    id             SERIAL PRIMARY KEY,
+    startTime      TIMESTAMP NOT NULL, 
+    endTime        TIMESTAMP NOT NULL
+    -- user_id        INTEGER
 );
+
 

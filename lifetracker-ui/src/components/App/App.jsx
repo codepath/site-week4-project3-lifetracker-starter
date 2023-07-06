@@ -6,38 +6,41 @@ import Register from '../Register/Register'
 import Home from '../Home/Home'
 import ActivityPage from '../ActivityPage/ActivityPage'
 import { BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ExercisePage from '../ExercisePage/ExcersisePage'
 import NutritionPage from '../NutritionPage/NutritionPage'
 import SleepPage from '../SleepPage/SleepPage'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import SleepCreate from '../SleepCreate/SleepCreate'
 
 function App() {
+  const [user, setUser] = useState(1)
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginError, setLoginError] = useState("");
   
+
   const handleLogin = async (email, password) => {
-   
-    
+    // try {
       let response = await axios.post('http://localhost:3001/auth/login', {email, password })
-
       console.log("Response output: ", response)
-
-      // if (response.ok) {
-      //   //Successful Login
-      //   setLoggedIn(true);
-      //   setLoginError("");
-      //  // console.log(response); //optional - display a success message
-      // } else {
-      //   //Login failed
-      //   setLoginError(response);
-      // //  console.log(response); //optional - display error message
-      // }
-
-    // } catch (error) {
-    //   console.error("Error:", error);
+      setUser(response.data)
+      setLoggedIn(true)
     // }
-  };
+    //    catch (error) {
+    //  console.error("Error:", error);
+     localStorage.setItem('user', response.data)
+     console.log(response.data)
+    }
+
+    // useEffect(() => {
+    //   const loggedInUser = localStorage.getItem("user");
+    //   if (loggedInUser) {
+    //     const foundUser = JSON.parse(loggedInUser);
+    //     setUser(foundUser);
+    //   }
+    // }, []);
+  
 
     //Registration function to handle registration
     const handleRegistration = async (email, password, first_name, last_name, username) => {
@@ -46,39 +49,24 @@ function App() {
         console.log("username value in handleRegsiteration: ", username)
         let response = await axios.post('http://localhost:3001/auth/register', {email, password, first_name, last_name, username})
         console.log("Response output: ", response)
+        // setLoggedIn(true)
      } catch (error) {
       console.error(error.response.data);
      }
-          // method: "POST",
-          // headers: {
-          //   "Content-Type": "application/json",
-          // },
-          // body: JSON.stringify({ name, email, password }),
-        
-  
-    //     //wait for the response
-    //     const data = await response.json();
-  
-    //     if (response.ok) {
-    //       //Registration successful
-    //       setLoggedIn(true);
-    //       console.log(data.message); //optional - display a success message
-    //     } else {
-    //       //REgistration failed
-    //       console.log(data.message); //optional - display error meesage
-    //     }
-    //   } catch (error) {
-    //     console.error("Error: ", error);
-    //   }
-    // };
-  
-    // const handleLogout = () => {
-    //   setLoggedIn(false);
     };
+
+    const handleSleep = async (startTime, endTime) => {
+      try {
+        let response = await axios.post('http://localhost:3001/sleep', {startTime, endTime})
+        console.log("Response output ", response)
+      } catch (error) {
+        console.log(error.response.data)
+      }
+    }
 
   return (
     <div>
-      <Navbar/>
+      <Navbar loggedIn = {loggedIn}/>
       <Router>
         <Routes>
           <Route path = "/" element={<Home/>}/>
@@ -88,6 +76,7 @@ function App() {
           <Route path = "/exercise" element = {<ExercisePage loggedIn = {loggedIn}/>}/>
           <Route path = "/nutrition" element = {<NutritionPage loggedIn = {loggedIn}/>}/>
           <Route path = "/sleep" element = {<SleepPage loggedIn = {loggedIn}/>}/>
+          <Route path = "/sleep/create" element = {<SleepCreate onSleep = {handleSleep}/>}/>
         </Routes>
         </Router>
     </div>
