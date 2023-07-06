@@ -43,7 +43,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route
             path="/register"
-            element={<RegisterPage setAppState={setAppState} />}
+            element={<RegisterPage setAppState={setAppState} appState={appState}/>}
           />
           <Route
             path="/login"

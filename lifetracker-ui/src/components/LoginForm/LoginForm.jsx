@@ -29,12 +29,17 @@ export default function Login({ setAppState }) {
     });
     if (error) setErrors((e) => ({ ...e, loginForm: error }));
     if (data?.user) {
-      setAppState({...appState, user:data.user});
+      setAppState({
+        ...appState,
+        user: data.user,
+        token: data.token,
+        isAuthenticated: true,
+      });
       apiClient.setToken(data.token);
-      navigate("/")
+      navigate("/activity");
     }
-    setIsLoading(false)
-    
+    setIsLoading(false);
+
     // try {
     //   const result = await axios.post(
     //     "http://localhost:3000/auth/login",
