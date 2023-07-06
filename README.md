@@ -55,20 +55,20 @@ Implement any of the following features to improve the application:
 #### The `App` Component
 
 - [ ] Build the `App` component to:
-  - [ ] Be wrapped by an element with the class name of `app`
-  - [ ] Contain the routes for the app
-  - [ ] Render the `Navbar` component on every route
-  - [ ] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
-    - [ ] `/` - Render the `Landing` component
-    - [ ] `/login` - Render the `LoginPage` component
-    - [ ] `/register` - Render the `RegistrationPage` component
+  - [x] Be wrapped by an element with the class name of `app`
+  - [x] Contain the routes for the app
+  - [?] Render the `Navbar` component on every route
+  - [x] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
+    - [x] `/` - Render the `Landing` component
+    - [x] `/login` - Render the `LoginPage` component
+    - [x] `/register` - Render the `RegistrationPage` component
     - [ ] `/activity` - Render the `ActivityPage` component **only** if the user is logged in, otherwise it renders the `AccessForbidden` component
     - [ ] `/nutrition/*` - Render the `NutritionPage`component **only** if the user is logged in, otherwise it renders the`AccessForbidden` component
-    - [ ] `*` - Anything else renders the `NotFound` component
+    - [x] `*` - Anything else renders the `NotFound` component
 
 #### Handling API Requests
 
-- [ ] Create a `constants.js` file at the root of the project that exports the following variables:
+- [ cd] Create a `constants.js` file at the root of the project that exports the following variables:
   - [ ] `PRODUCTION_API_BASE_URL` - set to whatever URL the production API is deployed at
   - [ ] `DEVELOPMENT_API_BASE_URL` - set to `"http://localhost:3001"` for development
   - [ ] `API_BASE_URL` - If `process.env.NODE_ENV` is `production`, set this to `PRODUCTION_API_BASE_URL`, otherwise set it to `DEVELOPMENT_API_BASE_URL`
@@ -364,79 +364,79 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Add dependencies for `express@next`, `morgan`, `cors`, and `nodemon`
   - [ ] Install new dependencies for `bcrypt`, `jsonwebtoken`, `colors`, `dotenv`, `pg`
   - [ ] Commit all work to `git`
-  - [ ] Add a `.env` file to the root of the repo and include the following environment variables
-    - [ ] `PORT` (default to `3001`)
-    - [ ] `SECRET_KEY` (set to a long random string)
+  - [x] Add a `.env` file to the root of the repo and include the following environment variables
+    - [x] `PORT` (default to `3001`)
+    - [x] `SECRET_KEY` (set to a long random string)
     - [ ] `BCRYPT_WORK_FACTOR` (set to `13`)
-    - [ ] `DATABASE_USER`
-    - [ ] `DATABASE_PASS`
-    - [ ] `DATABASE_HOST`
-    - [ ] `DATABASE_PORT`
-    - [ ] `DATABASE_NAME` - (set to `lifetracker`)
-    - [ ] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
-  - [ ] Add a `config.test.js` file
+    - [x] `DATABASE_USER`
+    - [x] `DATABASE_PASS`
+    - [x] `DATABASE_HOST`
+    - [x] `DATABASE_PORT`
+    - [x] `DATABASE_NAME` - (set to `lifetracker`)
+    - [x] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
+  - [x] Add a `config.test.js` file
     - [ ] Write tests that check to make sure that:
       - [ ] `process.env.NODE_ENV` is set to `test` when the test suite is run
       - [ ] There is an `IS_TESTING` variable that is exported, which should only be true if `process.env.NODE_ENV` is set to `test`
     - [ ] Write tests to ensure that certain environment variables are exported from the `config.js` file and can be imported:
-      - [ ] `PORT`
-      - [ ] `SECRET_KEY`
-      - [ ] `BCRYPT_WORK_FACTOR`
+      - [x] `PORT`
+      - [x] `SECRET_KEY`
+      - [x] `BCRYPT_WORK_FACTOR`
       - [ ] `IS_TESTING`
     - [ ] Write tests to ensure that a `getDatabaseUri` function is exported from the `config.js` file
       - [ ] The `getDatabaseUri` function should:
         - [ ] Check to see if a valid `process.env.DATABASE_URL` environment variable exists, and return that if it does.
         - [ ] When `IS_TESTING` is `true`, the `getDatabaseUri` function should use the test database
         - [ ] Otherwise, it should combine the proper database environment variables into a database connection string if no `process.env.DATABASE_URL` environment variable exists
-  - [ ] Add a `config.js` file
-    - [ ] Use the `dotenv` package to parse the environment variables from the `.env` file.
-    - [ ] Export each of the environment variables from the `config.js` file until the tests pass
-    - [ ] Write a `getDatabaseUri` function so that all the tests pass
+  - [x] Add a `config.js` file
+    - [x] Use the `dotenv` package to parse the environment variables from the `.env` file.
+    - [x] Export each of the environment variables from the `config.js` file until the tests pass
+    - [x] Write a `getDatabaseUri` function so that all the tests pass
   - [ ] Commit all work to `git`
   - [ ] The project should now be ready to go!
 - [ ] **PostgreSQL database**
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
   - Create two files at the root of the project:
-    - [ ] `lifetracker-schema.sql`
+    - [x] `lifetracker-schema.sql`
       - [ ] This script should:
         - [ ] Create a `users` table with the following columns:
-          - [ ] `id`
-          - [ ] `username`
-          - [ ] `password`
-          - [ ] `first_name`
-          - [ ] `last_name`
-          - [ ] `email`
-          - [ ] `created_at`
-          - [ ] `updated_at`
-        - [ ] Create a `nutrition` table with the following columns:
-          - [ ] `id`
-          - [ ] `name`
-          - [ ] `category`
-          - [ ] `calories`
-          - [ ] `image_url`
-          - [ ] `user_id`
-          - [ ] `created_at`
+          - [x] `id`
+          - [x] `username`
+          - [x] `password`
+          - [x] `first_name`
+          - [x] `last_name`
+          - [x] `email`
+          - [x] `created_at`
+          - [x] `updated_at`
+        - [x] Create a `nutrition` table with the following columns:
+          - [x] `id`
+          - [x] `name`
+          - [x] `category`
+          - [x] `calories`
+          - [x] `image_url`
+          - [x] `user_id`
+          - [x] `created_at`
         - [ ] **Any other tables** that the application might depend on
-    - [ ] `lifetracker.sql`
+    - [x] `lifetracker.sql`
       - [ ] This script should:
-        - [ ] 1. Let the user know that they're about to delete the `lifetracker` database and prompt them to confirm that is what they want.
-        - [ ] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
-        - [ ] 3. It should then run the `lifetracker-schema.sql` file.
+        - [x] 1. Let the user know that they're about to delete the `lifetracker` database and prompt them to confirm that is what they want.
+        - [x] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
+        - [x] 3. It should then run the `lifetracker-schema.sql` file.
         - [ ] Follow the exact same steps for `1`, `2`, and `3`, but with the `lifetracker_test` database.
   - [ ] Setup the database by running `psql -f lifetracker.sql`
   - [ ] Create a new file at the root of the project called `db.js`. In that file:
-    - [ ] Import the `getDatabaseUri` function from the `config.js` file.
-    - [ ] Initialize a new PostgreSQL client with the `pg` package and connect to PostgreSQL using any necessary config variables.
-    - [ ] Connect to PostgreSQL and log a message to the terminal on success or failure.
-    - [ ] Export the connected database client
+    - [x] Import the `getDatabaseUri` function from the `config.js` file.
+    - [x] Initialize a new PostgreSQL client with the `pg` package and connect to PostgreSQL using any necessary config variables.
+    - [x] Connect to PostgreSQL and log a message to the terminal on success or failure.
+    - [x] Export the connected database client
   - [ ] Commit all work to `git`
   - [ ] A database client is now ready to be used!
 - [ ] **Server**
   - [ ] Build out a bare-bones Express server with a health check route and an adequate middleware pipeline.
-  - [ ] Create a `utils` directory
-    - [ ] In the `utils` directory, create an `errors.js` file.
-    - [ ] Create error classes inside the file that will be used throughout the app.
+  - [x] Create a `utils` directory
+    - [x] In the `utils` directory, create an `errors.js` file.
+    - [x] Create error classes inside the file that will be used throughout the app.
   - [ ] In the `app.test.js` file, write tests that:
     - [ ] Ensure that the Express application responds to `GET` requests to the `/` route with a JSON object of `{ "ping": "pong" }`
     - [ ] Check that middleware like `morgan` and `cors` exist, along with the JSON `body-parser` middleware from `express`
