@@ -10,11 +10,18 @@ export default function ActivityPage({setAppState, appState}) {
             <Loading/>
         )
     }
-    else {
+    if (appState.isAuthenticated){
         return (
             <div className="activity-page">
                 <h3>Activity Feed</h3>
                 <ActivityFeed/>
+            </div>
+        )
+    }
+    else {
+        return (
+            <div className="activity-page">
+                <h3>Please Log in/Sign Up to get Authorization for this Page</h3>
             </div>
         )
     }

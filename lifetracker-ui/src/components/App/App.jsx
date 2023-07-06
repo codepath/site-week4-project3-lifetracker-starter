@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ActivityPage from "../../pages/ActivityPage/ActivityPage";
 import apiClient from "../../../services/apiClient";
-import NutritionPage from "../../pages/NutritionPage/NutritionPage"
+import NutritionPage from "../../pages/NutritionPage/NutritionPage";
 
 function App() {
   const [appState, setAppState] = useState({
@@ -43,15 +43,13 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route
             path="/register"
-            element={<RegisterPage setAppState={setAppState} appState={appState}/>}
+            element={<RegisterPage setAppState={setAppState} />}
           />
           <Route
             path="/login"
-            element={
-              <LoginPage setAppState={setAppState} appState={appState} />
-            }
+            element={<LoginPage setAppState={setAppState} />}
           />
-          <Route path="/nutriton" element={<NutritionPage/>}/>
+          <Route path="/nutriton" element={<NutritionPage />} />
           <Route
             path="/activity"
             element={

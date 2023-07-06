@@ -4,7 +4,7 @@ import axios from "axios";
 import apiClient from "../../../services/apiClient";
 import { useNavigate } from "react-router-dom";
 
-export default function RegistrationForm({ setAppState, appState }) {
+export default function RegistrationForm({ setAppState }) {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -80,7 +80,6 @@ export default function RegistrationForm({ setAppState, appState }) {
     if (error) setErrors((e) => ({ ...e, regForm: error }));
     if (data?.user) {
       setAppState({
-        ...appState,
         user: data.user,
         token: data.token,
         isAuthenticated: true,

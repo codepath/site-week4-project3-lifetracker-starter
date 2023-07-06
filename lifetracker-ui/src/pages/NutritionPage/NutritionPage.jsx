@@ -4,18 +4,20 @@ import NutritionDetail from "../../components/Nutrition/NutritionDetail/Nutritio
 import NutritionNew from "../../components/Nutrition/NutritionNew/NutritionNew";
 
 export default function NutritionPage({ setAppState, appState }) {
-  return (
-    <BrowserRouter>
-      <div className="nutrition-page">
-        <Routes>
-          <Route path="/nutrition" element={<NutritionOverview />} />
-          <Route path="/nutrition/create" element={<NutritionNew />} />
-          <Route
-            path="/nutrition/id/:nutritionId"
-            element={<NutritionDetail />}
-          />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
+  if (appState.isAuthenticated) {
+    return (
+      <BrowserRouter>
+        <div className="nutrition-page">
+          <Routes>
+            <Route path="/nutrition" element={<NutritionOverview />} />
+            <Route path="/nutrition/create" element={<NutritionNew />} />
+            <Route
+              path="/nutrition/id/:nutritionId"
+              element={<NutritionDetail />}
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }

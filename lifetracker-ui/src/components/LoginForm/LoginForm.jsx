@@ -30,7 +30,6 @@ export default function Login({ setAppState }) {
     if (error) setErrors((e) => ({ ...e, loginForm: error }));
     if (data?.user) {
       setAppState({
-        ...appState,
         user: data.user,
         token: data.token,
         isAuthenticated: true,

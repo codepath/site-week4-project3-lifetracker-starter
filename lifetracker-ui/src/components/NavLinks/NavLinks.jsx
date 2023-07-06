@@ -1,9 +1,11 @@
 import "./Navlinks.css";
 import { Link } from "react-router-dom";
 import apiClient from "../../../services/apiClient";
+import { useNavigate } from "react-router-dom";
 
 export default function NavLinks({ appState, setAppState }) {
-  if (!appState.user) {
+  const navigate = useNavigate();
+  if (!appState.isAuthenticated) {
     return (
       <div className="nav-links">
         <ul className="links">
@@ -24,8 +26,9 @@ export default function NavLinks({ appState, setAppState }) {
     );
   } else {
     function logoutUser() {
-      setAppState({ user: "", isAuthenticated: false });
+      setAppState({ ...appState, user: "", isAuthenticated: false, token: "" });
       apiClient.logoutUser();
+      navigate("/");
       window.location.reload(true);
     }
     return (

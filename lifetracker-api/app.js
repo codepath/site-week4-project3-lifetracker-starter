@@ -10,8 +10,8 @@ const security = require('./middleware/security')
 app.use(express.json())
 app.use(cors())
 app.use(morgan('tiny'))
-app.use('/auth', authRoutes)
 app.use(security.extractUserFromJWT)
+app.use('/auth', authRoutes)
 
 
 app.get('/', (req,res) => {
