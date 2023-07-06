@@ -12,11 +12,11 @@ CREATE TABLE nutrition (
     id         SERIAL PRIMARY KEY,
     name       VARCHAR(255) NOT NULL,
     category   VARCHAR(255) NOT NULL,
-    quantity   VARCHAR(255) NOT NULL DEFAULT 1,
+    quantity   INTEGER NOT NULL DEFAULT 1,
     calories   VARCHAR(255) NOT NULL,
     image_url  VARCHAR(255),
-    user_id    VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW());
+    user_id    INTEGER NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW());
 
 CREATE TABLE exercise (
     id         SERIAL PRIMARY KEY,

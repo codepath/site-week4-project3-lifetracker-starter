@@ -25,7 +25,7 @@ export default function NavLinks({ appState, setAppState }) {
       </div>
     );
   } else {
-    
+
     async function logoutUser() {
       await apiClient.logoutUser();
       setAppState({ ...appState, user: "", isAuthenticated: false, token: "" });

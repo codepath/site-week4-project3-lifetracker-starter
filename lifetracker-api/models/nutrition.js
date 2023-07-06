@@ -18,7 +18,6 @@ class Nutrition {
     const requiredNutrition = [
       "name",
       "category",
-      "quantity",
       "calories",
       "user_id",
     ];
@@ -35,16 +34,14 @@ class Nutrition {
 
     const result = await db.query(
       `INSERT INTO nutrition (
-                    id,
                     name,
                     category,
                     quantity,
                     calories,
                     image_url,
-                    user_id,
-                    created_at
+                    user_id
                     ) 
-                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                    VALUES ($1, $2, $3, $4, $5, $6)
                     RETURNING id, 
                               name, 
                               category, 
@@ -54,7 +51,7 @@ class Nutrition {
                               user_id, 
                               created_at
                           `,
-      [id, name, category, quantity, calories, image_url, user_id, created_at]
+      [name, category, quantity, calories, image_url, user_id]
     );
     const newNutrition = result.rows[0]
     return newNutrition;

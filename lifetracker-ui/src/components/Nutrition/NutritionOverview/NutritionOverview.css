@@ -1,0 +1,32 @@
+.nutrition-overview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.nutrition-overview .header {
+    display: flex;
+}
+.nutrition-overview .record-nutrition {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.nutrition-overview .record-nutrition span{
+    display: flex;
+    justify-content: right;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #E2DFD2;
+    cursor: pointer;
+}
