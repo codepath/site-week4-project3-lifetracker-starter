@@ -1,19 +1,239 @@
-.NutritionPage {
-  background: #f7fafc;
+.css-1bpnzr3 {
+  margin-top: var(--chakra-space-10);
 }
-.NutritionPage .nutrition-feed {
+
+.banner-nutrition {
+  background: var(--chakra-colors-blue-300);
+  padding-top: var(--chakra-space-24);
+  padding-bottom: var(--chakra-space-20);
+  padding-inline-start: var(--chakra-space-6);
+  padding-inline-end: var(--chakra-space-6);
+}
+
+.css-1cgbrw5 {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  gap: var(--chakra-space-6);
+  text-align: center;
+}
+
+.css-b5coes {
+  line-height: 1.2;
+}
+
+.css-b5coes {
+  font-family: var(--chakra-fonts-heading);
+  line-height: 1.33;
+  color: var(--chakra-colors-white);
+  font-weight: var(--chakra-fontWeights-extrabold);
+  font-size: var(--chakra-fontSizes-5xl);
+}
+
+.css-vpbd2d {
+  display: flex;
+  max-width: 1680px;
+  margin-inline: auto;
+}
+
+.css-1qfrez2 {
+  display: flex;
+  margin-top: var(--chakra-space-16);
+  max-width: 1680px;
+  margin-inline: auto;
   width: 100%;
-  max-width: 600px;
 }
-.white {
-  color: white;
+
+.css-uiodal {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-inline: auto;
+  flex: 1 1 0%;
 }
-.NutritionPage .button {
+
+.ExercisePage .button {
   display: flex;
 }
-.NutritionPage .button button {
+
+.css-spn4bz {
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-fast);
+  transition-timing-function: var(--chakra-transition-easing-ease-out);
+  cursor: pointer;
+  text-decoration: none;
+  outline: transparent solid 2px;
+  outline-offset: 2px;
+  color: inherit;
+  justify-content: center;
+}
+
+.ExercisePage .button button {
   flex: 1;
+}
+
+.css-ez23ye {
+  display: inline-flex;
+  appearance: none;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: transparent solid 2px;
+  outline-offset: 2px;
+  line-height: 1.2;
+  border-radius: var(--chakra-radii-md);
+  font-weight: var(--chakra-fontWeights-semibold);
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  font-size: var(--chakra-fontSizes-md);
+  padding-inline-start: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  background: var(--chakra-colors-gray-100);
+  color: var(--chakra-colors-gray-800);
+}
+
+.css-xixnl8 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: var(--chakra-space-5);
+  margin-bottom: var(--chakra-space-5);
+  width: 100%;
+}
+
+.css-89mcmc {
+  font-size: var(--chakra-fontSizes-sm);
+  color: var(--chakra-colors-gray-500);
+}
+
+.nutrition-card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--chakra-shadows-lg);
+  border-radius: var(--chakra-radii-lg);
+  padding-inline-start: var(--chakra-space-10);
+  padding-inline-end: var(--chakra-space-10);
+  padding-top: var(--chakra-space-5);
+  padding-bottom: var(--chakra-space-5);
+  background-color: var(--chakra-colors-blue-300);
+}
+
+.css-56yjmq {
+  display: flex;
+  margin-bottom: var(--chakra-space-10);
+}
+
+.css-1o2sgxf:not([data-loaded]) {
+  --avatar-bg: #464f85;
+}
+
+.css-1o2sgxf {
+  border-radius: var(--chakra-radii-full);
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: var(--chakra-fontWeights-medium);
+  position: relative;
+  flex-shrink: 0;
+  background: var(--avatar-bg);
+  font-size: var(--avatar-font-size);
+  color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
+  vertical-align: top;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  --avatar-border-color: var(--chakra-colors-white);
+  --avatar-size: 3rem;
+  --avatar-font-size: calc(3rem / 2.5);
+}
+
+.css-1ebyn6 {
+  font-size: var(--avatar-font-size);
+  line-height: 1;
+}
+
+.css-1kw2fa0 {
+  margin-left: var(--chakra-space-3);
+}
+
+.css-y5314g {
+  font-size: var(--chakra-fontSizes-4xl);
+  line-height: 1.2;
+}
+
+.css-y5314g {
+  font-family: var(--chakra-fonts-heading);
+  font-weight: var(--chakra-fontWeights-bold);
+  font-size: var(--chakra-fontSizes-3xl);
+  line-height: 1.33;
+  color: var(--chakra-colors-white);
+}
+
+.css-lvvibp {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding-inline-start: var(--chakra-space-1);
+  padding-inline-end: var(--chakra-space-1);
+  text-transform: uppercase;
+  border-radius: var(--chakra-radii-sm);
+  font-weight: var(--chakra-fontWeights-bold);
+  background: var(--badge-bg);
+  color: var(--badge-color);
+  box-shadow: var(--badge-shadow);
+  --badge-bg: var(--chakra-colors-green-100);
+  --badge-color: var(--chakra-colors-green-800);
+  margin-left: var(--chakra-space-1);
+  font-size: 0.9rem;
+}
+
+.css-1lekzkb {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.white {
+  color: #fff;
+}
+
+.css-1mbo1ls {
+  position: relative;
+  flex: 1 1 0%;
+}
+
+.css-14go5ty {
+  font-weight: var(--chakra-fontWeights-medium);
+  font-size: var(--chakra-fontSizes-sm);
+  margin-right: 50px;
+}
+
+.css-1axeus7 {
+  vertical-align: baseline;
+  font-weight: var(--chakra-fontWeights-semibold);
+  font-size: var(--chakra-fontSizes-2xl);
+  font-variant-numeric: proportional-nums;
+  margin: 0;
+}
+
+.css-1lekzkb {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
 }

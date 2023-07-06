@@ -87,6 +87,7 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
             </svg>
           </span>
           <h2 className="chakra-heading form-title">Create an Account</h2>
+          {errors.form && <span className="error">{errors.form}</span>}
           <div className="information-structure">
             <form>
               <div className="chakra-stack user-info-container">
@@ -116,6 +117,7 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                       value={form.email}
                       onChange={handleOnInputChange}
                     />
+                    {errors.email && <span className="error">{errors.email}</span>}
                   </div>
                 </div>
                 <div role="group" className="chakra-form-control css-1kxonj9">
@@ -145,6 +147,7 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                       value={form.username}
                       onChange={handleOnInputChange}
                     />
+                    {errors.username && <span className="error">{errors.username}</span>}
                   </div>
                 </div>
                 <div className="css-9jay18">
@@ -164,6 +167,7 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                         value={form.firstName}
                         onChange={handleOnInputChange}
                       />
+                      {errors.firstName && <span className="error">{errors.firstName}</span>}
                     </div>
                   </div>
                   &nbsp;
@@ -183,6 +187,7 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                         value={form.lastName}
                         onChange={handleOnInputChange}
                       />
+                      {errors.lastName && <span className="error">{errors.lastName}</span>}
                     </div>
                   </div>
                 </div>
@@ -213,6 +218,7 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                       value={form.password}
                       onChange={handleOnInputChange}
                     />
+                    {errors.password && <span className="error">{errors.password}</span>}
                     <div className="chakra-input__right-element css-1qww07b">
                       <button type="button" className="show-button">
                         Show

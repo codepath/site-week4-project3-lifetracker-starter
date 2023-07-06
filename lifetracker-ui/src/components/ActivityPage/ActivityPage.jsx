@@ -1,34 +1,67 @@
 import * as React from "react"
 import "./ActivityPage.css"
 import { Link } from "react-router-dom"
+import { useEffect } from "react";
 import axios from "axios";
+import { useState } from "react";
 
-export default function ActivityPage({appState, isLoggedIn, exerciseArray, setExerciseArray, exerciseTime, exerciseAvg}) {
+export default function ActivityPage({appState, isLoggedIn, exerciseArray, setExerciseArray, exerciseTime, exerciseAvg, setExerciseTime, setExerciseAvg, nutritionCalories, setNutritionCalories, nutritionMax, setNutritionMax}) {
 
-    console.log("getting user when refresh", appState.user_id)
-    // React.useEffect(() => {
-    //     if (appState.user_id) {
-    //       axios
-    //         .get("http://localhost:3001/auth/exercise", {
-    //           params: {
-    //             user_id: appState.user_id,
-    //           },
-    //         })
-    //         .then((response) => {
-    //           const exercises = response.data.exercises;
-    //           setExerciseArray(exercises);
-    //           console.log("Response:", response.data.exercises); // Debugging console.log
-    //         })
-    //         .catch((error) => {
-    //           console.log("Error with axios:", error); // Debugging console.log
-    //         });
-    //     }
-    //   }, [appState.user_id]);
+    // const [nutritionCalories, setNutritionCalories] = useState()
+    // const [nutritionMax, setNutritionMax] = useState()
+    const formattedNutritionCalories = nutritionCalories === (NaN || null) ? parseInt(nutritionCalories).toFixed(1) : 0.0;
+    
+    
 
-    // const calculateTotalTime = () => {
-    //     console.log(appState)
-    //     return exerciseArray.reduce((total, exercise) => total + exercise.time, 0);
-    //   };
+    
+
+    useEffect(() => {
+        if (appState.user_id) {
+          console.log(appState)
+          axios
+            .get("http://localhost:3001/auth/exercise", {
+              params: {
+                user_id: appState.user_id,
+              },
+            })
+            .then((response) => {
+              const exercises = response.data.exercises;
+              const exerciseTime = response.data.exerciseTime;
+              const exerciseAvg = response.data.exerciseAvg;
+              setExerciseAvg(parseInt(exerciseAvg).toFixed(1))
+              setExerciseTime(parseInt(exerciseTime).toFixed(1))
+              
+    
+            })
+            .catch((error) => {
+              console.log("Error with axios:", error); // Debugging console.log
+            });
+        }
+    }, []);
+
+    useEffect(() => {
+        if (appState.user_id) {
+          console.log(appState)
+          axios
+            .get("http://localhost:3001/auth/nutrition", {
+              params: {
+                user_id: appState.user_id,
+              },
+            })
+            .then((response) => {
+            console.log("calories", response.data)
+              const nutritionCalories = response.data.nutritionCalories;
+              const nutritionMax = response.data.nutritionMax;
+              setNutritionCalories(parseInt(nutritionCalories).toFixed(1))
+              setNutritionMax(parseInt(nutritionMax).toFixed(1))
+            })
+            .catch((error) => {
+              console.log("Error with axios:", error); // Debugging console.log
+            });
+        }
+      }, []);
+
+    
 
     const authenticathedUser = 
     <>
@@ -44,7 +77,9 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
                 </Link>
                 
                 <button type="button" className="chakra-button css-l6faz9">Log Sleep</button>
+                <Link to= "/nutrition/create">
                 <button type="button" className="chakra-button css-n3canj">Record Nutrition</button>
+                </Link>
             </div>
         </div>
         <div className="css-18qrtb8">
@@ -65,7 +100,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
                                     d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"
                                 ></path>
                             </svg>
-                            <span className="chakra-badge css-1g1qw76">+2.5%</span>
+                            
                         </div>
                     </div>
                 </div>
@@ -87,7 +122,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
                                     d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
                                 ></path>
                             </svg>
-                            <span className="chakra-badge css-1bbbzfs">-2.5%</span>
+                            
                         </div>
                     </div>
                 </div>
@@ -102,14 +137,14 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
                 </div>
                 <div className="css-0">
                     <div className="css-1lekzkb">
-                        <p className="chakra-text css-51dhyc">0.00</p>
+                        <p className="chakra-text css-51dhyc">{nutritionCalories}</p>
                         <div className="chakra-stack css-tl3ftk">
                             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" focusable="false" className="chakra-icon css-9dla43" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"
                                 ></path>
                             </svg>
-                            <span className="chakra-badge css-1g1qw76">+5.5%</span>
+                            
                         </div>
                     </div>
                 </div>
@@ -127,7 +162,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
                         <div className="chakra-stat css-1mbo1ls">
                             <dl>
                                 <dt className="chakra-stat__label css-14go5ty">Max Calories In One Meal</dt>
-                                <dd className="chakra-stat__number css-1axeus7">0.0</dd>
+                                <dd className="chakra-stat__number css-1axeus7">{nutritionMax || 0.0}</dd>
                             </dl>
                         </div>
                         <div className="chakra-stat css-1mbo1ls">

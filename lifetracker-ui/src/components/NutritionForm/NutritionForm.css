@@ -1,0 +1,250 @@
+.css-vpbd2d {
+    display: flex;
+    max-width: 1680px;
+    margin-inline: auto;
+}
+
+.css-pwgvc2 {
+    display: flex;
+    margin-top: var(--chakra-space-16);
+    max-width: 1680px;
+    margin-inline: auto;
+}
+
+.css-1jtnem3 {
+    margin-inline-start: var(--chakra-space-10);
+    margin-inline-end: var(--chakra-space-10);
+}
+
+.css-1jtnem3 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--chakra-space-16);
+    flex: 1 1 0%;
+    margin-inline-start: var(--chakra-space-6);
+    margin-inline-end: var(--chakra-space-6);
+    margin-bottom: var(--chakra-space-32);
+}
+
+.css-1hv8zgx {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-row-gap: var(--chakra-space-12);
+    grid-column-gap: var(--chakra-space-10);
+}
+
+.css-mlsaez {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.css-13ra036 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: var(--chakra-space-2);
+}
+
+.nutrition-heading {
+    font-size: var(--chakra-fontSizes-4xl);
+    line-height: 1.2;
+}
+
+.nutrition-heading {
+    font-family: var(--chakra-fonts-heading);
+    color: var(--chakra-colors-blue-300);
+    font-weight: var(--chakra-fontWeights-bold);
+    font-size: var(--chakra-fontSizes-3xl);
+    line-height: 1.33;
+    
+}
+
+.information-structure {
+    min-width: 468px;
+}
+
+/* .information-structure {
+    min-width: 90%;
+} */
+
+.css-1db3zf7 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--chakra-space-4);
+    padding: 1rem;
+    background-color: var(--chakra-colors-whiteAlpha-900);
+    box-shadow: var(--chakra-shadows-md);
+}
+
+.css-1kxonj9 {
+    width: 100%;
+    position: relative;
+}
+
+.css-bx0blc {
+    width: 100%;
+    display: flex;
+    position: relative;
+    isolation: isolate;
+}
+
+.css-p20xy6 {
+    width: 100%;
+    min-width: 0px;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    appearance: none;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    font-size: var(--chakra-fontSizes-md);
+    padding-inline-start: var(--chakra-space-4);
+    padding-inline-end: var(--chakra-space-4);
+    height: var(--chakra-sizes-10);
+    border-radius: var(--chakra-radii-md);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: inherit;
+    background: inherit;
+}
+
+.css-1kxonj9 {
+    width: 100%;
+    position: relative;
+}
+
+.css-g6pte {
+    display: block;
+    text-align: start;
+    font-size: var(--chakra-fontSizes-md);
+    margin-inline-end: var(--chakra-space-3);
+    margin-bottom: var(--chakra-space-2);
+    font-weight: var(--chakra-fontWeights-medium);
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    opacity: 1;
+}
+
+.css-1tfjd1n {
+    margin-inline-start: var(--chakra-space-1);
+    --form-control-color: var(--chakra-colors-red-500);
+    color: var(--form-control-color);
+}
+
+.css-42b2qy {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+}
+
+.css-1gpsbw3 {
+    padding-inline-end: var(--chakra-space-8);
+    width: 100%;
+    min-width: 0px;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    appearance: none;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    padding-bottom: 1px;
+    line-height: var(--chakra-lineHeights-normal);
+    background: inherit;
+    --select-bg: var(--chakra-colors-white);
+    font-size: var(--chakra-fontSizes-md);
+    padding-inline-start: var(--chakra-space-4);
+    height: var(--chakra-sizes-10);
+    border-radius: var(--chakra-radii-md);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: inherit;
+}
+
+.css-1gpsbw3 > option, .css-1gpsbw3 > optgroup {
+    background: var(--select-bg);
+}
+
+.css-iohxn1 {
+    width: var(--chakra-sizes-6);
+    height: 100%;
+    right: var(--chakra-space-2);
+    color: currentcolor;
+    font-size: var(--chakra-fontSizes-xl);
+    position: absolute;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.css-9jay18 {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.css-1kxonj9 {
+    width: 100%;
+    position: relative;
+}
+
+.css-g6pte {
+    display: block;
+    text-align: start;
+    font-size: var(--chakra-fontSizes-md);
+    margin-inline-end: var(--chakra-space-3);
+    margin-bottom: var(--chakra-space-2);
+    font-weight: var(--chakra-fontWeights-medium);
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    opacity: 1;
+}
+
+.css-3e5t3k {
+    position: relative;
+    z-index: 0;
+    --number-input-stepper-width: var(--chakra-sizes-6);
+    --number-input-input-padding: calc(var(--number-input-stepper-width) + 0.5rem);
+}
+
+.css-1551roq {
+    /* width: 100%; */
+    min-width: 0px;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    appearance: none;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    font-size: var(--chakra-fontSizes-md);
+    padding-inline-start: var(--chakra-space-4);
+    padding-inline-end: var(--number-input-input-padding);
+    height: var(--chakra-sizes-10);
+    border-radius: var(--chakra-radii-md);
+    vertical-align: top;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: inherit;
+    background: inherit;
+}
+
+#button-nutrition{
+
+    background-color: var(--chakra-colors-blue-300);
+}

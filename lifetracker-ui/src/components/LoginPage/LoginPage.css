@@ -287,5 +287,12 @@
     color: var(--chakra-colors-teal-400)
 }
 
+.error{
+
+    color: rgb(187, 2, 2);
+    font-family: var(--chakra-fonts-heading);
+    font-weight: 600;
+}
+
 
 

@@ -13,10 +13,10 @@ CREATE TABLE nutrition (
   id         SERIAL PRIMARY KEY,
   name   VARCHAR(20) NOT NULL,
   category   VARCHAR(20) NOT NULL,
+  quantity   VARCHAR(20) NOT NULL,
   calories   INT NOT NULL,
-  image_url  TEXT,
-  user_id    INT NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW() NOT NULL
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+
 );
 
 CREATE TABLE exercise (

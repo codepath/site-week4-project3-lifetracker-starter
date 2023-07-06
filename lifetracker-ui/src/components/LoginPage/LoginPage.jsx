@@ -67,7 +67,7 @@ export default function LoginPage({setAppState, setIsLoggedIn, appState}) {
             </svg>
           </span>
           <h2 className="chakra-heading form-title">Welcome</h2>
-          
+          {Boolean(errors.form) && <span className="error">{errors.form}</span>}
           <div className="information-structure">
             <form>
               <div className="chakra-stack user-info-container">
@@ -88,6 +88,7 @@ export default function LoginPage({setAppState, setIsLoggedIn, appState}) {
                       value={form.email}
                       onChange={handleOnInputChange}
                     />
+                     {errors.email && <span className="error">{errors.email}</span>}
                   </div>
                 </div>
                 <div role="group" className="chakra-form-control css-1kxonj9">
@@ -108,6 +109,7 @@ export default function LoginPage({setAppState, setIsLoggedIn, appState}) {
                       value={form.password}
                       onChange={handleOnInputChange}
                     />
+                    {errors.password && <span className="error">{errors.password}</span>}
                     <div className="chakra-input__right-element css-1qww07b">
                       <button type="button" className="chakra-button show-button">
                         Show

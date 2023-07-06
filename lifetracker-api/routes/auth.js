@@ -5,6 +5,7 @@
 const express = require("express")
 const User = require("../models/user")
 const Exercise = require("../models/exercise")
+const Nutrition = require('../models/nutrition')
 const router = express.Router()
 const jwt = require("jsonwebtoken")
 const { SECRET_KEY } = require("../config")
@@ -68,5 +69,31 @@ router.get("/exercise", async function (req, res, next) {
     next(error);
   }
 });
+
+router.post("/nutrition/create", async function (req, res, next) {
+  try {
+    const nutrition = await Nutrition.addNutrition(req.body)
+    console.log('nutrition', nutrition)
+    return res.status(201).json({ nutrition })
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.get("/nutrition", async function (req, res, next) {
+  try {
+    const user_id = req.query.user_id;
+    const nutritions = await Nutrition.getNutritionByUserId(user_id);
+    const nutritionCalories = await Nutrition.getCaloriesByUserId(user_id);
+    const nutritionMax = await Nutrition.getMaxCaloriesByUserId(user_id);
+    console.log('nutrition', nutritions);
+    return res.status(200).json({ nutritions, nutritionCalories, nutritionMax});
+  } catch (error) {
+    next(error);
+  }
+});
+
+
+
 
 module.exports = router
