@@ -7,6 +7,7 @@ export default function SignIn({onLogin, loginError}) {
     const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
+        
         e.preventDefault();
         onLogin(email, password)
     }

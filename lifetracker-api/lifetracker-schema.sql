@@ -16,3 +16,6 @@ CREATE TABLE users (
     image_url      TEXT NOT NULL
 );
 
+CREATE TABLE exercise(
+
+);

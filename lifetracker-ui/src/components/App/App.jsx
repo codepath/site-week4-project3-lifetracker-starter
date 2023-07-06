@@ -5,38 +5,53 @@ import SignIn from '../SignIn/SignIn'
 import Register from '../Register/Register'
 import Home from '../Home/Home'
 import ActivityPage from '../ActivityPage/ActivityPage'
-import { BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom';
-import { useState } from 'react'
 import ExercisePage from '../ExercisePage/ExcersisePage'
 import NutritionPage from '../NutritionPage/NutritionPage'
 import SleepPage from '../SleepPage/SleepPage'
+
+
+import { BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom';
+import { useEffect, useState } from 'react'
 import axios from 'axios'
+import jwtDecode from "jwt-decode"
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginError, setLoginError] = useState("");
+  const [userId , setUserId]=useState();
+
+
+
   
   const handleLogin = async (email, password) => {
    
     
       let response = await axios.post('http://localhost:3001/auth/login', {email, password })
+      
+      if (response.status === 200) {
+        // const { token } = response.data;
+        const { token } = response.data;
+        localStorage.setItem("token", token);
+
+        //Successful Login
+        setLoggedIn(true);
+        setLoginError("");
+        console.log(response.data.message); //optional - display a success message
+        console.log(response.data.user.id); //another way to get the username
+
+        const decodedToken = jwtDecode(token); //a way to get username from token
+        setUserId(decodedToken.userId);
+        
+      } else {
+        //Login failed
+        setLoginError(response.data.message);
+        console.log(response.data.message); //optional - display error message
+      }
 
       console.log("Response output: ", response)
 
-      // if (response.ok) {
-      //   //Successful Login
-      //   setLoggedIn(true);
-      //   setLoginError("");
-      //  // console.log(response); //optional - display a success message
-      // } else {
-      //   //Login failed
-      //   setLoginError(response);
-      // //  console.log(response); //optional - display error message
-      // }
-
-    // } catch (error) {
-    //   console.error("Error:", error);
-    // }
+    
   };
 
     //Registration function to handle registration
@@ -46,34 +61,26 @@ function App() {
         console.log("username value in handleRegsiteration: ", username)
         let response = await axios.post('http://localhost:3001/auth/register', {email, password, first_name, last_name, username})
         console.log("Response output: ", response)
-     } catch (error) {
-      console.error(error.response.data);
-     }
-          // method: "POST",
-          // headers: {
-          //   "Content-Type": "application/json",
-          // },
-          // body: JSON.stringify({ name, email, password }),
         
-  
-    //     //wait for the response
-    //     const data = await response.json();
-  
-    //     if (response.ok) {
-    //       //Registration successful
-    //       setLoggedIn(true);
-    //       console.log(data.message); //optional - display a success message
-    //     } else {
-    //       //REgistration failed
-    //       console.log(data.message); //optional - display error meesage
-    //     }
-    //   } catch (error) {
-    //     console.error("Error: ", error);
-    //   }
-    // };
-  
-    // const handleLogout = () => {
-    //   setLoggedIn(false);
+        if (response.status === 201) {
+        const { token } = response.data
+        localStorage.setItem("token", token);
+
+        const decodedToken = jwtDecode(token); //a way to get userid from token
+        setUserId(decodedToken.userId);
+
+        //Registration successful
+        setLoggedIn(true);
+        console.log(response.data.message);  //optional - display a success message
+      }
+      else{
+        console.log(data.message); 
+      }
+
+     } catch (error) {
+      console.error(error);
+     }
+          
     };
 
   return (
