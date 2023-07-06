@@ -1,7 +1,7 @@
 import './ActivityPage.css'
 import {useState} from 'react'
 
-export default function ActivityPage(loggedIn) {
+export default function ActivityPage({ loggedIn }) {
     return (
         !loggedIn? (
     <div className="ActivityPage css-ra15rn">

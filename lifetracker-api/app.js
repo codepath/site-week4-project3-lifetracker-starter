@@ -4,6 +4,7 @@ const morgan = require("morgan")
 const { NotFoundError } = require("./utils/errors")
 const config = require("./config")
 const authRoutes = require("./routes/auth")
+const sleepRoutes = require("./routes/sleep")
 
 const app = express()
 
@@ -15,6 +16,8 @@ app.use(morgan("tiny"))
 
 //enabling the /auth route - using the imported auth routes
 app.use("/auth", authRoutes)
+
+app.use("/sleep", sleepRoutes)
 
 app.get("/", function (req, res) {
     return res.status(200).json({
