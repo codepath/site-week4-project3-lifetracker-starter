@@ -52,11 +52,13 @@ export default function NutritionFeed({ user, setAppState, nutritionFormState, s
 
 <>
 
+<div className="nutrition-feed-container">
 
 {
     feed?.map((item) => generateFeed(item))
 }
 
+</div>
 </>
     
 

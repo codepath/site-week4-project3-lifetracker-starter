@@ -1,9 +1,10 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import jwtDecode from "jwt-decode"
 import axios from "axios"
 import "./Login.css"
 
-export default function Login({ setAppState }) {
+export default function Login({ setAppState , appState}) {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const [errors, setErrors] = useState({})
@@ -32,7 +33,12 @@ export default function Login({ setAppState }) {
     try {
       const res = await axios.post(`http://localhost:3002/auth/login`, form)
       if (res?.data) {
-        setAppState(res.data)
+        const token = res.data.token
+        localStorage.setItem("token", token)
+
+        const decodedToken = jwtDecode(token)
+        setAppState(decodedToken)
+
         setIsLoading(false)
         navigate("/portal")
       } else {

@@ -6,6 +6,7 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-family: 'Questrial', sans-serif;
 }
 
 .nutrition-form label {
@@ -22,13 +23,13 @@
 
 .nutrition-form button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #75dddd;;
+  color: #000000;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .nutrition-form button:hover {
-  background-color: #0056b3;
+  background-color: #87ebeb;
 }

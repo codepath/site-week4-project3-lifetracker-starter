@@ -5,7 +5,7 @@ import "../NutritionForm/NutritionForm.css"
 import axios from "axios"
 
 
-export default function NutritionForm({ user, setAppState, nutritionFormState, setNutritionFormState }) {
+export default function NutritionForm({ user, setIsActive, setAppState, nutritionFormState, setNutritionFormState }) {
 
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
@@ -48,6 +48,7 @@ export default function NutritionForm({ user, setAppState, nutritionFormState, s
             calories: "", 
             image: ""
           })
+          setIsActive(false)
     
       };
     

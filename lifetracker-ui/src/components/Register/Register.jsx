@@ -2,6 +2,7 @@ import './Register.css'
 import axios from "axios"
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
+import jwtDecode from "jwt-decode"
 
 function Register({setAppState}) {
     const navigate = useNavigate()
@@ -66,7 +67,13 @@ function Register({setAppState}) {
           })
     
           if (res?.data?.user) {
-            setAppState(res.data)
+
+            const token = res.data.token
+            localStorage.setItem("token", token)
+    
+            const decodedToken = jwtDecode(token)
+            setAppState(decodedToken)
+
             setIsLoading(false)
             navigate("/portal")
           } else {
@@ -86,7 +93,7 @@ function Register({setAppState}) {
             email: "",
             password: "",
             passwordConfirm: "",
-            agreeToTerms: true // CHANGE LATER !!!!!
+            agreeToTerms: true 
           })
       }
 

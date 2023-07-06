@@ -19,9 +19,7 @@ class User {
       id: user.id,
       firstName: user.firstName,
       lastName: user.lastName,
-      email: user.email,
-      location: user.location,
-      date: user.date,
+      email: user.email
     }
   }
 
@@ -91,6 +89,7 @@ class User {
         )
         VALUES ($1, $2, $3, $4, $5)
         RETURNING id,
+                  username,
                   email,            
                   first_name AS "firstName", 
                   last_name AS "lastName"

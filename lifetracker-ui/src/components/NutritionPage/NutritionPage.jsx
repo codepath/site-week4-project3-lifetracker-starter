@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react";
 import NutritionForm from "./NutritionForm/NutritionForm";
 import NutritionFeed from "./NutritionFeed/NutritionFeed";
+import '../NutritionPage/NutritionPage.css'
 
 
 
@@ -26,24 +27,27 @@ export default function NutritionPage({ user, setAppState }) {
   })
 
   const authContent = isAuthenticated ? (
-    <>
-    <h2>Nutrition Feed</h2>
+    <div className="NutritionPage">
+    <h2 className="title">Nutrition Feed</h2>
     
-    <button onClick={ () => { setIsActive(!isActive)}}>Record Nutrition</button>
-    
+    <div className="button-container">
+    <button className="form-button" onClick={ () => { setIsActive(!isActive)}}>Record Nutrition</button>
+    </div>
 
     <NutritionFeed user={user} setAppState={setAppState} nutritionFormState={nutritionFormState} setNutritionFormState={setNutritionFormState}/>
 
 
-      </>
+    </div>
   ) : (
     <p className="appt">{title}</p>
   );
 
   const content = isActive?
     <>
-    <button onClick={ () => { setIsActive(!isActive)}}>Go Back</button>
-    <NutritionForm user={user} setAppState={setAppState} nutritionFormState={nutritionFormState} setNutritionFormState={setNutritionFormState}/>
+    <div className="button-container">
+    <button className="form-button" onClick={ () => { setIsActive(!isActive)}}>Go Back</button>
+    </div>
+    <NutritionForm user={user} setIsActive={setIsActive} setAppState={setAppState} nutritionFormState={nutritionFormState} setNutritionFormState={setNutritionFormState}/>
     </>
   :
   authContent
