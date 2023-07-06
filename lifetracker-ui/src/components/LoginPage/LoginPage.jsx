@@ -67,6 +67,7 @@ export default function LoginPage({setAppState, setIsLoggedIn, appState}) {
             </svg>
           </span>
           <h2 className="chakra-heading form-title">Welcome</h2>
+          
           <div className="information-structure">
             <form>
               <div className="chakra-stack user-info-container">

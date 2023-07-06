@@ -3,7 +3,7 @@ import "./ActivityPage.css"
 import { Link } from "react-router-dom"
 import axios from "axios";
 
-export default function ActivityPage({appState, isLoggedIn, exerciseArray, setExerciseArray}) {
+export default function ActivityPage({appState, isLoggedIn, exerciseArray, setExerciseArray, exerciseTime, exerciseAvg}) {
 
     console.log("getting user when refresh", appState.user_id)
     // React.useEffect(() => {
@@ -25,10 +25,10 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
     //     }
     //   }, [appState.user_id]);
 
-    const calculateTotalTime = () => {
-        console.log(appState)
-        return exerciseArray.reduce((total, exercise) => total + exercise.time, 0);
-      };
+    // const calculateTotalTime = () => {
+    //     console.log(appState)
+    //     return exerciseArray.reduce((total, exercise) => total + exercise.time, 0);
+    //   };
 
     const authenticathedUser = 
     <>
@@ -58,7 +58,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
                 </div>
                 <div className="css-0">
                     <div className="css-1lekzkb">
-                        <p className="chakra-text css-51dhyc">{calculateTotalTime()}</p>
+                        <p className="chakra-text css-51dhyc">{exerciseTime}</p>
                         <div className="chakra-stack css-tl3ftk">
                             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" focusable="false" className="chakra-icon css-9dla43" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -133,7 +133,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
                         <div className="chakra-stat css-1mbo1ls">
                             <dl>
                                 <dt className="chakra-stat__label css-14go5ty">Average Exercise Intensity</dt>
-                                <dd className="chakra-stat__number css-1axeus7">3.0</dd>
+                                <dd className="chakra-stat__number css-1axeus7">{exerciseAvg}</dd>
                             </dl>
                         </div>
                         <div className="chakra-stat css-1mbo1ls">

@@ -38,7 +38,29 @@ class Exercise {
         const exercises = result.rows;
       
         return exercises;
-      }
+    }
+
+    static async getTimeByUserId(user_id){
+
+        const result = await db.query(
+        `SELECT SUM(time) FROM exercise WHERE user_id = $1`,
+        [user_id]
+        );
+
+        const exerciseTime = result.rows[0].sum;
+        return exerciseTime;
+    }
+
+    static async getAvgByUserId(user_id){
+        const result = await db.query(
+
+        `SELECT AVG(intensity) FROM exercise WHERE user_id = $1`,
+        [user_id]
+        );
+
+        const exerciseAvg = result.rows[0].avg;
+        return exerciseAvg;
+    }
   }
   
   module.exports = Exercise;

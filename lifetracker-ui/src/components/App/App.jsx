@@ -16,6 +16,8 @@ export default function App() {
   const [appState, setAppState] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [exerciseArray, setExerciseArray] = useState([]);
+  const [exerciseTime, setExerciseTime] = useState();
+  const [exerciseAvg, setExerciseAvg] = useState();
 
   console.log('app', exerciseArray)
 
@@ -46,8 +48,15 @@ export default function App() {
         })
         .then((response) => {
           const exercises = response.data.exercises;
+          const exerciseTime = response.data.exerciseTime;
+          const exerciseAvg = response.data.exerciseAvg;
+          // console.log("AVERAGE: ", parseInt(exerciseAvg).toFixed(1));
+          setExerciseAvg(parseInt(exerciseAvg).toFixed(1));
           setExerciseArray(exercises);
-          console.log("Response:", response.data.exercises); // Debugging console.log
+          setExerciseTime(exerciseTime);
+          // console.log('amount of time', exerciseTime)
+          
+
         })
         .catch((error) => {
           console.log("Error with axios:", error); // Debugging console.log
@@ -87,7 +96,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage appState={appState} setAppState={setAppState} setIsLoggedIn= {setIsLoggedIn}/>} />
          <Route path="/register" element={<RegistrationPage appState={appState} setAppState={setAppState} setIsLoggedIn= {setIsLoggedIn}/>} />
-          <Route path="/activity" element={<ActivityPage appState={appState} isLoggedIn = {isLoggedIn} exerciseArray ={exerciseArray} setExerciseArray={setExerciseArray}/>} /> 
+          <Route path="/activity" element={<ActivityPage appState={appState} isLoggedIn = {isLoggedIn} exerciseArray ={exerciseArray} setExerciseArray={setExerciseArray} exerciseTime= {exerciseTime} exerciseAvg = {exerciseAvg}/>} /> 
           <Route path="/exercise" element={<ExercisePage isLoggedIn = {isLoggedIn} appState={appState} exerciseArray ={exerciseArray} setExerciseArray={setExerciseArray}/>} />  
           <Route path="/exercise/create" element={<ExerciseForm isLoggedIn = {isLoggedIn} appState={appState} setExerciseArray={setExerciseArray}/>} />
           {/* <Route path="/nutrition/*" element={<AccessForbidden />} />

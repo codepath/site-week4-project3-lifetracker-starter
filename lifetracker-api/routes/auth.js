@@ -60,8 +60,10 @@ router.get("/exercise", async function (req, res, next) {
   try {
     const user_id = req.query.user_id;
     const exercises = await Exercise.getExercisesByUserId(user_id);
+    const exerciseTime = await Exercise.getTimeByUserId(user_id);
+    const exerciseAvg = await Exercise.getAvgByUserId(user_id);
     console.log('exercises', exercises);
-    return res.status(200).json({ exercises });
+    return res.status(200).json({ exercises, exerciseTime, exerciseAvg});
   } catch (error) {
     next(error);
   }

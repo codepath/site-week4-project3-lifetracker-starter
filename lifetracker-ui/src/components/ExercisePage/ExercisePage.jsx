@@ -7,7 +7,7 @@ export default function ExercisePage({ isLoggedIn, appState, exerciseArray, setE
 
         console.log("exercise array in exercise page", exerciseArray)
         const renderExercises = () => {
-        return exerciseArray?.map((exercise) => (
+        return exerciseArray?.toReversed().map((exercise) => (
             <div className="chakra-stack css-xixnl8" key={exercise.id}>
             <div className="css-1d1dt3r">
               <div className="css-56yjmq">
