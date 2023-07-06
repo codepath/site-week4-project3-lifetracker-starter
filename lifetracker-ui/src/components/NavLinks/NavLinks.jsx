@@ -1,12 +1,15 @@
 import "./Navlinks.css";
 import { Link } from "react-router-dom";
-import apiClient from "../../../services/apiClient"
+import apiClient from "../../../services/apiClient";
 
 export default function NavLinks({ appState, setAppState }) {
   if (!appState.user) {
     return (
       <div className="nav-links">
         <ul className="links">
+          <li>
+            <Link to="/nutrition">Nutrition</Link>
+          </li>
           <li>
             <Link to="/activity">Activity</Link>
           </li>
@@ -19,26 +22,24 @@ export default function NavLinks({ appState, setAppState }) {
         </ul>
       </div>
     );
-  }
-
-  else {
-
+  } else {
     function logoutUser() {
-      setAppState({user:""})
-      apiClient.logoutUser()
+      setAppState({ user: "", isAuthenticated: false });
+      apiClient.logoutUser();
+      window.location.reload(true);
     }
     return (
       <div className="nav-links">
         <ul className="links">
           <li>
+            <Link to="/nutrition">Nutrition</Link>
+          </li>
+          <li>
             <Link to="/activity">Activity</Link>
           </li>
-          <li onClick={logoutUser}>
-            Log Out
-          </li>
+          <li onClick={logoutUser}>Log Out</li>
         </ul>
       </div>
-    )
+    );
   }
-  
 }

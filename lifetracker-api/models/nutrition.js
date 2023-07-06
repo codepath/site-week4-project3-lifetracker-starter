@@ -15,14 +15,14 @@ class Nutrition {
     } = nutrition;
 
     try {
-        validateFields({
-          required: requiredNutrition,
-          obj: nutrition,
-          location: "nutrition",
-        });
-      } catch (err) {
-        throw err;
-      }
+      validateFields({
+        required: requiredNutrition,
+        obj: nutrition,
+        location: "nutrition",
+      });
+    } catch (err) {
+      throw err;
+    }
 
     const result = await db.query(
       `INSERT INTO nutrition (
@@ -47,4 +47,13 @@ class Nutrition {
       [id, name, category, quantity, calories, image_url, user_id, created_at]
     );
   }
+
+  // static async listNutrition() {
+  //   try {
+  //     const result = db.query(`
+  //     SELECT * FROM nutrition WHERE `)
+  //   } catch (err) {
+
+  //   }
+  // }
 }

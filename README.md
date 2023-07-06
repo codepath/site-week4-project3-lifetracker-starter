@@ -82,7 +82,7 @@ Implement any of the following features to improve the application:
   - [x] Create a utility method called `request` that uses `axios` to issue HTTP requests
   - [x] Add a `login` method that uses the `request` method to send an HTTP request to the `auth/login` endpoint
   - [x] Add a `signup` method that uses the `request` method to send an HTTP request to the `auth/register` endpoint
-  - [ ] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
+  - [x] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
   - [ ] **Add as many other methods as needed when making API requests.**
 
 #### Manage Authentication State
@@ -105,7 +105,7 @@ Update the `App` component to manage authentication state:
       - [ ] `nutrition`
       - [ ] `exercise`
       - [ ] `sleep`
-    - [ ] Call the `setAppState` with a new state object to update the component's state.
+    - [x] Call the `setAppState` with a new state object to update the component's state.
     - [x] Outside the `fetchUser` function, call `fetchUser` to trigger the initial data fetch when the component mounts.
     - [ ] The effect should be triggered whenever the value of `appState.isAuthenticated` changes.
 
@@ -132,8 +132,8 @@ Update the `App` component to manage authentication state:
     - [x] The `/activity` route with a label of `Activity`.
     - [ ] The `/nutrition` route with a label of `Nutrition`.
     - [ ] A route for any other resource page
-  - [ ] If a valid user is logged in, it should render an element with the class name of `logout-button` that calls the `logoutUser` function when clicked.
-    - [ ] The `logoutUser` function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
+  - [x] If a valid user is logged in, it should render an element with the class name of `logout-button` that calls the `logoutUser` function when clicked.
+    - [x] The `logoutUser` function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
   - [x] If no valid user is logged in:
     - [x] Render a `Link` element that redirects to the `/login` route with the label `Login`
     - [x] Render a `Link` element that redirects to the `/register` route with the label `Sign Up`
@@ -193,7 +193,7 @@ Update the `App` component to manage authentication state:
 
 #### Implement the `RegistrationPage` component
 
-- [x] Build the **`RegistrationPage`** component to:
+- [ ] Build the **`RegistrationPage`** component to:
   - [x] Render JSX that is wrapped by an element with the class name of `registration-page`
   - [ ] Using either a custom hook, context, or manually handled state, check to see if a user is already logged in
     - [ ] If the user is already logged in, it should redirect them to the `/activity` page
@@ -221,11 +221,11 @@ Update the `App` component to manage authentication state:
 - [ ] Build the **`ActivityFeed`** component to:
   - [x] Render JSX that is wrapped by an element with the class name of `activity-feed`
   - [ ] Accept **at least** the following props:
-    - [ ] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
-    - [ ] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
+    - [x] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
+    - [x] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
     - [ ] Any other props as needed
   - [ ] Inside an element with the class name of `per-category`, it should:
-    - [ ] Render the text: `"Average Calories Per Category` inside an `h4` element
+    - [x] Render the text: `"Average Calories Per Category` inside an `h4` element
     - [ ] Take the first `6` or less items in the `avgCaloriesPerCategory` array and render a `SummaryStat` component for each item.
       - [ ] Pass the calories **rounded down to one decimal place** as the `stat` prop
       - [ ] Pass the string of `calories` as the `label` prop
@@ -252,13 +252,13 @@ Update the `App` component to manage authentication state:
 #### Implement the `NutritionPage` Component
 
 - [ ] Build the **`NutritionPage`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `nutrition-page`
-  - [ ] Take the `appState` and `setAppState` as props and extract all the necessary data from it.
+  - [x] Render JSX that is wrapped by an element with the class name of `nutrition-page`
+  - [x] Take the `appState` and `setAppState` as props and extract all the necessary data from it.
   - [ ] Render a nested `Routes` component from `react-router-dom`.
     - [ ] There should be multiple `Route` components:
-      - [ ] The `/nutrition` route should render the `NutritionOverview` component
-      - [ ] The `/nutrition/create` route should render the `NutritionNew` component
-      - [ ] The `/nutrition/id/:nutritionId` should render the `NutritionDetail` component
+      - [x] The `/nutrition` route should render the `NutritionOverview` component
+      - [x] The `/nutrition/create` route should render the `NutritionNew` component
+      - [x] The `/nutrition/id/:nutritionId` should render the `NutritionDetail` component
       - [ ] Any other route should render the `NotFound` component
 
 #### Implement the `NutritionOverview` Component
@@ -539,7 +539,7 @@ Here are the pieces of functionality that should be built out for the backend:
           - [ ] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
         - [x] A `POST` request to the `/login` endpoint
           - [x] It should accept a request body with `email` and `password` keys
-          - [ ] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
+          - [x] It should send a JSON response back to the client with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`
         - [x] A `POST` request to the `/register` endpoint
           - [x] It should accept a request body with `email`, `username`, `firstName`, `lastName`, and `password` keys
           - [x] It should send a JSON response back to the client with a `201` status code, along with a new JWT and user info like so: `{ "token": "e2c2...", "user": { "email": "user@gmail.com", ... } }`

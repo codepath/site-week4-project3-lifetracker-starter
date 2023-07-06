@@ -27,7 +27,8 @@ const extractUserFromJWT = (req, res, next) => {
 const requireAuthenticatedUser = (req, res, next) => {
   try {
     const { user } = res.locals;
-    console.log(user);
+    console.log("res.locals", res.locals);
+    console.log('user', user)
     if (!user?.email) {
       throw new UnauthorizedError();
     }

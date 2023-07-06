@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ActivityPage from "../../pages/ActivityPage/ActivityPage";
 import apiClient from "../../../services/apiClient";
+import NutritionPage from "../../pages/NutritionPage/NutritionPage"
+
 function App() {
   const [appState, setAppState] = useState({
     user: "",
@@ -17,21 +19,21 @@ function App() {
     exercise: "",
   });
 
-  useEffect(() => {
-    if (appState.isAuthenticated) {
-      async function fetchUser() {
-        const { data, error } = await apiClient.fetchUserFromToken();
-        if (data) setAppState({ ...appState, user: data.user });
-        if (error) setAppState(error);
-      }
+  // useEffect(() => {
+  //   if (appState.isAuthenticated) {
+  //     async function fetchUser() {
+  //       const { data, error } = await apiClient.fetchUserFromToken();
+  //       if (data) setAppState({ ...appState, user: data.user });
+  //       if (error) setAppState(error);
+  //     }
 
-      const token = localStorage.getItem("lifetracker_token");
-      if (token) {
-        apiClient.setToken(token);
-        fetchUser();
-      }
-    }
-  }, []);
+  //     const token = localStorage.getItem("lifetracker_token");
+  //     if (token) {
+  //       apiClient.setToken(token);
+  //       fetchUser();
+  //     }
+  //   }
+  // }, []);
 
   return (
     <div className="app">
@@ -49,6 +51,7 @@ function App() {
               <LoginPage setAppState={setAppState} appState={appState} />
             }
           />
+          <Route path="/nutriton" element={<NutritionPage/>}/>
           <Route
             path="/activity"
             element={

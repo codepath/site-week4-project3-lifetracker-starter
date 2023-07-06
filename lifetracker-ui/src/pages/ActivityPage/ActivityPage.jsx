@@ -13,6 +13,7 @@ export default function ActivityPage({setAppState, appState}) {
     else {
         return (
             <div className="activity-page">
+                <h3>Activity Feed</h3>
                 <ActivityFeed/>
             </div>
         )
