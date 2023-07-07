@@ -23,19 +23,19 @@ By the end of this project you will be able to...
 
 ### Core Features
 
-- [ ] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
+- [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
 - [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
 - [x] **Login Page:** A form that allows users to login with email and password.
-- [ ] When a user first authenticates, they should be redirected to an authenticated view (i.e., the detailed activity page). When they sign out, all frontend data should be reset.
-- [ ] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
-  - [ ] If the user is logged in, it should display a **Sign Out** button.
-  - [ ] If no user is logged in, it should display **Login** and **Register** buttons.
-  - [ ] Display a logo on the far left side, and contain links to the individual detailed activity pages.
-- [ ] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
+- [x] When a user first authenticates, they should be redirected to an authenticated view (i.e., the detailed activity page). When they sign out, all frontend data should be reset.
+- [x] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
+  - [x] If the user is logged in, it should display a **Sign Out** button.
+  - [x] If no user is logged in, it should display **Login** and **Register** buttons.
+  - [x] Display a logo on the far left side, and contain links to the individual detailed activity pages.
+- [x] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] **Detailed Activity Page:** Display and enter activities.
   - [ ] Display a feed of all previously tracked activities.
-  - [ ] A form to enter relevant information (i.e., if tracking nutrition, the user can enter calories, timestamp, image, category, etc.).
-  - [ ] Each activity tracked is given a unique ID for easy lookup.
+  - [x] A form to enter relevant information (i.e., if tracking nutrition, the user can enter calories, timestamp, image, category, etc.).
+  - [x] Each activity tracked is given a unique ID for easy lookup.
 - [ ] Deploy your website with Render. Check out our [Render Deployment Guide](https://courses.codepath.org/snippets/site/render_deployment_guide) for detailed instructions.
 
 ### Stretch Features

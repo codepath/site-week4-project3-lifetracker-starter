@@ -14,6 +14,7 @@ export default function NutritionForm({ setAppState, appState }) {
   const [errors, setErrors] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  
   const handleChange = (e) => {
     setNutritionForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
