@@ -24,13 +24,13 @@ CREATE TABLE exercise (
     category   VARCHAR(255) NOT NULL,
     duration   VARCHAR(255) NOT NULL,
     intensity  VARCHAR(255) NOT NULL,
-    user_id    VARCHAR(255) NOT NULL,
+    user_id    INTEGER NOT NULL,
     created_at TIMESTAMP NOT NULL);
 
 CREATE TABLE sleep (
     id         SERIAL PRIMARY KEY,
     start_time TIMESTAMP NOT NULL,
     end_time   TIMESTAMP NOT NULL,
-    user_id    VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP NOT NULL);
+    user_id    INTEGER NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW());
 

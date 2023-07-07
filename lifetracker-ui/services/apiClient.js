@@ -26,6 +26,7 @@ class ApiClient {
 
     try {
       const result = await axios({ url, method, data, headers });
+      console.log(result)
       return { data: result.data, error: null };
     } catch (err) {
       console.error({ errorResponse: err.response });
@@ -68,6 +69,10 @@ class ApiClient {
   async logoutUser() {
     this.setToken(null);
     localStorage.setItem(this.tokenName, "");
+  }
+
+  async logSleep(sleep) {
+   return await this.request({endpoint: "sleep/new", method: "POST", data: sleep}) 
   }
 }
 

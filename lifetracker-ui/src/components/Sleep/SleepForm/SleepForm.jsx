@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./SleepForm.css";
+import apiClient from "../../../../services/apiClient";
 
 export default function SleepForm({ setAppState, appState }) {
   const [sleepForm, setSleepForm] = useState({
@@ -7,13 +8,35 @@ export default function SleepForm({ setAppState, appState }) {
     endTime: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({})
 
   function handleChange(e) {
     setSleepForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
-  async function logSleep() {
-    
+  async function logSleep(c) {
+    const endTimeDate = new Date(sleepForm.endTime).toLocaleString()
+    const startTimeDate = new Date(sleepForm.startTime).toLocaleString()
+    c.preventDefault();
+    setErrors((e) => ({ ...e, nutritionForm: null }));
+    setIsLoading(true);
+    const { data, error } = await apiClient.logSleep({
+      startTime: startTimeDate,
+      endTime: endTimeDate
+    });
+    if (error) setErrors((e) => ({ ...e, regForm: error }));
+    if (data?.newSleep) {
+        console.log(data.newSleep)
+      setAppState({ ...appState, sleep: [...appState.sleep, data.newSleep] });
+      navigate("/sleep");
+    }
+
+    setIsLoading(false);
+
+    setSleepForm({
+      startTime: "",
+      endTime: "",
+    });
   }
   return (
     <div className="sleep-form">
@@ -25,7 +48,7 @@ export default function SleepForm({ setAppState, appState }) {
             id="startTime"
             className="form-input"
             type="datetime-local"
-            name="Start Time"
+            name="startTime"
             value={sleepForm.startTime}
             onChange={handleChange}
             required
@@ -35,8 +58,8 @@ export default function SleepForm({ setAppState, appState }) {
             id="endTime"
             className="form-input"
             type="datetime-local"
-            name="End Time"
-            value={sleepForm.startTime}
+            name="endTime"
+            value={sleepForm.endTime}
             onChange={handleChange}
             required
           />
@@ -44,7 +67,7 @@ export default function SleepForm({ setAppState, appState }) {
           <button
             className="submit-registration"
             disabled={isLoading}
-            // onClick={logSleep}
+            onClick={logSleep}
           >
             {isLoading ? "Loading... " : "Log Sleep"}
           </button>
