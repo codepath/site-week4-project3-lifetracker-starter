@@ -9,6 +9,8 @@ import { useState, useEffect } from "react";
 import ActivityPage from "../../pages/ActivityPage/ActivityPage";
 import apiClient from "../../../services/apiClient";
 import NutritionPage from "../../pages/NutritionPage/NutritionPage";
+import SleepPage from "../../pages/SleepPage/SleepPage";
+import ExercisePage from "../../pages/ExercisePage/ExercisePage";
 
 function App() {
   const [appState, setAppState] = useState({
@@ -22,20 +24,18 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-      async function fetchUser() {
-        const { data, error } = await apiClient.fetchUserFromToken();
+    async function fetchUser() {
+      const { data, error } = await apiClient.fetchUserFromToken();
 
-        if (data) setAppState({ ...appState, user: data.user });
-        if (error) setAppState(error);
-      }
+      if (data) setAppState({ ...appState, user: data.user });
+      if (error) setAppState(error);
+    }
 
-      const token = localStorage.getItem("lifetracker_token");
-      if (token) {
-        apiClient.setToken(token);
-        fetchUser();
-
-      }
-  
+    const token = localStorage.getItem("lifetracker_token");
+    if (token) {
+      apiClient.setToken(token);
+      fetchUser();
+    }
   }, []);
 
   return (
@@ -52,15 +52,30 @@ function App() {
             path="/login"
             element={<LoginPage setAppState={setAppState} />}
           />
-          <Route path="/nutriton" element={<NutritionPage appState={appState} />} />
           <Route
             path="/activity"
             element={
               <ActivityPage setAppState={setAppState} appState={appState} />
             }
           />
-          <Route path="/nutrition/*" element={<NutritionPage setAppState={setAppState} appState={appState}/>}/>
-          
+          <Route
+            path="/nutrition/*"
+            element={
+              <NutritionPage setAppState={setAppState} appState={appState} />
+            }
+          />
+          <Route
+            path="/sleep/*"
+            element={
+              <SleepPage setAppState={setAppState} appState={appState} />
+            }
+          />
+          <Route
+            path="/exercise/*"
+            element={
+              <ExercisePage setAppState={setAppState} appState={appState} />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

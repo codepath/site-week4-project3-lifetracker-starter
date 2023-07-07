@@ -1,7 +1,6 @@
 import "./NutritionPage.css"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NutritionOverview from "../../components/Nutrition/NutritionOverview/NutritionOverview";
-import NutritionDetail from "../../components/Nutrition/NutritionDetail/NutritionDetail";
 import NutritionForm from "../../components/Nutrition/NutritionForm/NutritionForm";
 
 export default function NutritionPage({ setAppState, appState }) {

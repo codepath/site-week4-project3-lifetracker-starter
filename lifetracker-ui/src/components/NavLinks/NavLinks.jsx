@@ -8,23 +8,48 @@ export default function NavLinks({ appState, setAppState }) {
     return (
       <div className="nav-links">
         <ul className="links">
-          <li onClick={() => {navigate("/nutrition")}}>
+          <li
+            onClick={() => {
+              navigate("/exercise");
+            }}
+          >
+            <Link to="/exercise">Exercise</Link>
+          </li>
+          <li
+            onClick={() => {
+              navigate("/sleep");
+            }}
+          >
+            <Link to="/sleep">Sleep</Link>
+          </li>
+          <li
+            onClick={() => {
+              navigate("/nutrition");
+            }}
+          >
             <Link to="/nutrition">Nutrition</Link>
           </li>
-          <li onClick={() => {navigate("/activity")}}>
+          <li
+            onClick={() => {
+              navigate("/activity");
+            }}
+          >
             <Link to="/activity">Activity</Link>
           </li>
-          <li onClick={() => {navigate("/login")}}>
+          <li
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
             <Link to="/login">Login</Link>
           </li>
-          <li onClick={<Link to="/register"/>}>
+          <li onClick={<Link to="/register" />}>
             <Link to="/register">Sign Up</Link>
           </li>
         </ul>
       </div>
     );
   } else {
-
     async function logoutUser() {
       await apiClient.logoutUser();
       setAppState({ ...appState, user: "", isAuthenticated: false, token: "" });
@@ -34,10 +59,32 @@ export default function NavLinks({ appState, setAppState }) {
     return (
       <div className="nav-links">
         <ul className="links">
-          <li onClick={() => {navigate("/nutrition")}}>
+          <li
+            onClick={() => {
+              navigate("/exercise");
+            }}
+          >
+            <Link to="/exercise">Exercise</Link>
+          </li>
+          <li
+            onClick={() => {
+              navigate("/sleep");
+            }}
+          >
+            <Link to="/sleep">Sleep</Link>
+          </li>
+          <li
+            onClick={() => {
+              navigate("/nutrition");
+            }}
+          >
             <Link to="/nutrition">Nutrition</Link>
           </li>
-          <li onClick={() => {navigate("/activity")}} >
+          <li
+            onClick={() => {
+              navigate("/activity");
+            }}
+          >
             <Link to="/activity">Activity</Link>
           </li>
           <li onClick={logoutUser}>Log Out</li>
