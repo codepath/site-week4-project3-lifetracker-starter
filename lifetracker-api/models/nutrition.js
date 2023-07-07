@@ -50,7 +50,7 @@ class Nutrition {
         nutrition.category,
         nutrition.quantity,
         nutrition.calories,
-        nutrition.imageUrl,
+        nutrition.image_url,
         user.email,
       ]
     );

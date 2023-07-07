@@ -7,6 +7,7 @@ const { NotFoundError } = require("./utils/errors")
 const authRoutes = require('./routes/auth')
 const security = require('./middleware/security')
 const nutritionRoutes = require('./routes/nutrition')
+const activityRoutes = require('./routes/activity')
 
 app.use(express.json())
 app.use(cors())
@@ -14,6 +15,7 @@ app.use(morgan('tiny'))
 app.use(security.extractUserFromJWT)
 app.use('/auth', authRoutes)
 app.use('/nutrition', nutritionRoutes)
+app.use('/activity', activityRoutes)
 
 app.get('/', (req,res) => {
   res.status(200).json({ping:'pong'})

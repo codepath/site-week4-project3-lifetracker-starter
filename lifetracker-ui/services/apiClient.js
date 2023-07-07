@@ -38,6 +38,9 @@ class ApiClient {
     return await this.request({endpoint: "nutrition/new", method: "POST", data: nutrition})
   }
 
+  async fetchAverageCaloriesByDay(){
+    return await this.request({ endpoint: "activity", method: "GET"})
+  }
   async fetchNutritionList() {
     return await this.request({ endpoint: "nutrition", method: "GET"})
   }

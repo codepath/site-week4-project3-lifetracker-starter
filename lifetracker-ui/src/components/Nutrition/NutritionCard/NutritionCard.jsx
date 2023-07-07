@@ -1,7 +1,7 @@
+import { useEffect } from "react";
 import "./NutritionCard.css";
 
 export default function NutritionCard({ nutrition }) {
-  
     
     return (
     <div className="nutrition-card">
@@ -10,7 +10,7 @@ export default function NutritionCard({ nutrition }) {
         <div className="card-text">
           <span>
             {nutrition.image_url ? (
-              <img src={nutrition.image_url}/>
+              <img className="icon" src={nutrition.image_url}/>
             ) : (
               <span className="icon">{nutrition.name[0]}</span>
             )}

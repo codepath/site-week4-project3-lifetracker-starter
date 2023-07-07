@@ -9,7 +9,7 @@ export default function Navbar({ appState, setAppState }) {
       <ul className="logo">
         <li>
           <Link to="/">
-            <img src="https://www.pngkit.com/png/detail/122-1228230_gemssq-gems-logo.png"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/CBC_Gem_logo.svg/2560px-CBC_Gem_logo.svg.png"/>
           </Link>
         </li>
       </ul>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function ActivityFeed({ setAppState, appState }) {
   const [averageCalories, setAverageCalories] = useState();
+  
   useEffect(() => {
     async function fetchUserNutrition() {
       const { data, error } = await apiClient.fetchNutritionList();
@@ -13,27 +14,36 @@ export default function ActivityFeed({ setAppState, appState }) {
     fetchUserNutrition();
   }, []);
 
+  // useEffect(() => {
+  //   const getDates = [
+  //     ...new Set(
+  //       appState.nutritions?.map((obj) =>
+  //         new Date(obj.created_at).toLocaleDateString()
+  //       )
+  //     ),
+  //   ];
+  //   const numDays = getDates.length;
+  //   const totalCalories = appState.nutritions?.reduce(
+  //     (sum, obj) => sum + obj.calories,
+  //     0
+  //   );
+  //   setAverageCalories(totalCalories / numDays);
+  // }, []);
+
   useEffect(() => {
-    const getDates = [
-      ...new Set(
-        appState.nutritions?.map((obj) =>
-          new Date(obj.created_at).toLocaleDateString()
-        )
-      ),
-    ];
-    const numDays = getDates.length;
-    const totalCalories = appState.nutritions?.reduce(
-      (sum, obj) => sum + obj.calories,
-      0
-    );
-    setAverageCalories(totalCalories / numDays);
-  }, []);
+    async function fetchAverageCalories() {
+      const { data, error} = await apiClient.fetchAverageCaloriesByDay()
+      if (data) setAverageCalories(data.avgCalories)
+      if (error) throw error;
+    }
+    fetchAverageCalories();
+  },[])
 
   return (
     <div className="activity-feed">
       <div className="average-calories-container">
-        <span>Average Calories Per Day:</span> <br/>
-        <span>{averageCalories ? averageCalories : 0.0}</span>
+        <span>Average Calories Per Day:</span>
+        <span>{averageCalories ? parseFloat(averageCalories.avg).toFixed(2) : 0.0}</span>
       </div>
     </div>
   );

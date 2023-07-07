@@ -10,7 +10,7 @@
 
 .activity-page .redirects {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     padding: 10px;
 }
 

@@ -21,15 +21,15 @@ export default function NutritionForm({ setAppState, appState }) {
 
   async function saveRecord(c) {
     c.preventDefault();
-    setErrors((e) => ({ ...e, regForm: null }));
+    setErrors((e) => ({ ...e, nutritionForm: null }));
     setIsLoading(true);
     const { data, error } = await apiClient.recordNutrition({
       name: nutritionForm.name,
       category: nutritionForm.category,
       quantity: nutritionForm.quantity,
       calories: nutritionForm.calories,
+      image_url: nutritionForm.imageUrl
     });
-
     if (error) setErrors((e) => ({ ...e, regForm: error }));
     if (data?.newNutrition) {
       setAppState({ ...appState, nutritions: [...appState.nutritions, data.newNutrition] });
