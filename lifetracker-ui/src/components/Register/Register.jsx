@@ -1,17 +1,48 @@
 import './Register.css'
-import {useState} from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import jwtDecode from "jwt-decode"
 
-export default function Register  (onRegister)   {
+export default function Register  ({userId, setUserId,loggedIn, setLoggedIn})   {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmedPassword, setConfirmedPassword] = useState("")
+
+    const handleRegistration = async (email, password, first_name, last_name, username) => {
+      try {
+         console.log("first name value in handleRegsiteration: ", first_name)
+         console.log("username value in handleRegsiteration: ", username)
+         let response = await axios.post('http://localhost:3001/auth/register', {email, password, first_name, last_name, username})
+         console.log("Response output: ", response)
+         
+         if (response.status === 201) {
+         const { token } = response.data
+         localStorage.setItem("token", token); 
+ 
+         const decodedToken = jwtDecode(token); //a way to get userid from token
+         setUserId(decodedToken.userId);
+ 
+         //Registration successful
+         setLoggedIn(true);
+         console.log(response.data.message);  //optional - display a success message
+       }
+       else{
+         console.log(data.message); 
+       }
+ 
+      } catch (error) {
+       console.error(error);
+      }};
   
+
     const handleSubmit = (e) => {
       e.preventDefault();
-      onRegister(name, email, password);
+      handleRegistration(email, password, firstName, lastName, username);
+      console.log("firstName value: ", firstName)
+    //  console.log("registered? i think")
     }
     return  (
         <div className="css-9cjjy5">
@@ -24,7 +55,8 @@ export default function Register  (onRegister)   {
       </span>
       <h2 className="chakra-heading css-3q8efk">Create an Account</h2>
       <div className="css-ebzegt">
-         <form>
+         {/* onSubmit={handleSubmit} */}
+         <form onSubmit={handleSubmit}>
             <div className="chakra-stack css-1opnp10">
                <div role="group" className="chakra-form-control css-1kxonj9">
                   <div className="chakra-input__group css-bx0blc" data-group="true">

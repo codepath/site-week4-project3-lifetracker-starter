@@ -1,4 +1,4 @@
-\echo 'Delete and recreate vaccine_hub db?'
+\echo 'Delete and recreate lifetracker db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
 
 DROP DATABASE lifetracker;

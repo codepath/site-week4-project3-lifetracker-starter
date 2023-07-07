@@ -1,5 +1,5 @@
 require("dotenv").config
-require("colors")
+//require("colors")
 
 //to use values from .env need to put them into this folder
 const PORT = process.env.PORT ? Number(process.env.PORT):3001
@@ -16,9 +16,11 @@ function getDatabaseUri(){
    return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}` //full database connection string
 }
 const BCRYPT_WORK_FACTOR=13
+const SECRET_KEY="waliaibex23"
 
 console.log(getDatabaseUri())
 module.exports = {
     PORT,
-    getDatabaseUri
+    getDatabaseUri,
+    BCRYPT_WORK_FACTOR
 }
