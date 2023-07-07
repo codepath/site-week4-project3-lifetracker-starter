@@ -27,6 +27,7 @@ export default function Register  ({userId, setUserId,loggedIn, setLoggedIn})   
  
          //Registration successful
          setLoggedIn(true);
+         window.location.href = "/"
          console.log(response.data.message);  //optional - display a success message
        }
        else{

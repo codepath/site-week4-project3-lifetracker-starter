@@ -1,6 +1,18 @@
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import './SleepPage.css'
+import SleepCard from '../SleepCard/SleepCard'
 
 export default function SleepPage() {
+
+   const [sleepData, setSleepData] = useState([]);
+
+   useEffect(() => {
+      axios.get('http://localhost:3001/sleep').then((response) => {
+         setSleepData(response.data)
+      })
+   }, []);
+   console.log(sleepData)
     return (
 <div className="SleepPage css-1bpnzr3">
    <div className="css-k2eq80">
@@ -13,6 +25,15 @@ export default function SleepPage() {
          <div className="css-uiodal">
             <div className="sleep-feed">
                <a className="chakra-link button css-spn4bz" href="/sleep/create"><button type="button" className="chakra-button css-ez23ye">Add Sleep</button></a>
+               <div className='sleep-containter'>
+                  {sleepData?.map((sleepItem, index) => {
+                     return(
+                        <div className='sleep-item'>
+                     <SleepCard key={sleepItem.id} sleepItem={sleepItem} index = {index} />
+                        </div>
+                     )
+                  })}
+               </div>
                {/* <div className="chakra-stack css-xixnl8">
                   <div className="css-sxxv4f">
                      <div className="css-56yjmq"> */}

@@ -1,15 +1,26 @@
 import './SleepCreate.css'
 import { useState } from 'react'
 import axios from 'axios'
-
+import Cheer from "../ActivityPage/cheer.mp3"
+import {Howl, Howler} from "howler"
 
 export default function SleepCreate({ user_id }) {
+
+// function play() {
+//    const audio = new Audio(Cheer)
+//  }
     const [startTime, setStartTime] = useState()
     const [endTime, setEndTime] = useState()
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         handleSleep(startTime, endTime, user_id);
+        const audio = new Audio(Cheer);
+        audio.play();
+        setTimeout(() => {
+          window.location.href = "/sleep";
+        }, 5000); 
         console.log(startTime)
         console.log(endTime)
         console.log(user_id)
@@ -26,7 +37,7 @@ export default function SleepCreate({ user_id }) {
     }
 
     return (
-    <div className="SleepPage css-1bpnzr3">
+    <div className="SleepPage css-1bpnzr33">
    <div className="css-k2eq80">
       <div className="chakra-stack css-1cgbrw5">
          <h2 className="chakra-heading css-b5coes">Sleep</h2>

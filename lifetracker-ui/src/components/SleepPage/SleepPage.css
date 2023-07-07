@@ -6,10 +6,13 @@
 }
 .css-1bpnzr3 {
   margin-top: 2.5rem;
+  background-image: url("src/assets/night-sky.jpeg");
+  height: 100%;
+  width: 100%;
 }
 
 .css-k2eq80 {
-  background: blue;
+  /* background: blue; */
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
   padding-inline-start: 1.5rem;
@@ -75,3 +78,23 @@
   padding-bottom: 1.25rem;
   background-color: #00B5D8;
 }
+
+.css-ez23ye {
+  display: inline-block;
+  padding: 20px 16px;
+  background-color: darkblue;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: 230px
+}
+/* .sleep-item:nth-of-type(2n) {
+  background-color: #4caf50;
+}
+
+.sleep-item:nth-of-type(2n) span {
+  color: #fff;
+} */

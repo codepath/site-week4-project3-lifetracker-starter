@@ -1,18 +1,20 @@
 import './Home.css'
 import {useState} from 'react'
 
-export default function Home () {
+export default function Home ({ loggedIn, firstName }) {
     return (
         <div className="css-16ecvb5">
    <div className="css-1561uet">
       <div className="chakra-stack css-18rb735">
          <h1 className="chakra-heading css-bgad6s">LifeTracker</h1>
-         <h2 className="chakra-heading css-1la3ewl">Helping you take back control of your world.</h2>
-         <a href="/register"><button type="button" className="chakra-button css-uybm84">Create your account now</button></a>
+         <h2 className="chakra-heading css-1la3ewl">
+            {loggedIn ? `Hi, ${firstName}! Welcome to LifeTracker` : "Helping you take back control of your world."}
+          </h2>
+          {!loggedIn && <a href="/register"><button type="button" className="chakra-button css-uybm84">Create your account now</button></a>}
+        </div>
+        <div className="css-jocq0n"><img src="src/assets/tracker.jpg" className="chakra-image css-incex5" /></div>
       </div>
-      <div className="css-jocq0n"><img src="src/assets/tracker.jpg" className="chakra-image css-incex5"/></div>
-   </div>
-   <div className="tiles css-gg4vpm">
+      <div className="tiles css-gg4vpm">
       <div spacing="10px" className="css-dvxtzn">
          <div className="css-70qvj9">
             <p className="chakra-text css-1jijfcn">Fitness</p>
