@@ -1,7 +1,9 @@
 .hero {
     display: flex;
     justify-content: space-between;
-    background-color:  #C7DAD4
+    background-color:  #C7DAD4;
+    max-width: 1250px;
+    margin: 0 auto;
 }
 
 .hero img {

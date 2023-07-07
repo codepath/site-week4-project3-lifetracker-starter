@@ -1,5 +1,34 @@
 .landing-page{
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
+.landing-feed img {
+    width: 350px;
+    height: 350px;
+
+}
+.landing-feed {
+    display: flex;
+    flex-direction: column;
+}
+
+.landing-cards {
+    display: flex;
+}
+
+.landing-feed .card {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}
+
+.landing-cards .card h2 {
+    display: flex;
+    justify-content: center;
+}
+.landing-cards .card .img {
+    display: flex;
+    justify-content: center;
+}

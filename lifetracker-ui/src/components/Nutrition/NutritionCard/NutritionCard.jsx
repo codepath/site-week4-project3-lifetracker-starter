@@ -10,7 +10,7 @@ export default function NutritionCard({ nutrition }) {
         <div className="card-text">
           <span>
             {nutrition.image_url ? (
-              <img />
+              <img src={nutrition.image_url}/>
             ) : (
               <span className="icon">{nutrition.name[0]}</span>
             )}

@@ -9,6 +9,7 @@
 
 .nutrition-overview .header {
     display: flex;
+    font-size: 50px;
 }
 .nutrition-overview .record-nutrition {
     display: flex;
