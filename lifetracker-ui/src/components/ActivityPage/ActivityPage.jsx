@@ -71,7 +71,7 @@ export default function ActivityPage({
   const authenticathedUser = (
     <>
       <div className="Activity-page css-ra15rn">
-        <h2 className="h2-heading">Hello 😁 {appState?.firstName}</h2>
+        <h2 id = "heading-activity" className="h2-heading">Welcome, {appState?.firstName} 👋🏼 </h2>
         <div className="chakra-container css-1m340o4">
           <div className="chakra-stack css-12mzq72">
             <h2 className="chakra-heading css-1jb3vzl">Activity Feed</h2>

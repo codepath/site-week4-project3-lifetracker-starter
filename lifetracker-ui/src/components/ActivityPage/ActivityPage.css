@@ -335,3 +335,9 @@
     font-family: var(--chakra-fonts-body);
 }
 
+#heading-activity{
+
+    font-family: var(--chakra-fonts-heading);
+    font-weight: 300;
+    font-size: 25pt;
+}
