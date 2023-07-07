@@ -40,9 +40,9 @@ export default function App() {
           const exercises = response.data.exercises;
           const exerciseTime = response.data.exerciseTime;
           const exerciseAvg = response.data.exerciseAvg;
-          setExerciseAvg(parseInt(exerciseAvg).toFixed(1));
+          setExerciseAvg(exerciseAvg === null ? 0.00 : (parseInt(exerciseAvg).toFixed(1)));
           setExerciseArray(exercises);
-          setExerciseTime(parseInt(exerciseTime).toFixed(1));
+          setExerciseTime(exerciseTime === null ? 0.00 : (parseInt(exerciseTime).toFixed(1)));
         })
         .catch((error) => {
           console.log("Error with axios:", error); // Debugging console.log
@@ -68,7 +68,7 @@ export default function App() {
           const nutritionCalories = response.data.nutritionCalories;
           const nutritionMax = response.data.nutritionMax;
           setNutritionCalories(nutritionCalories === null ? 0.00 : (parseInt(nutritionCalories).toFixed(1)))
-          setNutritionMax(parseInt(nutritionMax).toFixed(1))
+          setNutritionMax(nutritionMax === null? 0.00 : (parseInt(nutritionMax).toFixed(1)))
         })
         .catch((error) => {
           console.log("Error with axios:", error); // Debugging console.log
