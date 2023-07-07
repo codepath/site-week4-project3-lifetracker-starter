@@ -77,6 +77,27 @@ class Nutrition {
 
     return nutrition
   }
+  /**
+   * Fetch a user in the database by email
+   *
+   * @param {String} email
+   * @returns nutrition
+   */
+  static async getAverageDailyCalories(userId) {
+    const result = await db.query(
+      `SELECT 
+          AVG(CAST(calories AS FLOAT)) AS average
+      FROM nutrition
+      WHERE user_id = $1
+      ;`,
+      [userId]
+    )
+    
+
+    const nutrition = result.rows[0]
+
+    return nutrition
+  }
 }
 
 module.exports = Nutrition

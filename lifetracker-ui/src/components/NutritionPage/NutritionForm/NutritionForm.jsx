@@ -59,24 +59,33 @@ export default function NutritionForm({ user, setIsActive, setAppState, nutritio
             name="name"
             type="text"
             id="name"
+            placeholder="Name"
             value={nutritionFormState.name}
             onChange={handleOnInputChange}
             required
           />
     
           <label htmlFor="category">Category:</label>
-          <input
+          <select
+            className="input"
             name="category"
-            type="text"
+            type="option"
             id="category"
             value={nutritionFormState.category}
             onChange={handleOnInputChange}
-            required
-          />
+            required>
+
+            <option value=''>Select Category</option>
+            <option value='Snack'>Snack</option>
+            <option value='Beverage'>Beverage</option>
+            <option value='Food'>Food</option>
+
+            </select>
     
           <label htmlFor="calories">Calories:</label>
           <input
             name="calories"
+            placeholder="Calories"
             type="number"
             id="calories"
             value={nutritionFormState.calories}
@@ -87,6 +96,7 @@ export default function NutritionForm({ user, setIsActive, setAppState, nutritio
           <label htmlFor="image">Image URL:</label>
           <input
             name="image"
+            placeholder="Image URL"
             type="text"
             id="image"
             value={nutritionFormState.image}

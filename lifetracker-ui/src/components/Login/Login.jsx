@@ -40,7 +40,7 @@ export default function Login({ setAppState , appState}) {
         setAppState(decodedToken)
 
         setIsLoading(false)
-        navigate("/portal")
+        navigate("/activity")
       } else {
         setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
         setIsLoading(false)

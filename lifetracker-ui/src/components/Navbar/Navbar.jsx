@@ -6,6 +6,7 @@ export default function Navbar( {user, setAppState} ) {
   const navigate = useNavigate()
   const handleOnLogout = () => {
     setAppState({});
+    localStorage.removeItem("token");
     navigate("/");
   };
   
@@ -19,7 +20,7 @@ export default function Navbar( {user, setAppState} ) {
         </Link>
         <ul className="links">
            
-           <Link to="/activities">
+           <Link to="/activity">
           <li >Activity</li>
            </Link>
           

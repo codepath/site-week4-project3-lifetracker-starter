@@ -20,6 +20,13 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+.nutrition-form .input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: rgb(140, 144, 147);
+}
 
 .nutrition-form button {
   padding: 10px 20px;

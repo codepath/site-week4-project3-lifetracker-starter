@@ -1,14 +1,14 @@
 .nutrition-feed-container{
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  margin-left: 150px;
-  margin-right: 150px;
   gap: 20px;
 }
 .nutrition-card {
   display: flex;
   flex-wrap: wrap;
+  width: 40%;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
@@ -20,7 +20,12 @@
   object-fit: cover;
   border-radius: 4px;
 }
-
+.record-name{
+  font-weight: bolder;
+}
+.titles{
+  color: #09b584;
+}
 .nutrition-info {
   margin-left: 10px;
 }

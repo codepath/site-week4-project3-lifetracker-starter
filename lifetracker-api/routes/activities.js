@@ -30,5 +30,16 @@ router.post('/nutritionfeed', async function (req,res,next){
   }
 })
 
+router.post('/nutritionavgcalories', async function (req,res,next){
+
+  try {
+    const nutrition = await Nutrition.getAverageDailyCalories(req.body.userId)
+    res.status(200);
+    res.json({nutrition});
+  } catch (err) {
+    next(err)
+  }
+})
+
 
 module.exports = router

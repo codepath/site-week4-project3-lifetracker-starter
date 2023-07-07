@@ -37,9 +37,10 @@ export default function NutritionFeed({ user, setAppState, nutritionFormState, s
         </div>
         <div className="nutrition-info">
          
-                <p>{info.name}</p>
-                <p>{info.category}</p>
-                <p>{info.calories}</p>
+                <p className="record-name">{info.name}</p>
+                <br/><br/>
+                <p><a className="titles">Category: </a>{info.category}</p>
+                <p><a className="titles">Calories: </a>{info.calories}</p>
 
         </div>
         </div>

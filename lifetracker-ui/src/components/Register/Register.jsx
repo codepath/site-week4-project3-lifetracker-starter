@@ -75,7 +75,7 @@ function Register({setAppState}) {
             setAppState(decodedToken)
 
             setIsLoading(false)
-            navigate("/portal")
+            navigate("/activity")
           } else {
             setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
             setIsLoading(false)
@@ -105,7 +105,7 @@ function Register({setAppState}) {
         
         <h2 className="header">Create an Account</h2>
         <div className="form-container">
-
+        {Boolean(errors.form) && <span className="error">{errors.form}</span>}
             <form onSubmit={handleOnSubmit}>
                 <div className="input-container">
                     <div role="group" className="email-input">
