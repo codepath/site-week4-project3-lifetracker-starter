@@ -15,9 +15,18 @@ router.post('/new', security.extractUserFromJWT, async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
     try{
-        const { user } = res.locals
-        const nutrition = await Nutrition.listNutrition(req.body, user)
-        return res.status(200).json({nutrition: nutrition})
+        const nutritionList = await Nutrition.listNutrition()
+        return res.status(200).json({nutritionList})
+    } catch (err) {
+        next(err)
+    }
+})
+
+router.get('/:nutritionId', async (req, res, next) => {
+    try {
+        const { nutritionId } = req.params;
+        const nutrition = await Nutrition.fetchNutritionById(nutritionId);
+        return res.status(200).json({nutrition})
     } catch (err) {
         next(err)
     }
