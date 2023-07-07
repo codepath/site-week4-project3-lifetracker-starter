@@ -9,7 +9,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
 
     // const [nutritionCalories, setNutritionCalories] = useState()
     // const [nutritionMax, setNutritionMax] = useState()
-    const nutritionCalories = nutritionCalories !== (NaN || null) ? parseInt(nutritionCalories).toFixed(1) : setNutritionCalories(0.0);
+    const NewNutritionCalories = nutritionCalories !== (NaN || null) ? parseInt(nutritionCalories).toFixed(1) : setNutritionCalories(0.0);
     
     
 
@@ -137,7 +137,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
                 </div>
                 <div className="css-0">
                     <div className="css-1lekzkb">
-                        <p className="chakra-text css-51dhyc">{nutritionCalories}</p>
+                        <p className="chakra-text css-51dhyc">{NewNutritionCalories}</p>
                         <div className="chakra-stack css-tl3ftk">
                             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" focusable="false" className="chakra-icon css-9dla43" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path
