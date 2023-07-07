@@ -1,57 +1,29 @@
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
-const db = require("../database");
 const bcrypt = require("bcrypt");
 const { BCRYPT_WORK_FACTOR } = require("../config");
-const Stats = require("../utils/stats")
+const Stats = require("../utils/stats");
+const All = require("../utils/all");
 
 class User {
   static async _createPublicUser(user) {
-    const exercise = await db.query(
-      `SELECT 
-        name,
-        duration, 
-        intensity,
-        created_at
-          FROM exercise
-          WHERE user_id = $1
-          ORDER BY created_at DESC`,
-      [user.id]
-    );
+    const exercise = await All.exercise(user.id);
 
-    const sleep = await db.query(
-      `SELECT 
-        start_time,
-        end_time
-          FROM sleep
-          WHERE user_id = $1
-          ORDER BY created_at DESC`,
-      [user.id]
-    );
+    const sleep = await All.sleep(user.id);
 
-    const nutrition = await db.query(
-      `SELECT 
-      name, 
-      category,
-      quantity,
-      calories,
-      image_url
-          FROM nutrition
-          WHERE user_id = $1
-          ORDER BY created_at DESC`,
-      [user.id]
-    );
+    const nutrition = await All.nutrition(user.id);
+
     const userInfo = {
       id: user.id,
       first_name: user.first_name,
       username: user.username,
-      email: user.email
+      email: user.email,
     };
 
     return {
       user: userInfo,
-      exercise: exercise.rows,
-      sleep: sleep.rows,
-      nutrition: nutrition.rows,
+      exercise: exercise,
+      sleep: sleep,
+      nutrition: nutrition,
     };
   }
 
@@ -70,43 +42,19 @@ class User {
 
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
     const normalizedEmail = email.toLowerCase();
-
-    const result = await db.query(
-      `INSERT INTO users (
-            email, 
-            password, 
-            username, 
-            first_name, 
-            last_name
-            )
-            VALUES ($1, $2, $3, $4, $5)
-            RETURNING             
-                  first_name, 
-                  last_name,
-                  username,
-                  email
-        `,
-      [normalizedEmail, hashedPassword, username, first_name, last_name]
+    const user = All.insertUsers(
+      normalizedEmail,
+      hashedPassword,
+      username,
+      first_name,
+      last_name
     );
-
-    const user = result.rows[0];
 
     return user;
   }
+
   static async fetchUserByEmail(email) {
-    const result = await db.query(
-      `SELECT id,
-                  email, 
-                  password,
-                  first_name,
-                  last_name,
-                  username
-               FROM users
-               WHERE email = $1
-              `,
-      [email.toLowerCase()]
-    );
-    const user = result.rows[0];
+    const user = await All.fetchUser(email.toLowerCase());
     return user;
   }
 
@@ -140,47 +88,21 @@ class User {
   static async insertExercise(data) {
     const { name, category, duration, intensity, id } = data;
 
-    const result = await db.query(
-      `INSERT INTO exercise (
-      name, 
-      category, 
-      duration, 
-      intensity, 
-      user_id
-      )
-      VALUES ($1, $2, $3, $4, $5)
-      RETURNING             
-                  name, 
-                  duration,
-                  intensity,
-                  created_at
-  `,
-      [name, category, duration, intensity, id]
+    const user = await All.insertExercise(
+      name,
+      category,
+      duration,
+      intensity,
+      id
     );
-
-    const user = result.rows[0];
 
     return user;
   }
 
   static async insertSleep(data) {
     const { start_time, end_time, id } = data;
-    console.log(start_time, end_time)
-    const result = await db.query(
-      `INSERT INTO sleep (
-      start_time, 
-      end_time,
-      user_id
-      )
-      VALUES ($1, $2, $3)
-      RETURNING             
-                  start_time, 
-                  end_time
-  `,
-      [start_time, end_time, id]
-    );
 
-    const user = result.rows[0];
+    const user = await All.insertSleep(start_time, end_time, id);
 
     return user;
   }
@@ -188,47 +110,35 @@ class User {
   static async insertNutrition(data) {
     const { name, category, quantity, calories, image_url, id } = data;
 
-    const result = await db.query(
-      `INSERT INTO nutrition (
-      name, 
-      category, 
-      quantity, 
-      calories, 
+    const user = await All.insertNutrition(
+      name,
+      category,
+      quantity,
+      calories,
       image_url,
-      user_id
-      )
-      VALUES ($1, $2, $3, $4, $5, $6)
-      RETURNING             
-                  name, 
-                  category,
-                  quantity,
-                  calories,
-                  image_url
-  `,
-      [name, category, quantity, calories, image_url, id]
+      id
     );
-
-    const user = result.rows[0];
 
     return user;
   }
 
   static async sendSummary(idInfo) {
-    const { id } = idInfo
-    const sumExerciseMins = await Stats.sumExerciseMins(id)
-    const avgSleepHours = await Stats.avgSleepHours(id)
-    const totalNumSleep = await Stats.totalNumSleep(id)
-    const averageExerciseInt = await Stats.averageExerciseInt(id)
-    const maxCalsInOneMeal = await Stats.maxCalsInOneMeal(id)
-    const averageDailyCalories = await Stats.averageDailyCalories(id)
+    const { id } = idInfo;
+    const sumExerciseMins = await Stats.sumExerciseMins(id);
+    const avgSleepHours = await Stats.avgSleepHours(id);
+    const totalNumSleep = await Stats.totalNumSleep(id);
+    const averageExerciseInt = await Stats.averageExerciseInt(id);
+    const maxCalsInOneMeal = await Stats.maxCalsInOneMeal(id);
+    const averageDailyCalories = await Stats.averageDailyCalories(id);
 
-    return {sumExerciseMins: sumExerciseMins,
+    return {
+      sumExerciseMins: sumExerciseMins,
       avgSleepHours: avgSleepHours,
       totalNumSleep: totalNumSleep,
       averageExerciseInt: averageExerciseInt,
       maxCalsInOneMeal: maxCalsInOneMeal,
-      averageDailyCalories: averageDailyCalories
-    }
+      averageDailyCalories: averageDailyCalories,
+    };
   }
 }
 

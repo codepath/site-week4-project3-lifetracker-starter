@@ -228,14 +228,14 @@ export default function Register({ setAppState }) {
               {showhide.second_button ? "Hide" : "Show"}
             </button>
           </div>
-          {userInfo.password !== userInfo.confirmPassword ? (
+          {userInfo.password !== userInfo.confirmPassword &&
             <>
               <span style={{ color: "red", marginLeft: "60%" }}>
                 Passwords do not match
               </span>{" "}
               <br />
             </>
-          ) : null}
+          }
           {userInfo.password.length >= 8 ||
           userInfo.password.length === 0 ? null : (
             <>

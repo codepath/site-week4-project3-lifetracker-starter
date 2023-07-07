@@ -82,7 +82,13 @@ export default function ExercisePage({ appState, setAppState }) {
                       name="name"
                       placeholder="Name"
                     />{" "}
-                    <br />
+                    {!exerciseInfo.name && (
+                      <>
+                        <span style={{ color: "red", marginLeft: "75%" }}>
+                          Please input a name.
+                        </span>{" "}
+                      </>
+                    )}
                     <label className="bars-label" htmlFor="category" required>
                       Category
                     </label>

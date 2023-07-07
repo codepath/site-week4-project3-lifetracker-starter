@@ -8,7 +8,7 @@ export default function SleepPage({ appState, setAppState }) {
   const [sleepForm, setSleepForm] = useState(false);
   const [sleepInfo, setSleepInfo] = useState({
     start_time: "",
-    end_time: ""
+    end_time: "",
   });
 
   async function handleRecord(e) {
@@ -18,7 +18,11 @@ export default function SleepPage({ appState, setAppState }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (sleepInfo.start_time && sleepInfo.end_time && sleepInfo.start_time < sleepInfo.end_time)  {
+    if (
+      sleepInfo.start_time &&
+      sleepInfo.end_time &&
+      sleepInfo.start_time < sleepInfo.end_time
+    ) {
       try {
         const token = localStorage.getItem("LifeTracker_Token");
         apiClient.setToken(token);
@@ -94,7 +98,14 @@ export default function SleepPage({ appState, setAppState }) {
                       required
                     />
                     <br />
-
+                    {sleepInfo.start_time > sleepInfo.end_time && (
+                      <>
+                        <span style={{ color: "red", marginLeft: "45%" }}>
+                          Your start time should be less that your end time.
+                        </span>{" "}
+                        <br />
+                      </>
+                    )}
                     <button onClick={handleSubmit} className="bars-cancel">
                       Save
                     </button>
