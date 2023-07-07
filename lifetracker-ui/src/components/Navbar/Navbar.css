@@ -7,7 +7,7 @@
   max-width: 1310px;
   padding-top: 50px;
   padding-inline: 20px;
-  height: 70px;
+  height: 100px;
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: justify;
@@ -47,5 +47,5 @@
 }
 
 .logo-img {
-  width: 50px
+  width: 50px;
 }

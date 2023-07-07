@@ -10,6 +10,7 @@
     align-items: center;
     flex-direction: row;
     padding-top: 30px;
+    background-image: url(src/assets/cloudy.jpeg);
 }
 
 .css-1m340o4 {
@@ -47,11 +48,12 @@
     border-radius: 3;
     padding: 5; */
     width: 100%;
-    background: #319795;
+    /* background: #319795; */
+    background: #81b3fa;
     color: #FFFFFF;
     border-radius: 0.5rem;
     padding: 1.25rem;
-}
+} 
 
 
 .css-12mzq72 {
@@ -80,6 +82,7 @@
     font-size: 0.875rem;
     line-height: 1.2;
     color: #022b69;
+
 }
 
 .css-1qwhsm9 {
@@ -112,7 +115,8 @@
 
 .css-1k6gjzc {
     width: 100%;
-    background: #00B5D8;
+    /* background: #00B5D8; */
+    background-color: plum;
     color: #FFFFFF;
     border-radius: 0.5rem;
     padding: 1.25rem;
@@ -132,3 +136,4 @@
     border-radius: 0.5rem;
     padding: 1.25rem;
 }
+

@@ -100,26 +100,42 @@ img {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 16px;
+  
 }
 
 .css-1la3ewl {
   font-size: 18px;
-  margin-bottom: 24px;
+  font-style: italic;
+  margin-bottom: 10px;
+  margin-left: 25px;
 }
 
 .css-incex5 {
-  align-items: end;
+  /* align-items:baseline;
+  width: 390px;
+  height: 390px; */
+  margin-left: 16px;
+    object-fit: cover;
+    border-radius: 70%;
 }
 .css-uybm84 {
   display: inline-block;
   padding: 12px 24px;
   background-color: #007bff;
-  color: #ffffff;
+  color: white;
   border: none;
   border-radius: 30px;
   font-size: 16px;
   text-decoration: none;
   transition: background-color 0.3s ease;
+}
+.css-bgad6s {
+  text-align: left;
+  margin-left: 25px;
+}
+
+.css-1la3ewl {
+  text-align: left;
 }
 
 .css-uybm84:hover {
@@ -138,12 +154,16 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f5f5f5;
+  background-color: white;
   border-radius: 12px;
   padding: 24px;
   text-align: center;
   transition: background-color 0.3s ease;
   cursor: pointer;
+}
+.css-1jijfcn {
+  font-size: larger;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .Tile img {
@@ -159,9 +179,9 @@ img {
   margin-bottom: 12px;
 }
 
-.Tile:hover {
+/* .Tile:hover {
   background-color: #e0e0e0;
-}
+} */
 
 
 .header {
@@ -180,12 +200,23 @@ img {
   text-align: left;
   display: flex;
   justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  /* background-color: #181253; */
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 1000px;
+  padding: 16px;
+  width: 1000px;
+  height: 299px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 16px;
 
 }
-
+/* 
 .css-gg4vpm {
   background-color: white;
-}
+} */
 
 .css-jocq0n {
   margin-left: auto;
@@ -193,7 +224,20 @@ img {
 
 .chakra-stack.css-18rb735 {
   text-align: right;
-  max-width: 6000px; /* Adjust the max-width value as needed */
+  max-width: 600px; /* Adjust the max-width value as needed */
   margin-right: auto;
   padding-right: 20px; /* Adjust the padding value as needed */
+}
+
+.css-70qvj99 {
+  display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 1000px;
+    padding: 16px;
+    /* width: 1000px;
+    height: 299px; */
+    transition: background-color 0.3s ease;
+    margin-bottom: 16px;
 }
