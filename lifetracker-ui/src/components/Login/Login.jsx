@@ -12,7 +12,6 @@ export default function Login({ setAppState , appState}) {
     email: "",
     password: "",
   })
-
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
       if (event.target.value.indexOf("@") === -1) {

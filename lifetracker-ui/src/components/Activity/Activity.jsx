@@ -42,17 +42,23 @@ export default function Activity({ user, setAppState }) {
       <div className="content">
       <h2>Activity Feed</h2>
       <div className="box-container">
-        <div className="box">
+        <div className="box exercise">
           <p>Total Exercise Minutes</p>
         </div>
-        <div className="box">
+        <div className="box sleep">
           <p>Average Hours of Sleep</p>
         </div>
-        <div className="box">
+        
+        <div className="box calories">
+        <Link to='/nutrition'>
           <p>Average Daily Calories</p>
-          <p>{averageCalories.toFixed(2)}</p>
+          <div className="info-container">
+          <p className="info">{averageCalories.toFixed(2)}</p>
+          </div>
+          </Link>
         </div> 
-        <div className="box">
+        
+        <div className="box stats">
           <p>More Stats</p>
         </div>
         </div>
