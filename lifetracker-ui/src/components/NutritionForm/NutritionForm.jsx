@@ -30,7 +30,7 @@ export default function NutritionForm({isLoggedIn, appState, setNutritionArray})
     const handleOnSubmit = async (event) => {
         event.preventDefault();
     
-        const res = await axios.post("http://localhost:3001/auth/nutrition/create", {
+        const res = await axios.post("https://lifetracker-api-tifu.onrender.com/auth/nutrition/create", {
             name: nutrition.name,
             category: nutrition.category,
             quantity: nutrition.quantity,
@@ -46,7 +46,7 @@ export default function NutritionForm({isLoggedIn, appState, setNutritionArray})
         });
 
         axios
-        .get("http://localhost:3001/auth/nutrition", {
+        .get("https://lifetracker-api-tifu.onrender.com/auth/nutrition", {
           params: {
             user_id: appState.user_id,
           },

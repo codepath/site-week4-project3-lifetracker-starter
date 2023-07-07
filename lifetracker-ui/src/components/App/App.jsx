@@ -31,7 +31,7 @@ export default function App() {
     if (appState.user_id) {
       console.log(appState)
       axios
-        .get("http://localhost:3001/auth/exercise", {
+        .get("https://lifetracker-api-tifu.onrender.com/auth/exercise", {
           params: {
             user_id: appState.user_id,
           },
@@ -57,7 +57,7 @@ export default function App() {
     if (appState.user_id) {
       console.log(appState)
       axios
-        .get("http://localhost:3001/auth/nutrition", {
+        .get("https://lifetracker-api-tifu.onrender.com/auth/nutrition", {
           params: {
             user_id: appState.user_id,
           },

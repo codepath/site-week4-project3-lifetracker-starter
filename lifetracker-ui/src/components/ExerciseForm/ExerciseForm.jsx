@@ -30,7 +30,7 @@ export default function ExerciseForm({isLoggedIn, appState, setExerciseArray}) {
     const handleOnSubmit = async (event) => {
         event.preventDefault();
     
-        const res = await axios.post("http://localhost:3001/auth/exercise/create", {
+        const res = await axios.post("https://lifetracker-api-tifu.onrender.com/auth/exercise/create", {
             name: exercise.name,
             category: exercise.category,
             time: exercise.time,
@@ -46,7 +46,7 @@ export default function ExerciseForm({isLoggedIn, appState, setExerciseArray}) {
         });
 
         axios
-        .get("http://localhost:3001/auth/exercise", {
+        .get("https://lifetracker-api-tifu.onrender.com/auth/exercise", {
           params: {
             user_id: appState.user_id,
           },

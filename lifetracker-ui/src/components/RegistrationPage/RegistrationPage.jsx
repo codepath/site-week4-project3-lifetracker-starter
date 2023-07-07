@@ -37,7 +37,7 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
     setErrors((e) => ({ ...e, form: null }))
 
     try {
-      const res = await axios.post("http://localhost:3001/auth/register", {
+      const res = await axios.post("https://lifetracker-api-tifu.onrender.com/auth/register", {
         firstName: form.firstName,
         lastName: form.lastName,
         email: form.email,
