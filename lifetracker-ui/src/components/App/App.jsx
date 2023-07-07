@@ -67,7 +67,7 @@ export default function App() {
           setNutritionArray(nutritions);
           const nutritionCalories = response.data.nutritionCalories;
           const nutritionMax = response.data.nutritionMax;
-          setNutritionCalories(parseInt(nutritionCalories).toFixed(1))
+          setNutritionCalories(nutritionCalories === null ? 0.00 : (parseInt(nutritionCalories).toFixed(1)))
           setNutritionMax(parseInt(nutritionMax).toFixed(1))
         })
         .catch((error) => {

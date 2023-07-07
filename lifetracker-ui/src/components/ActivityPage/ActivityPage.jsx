@@ -7,14 +7,8 @@ import { useState } from "react";
 
 export default function ActivityPage({appState, isLoggedIn, exerciseArray, setExerciseArray, exerciseTime, exerciseAvg, setExerciseTime, setExerciseAvg, nutritionCalories, setNutritionCalories, nutritionMax, setNutritionMax}) {
 
-    // const [nutritionCalories, setNutritionCalories] = useState()
-    // const [nutritionMax, setNutritionMax] = useState()
-    const NewNutritionCalories = nutritionCalories !== (NaN || null) ? parseInt(nutritionCalories).toFixed(1) : setNutritionCalories(0.0);
     
     
-
-    
-
     useEffect(() => {
         if (appState.user_id) {
           console.log(appState)
@@ -30,8 +24,6 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
               const exerciseAvg = response.data.exerciseAvg;
               setExerciseAvg(parseInt(exerciseAvg).toFixed(1))
               setExerciseTime(parseInt(exerciseTime).toFixed(1))
-              
-    
             })
             .catch((error) => {
               console.log("Error with axios:", error); // Debugging console.log
@@ -52,7 +44,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
             console.log("calories", response.data)
               const nutritionCalories = response.data.nutritionCalories;
               const nutritionMax = response.data.nutritionMax;
-              setNutritionCalories(parseInt(nutritionCalories).toFixed(1))
+              setNutritionCalories(nutritionCalories === null ? 0.00 : (parseInt(nutritionCalories).toFixed(1)))
               setNutritionMax(parseInt(nutritionMax).toFixed(1))
             })
             .catch((error) => {
@@ -60,8 +52,6 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
             });
         }
       }, []);
-
-    
 
     const authenticathedUser = 
     <>
@@ -137,7 +127,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
                 </div>
                 <div className="css-0">
                     <div className="css-1lekzkb">
-                        <p className="chakra-text css-51dhyc">{NewNutritionCalories}</p>
+                        <p className="chakra-text css-51dhyc">{nutritionCalories}</p>
                         <div className="chakra-stack css-tl3ftk">
                             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" focusable="false" className="chakra-icon css-9dla43" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -194,10 +184,6 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
       <div className="ActivityPage">
 
         {isLoggedIn ? authenticathedUser : noAuthenticated}
-
-        
-  
-        
       </div>
     )
   }
