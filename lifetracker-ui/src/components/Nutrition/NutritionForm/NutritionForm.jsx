@@ -1,17 +1,38 @@
 import { useState } from "react";
 import "./NutritionForm.css";
+import apiClient from "../../../../services/apiClient";
 
-export default function NutritionForm() {
+export default function NutritionForm({ setAppState, appState }) {
   const [nutritionForm, setNutritionForm] = useState({
     name: "",
     quantity: 1,
     calories: 0,
     category: "",
+    imageUrl: "",
   });
+  const [errors, setErrors] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setNutritionForm({ ...e, [e.target.name]: e.target.value });
   };
+
+  async function saveRecord(c) {
+    c.preventDefault();
+    setErrors((e) => ({ ...e, regForm: null }));
+    setIsLoading(true);
+    const { data, error } = await apiClient.recordNutrition({
+      name: nutritionForm.name,
+      category: nutritionForm.category,
+      quantity: nutritionForm.quantity,
+      calories: nutritionForm.calories,
+    });
+    if (error) setErrors((e) => ({ ...e, regForm: error }));
+    if (data?.nutrition) {
+      setAppState(...appState, { nutrition: data.nutrition });
+    }
+    setIsLoading(false);
+  }
   return (
     <div className="nutrition-form">
       <h1>Record Nutrition</h1>
@@ -54,15 +75,29 @@ export default function NutritionForm() {
                 type="number"
                 min={0}
                 max={100000}
+                step={10}
                 name="calories"
                 value={nutritionForm.calories}
                 onChange={handleChange}
                 required
               />
             </div>
-
           </div>
-            <button>Save</button>
+          <input
+            className="form-input"
+            type="text"
+            name="imageUrl"
+            value={nutritionForm.imageUrl}
+            placeholder="Image Url"
+            onChange={handleChange}
+          />
+          <button
+            className="submit-registration"
+            disabled={isLoading}
+            onClick={saveRecord}
+          >
+            {isLoading ? "Loading... " : "Save Record"}
+          </button>
         </form>
       </div>
     </div>

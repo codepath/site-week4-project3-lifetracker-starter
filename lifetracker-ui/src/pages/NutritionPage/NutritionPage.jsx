@@ -10,7 +10,7 @@ export default function NutritionPage({ setAppState, appState }) {
       <div className="nutrition-page">
         <Routes>
           <Route path="" element={<NutritionOverview />}/>
-          <Route path="create" element={<NutritionForm/>}/>
+          <Route path="create" element={<NutritionForm setAppState={setAppState} appState={appState}/>}/>
         </Routes>
       </div>
     );

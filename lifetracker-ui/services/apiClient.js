@@ -19,7 +19,7 @@ class ApiClient {
     const headers = {
       "Content-Type": "application/json",
     };
-    
+
     if (this.token) {
       headers["Authorization"] = `Bearer ${this.token}`;
     }
@@ -34,10 +34,18 @@ class ApiClient {
     }
   }
 
+  async recordNutrition(nutrition) {
+    return await this.request({
+      endpoint: "nutrition/new",
+      method: "POST",
+      data: nutrition,
+    });
+  }
+
   async fetchUserFromToken() {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   }
-  
+
   async loginUser(creds) {
     return await this.request({
       endpoint: "auth/login",
@@ -53,7 +61,7 @@ class ApiClient {
       data: creds,
     });
   }
-  
+
   async logoutUser() {
     this.setToken(null);
     localStorage.setItem(this.tokenName, "");

@@ -1,6 +1,8 @@
 .nutrition-page {
   display: flex;
   justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 .nutrition-page .nutrition-feed {
   display: flex;

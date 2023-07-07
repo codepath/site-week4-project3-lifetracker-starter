@@ -89,35 +89,6 @@ export default function RegistrationForm({ setAppState }) {
     }
     setIsLoading(false);
 
-    // try {
-    //   const result = await axios.post("http://localhost:3000/auth/register", {
-    //     username: regForm.username,
-    //     firstName: regForm.firstName,
-    //     lastName: regForm.lastName,
-    //     email: regForm.email,
-    //     password: regForm.password,
-    //   });
-
-    //   if (result?.data?.user) {
-    //     setAppState({user: result.data});
-    //     navigate('/')
-    //     setIsLoading(false);
-    //   } else {
-    //     setErrors((err) => ({
-    //       ...err,
-    //       form: "Something went wrong with registration",
-    //     }));
-    //     setIsLoading(false);
-    //   }
-    // } catch (err) {
-    //   console.log(err);
-    //   const message = err?.response?.error?.message;
-    //   setErrors((e) => ({
-    //     ...e,
-    //     form: message ? String(message) : String(err),
-    //   }));
-    //   setIsLoading(false);
-    // }
 
     setRegForm({
       username: "",
