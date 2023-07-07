@@ -21,17 +21,7 @@ function App() {
   const [userId , setUserId]=useState();
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginError, setLoginError] = useState("");
-
-
-
-
-
-
-
-
-
-
-
+  const [firstName, setFirstName] = useState("")
 
 
 
@@ -64,12 +54,13 @@ const handleLogout = () => {
 
 
     return (
-    <div>
+    <div className='app-css'>
       <Navbar loggedIn = {loggedIn} logout = {handleLogout}/>
       <Router>
         <Routes>
-          <Route path = "/" element={<Home/>}/>
-          <Route path="/login" element={<SignIn  userId={userId} setUserId={setUserId} loggedIn={loggedIn} setLoggedIn={setLoggedIn} loginError = {loginError} setLoginError={setLoginError} />} />
+          <Route path = "/" element={<Home loggedIn = {loggedIn} firstName = {firstName}/>}/>
+          <Route path="/login" element={<SignIn  userId={userId} setUserId={setUserId} loggedIn={loggedIn} setLoggedIn={setLoggedIn} loginError = {loginError} setLoginError={setLoginError} setFirstName={setFirstName}
+           />} />
           <Route path = "/register" element= {<Register userId= {userId} setUserId={setUserId} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
           <Route path="/activity" element={<ActivityPage loggedIn = {loggedIn} />}/>
           <Route path = "/exercise" element = {<ExercisePage loggedIn = {loggedIn}/>}/>
