@@ -26,7 +26,6 @@ class ApiClient {
 
     try {
       const result = await axios({ url, method, data, headers });
-      console.log(result);
       return { data: result.data, error: null };
     } catch (err) {
       console.error({ errorResponse: err.response });
