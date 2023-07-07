@@ -13,7 +13,7 @@ export default function NutritionFeed({ user, setAppState, nutritionFormState, s
 
     const getData = async () => {
     try {
-        const res = await axios.post('http://localhost:3002/nutritionfeed', {userId: user.id})
+        const res = await axios.post('https://lifetracker-server.onrender.com/nutritionfeed', {userId: user.id})
         setFeed(res.data.nutrition)
     }catch (error){
         console.log(error)

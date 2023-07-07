@@ -58,7 +58,7 @@ function Register({setAppState}) {
         }
     
         try {
-            const res = await axios.post('http://localhost:3002/auth/register', {
+            const res = await axios.post('https://lifetracker-server.onrender.com/auth/register', {
             firstName: form.firstName,
             lastName: form.lastName,
             username: form.username,

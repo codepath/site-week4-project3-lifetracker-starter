@@ -18,7 +18,7 @@ export default function Activity({ user, setAppState }) {
   const [averageCalories, setAverageCalories] = useState(0.00)
   const getCaloriesData = async () => {
   try {
-      const res = await axios.post('http://localhost:3002/nutritionavgcalories', {userId: user?.id})
+      const res = await axios.post('https://lifetracker-server.onrender.com/nutritionavgcalories', {userId: user?.id})
       setAverageCalories(res.data.nutrition.average === null ? 0.00 : res.data.nutrition.average)
   }catch (error){
       console.log(error)

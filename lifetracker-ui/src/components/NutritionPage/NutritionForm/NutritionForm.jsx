@@ -28,20 +28,22 @@ export default function NutritionForm({ user, setIsActive, setAppState, nutritio
         setErrors((e) => ({ ...e, form: null }))
     
         try {
-            const res = await axios.post('http://localhost:3002/nutrition', {
+            // Sending post request with form info
+            const res = await axios.post('https://lifetracker-server.onrender.com/nutrition', {
             name: nutritionFormState.name,
             category: nutritionFormState.category, 
             calories: nutritionFormState.calories, 
             image: nutritionFormState.image,
             userId: user.id
           })
-    
+          // error handling
         } catch (err) {
           console.log(err)
           const message = err?.response?.data?.error?.message
           setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
           setIsLoading(false)
         }
+        // reset state after submit
         setNutritionFormState({
             name: "",
             category:"", 
@@ -49,7 +51,6 @@ export default function NutritionForm({ user, setIsActive, setAppState, nutritio
             image: ""
           })
           setIsActive(false)
-    
       };
     
       return (
