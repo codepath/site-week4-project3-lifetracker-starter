@@ -45,7 +45,6 @@ class User{
         }else{
             //throw an error here
           console.log("user doesn't exist")
-         // return new UnauthorizedError("invalid username or password");
             throw new UnauthorizedError("invalid username or password")
         }
         //throw unauthorized error if not validated
@@ -88,16 +87,6 @@ class User{
     }
 
     static async fetchUserByEmail(email){
-    //     if (!email){
-    //         throw new BadRequestError("No email provided")
-    //     }
-    //     const query = await db.query(
-    //     `SELECT * FROM users WHERE email=$1`
-    //     )
-    //     const result=await db.query(query,[email.toLowerCase()])
-    //     const user = result.rows[0]
-    //     return user
-    // }
         const result = await db.query(
         `SELECT id,
                 email,
@@ -105,6 +94,7 @@ class User{
                 first_name AS "firstName",
                 last_name AS "lastName",
                 username
+
         FROM users WHERE email = $1`,[email.toLowerCase()]
         )
         const user = result.rows[0]

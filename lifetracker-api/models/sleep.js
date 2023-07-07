@@ -28,15 +28,5 @@ static async sleepCreate(sleepData) {
         return userSleep; 
 }
 
-// static async getAverageHoursSlept (req, res)  {
-//   try {
-//     const queryResult = await db.query('SELECT AVG(EXTRACT(EPOCH FROM (end_time - start_time)) / 3600) AS avg_hours_slept FROM sleep');
-//     const { avg_hours_slept } = queryResult.rows[0];
-//     res.json({ avgHoursSlept: avg_hours_slept });
-//   } catch (error) {
-//     // Handle any errors that occur during the database query
-//     res.status(500).json({ error: 'An error occurred while retrieving the average hours slept.' });
-//   }
-// };
 }
 module.exports= Sleep

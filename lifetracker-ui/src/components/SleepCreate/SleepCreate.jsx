@@ -1,14 +1,10 @@
 import './SleepCreate.css'
 import { useState } from 'react'
 import axios from 'axios'
-import Cheer from "../ActivityPage/cheer.mp3"
-import {Howl, Howler} from "howler"
 
 export default function SleepCreate({ user_id }) {
 
-// function play() {
-//    const audio = new Audio(Cheer)
-//  }
+
     const [startTime, setStartTime] = useState()
     const [endTime, setEndTime] = useState()
 
@@ -16,8 +12,6 @@ export default function SleepCreate({ user_id }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleSleep(startTime, endTime, user_id);
-        const audio = new Audio(Cheer);
-        audio.play();
         setTimeout(() => {
           window.location.href = "/sleep";
         }, 5000); 
