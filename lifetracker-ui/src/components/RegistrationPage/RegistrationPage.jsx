@@ -1,70 +1,80 @@
 import * as React from "react";
 import "./RegistrationPage.css";
-import { useState } from "react"
-import { useNavigate, Link } from "react-router-dom"
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
-export default function RegistrationPage({setAppState, setIsLoggedIn, appState}) {
-  const navigate = useNavigate()
-  const [isLoading, setIsLoading] = useState(false)
-  const [errors, setErrors] = useState({})
+export default function RegistrationPage({
+  setAppState,
+  setIsLoggedIn,
+  appState,
+}) {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
     email: "",
     username: "",
     password: "",
-  })
+  });
 
   const handleOnInputChange = (event) => {
-    
     if (event.target.name === "email") {
       if (event.target.value.indexOf("@") === -1) {
-        setErrors((e) => ({ ...e, email: "Please enter a valid email." }))
+        setErrors((e) => ({ ...e, email: "Please enter a valid email." }));
       } else {
-        setErrors((e) => ({ ...e, email: null }))
+        setErrors((e) => ({ ...e, email: null }));
       }
     }
 
-    setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
-  }
-  
+    setForm((f) => ({ ...f, [event.target.name]: event.target.value }));
+  };
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
-    setIsLoading(true)
-    setErrors((e) => ({ ...e, form: null }))
+    setIsLoading(true);
+    setErrors((e) => ({ ...e, form: null }));
 
     try {
-      const res = await axios.post("https://lifetracker-api-tifu.onrender.com/auth/register", {
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        password: form.password,
-        username: form.username,
-      })
+      const res = await axios.post(
+        "https://lifetracker-api-tifu.onrender.com/auth/register",
+        {
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          password: form.password,
+          username: form.username,
+        }
+      );
 
       if (res?.data) {
         const { token } = res.data;
         localStorage.setItem("token", token);
         const decodedToken = jwtDecode(token);
         setAppState(decodedToken);
-        setIsLoading(false)
-        setIsLoggedIn(true)
-        navigate("/activity")
+        setIsLoading(false);
+        setIsLoggedIn(true);
+        navigate("/activity");
       } else {
-        setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
-        setIsLoading(false)
+        setErrors((e) => ({
+          ...e,
+          form: "Something went wrong with registration",
+        }));
+        setIsLoading(false);
       }
     } catch (err) {
-      console.log(err)
-      const message = err?.response?.data?.error?.message
-      setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-      setIsLoading(false)
+      const message = err?.response?.data?.error?.message;
+      setErrors((e) => ({
+        ...e,
+        form: message ? String(message) : String(err),
+      }));
+      setIsLoading(false);
     }
-  }
-  
+  };
+
   return (
     <div className="RegistrationPage">
       <div className="page-container">
@@ -92,7 +102,10 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
             <form>
               <div className="chakra-stack user-info-container">
                 <div role="group" className="chakra-form-control css-1kxonj9">
-                  <div className="chakra-input__group css-bx0blc" data-group="true">
+                  <div
+                    className="chakra-input__group css-bx0blc"
+                    data-group="true"
+                  >
                     <div className="chakra-input__left-element css-1cw84h2">
                       <svg
                         stroke="currentColor"
@@ -117,11 +130,16 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                       value={form.email}
                       onChange={handleOnInputChange}
                     />
-                    {errors.email && <span className="error">{errors.email}</span>}
+                    {errors.email && (
+                      <span className="error">{errors.email}</span>
+                    )}
                   </div>
                 </div>
                 <div role="group" className="chakra-form-control css-1kxonj9">
-                  <div className="chakra-input__group css-bx0blc" data-group="true">
+                  <div
+                    className="chakra-input__group css-bx0blc"
+                    data-group="true"
+                  >
                     <div className="chakra-input__left-element css-1cw84h2">
                       <svg
                         stroke="currentColor"
@@ -147,7 +165,9 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                       value={form.username}
                       onChange={handleOnInputChange}
                     />
-                    {errors.username && <span className="error">{errors.username}</span>}
+                    {errors.username && (
+                      <span className="error">{errors.username}</span>
+                    )}
                   </div>
                 </div>
                 <div className="css-9jay18">
@@ -167,7 +187,9 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                         value={form.firstName}
                         onChange={handleOnInputChange}
                       />
-                      {errors.firstName && <span className="error">{errors.firstName}</span>}
+                      {errors.firstName && (
+                        <span className="error">{errors.firstName}</span>
+                      )}
                     </div>
                   </div>
                   &nbsp;
@@ -187,12 +209,17 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                         value={form.lastName}
                         onChange={handleOnInputChange}
                       />
-                      {errors.lastName && <span className="error">{errors.lastName}</span>}
+                      {errors.lastName && (
+                        <span className="error">{errors.lastName}</span>
+                      )}
                     </div>
                   </div>
                 </div>
                 <div role="group" className="chakra-form-control css-1kxonj9">
-                  <div className="chakra-input__group css-bx0blc" data-group="true">
+                  <div
+                    className="chakra-input__group css-bx0blc"
+                    data-group="true"
+                  >
                     <div className="chakra-input__left-element css-17ke578">
                       <svg
                         stroke="currentColor"
@@ -218,7 +245,9 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                       value={form.password}
                       onChange={handleOnInputChange}
                     />
-                    {errors.password && <span className="error">{errors.password}</span>}
+                    {errors.password && (
+                      <span className="error">{errors.password}</span>
+                    )}
                     <div className="chakra-input__right-element css-1qww07b">
                       <button type="button" className="show-button">
                         Show
@@ -226,7 +255,11 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
                     </div>
                   </div>
                 </div>
-                <button className="chakra-button css-4lvvxn" onClick={handleOnSubmit} disabled={isLoading}>
+                <button
+                  className="chakra-button css-4lvvxn"
+                  onClick={handleOnSubmit}
+                  disabled={isLoading}
+                >
                   {isLoading ? "Loading..." : "Sign up"}
                 </button>
               </div>
@@ -235,10 +268,8 @@ export default function RegistrationPage({setAppState, setIsLoggedIn, appState})
         </div>
         <div className="footer">
           Have an account?{" "}
-          <Link to= "/login">
-          <a className="sign-up">
-            Login
-          </a>
+          <Link to="/login">
+            <a className="sign-up">Login</a>
           </Link>
         </div>
       </div>

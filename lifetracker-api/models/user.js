@@ -1,11 +1,9 @@
-"use strict"
+"use strict";
 
-const db = require("../db")
-const bcrypt = require("bcrypt")
-const { BadRequestError, UnauthorizedError } = require("../utils/errors")
-// const { validateFields } = require("../utils/validate")
-
-const { BCRYPT_WORK_FACTOR } = require("../config")
+const db = require("../db");
+const bcrypt = require("bcrypt");
+const { BadRequestError, UnauthorizedError } = require("../utils/errors");
+const { BCRYPT_WORK_FACTOR } = require("../config");
 
 class User {
   /**
@@ -22,7 +20,7 @@ class User {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-    }
+    };
   }
 
   /**
@@ -34,26 +32,19 @@ class User {
    **/
 
   static async authenticate(creds) {
-    const { email, password } = creds
-    const requiredCreds = ["email", "password"]
-    // try {
-    //   validateFields({ required: requiredCreds, obj: creds, location: "user authentication" })
-    // } catch (err) {
-    //   throw err
-    // }
-    const user = await User.fetchUserByEmail(email)
+    const { email, password } = creds;
+    const requiredCreds = ["email", "password"];
+    const user = await User.fetchUserByEmail(email);
 
     if (user) {
       // compare hashed password to a new hash from password
-      const isValid = await bcrypt.compare(password, user.password)
+      const isValid = await bcrypt.compare(password, user.password);
       if (isValid === true) {
-        console.log('logged in')
-        console.log(user)
-        return User._createPublicUser(user) // 
+        return User._createPublicUser(user); //
       }
     }
 
-    throw new UnauthorizedError("Invalid username/password")
+    throw new UnauthorizedError("Invalid username/password");
   }
 
   /**
@@ -65,21 +56,22 @@ class User {
    **/
 
   static async register(creds) {
-    const { email, password, firstName, lastName, username} = creds
-    const requiredCreds = ["email", "password", "firstName", "lastName", "username"]
-    // try {
-    //   validateFields({ required: requiredCreds, obj: creds, location: "user registration" })
-    // } catch (err) {
-    //   throw err
-    // }
+    const { email, password, firstName, lastName, username } = creds;
+    const requiredCreds = [
+      "email",
+      "password",
+      "firstName",
+      "lastName",
+      "username",
+    ];
 
-    const existingUserWithEmail = await User.fetchUserByEmail(email)
+    const existingUserWithEmail = await User.fetchUserByEmail(email);
     if (existingUserWithEmail) {
-      throw new BadRequestError(`Duplicate email: ${email}`)
+      throw new BadRequestError(`Duplicate email: ${email}`);
     }
 
-    const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR)
-    const normalizedEmail = email.toLowerCase()
+    const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
+    const normalizedEmail = email.toLowerCase();
 
     const result = await db.query(
       `INSERT INTO users (
@@ -97,11 +89,11 @@ class User {
                   username
                   `,
       [hashedPassword, firstName, lastName, normalizedEmail, username]
-    )
+    );
 
-    const user = result.rows[0]
+    const user = result.rows[0];
 
-    return user
+    return user;
   }
 
   /**
@@ -121,37 +113,12 @@ class User {
            FROM users
            WHERE email = $1`,
       [email.toLowerCase()]
-    )
+    );
 
-    const user = result.rows[0]
+    const user = result.rows[0];
 
-    return user
+    return user;
   }
-
-  /**
-   * Fetch a user in the database by email
-   *
-   * @param {String} userId
-   * @returns user
-   */
-//   static async fetchById(userId) {
-//     const result = await db.query(
-//       `SELECT id,
-//               email,    
-//               password,
-//               first_name AS "firstName",
-//               last_name AS "lastName",
-//               location,
-//               date              
-//            FROM users
-//            WHERE id = $1`,
-//       [userId]
-//     )
-
-//     const user = result.rows[0]
-
-//     return user
-//   }
 }
 
-module.exports = User
+module.exports = User;

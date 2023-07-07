@@ -16,7 +16,7 @@ class Nutrition {
      * @returns {object} - The inserted exercise object
      */
     static async addNutrition(nutritionInfo) {
-        console.log(nutritionInfo)
+        
         const { name, category, quantity, calories, user_id } = nutritionInfo
       const result = await db.query(
         `INSERT INTO nutrition (name, category, quantity, calories, user_id)

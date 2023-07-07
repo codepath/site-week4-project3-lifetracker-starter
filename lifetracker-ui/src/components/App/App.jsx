@@ -6,30 +6,28 @@ import Home from "../Home/Home";
 import LoginPage from "../LoginPage/LoginPage";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
 import ActivityPage from "../ActivityPage/ActivityPage";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import ExercisePage from "../ExercisePage/ExercisePage";
 import ExerciseForm from "../ExerciseForm/ExerciseForm";
-import jwtDecode from "jwt-decode"
+import jwtDecode from "jwt-decode";
 import axios from "axios";
 import NutritionPage from "../NutritionPage/NutritionPage";
 import NutritionForm from "../NutritionForm/NutritionForm";
 
 export default function App() {
-  const [appState, setAppState] = useState({})
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [appState, setAppState] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [exerciseArray, setExerciseArray] = useState([]);
   const [exerciseTime, setExerciseTime] = useState();
   const [exerciseAvg, setExerciseAvg] = useState();
 
   const [nutritionArray, setNutritionArray] = useState([]);
 
-  const [nutritionCalories, setNutritionCalories] = useState()
-  const [nutritionMax, setNutritionMax] = useState()
-
+  const [nutritionCalories, setNutritionCalories] = useState();
+  const [nutritionMax, setNutritionMax] = useState();
 
   useEffect(() => {
     if (appState.user_id) {
-      console.log(appState)
       axios
         .get("https://lifetracker-api-tifu.onrender.com/auth/exercise", {
           params: {
@@ -40,22 +38,22 @@ export default function App() {
           const exercises = response.data.exercises;
           const exerciseTime = response.data.exerciseTime;
           const exerciseAvg = response.data.exerciseAvg;
-          setExerciseAvg(exerciseAvg === null ? 0.00 : (parseFloat(exerciseAvg).toFixed(1)));
+          setExerciseAvg(
+            exerciseAvg === null ? 0.0 : parseFloat(exerciseAvg).toFixed(1)
+          );
           setExerciseArray(exercises);
-          setExerciseTime(exerciseTime === null ? 0.00 : (parseFloat(exerciseTime).toFixed(1)));
+          setExerciseTime(
+            exerciseTime === null ? 0.0 : parseFloat(exerciseTime).toFixed(1)
+          );
         })
         .catch((error) => {
-          console.log("Error with axios:", error); // Debugging console.log
+          console.log("Error with axios:", error);
         });
     }
   }, [appState.user_id]);
 
-
-  /////////
-
   useEffect(() => {
     if (appState.user_id) {
-      console.log(appState)
       axios
         .get("https://lifetracker-api-tifu.onrender.com/auth/nutrition", {
           params: {
@@ -67,18 +65,20 @@ export default function App() {
           setNutritionArray(nutritions);
           const nutritionCalories = response.data.nutritionCalories;
           const nutritionMax = response.data.nutritionMax;
-          setNutritionCalories(nutritionCalories === null ? 0.00 : (parseInt(nutritionCalories).toFixed(1)))
-          setNutritionMax(nutritionMax === null? 0.00 : (parseInt(nutritionMax).toFixed(1)))
+          setNutritionCalories(
+            nutritionCalories === null
+              ? 0.0
+              : parseInt(nutritionCalories).toFixed(1)
+          );
+          setNutritionMax(
+            nutritionMax === null ? 0.0 : parseInt(nutritionMax).toFixed(1)
+          );
         })
         .catch((error) => {
-          console.log("Error with axios:", error); // Debugging console.log
+          console.log("Error with axios:", error);
         });
     }
   }, [appState.user_id]);
-
-
-
-  ////////
 
   useEffect(() => {
     const checkLoggedIn = () => {
@@ -86,7 +86,7 @@ export default function App() {
       if (token) {
         // decode stored token
         const decodedToken = jwtDecode(token);
-            setAppState(decodedToken);
+        setAppState(decodedToken);
         // check if token is expired
         if (decodedToken.exp * 1000 > Date.now()) {
           setIsLoggedIn(true);
@@ -96,25 +96,102 @@ export default function App() {
         }
       }
     };
-  
+
     checkLoggedIn();
   }, []);
 
   return (
     <div className="app">
       <BrowserRouter>
-        <Navbar isLoggedIn = {isLoggedIn} setIsLoggedIn= {setIsLoggedIn} setAppState={setAppState}/>
-
+        <Navbar
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+          setAppState={setAppState}
+        />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginPage appState={appState} setAppState={setAppState} setIsLoggedIn= {setIsLoggedIn}/>} />
-         <Route path="/register" element={<RegistrationPage appState={appState} setAppState={setAppState} setIsLoggedIn= {setIsLoggedIn}/>} />
-          <Route path="/activity" element={<ActivityPage appState={appState} isLoggedIn = {isLoggedIn} exerciseArray ={exerciseArray} setExerciseArray={setExerciseArray} exerciseTime= {exerciseTime} exerciseAvg = {exerciseAvg} setExerciseTime = {setExerciseTime} setExerciseAvg = {setExerciseAvg} nutritionCalories ={nutritionCalories} setNutritionCalories = {setNutritionCalories} nutritionMax = {nutritionMax} setNutritionMax = {setNutritionMax}/>} /> 
-          <Route path="/exercise" element={<ExercisePage isLoggedIn = {isLoggedIn} appState={appState} exerciseArray ={exerciseArray} setExerciseArray={setExerciseArray}/>} />  
-          <Route path="/exercise/create" element={<ExerciseForm isLoggedIn = {isLoggedIn} appState={appState} setExerciseArray={setExerciseArray}/>} />
-          <Route path="/nutrition" element={<NutritionPage isLoggedIn = {isLoggedIn} appState={appState} nutritionArray ={nutritionArray} setNutritionArray={setNutritionArray}/>} />
-          <Route path="/nutrition/create" element={<NutritionForm isLoggedIn = {isLoggedIn} appState={appState} nutritionArray ={nutritionArray} setNutritionArray={setNutritionArray}/>} />
-          {/* <Route path="*" element={<NotFound />} />  */}
+          <Route
+            path="/login"
+            element={
+              <LoginPage
+                appState={appState}
+                setAppState={setAppState}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RegistrationPage
+                appState={appState}
+                setAppState={setAppState}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+            }
+          />
+          <Route
+            path="/activity"
+            element={
+              <ActivityPage
+                appState={appState}
+                isLoggedIn={isLoggedIn}
+                exerciseArray={exerciseArray}
+                setExerciseArray={setExerciseArray}
+                exerciseTime={exerciseTime}
+                exerciseAvg={exerciseAvg}
+                setExerciseTime={setExerciseTime}
+                setExerciseAvg={setExerciseAvg}
+                nutritionCalories={nutritionCalories}
+                setNutritionCalories={setNutritionCalories}
+                nutritionMax={nutritionMax}
+                setNutritionMax={setNutritionMax}
+              />
+            }
+          />
+          <Route
+            path="/exercise"
+            element={
+              <ExercisePage
+                isLoggedIn={isLoggedIn}
+                appState={appState}
+                exerciseArray={exerciseArray}
+                setExerciseArray={setExerciseArray}
+              />
+            }
+          />
+          <Route
+            path="/exercise/create"
+            element={
+              <ExerciseForm
+                isLoggedIn={isLoggedIn}
+                appState={appState}
+                setExerciseArray={setExerciseArray}
+              />
+            }
+          />
+          <Route
+            path="/nutrition"
+            element={
+              <NutritionPage
+                isLoggedIn={isLoggedIn}
+                appState={appState}
+                nutritionArray={nutritionArray}
+                setNutritionArray={setNutritionArray}
+              />
+            }
+          />
+          <Route
+            path="/nutrition/create"
+            element={
+              <NutritionForm
+                isLoggedIn={isLoggedIn}
+                appState={appState}
+                nutritionArray={nutritionArray}
+                setNutritionArray={setNutritionArray}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
