@@ -9,7 +9,7 @@ export default function ActivityPage({appState, isLoggedIn, exerciseArray, setEx
 
     // const [nutritionCalories, setNutritionCalories] = useState()
     // const [nutritionMax, setNutritionMax] = useState()
-    const formattedNutritionCalories = nutritionCalories === (NaN || null) ? parseInt(nutritionCalories).toFixed(1) : 0.0;
+    const nutritionCalories = nutritionCalories !== (NaN || null) ? parseInt(nutritionCalories).toFixed(1) : setNutritionCalories(0.0);
     
     
 
