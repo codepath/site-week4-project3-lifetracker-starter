@@ -19,3 +19,12 @@ CREATE TABLE IF NOT EXISTS users (
     -- user_id        FOREIGN KEY    
     -- FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+ CREATE TABLE sleep (
+    id             SERIAL PRIMARY KEY,
+    startTime      TIMESTAMP NOT NULL, 
+    endTime        TIMESTAMP NOT NULL,
+    recorded_at    TIMESTAMP DEFAULT NOW(),
+    user_id        INTEGER NOT NULL
+    -- FOREIGN KEY (user_id) REFERENCES users(id)
+);

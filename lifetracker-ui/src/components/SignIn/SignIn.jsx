@@ -2,8 +2,9 @@ import './SignIn.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import jwtDecode from "jwt-decode"
+import Home from '../Home/Home'
 
-export default function SignIn({userId, setUserId, loggedIn, setLoggedIn, loginError, setLoginError}) {
+export default function SignIn({userId, setUserId, loggedIn, setLoggedIn, loginError, setLoginError, setFirstName}) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -21,11 +22,14 @@ export default function SignIn({userId, setUserId, loggedIn, setLoggedIn, loginE
           //Successful Login
           setLoggedIn(true);
           setLoginError("");
-          console.log(response.data.message); //optional - display a success message
+          
+          console.log(response.data); //optional - display a success message
           console.log(response.data.user.id); //another way to get the username
   
           const decodedToken = jwtDecode(token); //a way to get username from token
           setUserId(decodedToken.userId);
+          setFirstName(response.data.user.firstName)
+          window.location.href = "/"
           
         } else {
           //Login failed
@@ -34,7 +38,7 @@ export default function SignIn({userId, setUserId, loggedIn, setLoggedIn, loginE
         }
   
         console.log("Response output: ", response)
-  
+        
       
     };
 
