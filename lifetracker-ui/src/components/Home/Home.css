@@ -18,14 +18,14 @@
   font-size: 24px;
   font-weight: bold;
   color: #333333;
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
 }
 
 .lifetracker-subheading {
   font-size: 16px;
   color: #666666;
   margin-top: 10px;
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
 }
 
 .lifetracker-button {
@@ -33,14 +33,14 @@
   border-radius: 4px;
   background-color: #09bc8a;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   font-size: 16px;
   padding: 10px 24px;
   transition: all 0.3s;
   cursor: pointer;
   text-decoration: none;
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
 }
 
 .lifetracker-button:hover {

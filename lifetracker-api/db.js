@@ -1,17 +1,17 @@
 /** Database setup for life tracker. */
 
-const { Client } = require("pg")
-const { getDatabaseUri } = require("./config")
-require("colors")
+const { Client } = require("pg");
+const { getDatabaseUri } = require("./config");
+require("colors");
 
-const db = new Client({ connectionString: getDatabaseUri() })
+const db = new Client({ connectionString: getDatabaseUri() });
 
 db.connect((err) => {
   if (err) {
-    console.error("connection error", err.stack)
+    console.error("connection error", err.stack);
   } else {
-    console.log("Successfully connected to postgres database!".blue)
+    console.log("Successfully connected to postgres database!".blue);
   }
-})
+});
 
-module.exports = db
+module.exports = db;

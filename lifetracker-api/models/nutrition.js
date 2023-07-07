@@ -1,6 +1,6 @@
-const db = require("../db")
-const { BadRequestError, UnauthorizedError } = require("../utils/errors")
-const { validateFields } = require("../utils/validate")
+const db = require("../db");
+const { BadRequestError, UnauthorizedError } = require("../utils/errors");
+const { validateFields } = require("../utils/validate");
 
 class Nutrition {
   /**
@@ -12,7 +12,6 @@ class Nutrition {
    * @returns nutrition item
    */
 
-
   /**
    * Register nutrition with data.
    *
@@ -22,12 +21,16 @@ class Nutrition {
    **/
 
   static async register(formData) {
-    const {name, category, calories, image, userId} = formData
-    const requiredData = ["name", "category", "calories", "image", "userId"]
+    const { name, category, calories, image, userId } = formData;
+    const requiredData = ["name", "category", "calories", "image", "userId"];
     try {
-      validateFields({ required: requiredData, obj: formData, location: "user registration" })
+      validateFields({
+        required: requiredData,
+        obj: formData,
+        location: "user registration",
+      });
     } catch (err) {
-      throw err
+      throw err;
     }
     const result = await db.query(
       `INSERT INTO nutrition (
@@ -47,11 +50,11 @@ class Nutrition {
                   user_id AS userId
                   `,
       [name, category, calories, image, userId]
-    )
+    );
 
-    const nutrition = result.rows[0]
+    const nutrition = result.rows[0];
 
-    return nutrition
+    return nutrition;
   }
 
   /**
@@ -70,12 +73,11 @@ class Nutrition {
            FROM nutrition
            WHERE user_id = $1`,
       [userId]
-    )
-    
+    );
 
-    const nutrition = result.rows
+    const nutrition = result.rows;
 
-    return nutrition
+    return nutrition;
   }
   /**
    * Fetch a user in the database by email
@@ -91,13 +93,12 @@ class Nutrition {
       WHERE user_id = $1
       ;`,
       [userId]
-    )
-    
+    );
 
-    const nutrition = result.rows[0]
+    const nutrition = result.rows[0];
 
-    return nutrition
+    return nutrition;
   }
 }
 
-module.exports = Nutrition
+module.exports = Nutrition;

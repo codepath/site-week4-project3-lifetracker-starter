@@ -1,4 +1,5 @@
-:root[data-theme="light"], [data-theme][data-theme="light"] {
+:root[data-theme="light"],
+[data-theme][data-theme="light"] {
   --chakra-colors-chakra-body-text: var(--chakra-colors-gray-800);
   --chakra-colors-chakra-body-bg: var(--chakra-colors-white);
   --chakra-colors-chakra-border-color: var(--chakra-colors-gray-200);
@@ -15,5 +16,5 @@
   max-width: 100vw;
   min-height: 100vh;
   background: #f7fafc;
-  font-family: 'Questrial', sans-serif;
+  font-family: "Questrial", sans-serif;
 }
