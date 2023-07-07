@@ -28,9 +28,9 @@ By the end of this project you will be able to...
 </a>
 
 ## Walkthrough Video Week 2 ##
-<a href="https://www.loom.com/share/6074f9abda7c4889a92f5c7e6893ea76">
-    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/6074f9abda7c4889a92f5c7e6893ea76-with-play.gif">
-  </a>
+<a href="https://www.loom.com/share/7610e449e1f447ee9d1b612e6706b730">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/7610e449e1f447ee9d1b612e6706b730-with-play.gif">
+</a>
 
 
 ## Deployed Website URL ##
