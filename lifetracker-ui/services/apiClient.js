@@ -26,7 +26,7 @@ class ApiClient {
 
     try {
       const result = await axios({ url, method, data, headers });
-      console.log(result)
+      console.log(result);
       return { data: result.data, error: null };
     } catch (err) {
       console.error({ errorResponse: err.response });
@@ -36,16 +36,20 @@ class ApiClient {
   }
 
   async recordNutrition(nutrition) {
-    return await this.request({endpoint: "nutrition/new", method: "POST", data: nutrition})
+    return await this.request({
+      endpoint: "nutrition/new",
+      method: "POST",
+      data: nutrition,
+    });
   }
 
-  async fetchAverageCaloriesByDay(){
-    return await this.request({ endpoint: "activity", method: "GET"})
+  async fetchAverageCaloriesByDay() {
+    return await this.request({ endpoint: "activity", method: "GET" });
   }
   async fetchNutritionList() {
-    return await this.request({ endpoint: "nutrition", method: "GET"})
+    return await this.request({ endpoint: "nutrition", method: "GET" });
   }
-  
+
   async fetchUserFromToken() {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   }
@@ -72,7 +76,11 @@ class ApiClient {
   }
 
   async logSleep(sleep) {
-   return await this.request({endpoint: "sleep/new", method: "POST", data: sleep}) 
+    return await this.request({
+      endpoint: "sleep/new",
+      method: "POST",
+      data: sleep,
+    });
   }
 }
 

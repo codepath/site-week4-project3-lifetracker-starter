@@ -8,25 +8,24 @@ export default function SleepForm({ setAppState, appState }) {
     endTime: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
 
   function handleChange(e) {
     setSleepForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
   async function logSleep(c) {
-    const endTimeDate = new Date(sleepForm.endTime).toLocaleString()
-    const startTimeDate = new Date(sleepForm.startTime).toLocaleString()
+    const endTimeDate = new Date(sleepForm.endTime).toLocaleString();
+    const startTimeDate = new Date(sleepForm.startTime).toLocaleString();
     c.preventDefault();
     setErrors((e) => ({ ...e, nutritionForm: null }));
     setIsLoading(true);
     const { data, error } = await apiClient.logSleep({
       startTime: startTimeDate,
-      endTime: endTimeDate
+      endTime: endTimeDate,
     });
     if (error) setErrors((e) => ({ ...e, regForm: error }));
     if (data?.newSleep) {
-        console.log(data.newSleep)
       setAppState({ ...appState, sleep: [...appState.sleep, data.newSleep] });
       navigate("/sleep");
     }
