@@ -1,8 +1,8 @@
-\echo 'Delete and recreate life_tracker db?'
+\echo 'Delete and recreate lifetracker db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
 
-DROP DATABASE life_tracker;
-CREATE DATABASE life_tracker;
-\connect life_tracker
+DROP DATABASE lifetracker;
+CREATE DATABASE lifetracker;
+\connect lifetracker
 
 \i life-tracker-schema.sql

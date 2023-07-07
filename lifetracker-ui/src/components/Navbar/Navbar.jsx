@@ -1,8 +1,25 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './Navbar.css'
 
-function Navbar({isAuthenticated}) {
+function Navbar({isAuthenticated, handleLogout}) {
+    const navigate = useNavigate()
+
+    function enableLogin() {
+        navigate('/login')
+    }
+
+   
+
+    function enableRegister() {
+        navigate('/register')
+    }
+
+    function logout(){
+        handleLogout()
+        navigate('/')
+    }
+
     return (
         <nav className="navbar">
       <div className="website-title">
@@ -21,11 +38,11 @@ function Navbar({isAuthenticated}) {
         <div className='button-container'>
             {
                 isAuthenticated? 
-                    <Link to='/login'> <button className='sign-in'> Sign Out </button> </Link>
+                    <button onClick={logout} className='sign-in'> Sign Out </button>
                 :
                 <div>
-                    <Link to='/login'> <button className='sign-in'> Sign In </button> </Link>
-                    <Link to='/register'> <button className='register'> Register </button> </Link>
+                     <button onClick={enableLogin} className='sign-in'> Sign In </button>
+                     <button onClick={enableRegister} className='register'> Register </button>
           
                 </div>
             }

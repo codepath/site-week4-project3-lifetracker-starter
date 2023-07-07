@@ -1,3 +1,24 @@
-.tiles {
-  flex-direction: row;
+.feed-tiles {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px
+  /* margin-right: 10%;
+  margin-left: 10% */
+
+  /* flex-direction: row; */
+  /* flex-basis: 50%; */
+}
+
+.more-stats {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* margin-left: 30px */
+}
+
+.more-stats-cont{
+  max-width:70%;
+
+}
+.more-stats div{
+  /* width: 33% */
 }

@@ -8,7 +8,6 @@ CREATE TABLE users (
 
 CREATE TABLE exercise (
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL,
     duration INTEGER NOT NULL,
@@ -17,7 +16,6 @@ CREATE TABLE exercise (
 
 CREATE TABLE nutrition (
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL,
     quantity INTEGER NOT NULL,
@@ -27,7 +25,6 @@ CREATE TABLE nutrition (
 
 CREATE TABLE sleep (
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
     start_time TIMESTAMP NOT NULL,
     end_time VARCHAR(255) NOT NULL
 );

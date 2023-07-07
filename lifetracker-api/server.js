@@ -13,10 +13,12 @@ app.get('/', (req,res) => {
 })
 
 app.post('/auth/login', async (req,res)=> {
+    console.log(req.body)
     const user= await User.login(req.body.email, req.body.password)
+    // res.json(user)
     if (user) {
         const token = User.generateAuthToken(user)
-        res.json( { user, token } )
+        res.status(200).json( { user, token } )
       }
       else {
         res.status(401).json( { error: 'Invalid email or password'} )
@@ -27,30 +29,61 @@ app.post('/auth/login', async (req,res)=> {
 
 app.post('/auth/register', async (req,res)=> {
     // console.log('registered')
-    const {email, username, firstName, lastName, password} = req.body
+    const {email, username, firstname, lastname, password} = req.body
     // console.log('reg route',req.body)
-    const user = await User.register(email, username, firstName, lastName, password)
+    const user = await User.register(email, username, firstname, lastname, password)
+    console.log(user)
     if (user) {
         const token = User.generateAuthToken(user)
-        res.json( { user, token } )
+        console.log(token)
+        res.status(201).json( { user, token } )
       }
       else {
+        
         res.status(401).json( { error: 'Invalid email or password'} )
       }
     // console.log('user', user)
     // res.send(user) 
 })
 
-app.post('./sleep/create', async (req,res) => {
-    const {email, password, startTime, endTime} = req.body
-    const sleepSession= await User.addSleep()
+app.post('/sleep/create', async (req,res) => {
+    const {email, startTime, stopTime} = req.body
+    console.log('newsleep', req.body)
+    const sleepSession= await User.addSleep(email, startTime, stopTime)
+    console.log(sleepSession)
+    res.status(201).json(sleepSession)
 })
 
-// app.get('/user/:id', async (req,res) => {
-//     const userID= req.params.id
-//     const user= await User.getName('bereket')
-//     res.send(user.rows[0])
-// })
+app.post('/exercise/create', async (req,res) => {
+    const {email, name, category, duration, intensity} = req.body
+    const newExercise= await User.addExercise(email, name, category, duration, intensity)
+    res.status(201).json(newExercise)
+})
+
+app.post('/nutrition/create', async (req,res) => {
+    const {email, name, category, quantity, calories, url } = req.body
+    const newMeal= await User.addNutrition(email, name, category, quantity, calories, url)
+    res.status(201).json(newMeal)
+})
+
+app.get('/exercise', async (req,res) => {
+    const {email}= req.body
+    const user= await User.getExerciseByEmail(email)
+    res.status(200).json(user)
+})
+
+app.get('/nutrition', async (req,res) => {
+    const {email}= req.body
+    const user= await User.getNutritionByEmail(email)
+    res.status(200).json(user)
+})
+
+app.post('/sleep', async (req,res) => {
+    console.log('server sleep',req.body)
+    const {email}= req.body
+    const userDB= await User.getSleepByEmail(email)
+    res.status(200).json(userDB)
+})
 
 app.listen(PORT, () => {
     console.log(`Running on Port ${PORT}`)

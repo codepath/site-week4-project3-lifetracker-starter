@@ -1,6 +1,6 @@
 import React from 'react'
 import './Home.css'
-import Tile from '../Tile/Tile'
+import HomeGrid from '../HomeGrid/HomeGrid'
 
 function Home({user, isAuthenticated}) {
     return (
@@ -10,7 +10,7 @@ function Home({user, isAuthenticated}) {
                     <h1> LifeTracker </h1>
                     {
                         isAuthenticated ? 
-                        <p> Welcome </p> :
+                        <p> Welcome {user.username}</p> :
                         <p>Helping you take back control of your world.</p>
                     } 
                 </div>
@@ -18,7 +18,7 @@ function Home({user, isAuthenticated}) {
             
             </div>
 
-            <Tile/>
+            <HomeGrid/>
         </div>
         
     )
