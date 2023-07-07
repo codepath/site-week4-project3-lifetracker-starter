@@ -35,13 +35,9 @@ class ApiClient {
   }
 
   async recordNutrition(nutrition) {
-    return await this.request({
-      endpoint: "nutrition/new",
-      method: "POST",
-      data: nutrition,
-    });
+    return await this.request({endpoint: "nutrition/new", method: "POST", data: nutrition})
   }
-
+  
   async fetchUserFromToken() {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   }

@@ -14,7 +14,7 @@ function App() {
   const [appState, setAppState] = useState({
     user: "",
     isAuthenticated: false,
-    nutrition: "",
+    nutritions: "",
     sleep: "",
     exercise: "",
   });
@@ -52,7 +52,7 @@ function App() {
             path="/login"
             element={<LoginPage setAppState={setAppState} />}
           />
-          <Route path="/nutriton" element={<NutritionPage />} />
+          <Route path="/nutriton" element={<NutritionPage appState={appState} />} />
           <Route
             path="/activity"
             element={

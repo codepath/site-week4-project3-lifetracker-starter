@@ -1,20 +1,21 @@
 import { useState } from "react";
 import "./NutritionForm.css";
 import apiClient from "../../../../services/apiClient";
+import { useNavigate } from "react-router-dom";
 
 export default function NutritionForm({ setAppState, appState }) {
   const [nutritionForm, setNutritionForm] = useState({
     name: "",
     quantity: 1,
     calories: 0,
-    category: "",
+    category: "default",
     imageUrl: "",
   });
   const [errors, setErrors] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
-    setNutritionForm({ ...e, [e.target.name]: e.target.value });
+    setNutritionForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
   async function saveRecord(c) {
@@ -27,12 +28,24 @@ export default function NutritionForm({ setAppState, appState }) {
       quantity: nutritionForm.quantity,
       calories: nutritionForm.calories,
     });
+
     if (error) setErrors((e) => ({ ...e, regForm: error }));
     if (data?.nutrition) {
-      setAppState(...appState, { nutrition: data.nutrition });
+      console.log(data.nutrition);
+      setAppState(...appState, { nutritions: data.nutrition });
+      navigate("/");
     }
     setIsLoading(false);
+
+    setNutritionForm({
+      name: "",
+      quantity: 1,
+      calories: 0,
+      category: "default",
+      imageUrl: "",
+    });
   }
+
   return (
     <div className="nutrition-form">
       <h1>Record Nutrition</h1>
@@ -47,16 +60,27 @@ export default function NutritionForm({ setAppState, appState }) {
             placeholder="Name"
             required
           />
-          <select className="form-input" required>
-            <option defaultValue="selected">Select a category</option>
-            <option value="snack">Snack</option>
-            <option value="beverage">Beverage</option>
-            <option value="food">Food</option>
-          </select>
+          <div className="category-box">
+            <label htmlFor="category">Category</label>
+            <select
+              id="category"
+              className="form-input"
+              name="category"
+              value={nutritionForm.category}
+              onChange={handleChange}
+              required
+            >
+              <option defaultValue="default">Select a Category</option>
+              <option value="snack">Snack</option>
+              <option value="beverage">Beverage</option>
+              <option value="food">Food</option>
+            </select>
+          </div>
           <div className="box">
             <div className="sub-box">
               <label htmlFor="quantity">Quantity</label>
               <input
+                id="quantity"
                 className="form-input"
                 type="number"
                 min={1}
@@ -71,6 +95,7 @@ export default function NutritionForm({ setAppState, appState }) {
             <div className="sub-box">
               <label htmlFor="calories">Calories</label>
               <input
+                id="calories"
                 className="form-input"
                 type="number"
                 min={0}

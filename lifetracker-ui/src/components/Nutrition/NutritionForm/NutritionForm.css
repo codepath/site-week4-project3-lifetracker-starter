@@ -39,3 +39,17 @@ input[type=number]::-webkit-outer-spin-button
     border: 1px solid;
     border-radius: 7px;
 }
+
+.category-box {
+    display: flex;
+    flex-direction: column;
+}
+.category-box label {
+    display: flex;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+label {
+    font-size: 20px;
+}
