@@ -11,6 +11,7 @@ import ExercisePage from "../ExercisePage/ExercisePage";
 import NutritionPage from "../NutritionPage/NutritionPage";
 import SleepPage from "../SleepPage/SleepPage";
 import apiClient from "../../services/apiClient";
+import AccessForbidden from "../AccessForbidden/AccessForbidden";
 
 function App() {
   const [appState, setAppState] = useState({
@@ -18,13 +19,21 @@ function App() {
     isAuthenticated: false,
     nutrition: [],
     sleep: [],
-    exercise: []
+    exercise: [],
+    averageDailyCalories: 0,
+    averageExerciseInt: 0,
+    avgSleepHours: 0,
+    maxCalsInOneMeal: 0,
+    sumExerciseMins: 0,
+    totalNumSleep: 0
   });
+  // const navigate = useNavigate()
 
   useEffect(() => {
     const token = localStorage.getItem("LifeTracker_Token");
     apiClient.setToken(token);
     async function fetchUser() {
+      console.log("its been trigggered")
       if (token) {
         try {
           const { data, error, message } = await apiClient.me();
@@ -34,6 +43,7 @@ function App() {
               isAuthenticated: false,
             }));
             localStorage.setItem("LifeTracker_Token", null);
+            // navigate("/login")
             return;
           }
           setAppState((prevState) => ({
@@ -54,6 +64,9 @@ function App() {
     fetchUser();
   }, [appState.isAuthenticated]);
 
+  // if loading
+  // return loading spinner
+
   console.log(appState);
   return (
     <Fragment>
@@ -62,7 +75,7 @@ function App() {
         <Routes>
           <Route
             path="/activity"
-            element={<ActivityPage appState={appState} />}
+            element={<ActivityPage appState={appState} setAppState={setAppState}/>}
           />
           <Route
             path="/exercise"
@@ -87,6 +100,10 @@ function App() {
           <Route
             path="/register"
             element={<Register setAppState={setAppState} />}
+          />
+          <Route
+            path="*"
+            element={<AccessForbidden />}
           />
         </Routes>
       </BrowserRouter>

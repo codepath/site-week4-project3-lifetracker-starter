@@ -12,7 +12,7 @@ export default function NutritionPage({ setAppState, appState }) {
     category: "",
     quantity: 0,
     calories: 0,
-    image_url: null
+    image_url: null,
   });
 
   function handleRecord(e) {
@@ -29,22 +29,22 @@ export default function NutritionPage({ setAppState, appState }) {
       nutriInfo.calories
     ) {
       try {
-        const token = localStorage.getItem("LifeTracker_Token")
-        apiClient.setToken(token)
+        const token = localStorage.getItem("LifeTracker_Token");
+        apiClient.setToken(token);
         const { data, error, message } = await apiClient.nutrition({
-              name: nutriInfo.name,
-              category: nutriInfo.category,
-              quantity: nutriInfo.quantity,
-              calories: nutriInfo.calories,
-              image_url: nutriInfo.image_url,
-              id: appState.user.id
-            });
-        console.log(data)
-          setAppState((prevState) => ({
-                ...prevState,
-                nutrition: [data.nutrition, ...prevState.nutrition]
-              }));
-    }  catch (err) {
+          name: nutriInfo.name,
+          category: nutriInfo.category,
+          quantity: nutriInfo.quantity,
+          calories: nutriInfo.calories,
+          image_url: nutriInfo.image_url,
+          id: appState.user.id,
+        });
+        console.log(data);
+        setAppState((prevState) => ({
+          ...prevState,
+          nutrition: [data.nutrition, ...prevState.nutrition],
+        }));
+      } catch (err) {
         console.log(err);
       }
       setNutriInfo((prevState) => ({
@@ -53,7 +53,7 @@ export default function NutritionPage({ setAppState, appState }) {
         category: "",
         quantity: 0,
         calories: 0,
-        image_url: ""
+        image_url: "",
       }));
       setNutriForm(!nutriForm);
     }
@@ -202,7 +202,11 @@ export default function NutritionPage({ setAppState, appState }) {
                     </Fragment>
                   ) : (
                     <Fragment>
-                      <button style={{marginTop:"2%"}} onClick={handleRecord} className="bar-button">
+                      <button
+                        style={{ marginTop: "2%" }}
+                        onClick={handleRecord}
+                        className="bar-button"
+                      >
                         Add Nutrition
                       </button>
                       <div id="exercise-whole">

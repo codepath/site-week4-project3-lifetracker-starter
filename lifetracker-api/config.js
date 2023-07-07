@@ -1,9 +1,10 @@
 require("colors");
 require("dotenv").config();
-const crypto = require("crypto");
+// const crypto = require("crypto");
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
-const secretKey = crypto.randomBytes(64).toString("hex") || "secret_dev"
+const secretKey = process.env.SECRET_KEY || "secret_dev"
+
 
 // const IS_TESTING = process.env.NODE_ENV === "test"
 

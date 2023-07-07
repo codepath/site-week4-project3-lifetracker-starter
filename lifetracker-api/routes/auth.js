@@ -2,20 +2,24 @@ const express = require("express");
 const User = require("../models/user");
 const router = express.Router();
 const tokens = require("../utils/tokens");
-const security = require("../middleware/security")
+const security = require("../middleware/security");
 
-router.get("/me", security.requireAuthenticatedUser, async function (req, res, next) {
-  try {
-    console.log("does it continue on here")
-    const { email } = res.locals.user
-    const userInfo = await User.fetchUserByEmail(email)
-    const { user, exercise, sleep, nutrition } = await User._createPublicUser(userInfo)
-    return res.status(200).json({ user, exercise, sleep, nutrition })
-  } catch (err) {
-    console.log("or does it go in here")
-    next(err)
+router.get(
+  "/me",
+  security.requireAuthenticatedUser,
+  async function (req, res, next) {
+    try {
+      const { email } = res.locals.user;
+      const userInfo = await User.fetchUserByEmail(email);
+      const { user, exercise, sleep, nutrition } = await User._createPublicUser(
+        userInfo
+      );
+      return res.status(200).json({ user, exercise, sleep, nutrition });
+    } catch (err) {
+      next(err);
+    }
   }
-})
+);
 
 router.post("/register", async function (req, res, next) {
   try {
@@ -49,9 +53,7 @@ router.post("/exercise", async function (req, res, next) {
 
 router.post("/sleep", async function (req, res, next) {
   try {
-    console.log("sleep");
     const sleep = await User.insertSleep(req.body);
-
     return res.status(201).json({ sleep });
   } catch (err) {
     next(err);
@@ -60,9 +62,7 @@ router.post("/sleep", async function (req, res, next) {
 
 router.post("/nutrition", async function (req, res, next) {
   try {
-    console.log("here");
     const nutrition = await User.insertNutrition(req.body);
-
     return res.status(201).json({ nutrition });
   } catch (err) {
     next(err);
@@ -71,9 +71,22 @@ router.post("/nutrition", async function (req, res, next) {
 
 router.post("/summarystats", async function (req, res, next) {
   try {
-    const  avgSleepHours  = await User.sendSummary();
-
-    return res.status(201).json({avgSleepHours});
+    const {
+      sumExerciseMins,
+      avgSleepHours,
+      totalNumSleep,
+      averageExerciseInt,
+      maxCalsInOneMeal,
+      averageDailyCalories
+    } = await User.sendSummary(req.body);
+    return res.status(201).json({
+      sumExerciseMins,
+      avgSleepHours,
+      totalNumSleep,
+      averageExerciseInt,
+      maxCalsInOneMeal,
+      averageDailyCalories
+    });
   } catch (err) {
     next(err);
   }

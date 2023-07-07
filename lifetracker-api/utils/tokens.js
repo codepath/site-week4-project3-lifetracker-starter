@@ -18,7 +18,7 @@ const { secretKey } = require("../config")
           email: user.email,
           firstname: user.first_name,
           lastname: user.last_name,
-          username: user.username,
+          username: user.username
         };
     
         return generateToken(payload);

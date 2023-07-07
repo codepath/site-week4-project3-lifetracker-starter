@@ -9,6 +9,8 @@ export default function Login({ setAppState }) {
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
+  const [showhide, setShowHide] = useState(false);
+
   const navigateTo = useNavigate();
 
   async function handleSubmit(e) {
@@ -35,7 +37,7 @@ export default function Login({ setAppState }) {
             isAuthenticated: true,
             exercise: data.exercise,
             sleep: data.sleep,
-            nutrition: data.nutrition,
+            nutrition: data.nutrition
           }));
 
           localStorage.setItem("LifeTracker_Token", data.token);
@@ -101,13 +103,15 @@ export default function Login({ setAppState }) {
                 event.preventDefault();
                 var x = document.getElementById("register-input");
                 if (x.type === "password") {
+                  setShowHide(true);
                   x.type = "text";
                 } else {
                   x.type = "password";
+                  setShowHide(false);
                 }
               }}
             >
-              Show
+              {showhide ? "Hide" : "Show"}
             </button>
           </div>
           {userInfo.email.length === 0 ||
@@ -134,7 +138,7 @@ export default function Login({ setAppState }) {
         </form>
         <p style={{ color: "var(--stark)", fontSize: "x-large" }}>
           New to Us? &nbsp;
-          <Link to="/register" style={{ color: "var(--fushia)" }} href="">
+          <Link to="/register" style={{ color: "var(--fushia)" }}>
             Sign Up
           </Link>
         </p>

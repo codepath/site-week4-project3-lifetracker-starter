@@ -4,6 +4,7 @@ import athlete from "../../assets/athlete.jpg";
 import calendar from "../../assets/calendar.jpg";
 import food from "../../assets/food.jpg";
 import alarm from "../../assets/alarm.jpg";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeartPulse,
@@ -12,7 +13,6 @@ import {
   faCalendarDays,
   faStopwatch,
 } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "../Navbar/Navbar";
 import "./Home.css";
 
 export default function Home({ appState }) {
@@ -40,31 +40,40 @@ export default function Home({ appState }) {
         </div>
 
         <div style={{ marginTop: "110px" }} className="tiles">
-          <div className="tile">
-            <span>
-              Fitness <FontAwesomeIcon className="icons" icon={faHeartPulse} />
-            </span>
-            <img src={athlete} alt="image of athlete joggin in place" />
-          </div>
-          <div className="tile">
-            <span>
-              Food <FontAwesomeIcon className="icons" icon={faBurger} />
-            </span>
-            <img src={food} alt="image of food platter" />
-          </div>
-          <div className="tile">
-            <span>
-              Rest <FontAwesomeIcon className="icons" icon={faCloudMoon} />
-            </span>
-            <img src={alarm} alt="image of alarm clock" />
-          </div>
-          <div className="tile">
-            <span>
-              Planner{" "}
-              <FontAwesomeIcon className="icons" icon={faCalendarDays} />
-            </span>
-            <img src={calendar} alt="image of calendar" />
-          </div>
+          <Link to="/exercise">
+            <div className="tile">
+              <span>
+                Fitness{" "}
+                <FontAwesomeIcon className="icons" icon={faHeartPulse} />
+              </span>
+              <img src={athlete} alt="image of athlete joggin in place" />
+            </div>
+          </Link>
+          <Link to="/nutrition">
+            <div className="tile">
+              <span>
+                Food <FontAwesomeIcon className="icons" icon={faBurger} />
+              </span>
+              <img src={food} alt="image of food platter" />
+            </div>
+          </Link>
+          <Link to="/sleep">
+            <div className="tile">
+              <span>
+                Rest <FontAwesomeIcon className="icons" icon={faCloudMoon} />
+              </span>
+              <img src={alarm} alt="image of alarm clock" />
+            </div>
+          </Link>
+          <Link to="/activity">
+            <div className="tile">
+              <span>
+                Planner{" "}
+                <FontAwesomeIcon className="icons" icon={faCalendarDays} />
+              </span>
+              <img src={calendar} alt="image of calendar" />
+            </div>
+          </Link>
         </div>
       </div>
     </Fragment>

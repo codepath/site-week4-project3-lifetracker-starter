@@ -1,9 +1,35 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
+import apiClient from "../../services/apiClient";
 
 import "./ActivityPage.css";
 
-export default function ActivityPage({ appState }) {
+export default function ActivityPage({ appState, setAppState }) {
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const token = localStorage.getItem("LifeTracker_Token");
+        apiClient.setToken(token);
+        const { data, error, message } = await apiClient.stats({
+          id: appState.user.id,
+        });
+        console.log(data);
+        setAppState((prevState) => ({
+          ...prevState,
+          averageDailyCalories: Number(data.averageDailyCalories),
+          averageExerciseInt: Number(data.averageExerciseInt),
+          avgSleepHours: Number(data.avgSleepHours),
+          maxCalsInOneMeal: Number(data.maxCalsInOneMeal),
+          sumExerciseMins: Number(data.sumExerciseMins),
+          totalNumSleep: Number(data.totalNumSleep)
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchData();
+  }, [appState.exercise, appState.nutrition, appState.sleep]);
+
   return (
     <>
       {appState.isAuthenticated ? (
@@ -46,40 +72,43 @@ export default function ActivityPage({ appState }) {
                 style={{ border: "solid 4px var(--fushia)" }}
                 className="actExerMin"
               >
-                <p style={{ marginBottom: "18%" }}>Total Exercise Minutes</p>
-                <span style={{ marginRight: "50%" }}>(Min Place)</span>
-                <span>(Percent Place)</span>
+                <p style={{ marginBottom: "8%" }}>Total Exercise Minutes</p>
+                <span className="apStats" >
+                  {appState.sumExerciseMins.toFixed(1)}
+                </span>
               </div>
               <div
                 style={{ border: "solid 4px var(--jewel)" }}
                 className="actExerMin"
               >
-                <p style={{ marginBottom: "20%" }}>Average Hours of Sleep</p>
-                <span style={{ marginRight: "50%" }}>(Sleep Place)</span>
-                <span>(Percent Place)</span>
+                <p style={{ marginBottom: "8%" }}>Average Hours of Sleep</p>
+                <span className="apStats" >
+                  {appState.avgSleepHours.toFixed(1)}
+                </span>
               </div>
               <div
                 style={{ border: "solid 4px var(--stark)" }}
                 className="actExerMin"
               >
-                <p style={{ marginBottom: "20%" }}>Average Daily Calories</p>
-                <span style={{ marginRight: "50%" }}>(Cal Place)</span>
-                <span>(Percent Place)</span>
+                <p style={{ marginBottom: "8%" }}>Average Daily Calories</p>
+                <span className="apStats" >
+                  {appState.averageDailyCalories.toFixed(1)}
+                </span>
               </div>
               <div className="actExerMin" id="more-stats">
                 <p>More Stats</p>
                 <div id="stats">
                   <div className="stats-info">
                     <p>Max Calories In One Meal</p>
-                    <span>(Cal Place)</span>
+                    <span>{appState.maxCalsInOneMeal.toFixed(1)}</span>
                   </div>
                   <div className="stats-info">
                     <p>Average Exercise Intensity</p>
-                    <span>(Inten Place)</span>
+                    <span>{appState.averageExerciseInt.toFixed(1)}</span>
                   </div>{" "}
                   <div className="stats-info">
                     <p>Total Number of Hours Slept</p>
-                    <span>(Hour Place)</span>
+                    <span>{appState.totalNumSleep.toFixed(1)}</span>
                   </div>
                 </div>
               </div>

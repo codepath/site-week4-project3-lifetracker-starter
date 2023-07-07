@@ -2,6 +2,7 @@ const { BadRequestError, UnauthorizedError } = require("../utils/errors");
 const db = require("../database");
 const bcrypt = require("bcrypt");
 const { BCRYPT_WORK_FACTOR } = require("../config");
+const Stats = require("../utils/stats")
 
 class User {
   static async _createPublicUser(user) {
@@ -43,7 +44,7 @@ class User {
       id: user.id,
       first_name: user.first_name,
       username: user.username,
-      email: user.email,
+      email: user.email
     };
 
     return {
@@ -164,7 +165,7 @@ class User {
 
   static async insertSleep(data) {
     const { start_time, end_time, id } = data;
-
+    console.log(start_time, end_time)
     const result = await db.query(
       `INSERT INTO sleep (
       start_time, 
@@ -212,29 +213,22 @@ class User {
     return user;
   }
 
-  static async sendSummary() {
-    const sumExerciseMins = await db.query(
-      `SELECT SUM(duration) AS total_minutes
-      FROM exercise`
-    );
-    const avgSleepHours = await db.query(
-      `SELECT AVG(EXTRACT(EPOCH FROM (end_time - start_time)) / 3600) AS average_sleep_hours
-FROM sleep;`
-    );
-    const totalNumSleep = await db.query(
-      `SELECT SUM(EXTRACT(EPOCH FROM (end_time - start_time)) / 3600) AS total_sleep
-      FROM sleep`
-    )
-    const averageExerciseInt = await db.query(
-      `SELECT AVG(intensity) AS average_exercise_int
-      FROM exercise;`
-    )
-    // const maxCalsInOneMeal = await db.query(
-    //   `SELECT * FROM nutrition
-    //   ORDER BY created_at = $1 DESC `
-    // )
-      console.log(averageExerciseInt)
-    return averageExerciseInt.rows[0];
+  static async sendSummary(idInfo) {
+    const { id } = idInfo
+    const sumExerciseMins = await Stats.sumExerciseMins(id)
+    const avgSleepHours = await Stats.avgSleepHours(id)
+    const totalNumSleep = await Stats.totalNumSleep(id)
+    const averageExerciseInt = await Stats.averageExerciseInt(id)
+    const maxCalsInOneMeal = await Stats.maxCalsInOneMeal(id)
+    const averageDailyCalories = await Stats.averageDailyCalories(id)
+
+    return {sumExerciseMins: sumExerciseMins,
+      avgSleepHours: avgSleepHours,
+      totalNumSleep: totalNumSleep,
+      averageExerciseInt: averageExerciseInt,
+      maxCalsInOneMeal: maxCalsInOneMeal,
+      averageDailyCalories: averageDailyCalories
+    }
   }
 }
 

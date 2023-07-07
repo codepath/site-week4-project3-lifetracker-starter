@@ -12,14 +12,14 @@
 }
 
 .activity-header p {
-  margin-left: 5.5%;
+  margin-left: 4.3%;
   font-size: 220%;
   color: white;
   font-weight: bolder;
 }
 .activity-buttons {
   /* background-color: red; */
-  margin-right: 4.5%;
+  margin-right: 6.5%;
   padding-top: 35px;
   height: 60px;
 }
@@ -52,11 +52,10 @@
   height: 180px;
   border-radius: 20px;
   color: white;
-  /* background-color: aquamarine; */
   padding-left: 25px;
   padding-bottom: 20px;
-  margin-bottom: 5%;
-  margin-left: 5%;
+  margin-bottom: 2%;
+  margin-left: 4%;
 }
 
 .actExerMin > p {
@@ -70,7 +69,18 @@
   display: flex;
   flex-direction: column;
 }
-/* 
-#more-stats{
-    background-color: aliceblue;
-} */
+
+.apStats{
+  font-weight: bolder;
+  font-size: 500%;
+  margin-right: 50% ;
+}
+
+.stats-info p{
+  font-size: large;
+}
+
+.stats-info span {
+  font-weight: bolder;
+  font-size: x-large;
+}

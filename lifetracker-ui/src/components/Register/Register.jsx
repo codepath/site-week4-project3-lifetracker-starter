@@ -17,6 +17,10 @@ export default function Register({ setAppState }) {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [regisError, setRegisError] = useState("");
+  const [showhide, setShowHide] = useState({
+    first_button: false,
+    second_button: false
+  })
   const navigateTo = useNavigate();
 
   async function handleSumbit(e) {
@@ -35,69 +39,41 @@ export default function Register({ setAppState }) {
       setIsLoading(true);
       try {
         const { data, error, message } = await apiClient.register({
-              email: userInfo.email,
-              username: userInfo.username,
-              first_name: userInfo.first_name,
-              last_name: userInfo.last_name,
-              password: userInfo.password,
-            });
-        console.log(data)
+          email: userInfo.email,
+          username: userInfo.username,
+          first_name: userInfo.first_name,
+          last_name: userInfo.last_name,
+          password: userInfo.password,
+        });
+        console.log(data);
         if (error) {
           setRegisError("Something went wrong with registration.");
-      setIsLoading(false);
+          setIsLoading(false);
           return;
         }
 
         if (data) {
           setRegisError("");
-              setAppState((prevState) => ({
+          setAppState((prevState) => ({
             ...prevState,
             user: data.user,
             isAuthenticated: true,
             exercise: [],
             nutrition: [],
-            sleep: []
+            sleep: [],
           }));
-          localStorage.setItem("LifeTracker_Token", data.token)
-          apiClient.setToken(data.token)
-          navigateTo("/")
-    } else {
-                    setRegisError("Something went wrong with registration.");
-
+          localStorage.setItem("LifeTracker_Token", data.token);
+          apiClient.setToken(data.token);
+          navigateTo("/");
+        } else {
+          setRegisError("Something went wrong with registration.");
         }
       } catch (err) {
         console.log(err);
         // const message = err?.response?.data?.error?.message;
         setRegisError("Something went wrong with registration.");
       }
-      // try {
-      //   const res = await axios.post("http://localhost:3001/auth/register", {
-      //     email: userInfo.email,
-      //     username: userInfo.username,
-      //     first_name: userInfo.first_name,
-      //     last_name: userInfo.last_name,
-      //     password: userInfo.password,
-      //   });
-      //   console.log(res)
-      //   if (res?.data?.user) {
-      //     setRegisError("");
-      //     setAppState((prevState) => ({
-      //       ...prevState,
-      //       user: res.data.user,
-      //       isAuthenticated: true,
-      //       exercise: [],
-      //       nutrition: [],
-      //       sleep: []
-      //     }));
-      //     localStorage.setItem("LifeTracker_Token", res.data.token)
-      //     navigateTo("/");
-      //   } else {
-      //     setRegisError("Something went wrong with registration.");
-      //   }
-      // } catch (error) {
-      //   console.log(error);
-      //   setRegisError("Something went wrong with registration.");
-      // }
+
       setUserInfo((prevState) => ({
         ...prevState,
         email: "",
@@ -114,11 +90,31 @@ export default function Register({ setAppState }) {
   function showPass(event, id) {
     event.preventDefault();
     var x = document.getElementById(id);
+
     if (x.type === "password") {
+      if (id == "button-input1") {
+        setShowHide((prevState) => ({
+          ...prevState,
+          first_button: true
+        }))}
+      else{
+        setShowHide((prevState) => ({
+          ...prevState,
+          second_button: true
+      }))}
       x.type = "text";
     } else {
       x.type = "password";
-    }
+      if (id == "button-input1") {
+        setShowHide((prevState) => ({
+          ...prevState,
+          first_button: false
+        }))}
+      else{
+        setShowHide((prevState) => ({
+          ...prevState,
+          second_button: false
+      }))}    }
   }
 
   return (
@@ -209,7 +205,7 @@ export default function Register({ setAppState }) {
               placeholder="Password"
             />
             <button onClick={() => showPass(event, "button-input1")}>
-              Show
+              {showhide.first_button ? "Hide" : "Show"}
             </button>
           </div>
           <div className="register-button">
@@ -229,7 +225,7 @@ export default function Register({ setAppState }) {
               placeholder="Confirm Password"
             />
             <button onClick={() => showPass(event, "button-input2")}>
-              Show
+              {showhide.second_button ? "Hide" : "Show"}
             </button>
           </div>
           {userInfo.password !== userInfo.confirmPassword ? (

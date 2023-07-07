@@ -15,30 +15,28 @@ export default function SleepPage({ appState, setAppState }) {
     e.preventDefault();
     setSleepForm(!sleepForm);
   }
-  console.log(sleepInfo);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (sleepInfo.start_time && sleepInfo.end_time) {
+    if (sleepInfo.start_time && sleepInfo.end_time && sleepInfo.start_time < sleepInfo.end_time)  {
       try {
         const token = localStorage.getItem("LifeTracker_Token");
         apiClient.setToken(token);
         const { data, error, message } = await apiClient.sleep({
           start_time: sleepInfo.start_time,
           end_time: sleepInfo.end_time,
-          id: appState.user.id
+          id: appState.user.id,
         });
-        console.log(data);
         setAppState((prevState) => ({
           ...prevState,
-          sleep: [data.sleep, ...prevState.sleep]
+          sleep: [data.sleep, ...prevState.sleep],
         }));
       } catch (err) {
         console.log(err);
       }
       setSleepInfo((prevState) => ({
         start_time: "",
-        end_time: ""
+        end_time: "",
       }));
       setSleepForm(!sleepForm);
     }

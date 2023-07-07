@@ -1,0 +1,15 @@
+#accessForbidden{
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+    margin-top: 6%;
+}
+
+#accessForbidden h1{
+    font-size: 400%;
+    color: var(--stark);
+}
+
+#accessForbidden img{
+    border-radius: 100px;
+}
