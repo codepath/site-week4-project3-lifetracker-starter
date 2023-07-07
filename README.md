@@ -21,13 +21,6 @@ By the end of this project you will be able to...
 
 ## Application Features
 
-## Walkthrough Video Week 1
-
-<a href="https://www.loom.com/share/94bdaaefebff4e95a529d1bf956d0fa4">
-    <p>Loom Message - 30 June 2023 - Watch Video</p>
-    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/94bdaaefebff4e95a529d1bf956d0fa4-with-play.gif">
-  </a>
-
 ### Core Features
 
 - [X] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
@@ -39,11 +32,14 @@ By the end of this project you will be able to...
   - [X] If no user is logged in, it should display **Login** and **Register** buttons.
   - [X] Display a logo on the far left side, and contain links to the individual detailed activity pages.
 - [X] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
-- [ ] **Detailed Activity Page:** Display and enter activities.
-  - [ ] Display a feed of all previously tracked activities.
-  - [ ] A form to enter relevant information (i.e., if tracking nutrition, the user can enter calories, timestamp, image, category, etc.).
-  - [ ] Each activity tracked is given a unique ID for easy lookup.
+- [X] **Detailed Activity Page:** Display and enter activities.
+  - [X] Display a feed of all previously tracked activities.
+  - [X] A form to enter relevant information (i.e., if tracking nutrition, the user can enter calories, timestamp, image, category, etc.).
+  - [X] Each activity tracked is given a unique ID for easy lookup.
 - [ ] Deploy your website with Render. Check out our [Render Deployment Guide](https://courses.codepath.org/snippets/site/render_deployment_guide) for detailed instructions.
+
+### Video Walkthrough Week 2
+https://drive.google.com/file/d/1XnT90cItQSgiODGBka4ooS_2dBswP4n2/view
 
 ### Stretch Features
 
