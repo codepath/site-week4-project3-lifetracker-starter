@@ -59,7 +59,8 @@ function App() {
               <ActivityPage setAppState={setAppState} appState={appState} />
             }
           />
-          <Route path="/nutrition" element={<NutritionPage setAppState={setAppState} appState={appState}/>}/>
+          <Route path="/nutrition/*" element={<NutritionPage setAppState={setAppState} appState={appState}/>}/>
+          
         </Routes>
       </BrowserRouter>
     </div>

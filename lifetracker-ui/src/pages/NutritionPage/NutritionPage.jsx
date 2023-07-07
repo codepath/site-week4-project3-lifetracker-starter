@@ -2,14 +2,15 @@ import "./NutritionPage.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NutritionOverview from "../../components/Nutrition/NutritionOverview/NutritionOverview";
 import NutritionDetail from "../../components/Nutrition/NutritionDetail/NutritionDetail";
-import NutritionNew from "../../components/Nutrition/NutritionNew/NutritionNew";
+import NutritionForm from "../../components/Nutrition/NutritionForm/NutritionForm";
 
 export default function NutritionPage({ setAppState, appState }) {
   if (appState.user) {
     return (
       <div className="nutrition-page">
         <Routes>
-          <Route path="/" element={<NutritionOverview />}></Route>
+          <Route path="" element={<NutritionOverview />}/>
+          <Route path="create" element={<NutritionForm/>}/>
         </Routes>
       </div>
     );

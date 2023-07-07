@@ -91,7 +91,8 @@ export default function Login({ setAppState }) {
           <input
             className="form-input"
             value={loginForm.email}
-            type="text"
+            type="email"
+            pattern=".+@globex\.com"
             name="email"
             placeholder="Email"
             onChange={handleOnChange}

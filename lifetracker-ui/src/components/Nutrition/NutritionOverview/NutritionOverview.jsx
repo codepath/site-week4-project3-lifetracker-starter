@@ -10,7 +10,7 @@ export default function NutritionOverview() {
       </div>
 
       <div className="record-nutrition">
-        <Link to="/nutrition/new"><span>Record Nutrition</span></Link>
+        <Link to="create"><span>Record Nutrition</span></Link>
       </div>
     </div>
   );

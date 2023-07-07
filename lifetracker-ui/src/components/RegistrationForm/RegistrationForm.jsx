@@ -135,7 +135,8 @@ export default function RegistrationForm({ setAppState }) {
       <form className="card">
         <input
           className="form-input"
-          type="text"
+          type="email"
+          pattern=".+@globex\.com"
           name="email"
           value={regForm.email}
           onChange={handleChange}
