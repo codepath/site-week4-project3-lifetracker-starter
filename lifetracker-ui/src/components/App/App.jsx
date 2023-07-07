@@ -40,9 +40,9 @@ export default function App() {
           const exercises = response.data.exercises;
           const exerciseTime = response.data.exerciseTime;
           const exerciseAvg = response.data.exerciseAvg;
-          setExerciseAvg(exerciseAvg === null ? 0.00 : (parseInt(exerciseAvg).toFixed(1)));
+          setExerciseAvg(exerciseAvg === null ? 0.00 : (parseFloat(exerciseAvg).toFixed(1)));
           setExerciseArray(exercises);
-          setExerciseTime(exerciseTime === null ? 0.00 : (parseInt(exerciseTime).toFixed(1)));
+          setExerciseTime(exerciseTime === null ? 0.00 : (parseFloat(exerciseTime).toFixed(1)));
         })
         .catch((error) => {
           console.log("Error with axios:", error); // Debugging console.log
