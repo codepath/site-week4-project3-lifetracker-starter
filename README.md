@@ -25,7 +25,19 @@ By the end of this project you will be able to...
 
 <a href="https://www.loom.com/share/1e9d6e06966b49efb0e03a4442221441">
     <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/1e9d6e06966b49efb0e03a4442221441-with-play.gif">
+</a>
+
+## Walkthrough Video Week 2 ##
+<a href="https://www.loom.com/share/6074f9abda7c4889a92f5c7e6893ea76">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/6074f9abda7c4889a92f5c7e6893ea76-with-play.gif">
   </a>
+
+
+## Deployed Website URL ##
+
+https://lifetracker-ui-854f.onrender.com/
+
+
 
 ### Core Features
 
@@ -52,7 +64,7 @@ Implement any of the following features to improve the application:
 - [ ] Each model (i.e `nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource.
   - You should also create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
 - [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item. Example: filter exercise or nutrition by category, or filter sleep by the week/month it was recorded.
-- [ ] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
+- [x] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
 - [ ] Create a page that shows all other users that use the LifeTracker application and allow users to follow each other. You'll want to create a new table to store this data.
 - [x] Implement `security` middleware on the API that allows only authenticated users to access resources and allows users to only access resources about themselves.
 
