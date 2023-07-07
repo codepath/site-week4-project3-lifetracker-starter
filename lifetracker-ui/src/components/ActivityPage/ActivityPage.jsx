@@ -1,21 +1,26 @@
 import './ActivityPage.css'
+
 import React from "react"
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-export default function ActivityPage({loggedIn}) {
+import axios from 'axios'
+import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 
-   const [aveCalories, setAveCalories] = useState([])
+export default function ActivityPage({ loggedIn }) {
+
+    const [aveCalories, setAveCalories] = useState([])
    const [averageHoursSlept, setAverageHoursSlept] = useState([]);
-   useEffect(() =>{
+
+//activity ave calories
+  useEffect(() =>{
       axios.get('http://localhost:3001/activity').then((response) => {
          console.log(response.data.avg_calories.avg_calories)
          setAveCalories(response.data.avg_calories.avg_calories)
       })
       }, [])
-
-
-   
-
+  
+  //activity ave hours slept
    useEffect(() => {
       axios.get('http://localhost:3001/activity')
          .then((response) => {
@@ -26,8 +31,6 @@ export default function ActivityPage({loggedIn}) {
          console.error('Error retrieving average hours slept:', error);
          });
          }, []);
-
-    //  console.log(averageHoursSlept)
 
 
     return (
@@ -43,9 +46,21 @@ export default function ActivityPage({loggedIn}) {
       <div className="chakra-stack css-12mzq72">
          <h2 className="chakra-heading css-1jb3vzl">Activity Feed</h2>
          <div className="chakra-stack css-1qwhsm9">
+
             <button type="button" className="chakra-button css-moltat">Add Exercise</button>
          <button type="button" className="chakra-button css-l6faz9">Log Sleep</button>
          <a href="/nutrition/create"><button type="button" className="chakra-button css-n3canj" onClick={()=>console.log("click")}>Record Nutrition</button></a>
+
+         <Link to = "/exercise/create">
+         <button type="button" className="chakra-button css-moltat">Add Exercise</button>
+         </Link>
+         <Link to = "/sleep/create">
+         <button type="button" className="chakra-button css-l6faz9">Log Sleep</button>
+         </Link>
+         <Link to = "/nutrition/create">
+         <button type="button" className="chakra-button css-n3canj">Record Nutrition</button>
+         </Link>
+
          </div>
       </div>
       <div className="css-18qrtb8">

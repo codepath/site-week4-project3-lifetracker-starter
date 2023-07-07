@@ -1,4 +1,4 @@
-const express = require("express")
+ const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
 const { NotFoundError } = require("./utils/errors")
@@ -42,17 +42,6 @@ app.get("/activity", async function(req,res){
   return res.status(200).json({avg_calories,avg_hours_slept})
   
 })
-
-//getting avg sleep time in user actvitiy
-// app.get("/activity", async function(req,res){
-
-//   const queryResult = await db.query(`SELECT AVG(EXTRACT(EPOCH FROM (endtime - starttime)) / 3600) AS avg_hours_slept FROM sleep`);
-//   const avg_hours_slept = queryResult.rows[0];
-
-//     console.log({avg_hours_slept});   
-         
-//   return res.status(200).json({avg_hours_slept})
-// })
 
   /** Handle 404 errors -- this matches everything */
   app.use(function (req, res, next) {

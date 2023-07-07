@@ -22,6 +22,7 @@ function App() {
   const [loginError, setLoginError] = useState("");
   const [firstName, setFirstName] = useState("")
 
+
 //login, logout stuff 
   useEffect(() => {
     const checkLoggedIn = () => {
@@ -49,7 +50,8 @@ const handleLogout = () => {
 
 
     return (
-    <div>
+
+ <div>
       <Navbar loggedIn = {loggedIn} logout = {handleLogout}/>
       <Router>
         <Routes>
