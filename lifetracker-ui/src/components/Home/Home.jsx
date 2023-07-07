@@ -2,10 +2,10 @@ import React from 'react'
 import Hero from "../Hero/Hero"
 import FeedTiles from "../FeedTiles/FeedTiles"
 
-function Home({user,loggedin}) {
+function Home({user,isAuthenticated}) {
     return (
         <div>
-            <Hero loggedin={loggedin} user={user}/>
+            <Hero loggedin={isAuthenticated} user={user}/>
            
             <FeedTiles />
         </div>

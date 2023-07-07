@@ -18,6 +18,10 @@
 .tile-img {
   border: solid;
   border-radius: 18px;
-  box-shadow: 10px 10px 5px lightblue;
-  color:rgb(0, 149, 255)
+  box-shadow: 10px 10px 5px rgb(246, 161, 211);
+  color:rgb(150, 61, 90)
+}
+
+h2{
+  color:rgb(150, 61, 90);
 }

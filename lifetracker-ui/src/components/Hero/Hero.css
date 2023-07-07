@@ -1,10 +1,10 @@
 .banner {
-    background-color:rgb(34, 109, 159);
-    width: 80%;
+    background-color:rgb(150, 61, 90);
+    width: 70%;
     margin: 0 auto;
     border-radius: 18px;
     height: 8%;
-    box-shadow: 10px 10px 5px lightblue;
+    box-shadow: 10px 10px 5px rgb(246, 161, 211);
 }
     
 
@@ -25,7 +25,7 @@
     align-items: flex;
     box-shadow: var(--chakra-shadows-2xl);
     border-radius: 18px;
-    margin-right:30px;
+    margin-right:5px;
 }
 
 .banner-left {
@@ -36,12 +36,12 @@
 h1 {
     color: whitesmoke;
     font-size: 90px;
-    text-shadow: 2px 2px rgb(0, 149, 255)
+    text-shadow: 2px 2px rgb(189, 64, 137)
 }
 
 h3 {
     color: whitesmoke;
     font-size: 30px;
-    text-shadow: 2px 2px rgb(0, 149, 255)
+    text-shadow: 2px 2px rgb(189, 64, 137)
 }
 

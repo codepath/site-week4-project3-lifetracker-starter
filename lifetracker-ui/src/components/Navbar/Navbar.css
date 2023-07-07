@@ -2,7 +2,7 @@
   padding-top: 20px;
   width: 100px;
   text-decoration: none;
-  color:rgb(34, 109, 159);
+  color:rgb(150, 61, 90);
   font-weight: bold;
   text-shadow:2px 2px 8px 10px 10px 5px lightblue;
   font-family: var(--chakra-fonts-body)
@@ -31,14 +31,14 @@ ul {
   font-size: 17px;
   cursor: pointer;
   display: inline-flex;
-  color: rgb(0, 149, 255);
+  color: rgb(150, 61, 90);
   justify-content: space-between;
   margin-left: 20px;
 
 }
 
 .button1 {
-  background-color: rgb(0, 149, 255);
+  background-color: rgb(150, 61, 90);
   border:solid;
   text-align: center;
   align-items: center;
@@ -47,7 +47,21 @@ ul {
   display: inline-block;
   font-size: 17px;
   cursor: pointer;
-  color: black;
+  color: rgb(254, 198, 231);
   margin-left: 20px;
 
+}
+
+.homebutt{
+  border: solid;
+  width: 50px;
+  height: 35px;
+  padding-top: 15px;
+  text-align: center;
+  margin-left: 60px;
+  border-radius: 30px;
+  padding-bottom: 3px;
+  box-shadow: 7px 7px 10px rgb(150, 61, 90);
+  color: rgb(255, 230, 234);
+  font-size: 30px;
 }
