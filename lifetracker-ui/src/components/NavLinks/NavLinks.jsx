@@ -1,7 +1,6 @@
 import "./Navlinks.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import apiClient from "../../../services/apiClient";
-import { useNavigate } from "react-router-dom";
 
 export default function NavLinks({ appState, setAppState }) {
   const navigate = useNavigate();
@@ -9,16 +8,16 @@ export default function NavLinks({ appState, setAppState }) {
     return (
       <div className="nav-links">
         <ul className="links">
-          <li>
+          <li onClick={() => {navigate("/nutrition")}}>
             <Link to="/nutrition">Nutrition</Link>
           </li>
-          <li>
+          <li onClick={() => {navigate("/activity")}}>
             <Link to="/activity">Activity</Link>
           </li>
-          <li>
+          <li onClick={() => {navigate("/login")}}>
             <Link to="/login">Login</Link>
           </li>
-          <li>
+          <li onClick={<Link to="/register"/>}>
             <Link to="/register">Sign Up</Link>
           </li>
         </ul>
@@ -35,10 +34,10 @@ export default function NavLinks({ appState, setAppState }) {
     return (
       <div className="nav-links">
         <ul className="links">
-          <li>
+          <li onClick={() => {navigate("/nutrition")}}>
             <Link to="/nutrition">Nutrition</Link>
           </li>
-          <li>
+          <li onClick={() => {navigate("/activity")}} >
             <Link to="/activity">Activity</Link>
           </li>
           <li onClick={logoutUser}>Log Out</li>

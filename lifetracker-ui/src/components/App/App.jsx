@@ -14,18 +14,17 @@ function App() {
   const [appState, setAppState] = useState({
     user: "",
     isAuthenticated: false,
-    nutritions: "",
+    nutritions: [],
     sleep: "",
     exercise: "",
   });
 
-  const [isFetching, setIsFetching] = useState();
-
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-
       async function fetchUser() {
         const { data, error } = await apiClient.fetchUserFromToken();
+
         if (data) setAppState({ ...appState, user: data.user });
         if (error) setAppState(error);
       }
@@ -34,6 +33,7 @@ function App() {
       if (token) {
         apiClient.setToken(token);
         fetchUser();
+
       }
   
   }, []);

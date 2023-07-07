@@ -30,11 +30,11 @@ export default function NutritionForm({ setAppState, appState }) {
     });
 
     if (error) setErrors((e) => ({ ...e, regForm: error }));
-    if (data?.nutrition) {
-      console.log(data.nutrition);
-      setAppState(...appState, { nutritions: data.nutrition });
-      navigate("/");
+    if (data?.newNutrition) {
+      setAppState({ ...appState, nutritions: [...appState.nutritions, data.newNutrition] });
+      navigate("/nutrition");
     }
+
     setIsLoading(false);
 
     setNutritionForm({
@@ -71,9 +71,9 @@ export default function NutritionForm({ setAppState, appState }) {
               required
             >
               <option defaultValue="default">Select a Category</option>
-              <option value="snack">Snack</option>
-              <option value="beverage">Beverage</option>
-              <option value="food">Food</option>
+              <option value="SNACK">Snack</option>
+              <option value="BEVERAGE">Beverage</option>
+              <option value="FOOD">Food</option>
             </select>
           </div>
           <div className="box">

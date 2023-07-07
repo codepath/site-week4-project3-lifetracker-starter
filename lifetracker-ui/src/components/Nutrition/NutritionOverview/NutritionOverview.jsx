@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import NutritionFeed from "../../NutritionFeed/NutritionFeed";
 
-export default function NutritionOverview({ appState }) {
+export default function NutritionOverview({ appState, setAppState }) {
   return (
     <div className="nutrition-overview">
       <div className="header">
@@ -17,7 +17,7 @@ export default function NutritionOverview({ appState }) {
       </div>
       <div className="test">
 
-      <NutritionFeed appState={appState}/>
+      <NutritionFeed setAppState={setAppState} appState={appState}/>
       </div>
     </div>
   );
