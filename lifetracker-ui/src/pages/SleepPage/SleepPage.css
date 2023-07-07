@@ -1,6 +1,15 @@
-.SleepPage .button {
+.sleep-page {
   display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
-.SleepPage .button button {
-  flex: 1;
+.sleep-page .sleep-feed {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
 }
+
+

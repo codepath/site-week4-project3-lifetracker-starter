@@ -1,4 +1,4 @@
-.nutrition-overview {
+.sleep-overview {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,11 +7,11 @@
     flex-direction: column;
 }
 
-.nutrition-overview .header {
+.sleep-overview .header {
     display: flex;
     font-size: 50px;
 }
-.nutrition-overview .record-nutrition {
+.sleep-overview .log-sleep {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -21,9 +21,8 @@ a {
     text-decoration: none;
     color: black;
 }
-.nutrition-overview .record-nutrition span{
+.sleep-overview .log-sleep span{
     display: flex;
-
     border: 1px solid black;
     border-radius: 7px;
     padding: 10px;

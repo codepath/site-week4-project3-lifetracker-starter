@@ -1,7 +1,7 @@
-import NutritionCard from "../Nutrition/NutritionCard/NutritionCard";
+import NutritionCard from "../NutritionCard/NutritionCard"
 import "./NutritionFeed.css";
 import { useEffect } from "react";
-import apiClient from "../../../services/apiClient";
+import apiClient from "../../../../services/apiClient"
 
 export default function NutritionFeed({ appState, setAppState }) {
   useEffect(() => {

@@ -50,7 +50,7 @@ export default function NutritionForm({ setAppState, appState }) {
   return (
     <div className="nutrition-form">
       <h1>Record Nutrition</h1>
-      <div className="nutrition-form">
+      <div className="nutrition-input-form">
         <form className="card">
           <input
             className="form-input"

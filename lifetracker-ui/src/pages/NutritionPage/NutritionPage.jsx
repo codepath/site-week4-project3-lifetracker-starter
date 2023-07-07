@@ -1,4 +1,4 @@
-import "./NutritionPage.css"
+import "./NutritionPage.css";
 import { Routes, Route } from "react-router-dom";
 import NutritionOverview from "../../components/Nutrition/NutritionOverview/NutritionOverview";
 import NutritionForm from "../../components/Nutrition/NutritionForm/NutritionForm";
@@ -8,8 +8,21 @@ export default function NutritionPage({ setAppState, appState }) {
     return (
       <div className="nutrition-page">
         <Routes>
-          <Route path="" element={<NutritionOverview setAppState={setAppState} appState={appState} />}/>
-          <Route path="create" element={<NutritionForm setAppState={setAppState} appState={appState}/>}/>
+          <Route
+            path=""
+            element={
+              <NutritionOverview
+                setAppState={setAppState}
+                appState={appState}
+              />
+            }
+          />
+          <Route
+            path="create"
+            element={
+              <NutritionForm setAppState={setAppState} appState={appState} />
+            }
+          />
         </Routes>
       </div>
     );

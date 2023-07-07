@@ -1,7 +1,7 @@
 import "./NutritionOverview.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import NutritionFeed from "../../NutritionFeed/NutritionFeed";
+import NutritionFeed from "../NutritionFeed/NutritionFeed";
 
 export default function NutritionOverview({ appState, setAppState }) {
   return (
@@ -15,10 +15,7 @@ export default function NutritionOverview({ appState, setAppState }) {
           <span>Record Nutrition</span>
         </Link>
       </div>
-      <div className="test">
-
       <NutritionFeed setAppState={setAppState} appState={appState}/>
-      </div>
     </div>
   );
 }
