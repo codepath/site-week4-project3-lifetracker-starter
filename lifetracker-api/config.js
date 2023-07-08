@@ -13,10 +13,8 @@ function getDatabaseUri() {
   const dbPort = process.env.PG_PORT || 5432;
   const dbProdName = process.env.PG_DATABASE || "life_tracker";
 
-  return (
-    process.env.PG_URL ||
-    `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbProdName}`
-  );
+  return process.env.PG_URL ||`postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbProdName}`
+  ;
 }
 
 const BCRYPT_WORK_FACTOR =  13;
