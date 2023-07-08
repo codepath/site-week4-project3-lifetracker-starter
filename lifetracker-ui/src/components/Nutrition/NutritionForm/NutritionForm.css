@@ -1,0 +1,55 @@
+.nutrition-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 750px;
+}
+.nutrition-form h1 {
+    display: flex;
+    justify-content: center;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+
+}
+.box .sub-box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.sub-box label {
+    display: flex;
+    justify-content: center;
+}
+.nutrition-form .box {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.card select {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 7px;
+}
+
+.category-box {
+    display: flex;
+    flex-direction: column;
+}
+.category-box label {
+    display: flex;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+label {
+    font-size: 20px;
+}

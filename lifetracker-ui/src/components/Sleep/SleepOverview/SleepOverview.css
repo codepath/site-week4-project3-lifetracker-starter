@@ -1,0 +1,31 @@
+.sleep-overview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.sleep-overview .header {
+    display: flex;
+    font-size: 50px;
+}
+.sleep-overview .log-sleep {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.sleep-overview .log-sleep span{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 10px;
+    background-color: #E2DFD2;
+    cursor: pointer;
+}

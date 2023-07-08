@@ -1,0 +1,5 @@
+const PRODUCTION_API_BASE_URL = "ds"
+const DEVELOPMENT_API_BASE_URL = "DDDD"
+const API_BASE_URL = process.env.NODE_ENV === "production" ? PRODUCTION_API_BASE_URL : DEVELOPMENT_API_BASE_URL
+
+export default API_BASE_URL

@@ -1,0 +1,40 @@
+.registration-form {
+    display: flex;
+    flex-direction: column;
+}
+.card {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px -1px lightgray;
+}
+.registration-form h2 {
+    display: flex;
+    justify-content: center;
+}
+.registration-form .card .reg-names {
+    display: flex;
+    flex-direction: row;
+}
+
+.card button {
+    background-color: #C7DAD4;
+    font-size: 25px;
+    width: 100%;
+    border: 1px solid;
+}
+
+.card input {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 7px;
+}
+
+.card .reg-names input{
+    width: 100%
+}

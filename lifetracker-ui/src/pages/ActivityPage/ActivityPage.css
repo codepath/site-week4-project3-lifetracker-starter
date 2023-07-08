@@ -1,0 +1,23 @@
+.activity-page{
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-page h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.activity-page .redirects {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.redirects .record-nutrition {
+    padding: 10px;
+    background-color: #E2DFD2;
+    border-radius: 7px;
+    border: 1px solid;
+    cursor: pointer;
+}
