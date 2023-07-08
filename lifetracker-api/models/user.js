@@ -87,6 +87,7 @@ class User{
     }
 
     static async fetchUserByEmail(email){
+
         const result = await db.query(
         `SELECT id,
                 email,
