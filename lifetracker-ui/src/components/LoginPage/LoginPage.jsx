@@ -5,16 +5,14 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
-export default function LoginPage({ setAppState, setIsLoggedIn, appState }) {
+export default function LoginPage({ setAppState, setIsLoggedIn }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const [userFirstName, setUserFirstName] = useState();
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
       if (event.target.value.indexOf("@") === -1) {

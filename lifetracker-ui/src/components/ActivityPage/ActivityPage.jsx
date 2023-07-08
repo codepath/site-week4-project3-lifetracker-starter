@@ -8,8 +8,6 @@ import { useState } from "react";
 export default function ActivityPage({
   appState,
   isLoggedIn,
-  exerciseArray,
-  setExerciseArray,
   exerciseTime,
   exerciseAvg,
   setExerciseTime,
@@ -28,7 +26,6 @@ export default function ActivityPage({
           },
         })
         .then((response) => {
-          const exercises = response.data.exercises;
           const exerciseTime = response.data.exerciseTime;
           const exerciseAvg = response.data.exerciseAvg;
           setExerciseAvg(

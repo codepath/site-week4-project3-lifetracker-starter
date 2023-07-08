@@ -5,9 +5,7 @@ import axios from "axios";
 
 export default function NutritionPage({
   isLoggedIn,
-  appState,
-  nutritionArray,
-  setExerciseArray,
+  nutritionArray
 }) {
   const renderNutritions = () => {
     return nutritionArray?.toReversed().map((nutrition) => (

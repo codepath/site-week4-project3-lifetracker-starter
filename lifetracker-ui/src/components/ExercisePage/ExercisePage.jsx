@@ -5,9 +5,7 @@ import axios from "axios";
 
 export default function ExercisePage({
   isLoggedIn,
-  appState,
-  exerciseArray,
-  setExerciseArray,
+  exerciseArray
 }) {
   const renderExercises = () => {
     return exerciseArray?.toReversed().map((exercise) => (

@@ -2,20 +2,20 @@ import * as React from "react";
 import Logo from "../Logo/Logo";
 import "./Navbar.css";
 import NavLinks from "../NavLinks/NavLinks";
-import {useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
-    const navigate = useNavigate()
-  
-    const handleLogout = async (e) => {
-      e.preventDefault();
-      localStorage.removeItem("token");
-      setAppState({});
-      setIsLoggedIn(false);
-      navigate("/");
-    };
-  
-    const loggedIn = (
+  const navigate = useNavigate();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    setAppState({});
+    setIsLoggedIn(false);
+    navigate("/");
+  };
+
+  const loggedIn = (
     <>
       <a className="chakra-link css-spn4bz">
         <button
@@ -49,7 +49,6 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
     </>
   );
 
-
   return (
     <div className="Navbar ">
       <div className="content">
@@ -62,5 +61,3 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setAppState }) {
     </div>
   );
 }
-
-

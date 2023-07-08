@@ -114,7 +114,6 @@ export default function App() {
             path="/login"
             element={
               <LoginPage
-                appState={appState}
                 setAppState={setAppState}
                 setIsLoggedIn={setIsLoggedIn}
               />
@@ -124,7 +123,6 @@ export default function App() {
             path="/register"
             element={
               <RegistrationPage
-                appState={appState}
                 setAppState={setAppState}
                 setIsLoggedIn={setIsLoggedIn}
               />
@@ -136,8 +134,6 @@ export default function App() {
               <ActivityPage
                 appState={appState}
                 isLoggedIn={isLoggedIn}
-                exerciseArray={exerciseArray}
-                setExerciseArray={setExerciseArray}
                 exerciseTime={exerciseTime}
                 exerciseAvg={exerciseAvg}
                 setExerciseTime={setExerciseTime}
@@ -154,9 +150,7 @@ export default function App() {
             element={
               <ExercisePage
                 isLoggedIn={isLoggedIn}
-                appState={appState}
                 exerciseArray={exerciseArray}
-                setExerciseArray={setExerciseArray}
               />
             }
           />
@@ -164,7 +158,6 @@ export default function App() {
             path="/exercise/create"
             element={
               <ExerciseForm
-                isLoggedIn={isLoggedIn}
                 appState={appState}
                 setExerciseArray={setExerciseArray}
               />
@@ -175,9 +168,7 @@ export default function App() {
             element={
               <NutritionPage
                 isLoggedIn={isLoggedIn}
-                appState={appState}
                 nutritionArray={nutritionArray}
-                setNutritionArray={setNutritionArray}
               />
             }
           />
@@ -185,7 +176,6 @@ export default function App() {
             path="/nutrition/create"
             element={
               <NutritionForm
-                isLoggedIn={isLoggedIn}
                 appState={appState}
                 nutritionArray={nutritionArray}
                 setNutritionArray={setNutritionArray}

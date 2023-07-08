@@ -8,7 +8,6 @@ import jwtDecode from "jwt-decode";
 export default function RegistrationPage({
   setAppState,
   setIsLoggedIn,
-  appState,
 }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);

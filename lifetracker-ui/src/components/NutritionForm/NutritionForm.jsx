@@ -3,11 +3,7 @@ import "./NutritionForm.css";
 import { useState } from "react";
 import axios from "axios";
 
-export default function NutritionForm({
-  isLoggedIn,
-  appState,
-  setNutritionArray,
-}) {
+export default function NutritionForm({ appState, setNutritionArray }) {
   const [nutrition, setNutrition] = useState({
     name: "",
     category: "",

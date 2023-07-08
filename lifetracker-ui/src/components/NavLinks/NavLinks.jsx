@@ -6,27 +6,19 @@ export default function NavLinks() {
   return (
     <div className="nav-links">
       <Link to="/activity">
-        <a className="chakra-link navlinks">
-          Activity
-        </a>
+        <a className="chakra-link navlinks">Activity</a>
       </Link>
 
       <Link to="/exercise">
-        <a className="chakra-link navlinks" >
-          Exercise
-        </a>
+        <a className="chakra-link navlinks">Exercise</a>
       </Link>
 
       <Link to="/nutrition">
-        <a className="chakra-link navlinks">
-          Nutrition
-        </a>
+        <a className="chakra-link navlinks">Nutrition</a>
       </Link>
 
       <Link to="/sleep">
-        <a className="chakra-link navlinks">
-          Sleep
-        </a>
+        <a className="chakra-link navlinks">Sleep</a>
       </Link>
     </div>
   );
