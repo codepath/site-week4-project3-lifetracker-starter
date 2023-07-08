@@ -1,8 +1,5 @@
 import './ActivityPage.css'
-
 import React from "react"
-import {useState, useEffect} from 'react'
-import axios from 'axios'
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
