@@ -21,7 +21,7 @@ export default function CreateExercise({userId}) {
     
   ) => {
     try {
-      let response = await axios.post("http://localhost:3001/exerciseRoutes/newExercise", {
+      let response = await axios.post("https://lifetracker-api-txny.onrender.com/exerciseRoutes/newExercise", {
         exerciseName,
         exerciseCategory,
         exerciseDuration,
