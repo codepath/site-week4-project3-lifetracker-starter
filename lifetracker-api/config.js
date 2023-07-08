@@ -18,7 +18,7 @@ function getDatabaseUri(){
   // return process.env.DATABASE_HOSTED_URL
 }
 const BCRYPT_WORK_FACTOR=13
-const SECRET_KEY="waliaibex23"
+const SECRET_KEY="SOMETHING_SUPER_SECRET_GOES_HERE"
 
 console.log(getDatabaseUri())
 module.exports = {

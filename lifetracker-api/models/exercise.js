@@ -26,8 +26,8 @@ static async createNewExercise({exercise}){
  
 }
 //this function is used for fetching all the exercises  by id
-static async fetchExercisebyId({userIdReq}){
-    console.log(userIdReq)
+static async fetchExercisebyId(userIdReq){
+    console.log("fetchexid model",userIdReq)
     const result =await db.query(
         `SELECT exercise_name , category, duration, intensity
         FROM exercise 

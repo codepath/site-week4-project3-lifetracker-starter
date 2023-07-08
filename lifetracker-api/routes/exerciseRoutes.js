@@ -9,12 +9,12 @@ require("dotenv").config
 router.get("/exercisesCompleted/:id", async function(request, response, next){
     //list all the exercise recordings or throw an error
     const userIdReq=request.params.id
-    console.log(userIdReq)
+    console.log("get exercies",userIdReq)
 
 
     try{
-       const exercisesCompleted= await Exercise.fetchExercisebyId({userIdReq})
-       console.log(exercisesCompleted)
+       const exercisesCompleted= await Exercise.fetchExercisebyId(userIdReq)
+       console.log("excercies completed",exercisesCompleted)
        return response.status(201).json({exercisesCompleted:exercisesCompleted})
 
     }

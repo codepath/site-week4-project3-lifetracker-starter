@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 export default function CreateExercise({userId}) {
   const [exerciseData, setExerciseData] = useState({
@@ -9,6 +10,7 @@ export default function CreateExercise({userId}) {
     exerciseIntensity: "",
   });
 
+  const navigate = useNavigate()
 
 //when handlesubmit is clicked this async function is run and it 
   const exerciseSubmitForm = async (
@@ -26,7 +28,8 @@ export default function CreateExercise({userId}) {
         exerciseIntensity,
         userId
 
-      });
+      }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -42,6 +45,7 @@ export default function CreateExercise({userId}) {
       exerciseData.exerciseDuration,
       exerciseData.exerciseIntensity,
     );
+      navigate("/exercise")
   };
   console.log("Exercise data object: ", exerciseData)
 
