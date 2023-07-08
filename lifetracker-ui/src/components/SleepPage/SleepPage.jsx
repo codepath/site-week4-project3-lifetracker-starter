@@ -16,7 +16,7 @@ function SleepPage({ appState, setAppState }) {
     async function handleSubmit(e) {
         e.preventDefault()
         try {
-            const res = await axios.post("https://lifetracker-backend-vib.onrender.com/auth/sleep", {
+            const res = await axios.post("http://localhost:3000/auth/sleep", {
             start_time: sleepform.start_time, end_time: sleepform.end_time, id: appState.user.id
         })
         console.log(res)

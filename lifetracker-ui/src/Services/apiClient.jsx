@@ -48,4 +48,5 @@ class ApiClient {
     }
 }
 
-export default new ApiClient("https://lifetracker-backend-vib.onrender.com")
+// export default new ApiClient("https://lifetracker-backend-vib.onrender.com")
+export default new ApiClient("http://localhost:3000")

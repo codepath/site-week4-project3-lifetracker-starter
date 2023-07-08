@@ -14,6 +14,7 @@ router.post("/register", async (req,res) => {
 })
 
 router.post("/login", async (req,res) => {
+    console.log("post to login")
     const input = req.body
     const {userInfo, sleep} = await User.login(input)
     const token = createUserJwt(userInfo)
