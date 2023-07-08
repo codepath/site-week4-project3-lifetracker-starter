@@ -11,7 +11,7 @@ export default function ExercisePage({appState, setAppState}) {
     console.log(exerciseform)
     async function handleSubmit(e) {
         e.preventDefault()
-        const res = await axios.post("http://localhost:3000/auth/exercise", formInput)
+        const res = await axios.post("https://lifetracker-backend-vib.onrender.com/auth/exercise", formInput)
         console.log(res)
         setAppState((prev)=> ({
             ...prev,

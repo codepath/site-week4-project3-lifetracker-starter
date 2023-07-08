@@ -9,7 +9,7 @@ export default function NutritionPage({ appState, setAppState }) {
     })
     async function handleSubmit(e) {
         e.preventDefault()
-        const res = await axios.post("http://localhost:3000/auth/nutrition", formInput)
+        const res = await axios.post("https://lifetracker-backend-vib.onrender.com/auth/nutrition", formInput)
         console.log(res)
         setAppState((prev) => ({
             ...prev,

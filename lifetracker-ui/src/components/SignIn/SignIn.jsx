@@ -10,7 +10,7 @@ function SignIn({setAppState}) {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        try {const res = await axios.post("http://localhost:3000/auth/login", formSignInput)
+        try {const res = await axios.post("https://lifetracker-backend-vib.onrender.com/auth/login", formSignInput)
         console.log(res)
         setAppState((prev)=> ({
             ...prev,

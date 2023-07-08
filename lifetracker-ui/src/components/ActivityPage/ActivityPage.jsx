@@ -16,7 +16,7 @@ export default function ActivityPage({ setAppState, appState }) {
     useEffect(() => {
         async function fetch() {
             try {
-                const res = await axios.post("http://localhost:3000/auth/sleepstats", { id: appState.user.id })
+                const res = await axios.post("https://lifetracker-backend-vib.onrender.com/auth/sleepstats", { id: appState.user.id })
                 console.log(res)
                 setStats((prev) => ({
                     ...prev,

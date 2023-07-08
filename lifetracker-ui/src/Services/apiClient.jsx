@@ -2,7 +2,7 @@ import axios from "axios";
 class ApiClient {
     constructor(remoteHostUrl) {
         this.token = null
-        this.remoteHostUrl = remoteHostUrl || "http://localhost:3000"
+        this.remoteHostUrl = remoteHostUrl || "https://lifetracker-backend-vib.onrender.com"
     }
 
     setToken(token) {
