@@ -90,16 +90,7 @@ class User{
     }
 
     static async fetchUserByEmail(email){
-    //     if (!email){
-    //         throw new BadRequestError("No email provided")
-    //     }
-    //     const query = await db.query(
-    //     `SELECT * FROM users WHERE email=$1`
-    //     )
-    //     const result=await db.query(query,[email.toLowerCase()])
-    //     const user = result.rows[0]
-    //     return user
-    // }
+    
         const result = await db.query(
         `SELECT id,
                 email,

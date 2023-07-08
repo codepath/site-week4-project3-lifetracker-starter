@@ -4,6 +4,7 @@ const morgan = require("morgan")
 const { NotFoundError } = require("./utils/errors")
 const config = require("./config")
 const authRoutes = require("./routes/auth")
+const exerciseRoutes=require("./routes/exerciseRoutes")
 
 const app = express()
 
@@ -16,12 +17,14 @@ app.use(morgan("tiny"))
 //enabling the /auth route - using the imported auth routes
 app.use("/auth", authRoutes)
 
+app.use("/exerciseRoutes", exerciseRoutes)
+
 app.get("/", function (req, res) {
     return res.status(200).json({
       ping: "pong",
     })
   })
-  
+   
 
   
   /** Handle 404 errors -- this matches everything */
