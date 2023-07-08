@@ -38,6 +38,8 @@ By the end of this project you will be able to...
   - [x] Each activity tracked is given a unique ID for easy lookup.
 - [x] Deploy your website with Render. Check out our [Render Deployment Guide](https://courses.codepath.org/snippets/site/render_deployment_guide) for detailed instructions.
 
+### Deployed Site: https://life-tracker-backend-56nt.onrender.com
+
 ### Stretch Features
 
 Implement any of the following features to improve the application:
