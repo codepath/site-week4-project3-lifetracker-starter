@@ -86,4 +86,4 @@ class ApiClient {
   }
 }
 
-export default new ApiClient();
+export default new ApiClient(import.meta.env.PG_URL);
