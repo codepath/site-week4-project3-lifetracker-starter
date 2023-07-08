@@ -28,7 +28,6 @@ export default function Home ({ loggedIn, firstName }) {
             <img src='src/assets/athlete.jpg'/>
          </div>
          <div className="css-17xejub"></div>
-         <div className="Tile"></div>
       </div>
       <div spacing="10px" className="css-dvxtzn">
          <div className="css-70qvj9">
@@ -45,7 +44,6 @@ export default function Home ({ loggedIn, firstName }) {
             <img src='src/assets/food.jpg'/>
          </div>
          <div className="css-17xejub"></div>
-         <div className="Tile"></div>
       </div>
       <div spacing="10px" className="css-dvxtzn">
          <div className="css-70qvj9">
@@ -58,7 +56,6 @@ export default function Home ({ loggedIn, firstName }) {
             <img src='src/assets/alarm.jpg'/>
          </div>
          <div className="css-17xejub"></div>
-         <div className="Tile"></div>
       </div>
       <div spacing="10px" className="css-dvxtzn">
          <div className="css-70qvj9">
@@ -71,7 +68,6 @@ export default function Home ({ loggedIn, firstName }) {
             <img src='src/assets/calendar.jpg'/>
          </div>
          <div className="css-17xejub"></div>
-         <div className="Tile"></div>
       </div>
    </div>
 </div>
