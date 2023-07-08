@@ -1,8 +1,8 @@
 import axios from "axios";
 class ApiClient {
-    constructor() {
+    constructor(remoteHostUrl) {
         this.token = null
-        this.remoteHostUrl = "https://lifetracker-backend-vib.onrender.com"
+        this.remoteHostUrl = remoteHostUrl;
     }
 
     setToken(token) {
@@ -48,4 +48,4 @@ class ApiClient {
     }
 }
 
-export default new ApiClient()
+export default new ApiClient("https://lifetracker-backend-vib.onrender.com")
