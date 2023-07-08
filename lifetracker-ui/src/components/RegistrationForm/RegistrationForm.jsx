@@ -35,7 +35,7 @@ export default function Register({ appState, setAppState}) {
         apiClient.setToken(data.token);
         navigate('/', { replace: true })
          } catch (error) {
-            console.log(error)
+            console.log("this is where the error is co: ",error)
             
          }
         // try {
