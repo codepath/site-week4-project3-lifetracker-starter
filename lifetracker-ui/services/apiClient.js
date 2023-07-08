@@ -83,4 +83,4 @@ class ApiClient {
   }
 }
 
-export default new ApiClient("http://localhost:3000");
+export default new ApiClient("https://lifetracker-dtroy-backend.onrender.com");
