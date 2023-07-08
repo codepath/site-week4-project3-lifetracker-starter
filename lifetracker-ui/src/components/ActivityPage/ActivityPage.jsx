@@ -13,7 +13,6 @@ export default function ActivityPage({ appState, setAppState }) {
         const { data, error, message } = await apiClient.stats({
           id: appState.user.id,
         });
-        console.log(data);
         setAppState((prevState) => ({
           ...prevState,
           averageDailyCalories: Number(data.averageDailyCalories),

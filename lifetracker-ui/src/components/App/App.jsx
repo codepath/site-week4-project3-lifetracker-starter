@@ -25,17 +25,16 @@ function App() {
     avgSleepHours: 0,
     maxCalsInOneMeal: 0,
     sumExerciseMins: 0,
-    totalNumSleep: 0
+    totalNumSleep: 0,
   });
   // const [isLoading, setIsLoading] = useState(true);
-  // const navigate = useNavigate()
+  // const [randomnum, setRandomNum] = useState(0);
 
   useEffect(() => {
     const token = localStorage.getItem("LifeTracker_Token");
     apiClient.setToken(token);
     async function fetchUser() {
-      // setIsLoading(true);
-      console.log("its been trigggered");
+      setIsLoading(true);
       if (token) {
         try {
           const { data, error, message } = await apiClient.me();
@@ -64,56 +63,71 @@ function App() {
       }
     }
     fetchUser();
+    setIsLoading(false);
   }, [appState.isAuthenticated]);
 
-  // if (isLoading) {
-  //   return <h1 style={{ color: "white" }}>hiiii</h1>;
-  // }
-  // if loading
-  // return loading spinner
-  // console.log(isLoading);
-  console.log(appState);
+  useEffect(() => {
+    let randomNum = Math.floor(Math.random() * 100);
+    setRandomNum(randomNum);
+  });
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setRandomNum(Math.floor(Math.random() * 100));
+  //   }, 10000);
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // });
+  // console.log(randomnum);
+  // console.log(appState);
   return (
     <Fragment>
-        <BrowserRouter>
-          <Navbar appState={appState} setAppState={setAppState} />
-          <Routes>
-            <Route
-              path="/activity"
-              element={
-                <ActivityPage appState={appState} setAppState={setAppState} />
-              }
-            />
-            <Route
-              path="/exercise"
-              element={
-                <ExercisePage appState={appState} setAppState={setAppState} />
-              }
-            />
-            <Route
-              path="/nutrition"
-              element={
-                <NutritionPage appState={appState} setAppState={setAppState} />
-              }
-            />
-            <Route
-              path="/sleep"
-              element={
-                <SleepPage appState={appState} setAppState={setAppState} />
-              }
-            />
-            <Route path="/" element={<Home appState={appState} />} />
-            <Route
-              path="/login"
-              element={<Login setAppState={setAppState} />}
-            />
-            <Route
-              path="/register"
-              element={<Register setAppState={setAppState} />}
-            />
-            <Route path="*" element={<AccessForbidden />} />
-          </Routes>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Navbar appState={appState} setAppState={setAppState} />
+        <Routes>
+          <Route
+            path="/activity"
+            element={
+              <ActivityPage appState={appState} setAppState={setAppState} />
+            }
+          />
+          <Route
+            path="/exercise"
+            element={
+              <ExercisePage appState={appState} setAppState={setAppState} />
+            }
+          />
+          <Route
+            path="/nutrition"
+            element={
+              <NutritionPage appState={appState} setAppState={setAppState} />
+            }
+          />
+          <Route
+            path="/sleep"
+            element={
+              <SleepPage appState={appState} setAppState={setAppState} />
+            }
+          />
+          <Route
+            path="/"
+            element={
+              isLoading ? (
+                <h1 style={{ color: "white" }}>{randomnum}</h1>
+              ) : (
+                <Home appState={appState} />
+              )
+            }
+          />
+          <Route path="/login" element={<Login setAppState={setAppState} />} />
+          <Route
+            path="/register"
+            element={<Register setAppState={setAppState} />}
+          />
+          <Route path="*" element={<AccessForbidden />} />
+        </Routes>
+      </BrowserRouter>
     </Fragment>
   );
 }

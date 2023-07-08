@@ -32,7 +32,7 @@ export default function Home({ appState }) {
                 LifeTracker <FontAwesomeIcon icon={faStopwatch} beat />
               </h1>
             )}
-            <p> Helping you get your stuff back together. </p>
+            <p> Helping you get your ish back together. </p>
           </div>
           <div className="home-img">
             <img src={image} alt="image of man looking at his watch" />

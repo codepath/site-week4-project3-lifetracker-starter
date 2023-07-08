@@ -8,7 +8,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-// app.use(morgan("tiny"));
+app.use(morgan("tiny"));
 
 //for every request, checks if a token exists in the
 //authorization header, if it does attach the decoded user to
