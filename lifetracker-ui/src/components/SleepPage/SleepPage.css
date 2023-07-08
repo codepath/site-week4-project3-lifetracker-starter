@@ -91,9 +91,3 @@
   transition: background-color 0.3s ease;
   width: 230px
 }
-/* .sleep-item:nth-of-type(2n) {
-  background-color: #4caf50;
-}
-
-.sleep-item:nth-of-type(2n) span {
-  color: #fff;

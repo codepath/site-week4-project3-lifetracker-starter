@@ -68,10 +68,7 @@ const handleLogout = () => {
     };
     checkLoggedIn();
   }, []);
-  const handleLogout=()=>{
-    localStorage.removeItem("token")
-    setLoggedIn(false)
-  }
+
 
     return (
 

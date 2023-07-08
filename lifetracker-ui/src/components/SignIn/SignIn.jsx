@@ -1,56 +1,41 @@
-
 import './SignIn.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import jwtDecode from "jwt-decode"
 import Home from '../Home/Home'
-
 export default function SignIn({userId, setUserId, loggedIn, setLoggedIn, loginError, setLoginError, setFirstName}) {
-
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const handleLogin = async (email, password) => {
-   
-    
         let response = await axios.post('http://localhost:3001/auth/login', {email, password })
-        
         if (response.status === 200) {
           // const { token } = response.data;
           const { token } = response.data;
           localStorage.setItem("token", token);
-  
           //Successful Login
           setLoggedIn(true);
           setLoginError("");
-          
           console.log(response.data); //optional - display a success message
           console.log(response.data.user.id); //another way to get the username
-  
           const decodedToken = jwtDecode(token); //a way to get username from token
           setUserId(decodedToken.userId);
           setFirstName(response.data.user.firstName)
           window.location.href = "/"
-          
         } else {
           //Login failed
           setLoginError(response.data.message);
           console.log(response.data.message); //optional - display error message
         }
-  
         console.log("Response output: ", response)
-        
-      
-    };
-
     if (response.status === 200) {
       // const { token } = response.data;
       const { token } = response.data;
       localStorage.setItem("token", token);
-
       //Successful Login
       setLoggedIn(true);
       setLoginError("");
       console.log(response.data.message); //optional - display a success message
       console.log(response.data.user.id); //another way to get the username
-
       const decodedToken = jwtDecode(token); //a way to get username from token
       setUserId(decodedToken.userId);
     } else {
@@ -58,10 +43,8 @@ export default function SignIn({userId, setUserId, loggedIn, setLoggedIn, loginE
       setLoginError(response.data.message);
       console.log(response.data.message); //optional - display error message
     }
-
     console.log("Response output: ", response);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin(email, password);
@@ -171,5 +154,5 @@ export default function SignIn({userId, setUserId, loggedIn, setLoggedIn, loginE
         </a>
       </div>
     </div>
-  );
+  )
 }
