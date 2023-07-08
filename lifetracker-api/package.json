@@ -4,7 +4,8 @@
   "description": "Express backend for the LifeTracker application",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --ignore 'db/*' server.js",
+    "devstart": "nodemon --ignore 'db/*' server.js",
+    "start": "node server.js",
     "dev-win": "set NODE_ENV=dev && nodemon --ignore 'db/*' server.js",
     "dev": "NODE_ENV=dev nodemon --ignore 'db/*' server.js",
     "setup": "psql -f life-tracker.sql"
