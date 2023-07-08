@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './NutritionForm.css'
 import axios from 'axios'
 
-function NutritionForm({user, nutrition, setNutrition, isAuthenticated, setShowForm}) {
+function NutritionForm({user, avgCalories, setAvgCalories, nutrition, setNutrition, isAuthenticated, setShowForm}) {
     const [formInput, setFormInput] = useState({name:'', category:'', quantity:0, calories:0, url: ''})
     const navigate= useNavigate()
     const email= user.email
@@ -23,6 +23,12 @@ function NutritionForm({user, nutrition, setNutrition, isAuthenticated, setShowF
             axios.post('http://localhost:3000/nutrition/create',{email, name, category, quantity, calories,url}).then((response) => {
                 setShowForm(false)
                 setNutrition([response.data, ...nutrition])
+                let totalCal= 0
+                nutrition.forEach((session) => {
+                    totalCal += parseInt(session.calories);
+                  });
+                const newAvg= Math.floor((totalCal+ parseInt(calories))/(nutrition.length+1))
+                setAvgCalories(() => newAvg)
                 navigate('/nutrition')
 
         })
@@ -32,7 +38,7 @@ function NutritionForm({user, nutrition, setNutrition, isAuthenticated, setShowF
 
     return (
         <div className='nutrition-form'>
-            <h1> Record Sleep </h1>
+            <h1> Record Nutrition </h1>
             <div className='nutrition-form-inputs'>
                 <form>
                     
@@ -49,8 +55,8 @@ function NutritionForm({user, nutrition, setNutrition, isAuthenticated, setShowF
                     <input onChange={(e) => handleFormInput(e)} type= 'number' step='1' name='quantity' required/>
                     <label> Calories </label>
                     <input  onChange={(e) => handleFormInput(e)} type='number' step='1' name='calories' required/>
-                    <label> url for image </label>
-                    <input onChange={(e) => handleFormInput(e)} type= 'text' name='url' placeholder='url for image' required/>
+                    {/* <label> url for image </label>
+                    <input onChange={(e) => handleFormInput(e)} type= 'text' name='url' placeholder='url for image' required/> */}
                     <button onClick={(e) => handleSaveInput(e)}> Save </button>
                     {/* <button onClick={handleSaveInput}> Save </button> */}
                 </form>

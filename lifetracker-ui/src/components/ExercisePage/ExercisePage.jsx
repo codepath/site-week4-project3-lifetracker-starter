@@ -32,7 +32,7 @@ function ExercisePage({setTotalExercise, totalExercise, user, exercise, setExerc
             : 
                 (exercise.length>0 ? 
                     <div> 
-                    <div className='btn'> <button onClick={() => setShowForm(true)}> Record Nutrition </button> </div>
+                    <div className='btn'> <button onClick={() => setShowForm(true)}> Add Exercise </button> </div>
                     <div className='exercise-cards'>
                     {exercise.map((sesh)=> {
                     return(

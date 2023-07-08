@@ -20,9 +20,9 @@ function App() {
   const [user, setUser] = useState();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loginError, setLoginError] = useState("");
-  const [sleep, setSleep] = useState([]);
-  const [exercise, setExercise] = useState([]);
-  const [nutrition, setNutrition] = useState([]);
+  const [sleep, setSleep] = useState();
+  const [exercise, setExercise] = useState();
+  const [nutrition, setNutrition] = useState();
 
   // const [activities,]
   const [activitySummary, setActivitySummary] = useState({
@@ -34,12 +34,12 @@ function App() {
     // }
   });
 
-  const [totalExercise, setTotalExercise] = useState(0);
-  const [avgSleep, setAvgSleep] = useState(0);
-  const [avgCalories, setAvgCalories] = useState(0);
+  const [totalExercise, setTotalExercise] = useState();
+  const [avgSleep, setAvgSleep] = useState();
+  const [avgCalories, setAvgCalories] = useState();
 
   useEffect(() => {
-    const checkLoggedIn = () => {
+    // const checkLoggedIn = () => {
       //check if the user is logged in when the user first accesses the webapp
       const token = localStorage.getItem("token");
       if (token) {
@@ -80,7 +80,7 @@ function App() {
             }
             //  console.log('sd',sumDur)
             const avg = response.data.length ? Math.floor(sumCalories / response.data.length) : 0;
-            setAvgCalories(avg.toFixed(2));
+            setAvgCalories(()=>avg);
 
             // setSleep(response.data)
           });
@@ -114,10 +114,13 @@ function App() {
           handleLogout(); //Token has expired, log out the user
         }
       }
-    };
+    // };
 
-    checkLoggedIn();
-  }, []);
+    // checkLoggedIn();
+  },[isAuthenticated]);
+
+  console.log('on load', isAuthenticated, exercise, sleep, nutrition, avgSleep)
+
 
   async function handleLogin(email, password) {
     try {
@@ -152,6 +155,13 @@ function App() {
     //remove the stored token and setLoggedIn as false
     localStorage.removeItem("token");
     setIsAuthenticated(false);
+    setAvgCalories(0)
+    setAvgSleep(0)
+    setTotalExercise(0)
+    setSleep([])
+    setExercise([])
+    setNutrition([])
+    setUser({})
     // successLogin=false
   }
 

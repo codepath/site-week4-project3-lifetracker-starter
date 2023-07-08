@@ -66,7 +66,7 @@ function SleepCard({startTime, endTime}) {
     return (
         <div className='sleep-card'>
             <div className='header'>
-                <div className='duration'> <div> {duration} </div></div>
+                <div className='duration'> <div> {Math.floor(duration)} </div></div>
                 <h1 className='start-date'> {startDate} </h1>
 
             </div>

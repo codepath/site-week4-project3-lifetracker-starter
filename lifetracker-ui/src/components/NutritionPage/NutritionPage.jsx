@@ -3,7 +3,7 @@ import './NutritionPage.css'
 import NutritionForm from './NutritionForm/NutritionForm'
 import NutritionCard from './NutritionCard/NutritionCard'
 
-function NutritionPage({nutrition, setNutrition, isAuthenticated, user}) {
+function NutritionPage({avgCalories, setAvgCalories, nutrition, setNutrition, isAuthenticated, user}) {
     const [showForm, setShowForm] = useState(false)
     console.log('hungry user', user, nutrition)
 
@@ -14,7 +14,7 @@ function NutritionPage({nutrition, setNutrition, isAuthenticated, user}) {
             </div>
             { isAuthenticated?
                 (showForm ? 
-                <NutritionForm isAuthenticated= {isAuthenticated} user={user} setNutrition={setNutrition} nutrition={nutrition} setShowForm={setShowForm}/> :
+                <NutritionForm avgCalories={avgCalories} setAvgCalories= {setAvgCalories} isAuthenticated= {isAuthenticated} user={user} setNutrition={setNutrition} nutrition={nutrition} setShowForm={setShowForm}/> :
 
                     ( nutrition.length>0 ?
                         <div className=' nutrition-cards'> 

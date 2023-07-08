@@ -29,8 +29,17 @@ function SleepForm({user, avgSleep, setAvgSleep, sleep, setShowForm, setSleep, i
                 console.log('r',response)
                 setShowForm(false)
                 setSleep([response.data, ...sleep])
-                console.log('sv', sleep, avgSleep, duration, Math.floor((avgSleep+duration)/(sleep.length+1)))
-                setAvgSleep(() => Math.floor((avgSleep+duration)/(sleep.length+1)))
+               
+                let totalDur= 0
+                sleep.forEach((session) => {
+                    const start = new Date(session.start_time);
+                    const stop = new Date(session.end_time);
+                    totalDur += parseInt((stop.getTime() - start.getTime()) / 1000 / (60 * 60));
+                  });
+                const newAvg= Math.floor((totalDur+ parseInt(duration))/(sleep.length+1))
+                setAvgSleep(() => newAvg)
+                // console.log('sv', sleep, avgSleep, duration, Math.floor((avgSleep+duration)/(sleep.length+1)))
+                // setAvgSleep(() => Math.floor((avgSleep+duration)/(sleep.length+1)))
                 navigate('/sleep')
             })
             

@@ -33,7 +33,7 @@ function ExerciseForm({totalExercise, setTotalExercise, user, exercise, setExerc
 
     return (
         <div className='exercise-form'>
-            <h1>  Add Exercise </h1>
+            <h1>  Record Exercise </h1>
             <div className='exercise-form-inputs'>
             <form>
                 <label> Name </label>
