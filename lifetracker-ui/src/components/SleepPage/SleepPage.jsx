@@ -8,7 +8,7 @@ export default function SleepPage() {
    const [sleepData, setSleepData] = useState([]);
 
    useEffect(() => {
-      axios.get('http://localhost:3001/sleep').then((response) => {
+      axios.get('https://lifetracker-api-txny.onrender.com/sleep').then((response) => {
          setSleepData(response.data)
       })
    }, []);

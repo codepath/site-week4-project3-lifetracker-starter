@@ -33,7 +33,7 @@ function App() {
             const decodedToken = jwtDecode(token)
             console.log("decoded token is:", decodedToken)
             setUserId(decodedToken.userId);
-
+            console.log(userId)
             if (decodedToken.exp * 1000 > Date.now()) {
                 setLoggedIn(true)
             } else {
@@ -42,7 +42,7 @@ function App() {
         }
     };
     checkLoggedIn();
-}, [])
+}, [userId])
 
 const handleLogout = () => {
   localStorage.removeItem("token");
@@ -58,6 +58,8 @@ const handleLogout = () => {
         //decode the stored token
         const decodedToken = jwtDecode(token);
         setUserId(decodedToken.userId);
+        console.log(userId)
+
         if (decodedToken.exp * 1000 > Date.now()) {
           setLoggedIn(true);
         } else {
@@ -67,7 +69,7 @@ const handleLogout = () => {
       }
     };
     checkLoggedIn();
-  }, []);
+  }, [userId]);
 
 
     return (
