@@ -52,7 +52,7 @@ class User {
   }
 
   static async fetchUserByEmail(email) {
-    const user = await All.fetchUser(email.toLowerCase());
+    const user = await All.fetchUser(email);
     return user;
   }
 
