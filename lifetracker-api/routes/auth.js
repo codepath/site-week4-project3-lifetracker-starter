@@ -8,9 +8,7 @@ require("dotenv").config
 router.post("/login", async function(req,res, next){
     
     try{
-      const user = await User.authenticate(req.body) //takes in user input from body of page as a paramater for authenticate method
-       console.log("user info:", user.id)
-      
+      const user = await User.authenticate(req.body) //takes in user input from body of page as a paramater for authenticate method      
        const token=jwt.sign(
         {userId:user.id, username:user.username},
         "SECRET_KEY", {

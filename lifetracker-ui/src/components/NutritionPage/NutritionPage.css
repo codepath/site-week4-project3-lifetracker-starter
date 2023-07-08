@@ -17,3 +17,104 @@
 .NutritionPage .button button {
   flex: 1;
 }
+
+.NutritionPage div{
+  margin: 20px;
+  
+}
+
+.record-nutrition{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 51%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding-bottom: 20px;
+}
+
+.record-btn{
+background-color: #DED1F9;
+width: 150px;
+height: 40px;
+/* margin-bottom: -80px; */
+color: #4E4E4E;
+font-size: 15px;
+border-radius: 7px;
+-ms-transform: translate(-50%, -50%);
+  transform: translate(-30%, -90%);
+}
+
+.nutrition-header{
+  margin-top: 20px ;
+  /* margin: 0px; */
+  width: 100%;
+  height: 160px;
+  text-align: center;
+  background-color: #DED1F9;
+  font-size: 90px;
+  color: #4E4E4E;
+  padding-top: 40px;
+  
+}
+
+.nutrition-item{
+ width: 500px;
+ height: 170px; 
+ background-color: #DED1F9;
+ border-radius: 30px;
+ margin-top: 60px;
+}
+
+.nutrition-container{
+  margin: auto;
+  width: 30%;
+ 
+}
+ span{
+  display: inline-block;
+}
+.name{
+
+  margin-left: 80px;
+  padding-top: 20px;
+  font-size: 30px;
+  color: #4E4E4E;
+  padding-bottom: 40px;
+}
+
+.category{
+  padding-top: 5px;
+  margin-left: 15px; 
+  font-size: 20px;
+  width: 90px;
+  height: 30px; 
+  border-radius: 7px;
+  background-color: #9DFEC2;
+  color: #4E4E4E;
+  text-align: center;
+  
+}
+.calories-title{
+  color: #4E4E4E;
+margin-left: 30px;
+padding: 0px;
+margin-bottom: 5px;
+font-size: 18px;
+}
+
+.quantity-title{
+  color: #4E4E4E;
+margin-left: 220px;
+}
+
+.calories{
+  margin-left: 45px;
+  color: #4E4E4E;
+  padding-bottom: 40px;
+}
+
+.quantity{
+  margin-left:270px;
+  color: #4E4E4E;
+}

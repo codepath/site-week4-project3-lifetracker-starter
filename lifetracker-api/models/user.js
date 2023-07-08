@@ -25,8 +25,7 @@ class User{
         console.log(creds)
         const requiredCreds = ["email", "password"]
         //checking if user provided required credentials-email and password
-        try{
-            
+        try{         
             validateFields({required: requiredCreds, obj: creds, location: "user authentication"})
 
         } catch(err){
@@ -46,7 +45,6 @@ class User{
         }else{
             //throw an error here
           console.log("user doesn't exist")
-         // return new UnauthorizedError("invalid username or password");
             throw new UnauthorizedError("invalid username or password")
         }
         //throw unauthorized error if not validated
@@ -83,14 +81,13 @@ class User{
         VALUES($1, $2, $3, $4, $5)
         RETURNING id, email, first_name, last_name, username
        `, [lowerCasedEmail, hashedPassword, creds.first_name, creds.last_name, creds.username])
-      // [lowerCasedEmail, hashedPassword, creds.firstName, creds.lastName,creds.location, creds.date]
 
         const user = result.rows[0]; 
         return user; 
     }
 
     static async fetchUserByEmail(email){
-    
+
         const result = await db.query(
         `SELECT id,
                 email,
@@ -98,7 +95,7 @@ class User{
                 first_name AS "firstName",
                 last_name AS "lastName",
                 username
-            
+
         FROM users WHERE email = $1`,[email.toLowerCase()]
         )
         const user = result.rows[0]
