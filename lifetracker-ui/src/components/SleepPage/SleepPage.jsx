@@ -15,7 +15,8 @@ function SleepPage({ appState, setAppState }) {
     console.log(sleepform)
     async function handleSubmit(e) {
         e.preventDefault()
-        const res = await axios.post("http://localhost:3000/auth/sleep", {
+        try {
+            const res = await axios.post("http://localhost:3000/auth/sleep", {
             start_time: sleepform.start_time, end_time: sleepform.end_time, id: appState.user.id
         })
         console.log(res)
@@ -24,6 +25,13 @@ function SleepPage({ appState, setAppState }) {
             sleep: [res.data.sleep, ...prev.sleep]
         }));
         setSleepy(false)
+        const token = localStorage.getItem("life_token")
+        apiClient.setToken(token)
+            
+        } catch (error) {
+         console.log(error)   
+        }
+
     }
     return (
         <div className='sleep-container'>
@@ -64,10 +72,10 @@ function SleepPage({ appState, setAppState }) {
 
                                     {appState.sleep.map((sleep) => {
                                         return (
-                                            <div>
-                                                {sleep.created_at}
-                                                {sleep.start_time}
-                                                {sleep.end_time}
+                                            <div className='lognm'>
+                                               Created at: {sleep.created_at} <br />
+                                               Started at: {sleep.start_time} <br />
+                                               Ended at: {sleep.end_time}
                                             </div>
                                         )
                                     })}</>

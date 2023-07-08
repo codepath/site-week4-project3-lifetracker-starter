@@ -9,6 +9,7 @@ export default function Navbar({appState, setAppState}) {
         setAppState((prev)=>({
             ...prev, isAuthenticated:false
         }))
+        localStorage.setItem("life_token",null)
     }
     return (
         <nav className="topnavbar">

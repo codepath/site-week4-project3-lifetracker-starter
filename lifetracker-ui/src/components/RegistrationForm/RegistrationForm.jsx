@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import axios from "axios"
 import "./RegistrationForm.css"
+import apiClient from "../../Services/apiClient"
 
 export default function Register({ appState, setAppState}) {
     const [formInput, setFormInput] = useState({ email: '', username: '', firstname: '', lastname: '', password: '', confpassword: '' })
@@ -15,19 +16,48 @@ export default function Register({ appState, setAppState}) {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        const res = await axios.post("http://localhost:3000/auth/register", formInput)
-        console.log(res)
-        setAppState((prev)=> ({
-            ...prev,
-            user: res.data.firstname,
-            isAuthenticated: true,
-            exercise: [],
-            nutrition: [],
-            sleep: []
-        }));
-        (res.data.firstname)
+         try {
+            const { data, error, message } = await apiClient.register(
+                formInput
+            )
+            console.log(data)
+            console.log(error)
+            if(data){setAppState((prev)=> ({
+                    ...prev,
+                    user: data.user,
+                    isAuthenticated: true,
+                    exercise: [],
+                    nutrition: [],
+                    sleep: []
+                }));}
+        // setloggedin(true)
+        localStorage.setItem("life_token", data.token);
+        apiClient.setToken(data.token);
         navigate('/', { replace: true })
-        setloggedin(true)
+         } catch (error) {
+            console.log(error)
+            
+         }
+        // try {
+        //     const res = await axios.post("http://localhost:3000/auth/register", formInput)
+        // console.log(res)
+        // setAppState((prev)=> ({
+        //     ...prev,
+        //     user: res.data.firstname,
+        //     isAuthenticated: true,
+        //     exercise: [],
+        //     nutrition: [],
+        //     sleep: []
+        // }));
+        // (res.data.firstname)
+        // navigate('/', { replace: true })
+        // setloggedin(true)
+        // localStorage.setItem("life_token", res.data.token)
+            
+        // } catch (error) {
+        //     console.log(error)
+            
+        // }
     }
     return (
         <div className="registration-page">

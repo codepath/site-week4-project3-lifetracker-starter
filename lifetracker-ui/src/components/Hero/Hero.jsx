@@ -2,6 +2,7 @@ import *as React from "react"
 import "./Hero.css"
 
 export default function Hero({loggedin, user}) {
+    
     console.log(user)
     return (
         <div className="banner">

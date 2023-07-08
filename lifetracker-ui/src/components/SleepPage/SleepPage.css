@@ -47,3 +47,16 @@
   width: 250px;
   height: 45px
 }
+
+.lognm {
+  display: block;
+  border: solid;
+  margin-bottom: 4px;
+  border-radius: 18px;
+  /* height: 40px; */
+  text-align: center;
+  font-weight: bold;
+  color:rgb(150, 61, 90);
+  width: 24%;
+  margin-left: 35%;
+}

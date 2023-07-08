@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {useNavigate, Link } from 'react-router-dom'
 import './SignIn.css'
 import axios from 'axios'
+import apiClient from '../../Services/apiClient'
 
 function SignIn({setAppState}) {
     const [formSignInput, setFormSignInput] = useState({ email: '', password: '' })
@@ -9,7 +10,7 @@ function SignIn({setAppState}) {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        const res = await axios.post("http://localhost:3000/auth/login", formSignInput)
+        try {const res = await axios.post("http://localhost:3000/auth/login", formSignInput)
         console.log(res)
         setAppState((prev)=> ({
             ...prev,
@@ -19,7 +20,31 @@ function SignIn({setAppState}) {
             nutrition: [],
             sleep:res.data.sleep
         }));
+        localStorage.setItem("life_token", res.data.token)
         navigate('/', { replace: true })
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+        // try {const res = await axios.post("http://localhost:3000/auth/login", formSignInput)
+        // console.log(res)
+        // setAppState((prev)=> ({
+        //     ...prev,
+        //     user: res.data.userInfo,
+        //     isAuthenticated: true,
+        //     exercise: [],
+        //     nutrition: [],
+        //     sleep:res.data.sleep
+        // }));
+        // localStorage.setItem("life_token", res.data.token)
+        // navigate('/', { replace: true })
+            
+        // } catch (error) { 
+        //     console.log(error)
+            
+        // }
+        
     }
 
     return (

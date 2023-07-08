@@ -1,6 +1,7 @@
 const pool = require('./database.js');
 const bcrypt = require('bcrypt');
 const { BadRequestError, UnauthorizedError } = require("./utils/errors.js");
+const { BCRYPT_WORK_FACTOR } = require('./config.js');
 
 class User {
     static _createPublicUser(user) {
@@ -15,7 +16,7 @@ class User {
       }
     static async register(input) {
         const {email, firstname, lastname, username, password} = input
-        const hashedPassword = await bcrypt.hash(password, 13);
+        const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
         const newUSER = await pool.query(`INSERT INTO
         users (
         email,
@@ -31,7 +32,7 @@ class User {
             $4,
             $5
         )
-        RETURNING firstname`, [email, firstname, lastname, username, hashedPassword])
+        RETURNING firstname, email, lastname, id`, [email, firstname, lastname, username, hashedPassword])
         return newUSER.rows[0]
     }
     static async login(creds) {
