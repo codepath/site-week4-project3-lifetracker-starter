@@ -4,27 +4,15 @@
   padding-left: 7%;
   display: grid;
   grid-template-columns: auto auto;
-  /* justify-content: baseline; */
-  /* margin-left: 5%; */
+  align-items: center;
   max-width:100vw;
-  /* position: fixed */
   
 }
 
- /* .navbar nav {
-   padding-top: 20px;
-  padding-bottom: 20px; 
-  height:2%;
-  background-color: white;
-  position: fixed;
-  display: grid;
-  grid-template-columns: auto auto;
-  flex-direction: row;
-  justify-content: space-between; 
-}  */
-
 li{
-  display: inline
+  display: inline;
+  margin-top: 10px
+
 }
 
 ul{
@@ -33,20 +21,13 @@ ul{
 }
 
 .nav-link{
-  color: #405ce8;
+  color:  #7388f4;
   text-decoration: none;
-  font-size: 21px;
+  font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
 
 }
 
-
-/* .link-container ul{
-  display: grid;
-  grid-template-columns: auto auto;
-  flex-direction: row;
-   justify-content: space-b ;
-} */
 
 .sign-in {
   color: #00A3C4;

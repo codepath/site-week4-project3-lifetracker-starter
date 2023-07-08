@@ -2,7 +2,7 @@
   border-radius: 10px;
   background: white;
   width: calc(50% - 10px);
-  padding: 16px;
+  /* padding: 16px; */
   min-width: 80px;
   min-width: 250px;
   min-height: 250px;
@@ -16,7 +16,8 @@
 }
 
 .square h3{
-  font-size: 20px
+  font-size: 20px;
+
 }
 
 .home-grid img{
@@ -28,4 +29,14 @@
 .home-grid{
   display: grid;
   grid-template-columns: auto auto auto auto;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 20px;
+}
+
+.home-grid h3{
+  font-family:Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
 }

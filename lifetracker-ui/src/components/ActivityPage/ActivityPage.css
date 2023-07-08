@@ -28,6 +28,10 @@
     padding: 5px 
 
 }
+.unauthorized{
+    font-size: 34px;
+    font-weight: 500;
+  }
 
 .buttons .nutrition {
     background-color: #81b3fa;

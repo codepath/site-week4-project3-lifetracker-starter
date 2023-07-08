@@ -1,4 +1,15 @@
+.sleep-cards{
+  display: grid;
+  grid-template-columns: auto;
+  /* flex-direction: column; */
+  /* width: 80%; */
+  justify-content: center;
+}
 
+.unauthorized{
+  font-size: 34px;
+  font-weight: 500;
+}
 
 .sleep-page .title-container{
   background-color: #00B5D8;
@@ -6,6 +17,7 @@
   display: flex;
   justify-content: center;
   padding-top: 30px;
+  margin-bottom: 20px;
 }
 
 .title-container h1{

@@ -1,0 +1,84 @@
+.nutrition-card{
+    display: block;
+    width: 30vw;
+    background-color: #81b3fa;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding-top:10px;
+    text-align: center;
+    /* justify-content: center; */
+}
+
+.food-name{
+    color: white;
+    font-size: 24px;
+    margin-left: 20px
+}
+
+.nutrition-card h3{
+    color: white
+}
+
+.nutrition-card p{
+    color: white;
+    font-size: 24px;
+}
+
+.category{
+    background-color: #c6f6d5;
+    color: #3a8b54;
+    width: 90px;
+    height: 20px;
+    text-align: center;
+    font-size: 15px;
+    justify-content: center;
+    /* border-radius: 5px; */
+    /* padding-top: 10px; */
+    margin-left: 20px
+    /* padding */
+
+}
+
+.name-initial{
+    background-color: #72176e;
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    /* margin-top: 10px; */
+    margin-left: 10px;
+    align-self: center;
+
+}
+
+.name-initial div{
+    margin-top: 10px
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    /* justify-content: center; */
+    /* margin-top: 30px; */
+    
+    /* justify-content: ; */
+    
+}
+
+.nutrition-data{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap:2px
+}
+
+.calories{
+    margin-left: 10px
+}
+
+/* .calories h{
+
+} */

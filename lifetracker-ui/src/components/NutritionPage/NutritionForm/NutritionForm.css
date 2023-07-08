@@ -1,0 +1,43 @@
+.nutrition-form{
+    display: block;
+    margin-top: 100px;
+    width: 30vw;
+    /* grid-template-columns: auto; */
+    /* text-align: center; */
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto
+}
+
+.nutrition-form h1{
+    color: #81b3fa;
+    text-align: center;
+}
+
+.nutrition-form-inputs input{
+    display: block;
+    margin-bottom: 20px;
+    width: 450px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.nutrition-form-inputs select{
+    display: block;
+    margin-bottom: 20px;
+    width: 460px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+/* .sleep-form-inputs form label{
+    margin-bottom: 10px;
+    font-size: 18px;
+} */
+
+.nutrition-form-inputs button{
+    background-color: #81b3fa;
+    color: white;
+    width: 450px;
+
+}

@@ -173,9 +173,9 @@ class User {
             const exercise= await pool.query(`SELECT 
             *
             FROM exercise
-            WHERE email=$1`
+            WHERE email=$1`,
             [email.toLowerCase()])
-
+            console.log('old ex', exercise.rows)
             return exercise.rows
         } catch(e){
             return {error: e.message}
@@ -183,17 +183,17 @@ class User {
     }    
     
     static async getSleepByEmail(email){
-        console.log("is here")
+        // console.log("is here")
         try{
-            console.log("is actually here")
-            console.log(email)
+            // console.log("is actually here")
+            // console.log(email)
             const sleep= await pool.query(`SELECT 
             *
             FROM sleep
             WHERE email=$1`,
             [email.toLowerCase()])
             console.log('sleeeeep',sleep.rows)
-            console.log(email, "email in sleep ")
+            // console.log(email, "email in sleep ")
             return sleep.rows
             
         } catch(e){
@@ -206,7 +206,7 @@ class User {
             const nutrition= await pool.query(`SELECT 
             *
             FROM nutrition
-            WHERE email=$1`
+            WHERE email=$1`,
             [email.toLowerCase()])
 
             return nutrition.rows

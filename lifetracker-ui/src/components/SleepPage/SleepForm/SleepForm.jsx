@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './SleepForm.css'
 import axios from 'axios'
 
-function SleepForm({user, sleep, setShowForm, setSleep, isAuthenticated}) {
+function SleepForm({user, avgSleep, setAvgSleep, sleep, setShowForm, setSleep, isAuthenticated}) {
     const [time, setTime] = useState({startTime:'', stopTime:''})
     const navigate= useNavigate()
     console.log(user, isAuthenticated)
@@ -21,12 +21,16 @@ function SleepForm({user, sleep, setShowForm, setSleep, isAuthenticated}) {
     function handleSaveInput(e) {
         e.preventDefault()
        const {startTime, stopTime}= time
-
+       const start = new Date(startTime);
+       const stop = new Date(stopTime);
+       const duration= (stop.getTime() - start.getTime()) / 1000 / (60 * 60);
         if (isAuthenticated && startTime && stopTime){
             axios.post('http://localhost:3000/sleep/create',{email, startTime, stopTime}).then((response) => {
                 console.log('r',response)
                 setShowForm(false)
                 setSleep([response.data, ...sleep])
+                console.log('sv', sleep, avgSleep, duration, Math.floor((avgSleep+duration)/(sleep.length+1)))
+                setAvgSleep(() => Math.floor((avgSleep+duration)/(sleep.length+1)))
                 navigate('/sleep')
             })
             
@@ -35,8 +39,9 @@ function SleepForm({user, sleep, setShowForm, setSleep, isAuthenticated}) {
     }
 
     return (
-        <div>
+        <div className='sleep-form'>
             <h1> Record Sleep </h1>
+            <div className='sleep-form-inputs'>
             <form onSubmit={(e) => handleSaveInput(e)}>
                 <label id='startTime'> Start Time </label>
                 <input id='startTime' onChange={(e) => handleFormInput(e)} type= 'datetime-local' name='startTime' required/>
@@ -45,6 +50,8 @@ function SleepForm({user, sleep, setShowForm, setSleep, isAuthenticated}) {
                 <button onClick={(e) => handleSaveInput(e)}> Save </button>
                 {/* <input typeonClick={(e) => handleSaveInput(e)}/>  */}
             </form>
+            </div>
+            
         </div>
     )
 }

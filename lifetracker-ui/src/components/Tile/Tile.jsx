@@ -25,7 +25,7 @@ function Tile({category, value, change}) {
                     </div>
                     <div>
                         <p>Total Number of Hours Slept</p>
-                        <h3> {0.0} </h3>
+                        <h3> {value} </h3>
                     </div>
                 </div>
                 </div>
@@ -34,7 +34,7 @@ function Tile({category, value, change}) {
                 <div> <h3> {title.join(' ')} </h3> </div>
                 <div className='data'>
                 <div> <h1> {parseFloat(value).toFixed(1)} </h1> </div>
-                {
+                {/* {
                     change.includes('+') ?
                     <div>
                     <span className="material-symbols-outlined md-48">
@@ -50,7 +50,7 @@ function Tile({category, value, change}) {
                     </span>
                     <div className='decrease'> {change} </div>
                     </div>
-                }   
+                }    */}
                 </div> 
             </div>   
             

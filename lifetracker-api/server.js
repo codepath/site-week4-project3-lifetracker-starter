@@ -66,13 +66,15 @@ app.post('/nutrition/create', async (req,res) => {
     res.status(201).json(newMeal)
 })
 
-app.get('/exercise', async (req,res) => {
+app.post('/exercise', async (req,res) => {
+    console.log('server exercise',req.body)
     const {email}= req.body
     const user= await User.getExerciseByEmail(email)
     res.status(200).json(user)
 })
 
-app.get('/nutrition', async (req,res) => {
+app.post('/nutrition', async (req,res) => {
+    console.log('server nutrition',req.body)
     const {email}= req.body
     const user= await User.getNutritionByEmail(email)
     res.status(200).json(user)

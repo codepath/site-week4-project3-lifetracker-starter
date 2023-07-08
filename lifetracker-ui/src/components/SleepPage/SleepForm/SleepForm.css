@@ -1,0 +1,33 @@
+.sleep-form{
+    display: block;
+    margin-top: 100px;
+    width: 30vw;
+    /* grid-template-columns: auto; */
+    /* text-align: center; */
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto
+
+}
+
+.sleep-form h1{
+    color: #00B5D8;
+    text-align: center;
+}
+
+.sleep-form-inputs input{
+    display: block;
+    margin-bottom: 20px;
+    width: 450px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+/* .sleep-form-inputs label{
+    margin-bottom: 10px;
+} */
+
+.sleep-form-inputs button{
+    background-color: #00B5D8;
+    color: white
+}
