@@ -3,7 +3,7 @@ import axios from "axios";
 class ApiClient {
   constructor(remoteHostUrl) {
     this.token = null;
-    this.remoteHostUrl = "http://localhost:3001";
+    this.remoteHostUrl = "https://life-tracker-backend-56nt.onrender.com";
   }
 
   setToken(token) {
@@ -86,4 +86,4 @@ class ApiClient {
   }
 }
 
-export default new ApiClient(import.meta.env.VITE_REMOTE_HOST_URL);
+export default new ApiClient('https://life-tracker-backend-56nt.onrender.com');
