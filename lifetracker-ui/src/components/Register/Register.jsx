@@ -19,8 +19,8 @@ export default function Register({ setAppState }) {
   const [regisError, setRegisError] = useState("");
   const [showhide, setShowHide] = useState({
     first_button: false,
-    second_button: false
-  })
+    second_button: false,
+  });
   const navigateTo = useNavigate();
 
   async function handleSumbit(e) {
@@ -70,7 +70,6 @@ export default function Register({ setAppState }) {
         }
       } catch (err) {
         console.log(err);
-        // const message = err?.response?.data?.error?.message;
         setRegisError("Something went wrong with registration.");
       }
 
@@ -95,26 +94,29 @@ export default function Register({ setAppState }) {
       if (id == "button-input1") {
         setShowHide((prevState) => ({
           ...prevState,
-          first_button: true
-        }))}
-      else{
+          first_button: true,
+        }));
+      } else {
         setShowHide((prevState) => ({
           ...prevState,
-          second_button: true
-      }))}
+          second_button: true,
+        }));
+      }
       x.type = "text";
     } else {
       x.type = "password";
       if (id == "button-input1") {
         setShowHide((prevState) => ({
           ...prevState,
-          first_button: false
-        }))}
-      else{
+          first_button: false,
+        }));
+      } else {
         setShowHide((prevState) => ({
           ...prevState,
-          second_button: false
-      }))}    }
+          second_button: false,
+        }));
+      }
+    }
   }
 
   return (
@@ -228,14 +230,14 @@ export default function Register({ setAppState }) {
               {showhide.second_button ? "Hide" : "Show"}
             </button>
           </div>
-          {userInfo.password !== userInfo.confirmPassword &&
+          {userInfo.password !== userInfo.confirmPassword && (
             <>
               <span style={{ color: "red", marginLeft: "60%" }}>
                 Passwords do not match
               </span>{" "}
               <br />
             </>
-          }
+          )}
           {userInfo.password.length >= 8 ||
           userInfo.password.length === 0 ? null : (
             <>

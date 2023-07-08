@@ -4,14 +4,12 @@ import { Link, Outlet } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar({ setAppState, appState }) {
-  console.log(appState);
-
   function handleSignOut(e) {
     setAppState((prevState) => ({
       ...prevState,
-      isAuthenticated: false
+      isAuthenticated: false,
     }));
-    localStorage.setItem("LifeTracker_Token", null)
+    localStorage.setItem("LifeTracker_Token", null);
   }
   return (
     <Fragment>

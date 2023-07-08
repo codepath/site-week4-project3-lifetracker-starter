@@ -67,25 +67,23 @@ class ApiClient {
     return await this.request({
       endpoint: `auth/sleep`,
       method: `POST`,
-      data: creds
+      data: creds,
     });
   }
   async login(creds) {
     return await this.request({
       endpoint: `auth/login`,
       method: `POST`,
-      data: creds
+      data: creds,
     });
   }
   async stats(creds) {
     return await this.request({
       endpoint: `auth/summarystats`,
       method: `POST`,
-      data: creds
+      data: creds,
     });
   }
 }
-
-
 
 export default new ApiClient(import.meta.env.VITE_REMOTE_HOST_URL);

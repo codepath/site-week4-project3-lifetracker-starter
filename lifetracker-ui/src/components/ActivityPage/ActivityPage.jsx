@@ -20,7 +20,7 @@ export default function ActivityPage({ appState, setAppState }) {
           avgSleepHours: Number(data.avgSleepHours),
           maxCalsInOneMeal: Number(data.maxCalsInOneMeal),
           sumExerciseMins: Number(data.sumExerciseMins),
-          totalNumSleep: Number(data.totalNumSleep)
+          totalNumSleep: Number(data.totalNumSleep),
         }));
       } catch (err) {
         console.log(err);
@@ -72,7 +72,7 @@ export default function ActivityPage({ appState, setAppState }) {
                 className="actExerMin"
               >
                 <p style={{ marginBottom: "8%" }}>Total Exercise Minutes</p>
-                <span className="apStats" >
+                <span className="apStats">
                   {appState.sumExerciseMins.toFixed(1)}
                 </span>
               </div>
@@ -81,7 +81,7 @@ export default function ActivityPage({ appState, setAppState }) {
                 className="actExerMin"
               >
                 <p style={{ marginBottom: "8%" }}>Average Hours of Sleep</p>
-                <span className="apStats" >
+                <span className="apStats">
                   {appState.avgSleepHours.toFixed(1)}
                 </span>
               </div>
@@ -90,7 +90,7 @@ export default function ActivityPage({ appState, setAppState }) {
                 className="actExerMin"
               >
                 <p style={{ marginBottom: "8%" }}>Average Daily Calories</p>
-                <span className="apStats" >
+                <span className="apStats">
                   {appState.averageDailyCalories.toFixed(1)}
                 </span>
               </div>

@@ -4,11 +4,8 @@ const { BCRYPT_WORK_FACTOR } = require("../config");
 const Stats = require("../utils/stats");
 const All = require("../utils/all");
 
-//PROVIDE COMMENTS
-
 class User {
   static async _createPublicUser(user) {
-
     const exercise = await All.exercise(user.id);
     const sleep = await All.sleep(user.id);
     const nutrition = await All.nutrition(user.id);
@@ -28,7 +25,6 @@ class User {
     };
   }
 
-  
   static async register(creds) {
     const { email, username, first_name, last_name, password } = creds;
 

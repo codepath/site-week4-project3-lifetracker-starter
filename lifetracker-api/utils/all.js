@@ -70,9 +70,9 @@ class All {
     );
     return result.rows[0];
   }
-  static async insertExercise(name, category, duration, intensity, id){
+  static async insertExercise(name, category, duration, intensity, id) {
     const exercise = await db.query(
-        `INSERT INTO exercise (
+      `INSERT INTO exercise (
         name, 
         category, 
         duration, 
@@ -86,15 +86,14 @@ class All {
                     intensity,
                     created_at
     `,
-        [name, category, duration, intensity, id]
-      );
-      return exercise.rows[0]
-  
+      [name, category, duration, intensity, id]
+    );
+    return exercise.rows[0];
   }
 
-  static async insertSleep(start_time, end_time, id){
+  static async insertSleep(start_time, end_time, id) {
     const sleep = await db.query(
-        `INSERT INTO sleep (
+      `INSERT INTO sleep (
         start_time, 
         end_time,
         user_id
@@ -104,14 +103,21 @@ class All {
                     start_time, 
                     end_time
     `,
-        [start_time, end_time, id]
-      );
-    return sleep.rows[0]
+      [start_time, end_time, id]
+    );
+    return sleep.rows[0];
   }
 
-  static async insertNutrition(name, category, quantity, calories, image_url, id){
+  static async insertNutrition(
+    name,
+    category,
+    quantity,
+    calories,
+    image_url,
+    id
+  ) {
     const nutrition = await db.query(
-        `INSERT INTO nutrition (
+      `INSERT INTO nutrition (
         name, 
         category, 
         quantity, 
@@ -127,9 +133,9 @@ class All {
                     calories,
                     image_url
     `,
-        [name, category, quantity, calories, image_url, id]
-      );
-      return nutrition.rows[0]
+      [name, category, quantity, calories, image_url, id]
+    );
+    return nutrition.rows[0];
   }
   static async fetchUser(info) {
     const fetchUser = await db.query(
@@ -144,7 +150,7 @@ class All {
               `,
       [info]
     );
-    return fetchUser.rows[0]
+    return fetchUser.rows[0];
   }
 }
 

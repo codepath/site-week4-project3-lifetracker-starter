@@ -77,7 +77,7 @@ router.post("/summarystats", async function (req, res, next) {
       totalNumSleep,
       averageExerciseInt,
       maxCalsInOneMeal,
-      averageDailyCalories
+      averageDailyCalories,
     } = await User.sendSummary(req.body);
     return res.status(201).json({
       sumExerciseMins,
@@ -85,7 +85,7 @@ router.post("/summarystats", async function (req, res, next) {
       totalNumSleep,
       averageExerciseInt,
       maxCalsInOneMeal,
-      averageDailyCalories
+      averageDailyCalories,
     });
   } catch (err) {
     next(err);

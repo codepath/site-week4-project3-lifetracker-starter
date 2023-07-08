@@ -37,7 +37,7 @@ export default function Login({ setAppState }) {
             isAuthenticated: true,
             exercise: data.exercise,
             sleep: data.sleep,
-            nutrition: data.nutrition
+            nutrition: data.nutrition,
           }));
 
           localStorage.setItem("LifeTracker_Token", data.token);

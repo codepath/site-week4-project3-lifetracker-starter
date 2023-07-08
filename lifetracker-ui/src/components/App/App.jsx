@@ -25,16 +25,16 @@ function App() {
     avgSleepHours: 0,
     maxCalsInOneMeal: 0,
     sumExerciseMins: 0,
-    totalNumSleep: 0,
+    totalNumSleep: 0
   });
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [randomnum, setRandomNum] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [randomnum, setRandomNum] = useState(0);
 
   useEffect(() => {
+    console.log("useeffect runs");
     const token = localStorage.getItem("LifeTracker_Token");
     apiClient.setToken(token);
     async function fetchUser() {
-      setIsLoading(true);
       if (token) {
         try {
           const { data, error, message } = await apiClient.me();
@@ -44,7 +44,6 @@ function App() {
               isAuthenticated: false,
             }));
             localStorage.setItem("LifeTracker_Token", null);
-            // navigate("/login")
             return;
           }
           setAppState((prevState) => ({
@@ -62,25 +61,17 @@ function App() {
         localStorage.setItem("LifeTracker_Token", null);
       }
     }
-    fetchUser();
-    setIsLoading(false);
+    fetchUser().then( () => {
+      setIsLoading(false);
+    })
+    
   }, [appState.isAuthenticated]);
 
   useEffect(() => {
     let randomNum = Math.floor(Math.random() * 100);
     setRandomNum(randomNum);
   });
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setRandomNum(Math.floor(Math.random() * 100));
-  //   }, 10000);
 
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // });
-  // console.log(randomnum);
-  // console.log(appState);
   return (
     <Fragment>
       <BrowserRouter>
@@ -114,7 +105,10 @@ function App() {
             path="/"
             element={
               isLoading ? (
-                <h1 style={{ color: "white" }}>{randomnum}</h1>
+                <>
+                <h1 className="loading-header">Lucky Number!</h1>
+                <div className="loading">{randomnum}</div>
+                </>
               ) : (
                 <Home appState={appState} />
               )

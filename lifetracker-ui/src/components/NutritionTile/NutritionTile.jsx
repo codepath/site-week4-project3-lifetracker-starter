@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import "./NutritionTile.css";
 

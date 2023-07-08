@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 
 import "./NutritionPage.css";
 import Tile from "../NutritionTile/NutritionTile";
