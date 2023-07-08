@@ -1,4 +1,4 @@
-import "./Navlinks.css";
+import "./NavLinks.css";
 import { Link, useNavigate } from "react-router-dom";
 import apiClient from "../../../services/apiClient";
 
