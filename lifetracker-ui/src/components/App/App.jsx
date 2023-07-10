@@ -25,13 +25,12 @@ function App() {
     avgSleepHours: 0,
     maxCalsInOneMeal: 0,
     sumExerciseMins: 0,
-    totalNumSleep: 0
+    totalNumSleep: 0,
   });
   const [isLoading, setIsLoading] = useState(true);
-  const [randomnum, setRandomNum] = useState(0);
+  const [randomnum, setRandomNum] = useState(null);
 
   useEffect(() => {
-    console.log("useeffect runs");
     const token = localStorage.getItem("LifeTracker_Token");
     apiClient.setToken(token);
     async function fetchUser() {
@@ -61,10 +60,9 @@ function App() {
         localStorage.setItem("LifeTracker_Token", null);
       }
     }
-    fetchUser().then( () => {
+    fetchUser().then(() => {
       setIsLoading(false);
-    })
-    
+    });
   }, [appState.isAuthenticated]);
 
   useEffect(() => {
@@ -72,10 +70,11 @@ function App() {
     setRandomNum(randomNum);
   });
 
+  console.log("randomnum here", randomnum);
   return (
     <Fragment>
       <BrowserRouter>
-        <Navbar appState={appState} setAppState={setAppState} />
+        <Navbar appState={appState} setAppState={setAppState} isLoading={isLoading} />
         <Routes>
           <Route
             path="/activity"
@@ -106,8 +105,8 @@ function App() {
             element={
               isLoading ? (
                 <>
-                <h1 className="loading-header">Lucky Number!</h1>
-                <div className="loading">{randomnum}</div>
+                  <h1 className="loading-header">Lucky Number!</h1>
+                  <div className="loading">{randomnum}</div>
                 </>
               ) : (
                 <Home appState={appState} />

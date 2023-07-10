@@ -39,7 +39,6 @@ export default function NutritionPage({ setAppState, appState }) {
           image_url: nutriInfo.image_url,
           id: appState.user.id,
         });
-        console.log(data);
         setAppState((prevState) => ({
           ...prevState,
           nutrition: [data.nutrition, ...prevState.nutrition],

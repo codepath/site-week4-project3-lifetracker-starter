@@ -170,7 +170,6 @@ export default function SleepPage({ appState, setAppState }) {
                               month: "short",
                             });
                             day = date.getDate();
-                            console.log(date.getDate());
                             const year = date.getFullYear();
                             const suffix = getOrdinalSuffix(day);
 

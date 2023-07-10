@@ -9,7 +9,7 @@ export default function ExercisePage({ appState, setAppState }) {
     name: "",
     category: "",
     duration: 0,
-    intensity: 0,
+    intensity: 0
   });
 
   function handleRecord(e) {
@@ -35,7 +35,6 @@ export default function ExercisePage({ appState, setAppState }) {
           intensity: exerciseInfo.intensity,
           id: appState.user.id,
         });
-        console.log(data);
         setAppState((prevState) => ({
           ...prevState,
           exercise: [data.exercise, ...prevState.exercise],
@@ -48,7 +47,7 @@ export default function ExercisePage({ appState, setAppState }) {
         name: "",
         category: "",
         duration: 0,
-        intensity: 0,
+        intensity: 0
       }));
       setExerciseForm(!exerciseForm);
     }
@@ -109,7 +108,7 @@ export default function ExercisePage({ appState, setAppState }) {
                       <option value="">--Select a Category--</option>
                       <option value="run">Run</option>
                       <option value="bike">Bike</option>
-                      <option value="life">Lift</option>
+                      <option value="lift">Lift</option>
                       <option value="swim">Swim</option>
                       <option value="sports">Sports</option>
                     </select>

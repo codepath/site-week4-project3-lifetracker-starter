@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 import "./Navbar.css";
 
-export default function Navbar({ setAppState, appState }) {
+export default function Navbar({ setAppState, appState, isLoading }) {
   function handleSignOut(e) {
     setAppState((prevState) => ({
       ...prevState,
@@ -48,6 +48,7 @@ export default function Navbar({ setAppState, appState }) {
             </li>
           ) : (
             <>
+            {isLoading ? (null) : ( <>
               <li>
                 <Link to="/login">
                   <button id="navbar-button1">Sign in</button>
@@ -58,6 +59,7 @@ export default function Navbar({ setAppState, appState }) {
                   <button id="navbar-button2">Register</button>
                 </Link>
               </li>
+            </>)}
             </>
           )}
         </ul>

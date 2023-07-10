@@ -22,7 +22,6 @@ export default function Login({ setAppState }) {
           email: userInfo.email,
           password: userInfo.password,
         });
-        console.log(data);
         if (error) {
           setLoginError("Invalid email and/or password.");
           setIsLoading(false);

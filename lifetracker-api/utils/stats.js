@@ -65,7 +65,6 @@ class Stats {
       SELECT MAX(created_at) FROM nutrition WHERE user_id = $1`,
       [id]
     );
-    console.log(test.rows[0].max, "test");
 
     const timestamp = new Date(test.rows[0].max);
 
@@ -76,7 +75,7 @@ class Stats {
     const formattedDate = `${year}-${month.toString().padStart(2, "0")}-${day
       .toString()
       .padStart(2, "0")}`;
-    console.log(formattedDate);
+
     const maxCalsInOneMeal = await db.query(
       `SELECT calories
     FROM nutrition

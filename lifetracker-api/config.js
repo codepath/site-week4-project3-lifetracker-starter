@@ -1,7 +1,7 @@
 require("colors");
 require("dotenv").config();
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
+const PORT = process.env.PG_PORT ? Number(process.env.PG_PORT) : 3001
 const secretKey = process.env.SECRET_KEY || "secret_dev"
 
 function getDatabaseUri() {

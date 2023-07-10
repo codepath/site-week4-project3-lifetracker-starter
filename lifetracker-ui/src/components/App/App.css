@@ -7,7 +7,7 @@
   background: #f7fafc;
 }
 
-.loading{
+.loading {
   width: 40%;
   margin: 0 auto;
   text-align: center;
@@ -15,14 +15,11 @@
   color: white;
 }
 
-.loading-header{
+.loading-header {
   width: 40%;
   margin: 0 auto;
   text-align: center;
   color: white;
   margin-top: 10%;
-  font-size: 600%;
-
-
-
+  font-size: 500%;
 }

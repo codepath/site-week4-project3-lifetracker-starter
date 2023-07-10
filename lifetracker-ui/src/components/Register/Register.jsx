@@ -45,7 +45,6 @@ export default function Register({ setAppState }) {
           last_name: userInfo.last_name,
           password: userInfo.password,
         });
-        console.log(data);
         if (error) {
           setRegisError("Something went wrong with registration.");
           setIsLoading(false);
