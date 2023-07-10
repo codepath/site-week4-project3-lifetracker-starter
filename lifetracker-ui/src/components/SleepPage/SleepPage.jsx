@@ -7,20 +7,7 @@ import SleepCard from './SleepCard/SleepCard'
 function SleepPage({user,avgSleep, setAvgSleep, sleep, setSleep, isAuthenticated}) {
     const [showForm, setShowForm] = useState(false)
     const [sleepData, setSleepData] = useState()
-    console.log('sleepy user', user, sleep)
-    // const email= user.email
-
-    // useEffect(()=> {
-    //     axios.post('http://localhost:3000/sleep', user).then((response) => {
-    //       console.log('hi', response.data)
-    //       //  setSleep(response)
-    //       // setSleep(response.data)
-    //     })
-        
-    // }, [])
-
-
-    console.log('sf', showForm)
+    
 
     return (
         <div className='sleep-page'>

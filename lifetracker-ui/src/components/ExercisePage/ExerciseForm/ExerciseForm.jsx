@@ -20,10 +20,8 @@ function ExerciseForm({totalExercise, setTotalExercise, user, exercise, setExerc
         const {name, category, duration, intensity} = formInput
         if (isAuthenticated && name && category && duration && intensity){
             axios.post('http://localhost:3000/exercise/create',{email, name, category, duration, intensity}).then((response) => {
-                console.log('new ex', response.data)
                 setShowForm(false)
                 setExercise([response.data, ...exercise])
-                // const newAvg=(totalExercise+duration)/(exercise.length+1)
                 setTotalExercise(() => totalExercise+parseInt(duration))
                 navigate('/exercise')
 

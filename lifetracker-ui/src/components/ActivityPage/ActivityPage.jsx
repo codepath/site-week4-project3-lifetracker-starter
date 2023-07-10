@@ -10,7 +10,6 @@ function ActivityPage({user, avgSleep, avgCalories, totalExercise, isAuthenticat
         navigate(`/${activity}-form`)
     }
 
-    // const header= isAuthenticated? `Activity Feed` : `Activity Feed`
 
     return (
         <div className='activity-page'>

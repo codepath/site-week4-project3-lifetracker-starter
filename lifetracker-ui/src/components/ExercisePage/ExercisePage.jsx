@@ -5,17 +5,7 @@ import axios from 'axios'
 import ExerciseCard from './ExerciseCard/ExerciseCard'
 
 function ExercisePage({setTotalExercise, totalExercise, user, exercise, setExercise, isAuthenticated}) {
-    // const email= user.email
-    // useEffect(()=> {
-    //     axios.post('http://localhost:3000/exercise', {email: email}).then((response) => {
-    //       console.log('hi', response)
-    //       //  setSleep(response)
-    //       // setSleep(response.data)
-    //     })
-    //     // axios.get().then((response)=> {
-
-    //     // })
-    // }, [])
+   
 
     const [showForm, setShowForm ] = useState(false)
 

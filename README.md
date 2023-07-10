@@ -5,7 +5,8 @@
     <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/53cd77b4b9744d16b2d4437f6529c8a2-with-play.gif">
   </a>
 
-- deployed site: 
+- deployed site: https://lifetracker-ui-90cq.onrender.com/
+
 
 ## Overview
 

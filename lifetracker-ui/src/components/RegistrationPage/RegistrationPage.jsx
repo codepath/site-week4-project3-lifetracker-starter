@@ -10,12 +10,6 @@ function RegistrationPage({handleRegistration}) {
     async function handleSignUp(event) {
         event.preventDefault()
         await handleRegistration(regInfo.email, regInfo.username, regInfo.firstName, regInfo.lastName, regInfo.password)
-        // // if (password===confPassword){
-        //     // console.log(email)
-        // const newUser= await axios.post('http://localhost:3000/auth/register', regInfo)
-        // console.log('nw', newUser)
-        // setIsAuthenticated(true)
-        // setUser(newUser.data.user)
         navigate('/')
 
 

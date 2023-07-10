@@ -6,30 +6,7 @@ const secretKey = crypto.randomBytes(64).toString('hex')
 
 
 class User {
-    // constructor (name) {
-    //     this.name = name;
-    //     thi
-    // }
-
-
-    static async getUser(email, password){
-
-
-    }
-    // /**
-    //  * 
-    //  * returns name from database 
-    //  */
-    // static async getName (name) {
-    //    try{
-    //         const result = await pool.query(`SELECT name FROM users WHERE name=$1`,[name]) //running
-    //         // console.log()
-    //         return result
-    //    } catch(error)  {
-    //         console.error({error: error.message})
-    //    }
-    // }
-
+  
     static async login(email, password){
         try{
             const result= await pool.query(`SELECT 
@@ -47,7 +24,6 @@ class User {
                 const isPasswordValid = await bcrypt.compare(password, user.password)
     
                 if (isPasswordValid) {
-                    console.log('user', user)
                     return user
                 }
             }
@@ -58,12 +34,10 @@ class User {
     }
 
     static async register(email, username, firstname, lastname, password) {
-        console.log('register method', email)
         try{
             const userEmail= await pool.query(`SELECT email FROM users WHERE email=$1`, [email.toLowerCase()])
             
             if (!userEmail.rows[0]){
-            console.log('yo')
 
                 const salt= await bcrypt.genSalt(10);
                 const hashedPassword= await bcrypt.hash(password, salt)
@@ -84,11 +58,9 @@ class User {
                         $5
                     )
                     RETURNING *`, [email, username, firstname, lastname, hashedPassword])
-                    console.log('user', newUSER.rows[0])
                     return newUSER.rows[0]
             }
         } catch(err){
-            console.log(err)
             return {err: `Incorrect username or password!`}
         }
     }
@@ -107,7 +79,6 @@ class User {
                         $3 
                     )
                     RETURNING *`, [email, startTime, endTime])
-                    // console.log(newUSER.rows[0])
                     return newUSER.rows[0]
             } catch(err){
                 console.log(err)
@@ -175,7 +146,6 @@ class User {
             FROM exercise
             WHERE email=$1`,
             [email.toLowerCase()])
-            console.log('old ex', exercise.rows)
             return exercise.rows
         } catch(e){
             return {error: e.message}
@@ -183,17 +153,13 @@ class User {
     }    
     
     static async getSleepByEmail(email){
-        // console.log("is here")
         try{
-            // console.log("is actually here")
-            // console.log(email)
+            
             const sleep= await pool.query(`SELECT 
             *
             FROM sleep
             WHERE email=$1`,
             [email.toLowerCase()])
-            console.log('sleeeeep',sleep.rows)
-            // console.log(email, "email in sleep ")
             return sleep.rows
             
         } catch(e){

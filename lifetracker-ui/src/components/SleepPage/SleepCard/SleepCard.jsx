@@ -22,11 +22,7 @@ function SleepCard({startTime, endTime}) {
     const stopMinutes= (stopTimeMilitary.slice(3,5))
     let stopTimeNormal= ''
 
-    //computing duration
-    // const start= new Date(sleep.start_time)
-    // const stop= new Date(sleep.end_time)
-    console.log('st', start, stop)
-    // sumDur= 
+    
     const duration= (stop.getTime() - start.getTime())/1000/ (60*60)
     //converting to normal start time
     if (startHour>12){
@@ -62,7 +58,6 @@ function SleepCard({startTime, endTime}) {
         }
     }
     // const startTimeNormal= startHour>12 ? `${startHour%12}`
-    console.log('sd', startDate)
     return (
         <div className='sleep-card'>
             <div className='header'>

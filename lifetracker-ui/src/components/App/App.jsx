@@ -24,23 +24,14 @@ function App() {
   const [exercise, setExercise] = useState();
   const [nutrition, setNutrition] = useState();
 
-  // const [activities,]
-  const [activitySummary, setActivitySummary] = useState({
-    "Total-Exercise-Minutes": 0.0,
-    "Average-Hours-of-Sleep": 0.0,
-    "Average-Daily-Calories": 0.0,
-    // 'More-Stats': {
-    //   'Average-E'
-    // }
-  });
+  
 
   const [totalExercise, setTotalExercise] = useState();
   const [avgSleep, setAvgSleep] = useState();
   const [avgCalories, setAvgCalories] = useState();
 
   useEffect(() => {
-    // const checkLoggedIn = () => {
-      //check if the user is logged in when the user first accesses the webapp
+    
       const token = localStorage.getItem("token");
       if (token) {
         const decodedToken = jwtDecode(token); //decode the stored token
@@ -51,44 +42,35 @@ function App() {
         axios
           .post("http://localhost:3000/sleep", { email: email })
           .then((response) => {
-            console.log("hi", response.data);
             setSleep([...response.data]);
+
             let sumDur = 0;
             for (const sleep of response.data) {
-              console.log('ahh',sleep.start_time)
               const start = new Date(sleep.start_time);
               const stop = new Date(sleep.end_time);
-              console.log("st", stop);
               sumDur += (stop.getTime() - start.getTime()) / 1000 / (60 * 60);
             }
-            console.log("sd", sumDur, response.data.length);
             const avg = response.data.length? Math.floor(sumDur / response.data.length) : 0;
             setAvgSleep(()=>avg);
 
-            // setSleep(response.data)
           });
 
         axios
           .post("http://localhost:3000/nutrition", { email: email })
           .then((response) => {
-            console.log("hello", response);
             setNutrition([...response.data]);
             let sumCalories = 0;
             for (const food of response.data) {
-              // console.log('hi')
               sumCalories += food.calories;
             }
-            //  console.log('sd',sumDur)
             const avg = response.data.length ? Math.floor(sumCalories / response.data.length) : 0;
             setAvgCalories(()=>avg);
 
-            // setSleep(response.data)
           });
 
         axios
           .post("http://localhost:3000/exercise", { email: email })
           .then((response) => {
-            console.log("howdy", response.data);
             setExercise([...response.data]);
             let totalDuration = 0;
             response.data.forEach((session) => {
@@ -96,17 +78,8 @@ function App() {
             });
             setTotalExercise(totalDuration);
 
-            // setSleep(response.data)
           });
-        // console.log('dt',decodedToken)
-        // const email= decodedToken.email
-        // console.log('em', email)
-        // console.log('greetings and good tidings')
-        // axios.post('http://localhost:3000/sleep', {email: email}).then((response) => {
-        //   console.log('hi', response.data)
-        //   //  setSleep(response)
-        //   // setSleep(response.data)
-        // })
+       
 
         if (decodedToken.exp * 1000 > Date.now()) {
           setIsAuthenticated(true);
@@ -114,12 +87,10 @@ function App() {
           handleLogout(); //Token has expired, log out the user
         }
       }
-    // };
+    
 
-    // checkLoggedIn();
   },[isAuthenticated]);
 
-  console.log('on load', isAuthenticated, exercise, sleep, nutrition, avgSleep)
 
 
   async function handleLogin(email, password) {
@@ -140,7 +111,6 @@ function App() {
         setLoginError("");
 
         const decodedToken = jwtDecode(token); //a way to get username from token
-        // console.log('dtd',decodedToken)
         setUser(decodedToken);
       } else {
         //Login failed
@@ -162,7 +132,6 @@ function App() {
     setExercise([])
     setNutrition([])
     setUser({})
-    // successLogin=false
   }
 
   async function handleRegistration(
@@ -228,7 +197,6 @@ function App() {
                 setSleep={setSleep}
                 user={user}
                 isAuthenticated={isAuthenticated}
-                activitySummary={activitySummary}
               />
             }
           />
@@ -242,7 +210,6 @@ function App() {
                 nutrition={nutrition}
                 setNutrition={setNutrition}
                 isAuthenticated={isAuthenticated}
-                setActivitySummary={setActivitySummary}
               />
             }
           />
@@ -256,7 +223,6 @@ function App() {
                 setExercise={setExercise}
                 user={user}
                 isAuthenticated={isAuthenticated}
-                setActivitySummary={setActivitySummary}
               />
             }
           />
@@ -270,7 +236,6 @@ function App() {
                 setExercise={setExercise}
                 user={user}
                 isAuthenticated={isAuthenticated}
-                activitySummary={activitySummary}
               />
             }
           />
@@ -284,7 +249,6 @@ function App() {
                 setSleep={setSleep}
                 user={user}
                 isAuthenticated={isAuthenticated}
-                setActivitySummary={setActivitySummary}
               />
             }
           />
@@ -298,7 +262,6 @@ function App() {
                 nutrition={nutrition}
                 setNutrition={setNutrition}
                 isAuthenticated={isAuthenticated}
-                activitySummary={activitySummary}
               />
             }
           />

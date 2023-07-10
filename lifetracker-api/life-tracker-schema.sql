@@ -26,7 +26,7 @@ CREATE TABLE nutrition (
 CREATE TABLE sleep (
     email VARCHAR(255) NOT NULL,
     start_time TIMESTAMP NOT NULL,
-    end_time VARCHAR(255) NOT NULL
+    end_time TIMESTAMP NOT NULL
 );
 
 -- INSERT INTO users VALUES ('bereket');

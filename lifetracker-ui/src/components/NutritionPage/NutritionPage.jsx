@@ -5,7 +5,6 @@ import NutritionCard from './NutritionCard/NutritionCard'
 
 function NutritionPage({avgCalories, setAvgCalories, nutrition, setNutrition, isAuthenticated, user}) {
     const [showForm, setShowForm] = useState(false)
-    console.log('hungry user', user, nutrition)
 
     return (
         <div className='nutrition-page'>
