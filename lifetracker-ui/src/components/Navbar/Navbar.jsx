@@ -7,16 +7,19 @@ import "./Navbar.css"
 
 
 
-export default function Navbar({user,setAppState}) {
-  const [isAuthenticated, setIsAuthenticated] = useState(user?.email)
-  
+export default function Navbar({user,setAppState, isAuthenticated, setIsAuthenticated}) {
+
 
   
+
+  console.log("NAV")
   console.log(isAuthenticated)
+  console.log(user.email)
   const navigate = useNavigate()
   const location = useLocation()
   const handleOnLogout = () => {
     setAppState({})
+    setIsAuthenticated(false)
     localStorage.removeItem(apiClient.tokenName);
   //   setLoggedIn(false);
     navigate("/")

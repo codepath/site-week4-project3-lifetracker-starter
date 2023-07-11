@@ -8,11 +8,11 @@ import { Link as RouterLink} from "react-router-dom"
 import ExerciseCard from "../ExerciseCard/ExerciseCard"
 
 
-export default function ExercisePage({ user, exercises, isFetching, error }) {
-    const [isAuthenticated, setIsAuthenticated] = useState(user?.email)
+export default function ExercisePage({ user, exercises, isFetching, error , isAuthenticated }) {
+   
     //const isAuthenticated = Boolean(user?.email)
-    console.log(user)
-    console.log(user.email)
+    console.log("Exercise")
+    console.log(exercises)
   
     
 
@@ -21,7 +21,7 @@ export default function ExercisePage({ user, exercises, isFetching, error }) {
   
     const content = isAuthenticated ? (
       <>
-    
+     
         <div className="activity-page">
               <div className="content">
                   <div className="actions"> 
@@ -41,8 +41,6 @@ export default function ExercisePage({ user, exercises, isFetching, error }) {
     ) : (
       <p className="appt">Please log in to view activity</p>
     )
-  
-
   
     return (
       <div className="Portal">

@@ -63,12 +63,16 @@ class Exercise {
     }
 
     static async listExercisesByUserEmail(user_email) {
+        // console.log(user_email)
         const result = await db.query(
           `SELECT * FROM newExcercise WHERE user_email = $1`,
           [user_email]
         );
-      
-        const exercises = result.rows;
+
+        // console.log(`SELECT * FROM newExcercise WHERE user_email = $1`,
+        //   [user_email])
+        const exercises = result.rows[0];
+        // console.log(exercises)
       
         return exercises;
     }
@@ -81,7 +85,7 @@ class Exercise {
           WHERE user_email = $1;
         `;
         const result = await db.query(query, [lowercasedEmail]);
-        console.log("total duration", result.rows[0].total_duration);
+        // console.log("total duration", result.rows[0].total_duration);
       
         return result.rows[0].total_duration;
       }

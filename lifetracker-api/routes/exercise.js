@@ -12,10 +12,10 @@ router.post("/", async (req,res,next) => {
         //add new exercise
         const {user} = res.locals
         const exercise = await Exercise.createNewExercise({user, exercise: req.body})
-        console.log("exercise route")
-        console.log(exercise)
-        console.log(user)
-        console.log(req.body)
+        // console.log("exercise route")
+        // console.log(exercise)
+        // console.log(user)
+        // console.log(req.body)
         return res.status(201).json({user, exercise})
     } catch (err){
         next(err)
@@ -32,23 +32,34 @@ router.post("/", async (req,res,next) => {
 //     }
 // })
 
-router.get("/", security.requiredAunthenticatedUser, async (req,res,next) => {
+router.get("/list", security.extractUserFromJwt, async (req,res,next) => {
     try{
         //add new exercise
-        const email = res.locals
+        const {email} = req.locals.email
         console.log("REQ")
-        console.log(req.locals)
-        const exercises = await Exercise.listExercisesByUserEmail(email)
+        console.log(req)
+        const exercises = await Exercise.listExercisesByUserEmail({email: res.locals.email})
         console.log("exercise route")
         console.log(exercises)
         return res.status(201).json({ exercises})
     } catch (err){
         next(err)
     }
+
+    // console.log(req.locals.user)
+    //console.log(req.body)
+    // res.json({info})
+
+
+
+
+
+
+
 })
-router.get("/total", async (req, res, next) => {
+router.get("/total", security.extractUserFromJwt, async (req, res, next) => {
     try {
-      const { email } = res.locals;
+      const { email } = req.body;
       //console.log(email)
       const total = await Exercise.getTotalDuration(email);
       return res.status(200).json({ total});

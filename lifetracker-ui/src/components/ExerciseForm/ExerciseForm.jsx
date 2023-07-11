@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function ExcerciseForm({user, addExercise}) {
-    const isAuthenticated = Boolean(user?.email) 
+    const [isAuthenticated, setIsAuthenticated] = useState(user?.email) 
     console.log("E FORM")
     console.log(isAuthenticated)
     const navigate = useNavigate()

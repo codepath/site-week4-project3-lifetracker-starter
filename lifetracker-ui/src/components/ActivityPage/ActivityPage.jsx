@@ -7,9 +7,9 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
 
-export default function ActivityPage({ user, setAppState }) {
+export default function ActivityPage({ user, setAppState, isAuthenticated }) {
   const navigate = useNavigate()
-  const [isAuthenticated, setIsAuthenticated] = useState(user?.email)
+ 
 
   const handleOnLogout = () => {
     setAppState({})
