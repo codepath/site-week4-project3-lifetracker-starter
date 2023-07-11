@@ -38,12 +38,21 @@ static async fetchExercisebyId(userIdReq){
     
     return exerciseData;
 
+}
 
 
+static async totalExerciseMinutes(userIdReq){
 
 
-
-
+const result =await db.query(
+    `SELECT SUM(duration) 
+    FROM exercise 
+    where userId=$1 `, [userIdReq]
+)
+const exerciseData=result.rows;
+    console.log(exerciseData)
+    
+    return exerciseData;
 
 }
 

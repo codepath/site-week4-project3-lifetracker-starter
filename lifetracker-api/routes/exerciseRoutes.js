@@ -39,5 +39,22 @@ router.post("/newExercise", async function(request, response, next){
      }
 })
 
+router.get("/totalExercise/:id", async function(request, response, next){
+  //list all the exercise recordings or throw an error
+  const userIdReq=request.params.id
+  console.log("get exercies",userIdReq)
+
+
+  try{
+     const TotalExercises= await Exercise.totalExerciseMinutes(userIdReq)
+     console.log("excercies completed",exercisesCompleted)
+     return TotalExercises
+
+  }
+  catch(err){
+  next(err)
+   }
+})
+
 
 module.exports = router
