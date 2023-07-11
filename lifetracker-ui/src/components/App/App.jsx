@@ -81,7 +81,7 @@ const handleLogout = () => {
           <Route path = "/" element={<Home loggedIn = {loggedIn} firstName = {firstName}/>}/>
           <Route path="/login" element={<SignIn  userId={userId} setUserId={setUserId} loggedIn={loggedIn} setLoggedIn={setLoggedIn} loginError = {loginError} setLoginError={setLoginError} setFirstName={setFirstName}/>} />
           <Route path = "/register" element= {<Register userId= {userId} setUserId={setUserId} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
-          <Route path="/activity" element={<ActivityPage loggedIn = {loggedIn} />}/>
+          <Route path="/activity" element={<ActivityPage userId= {userId} loggedIn = {loggedIn} />}/>
 
           <Route path = "/exercise" element = {<ExercisePage loggedIn = {loggedIn } userId={userId}/>}/>
           <Route path="/exercise/CreateExercise" element={<CreateExercise userId={userId}/>}/> 

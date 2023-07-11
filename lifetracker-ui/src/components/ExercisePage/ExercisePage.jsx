@@ -28,29 +28,29 @@ useEffect(()=>{
     
     return (
         !loggedIn?(
+            <div className='loggedoutActivity'>
             <div className="ActivityPage css-ra15rn">
    <div className="chakra-container css-1m340o4">
       <h2 className="chakra-heading css-1dklj6k">Log in to see your data.</h2>
    </div>
 </div>
+</div>
  )   : (
+    <div className='activity_page'>
         <div>
              <div class="addExercise">
              <Link to={`/exercise/CreateExercise`}>
                 <button className="addExerciseButton" >Add Exercise</button>
             </Link>
             </div>
-
-
-
             <div class="exerciseCards">
             {exerciseList?.map((exerciseItem, index)=>(
                 <ExerciseDetail exerciseItem={exerciseItem}/>
             ))
-            
             }
             </div> 
 
-        </div>       
+        </div>   
+    </div>    
     ))
 }

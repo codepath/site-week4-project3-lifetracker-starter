@@ -5,10 +5,10 @@ const ExerciseDetail = ({exerciseItem}) => {
   
     return (
     <div class="exerciseCard">
-        <span><p>{exerciseItem.exercise_name}</p></span>
-        <span><p>{exerciseItem.category}</p></span>
-        <span><p>{exerciseItem.duration}</p></span>
-        <span><p>{exerciseItem.intensity}</p></span>
+       <p className='Exercuse_details'> Exercise Name : {exerciseItem.exercise_name}</p>
+       <p className='Exercuse_details'>Category : {exerciseItem.category}</p>
+       <p className='Exercuse_details'>Duration : {exerciseItem.duration}</p>
+       <p className='Exercuse_details'>Intensity : {exerciseItem.intensity}</p>
       
     </div>
   )

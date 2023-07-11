@@ -15,7 +15,7 @@ export default function Register  ({userId, setUserId,loggedIn, setLoggedIn})   
       try {
          console.log("first name value in handleRegsiteration: ", first_name)
          console.log("username value in handleRegsiteration: ", username)
-         let response = await axios.post('https://lifetracker-api-txny.onrender.com/auth/register', {email, password, first_name, last_name, username})
+         let response = await axios.post('http://localhost:3001/auth/register', {email, password, first_name, last_name, username})
          console.log("Response output: ", response)
          
          if (response.status === 201) {

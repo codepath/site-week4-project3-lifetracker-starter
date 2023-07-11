@@ -7,7 +7,7 @@ export default function SignIn({userId, setUserId, loggedIn, setLoggedIn, loginE
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const handleLogin = async (email, password) => {
-        let response = await axios.post('https://lifetracker-api-txny.onrender.com/auth/login', {email, password })
+        let response = await axios.post('http://localhost:3001/auth/login', {email, password })
         if (response.status === 200) {
           // const { token } = response.data;
           const { token } = response.data;

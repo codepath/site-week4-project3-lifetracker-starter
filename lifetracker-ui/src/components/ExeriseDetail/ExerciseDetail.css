@@ -1,7 +1,12 @@
-.exerciseCard{
-    background-color: blue;
-    width:300px;
-    height:auto;
-    margin:30px;
-padding:20px;
-}
+.exerciseCard {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Exercuse_details {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }

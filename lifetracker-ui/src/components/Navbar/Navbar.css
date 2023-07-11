@@ -1,5 +1,84 @@
-.Navbar {
-  padding-top: 20px;
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.non-authentication{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+.componentSection {
+  display: block;
+  justify-content: space-around;
+
+}
+.componentNav{
+  padding:80px;
+}
+
+.componentNav {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  margin:50px;
+  border-radius: 20%;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.componentNav:hover {
+  background-color: #ccc6c6;
+}
+.logo-img{
+  margin-top:10px;
+
+}
+
+.login-button{
+  padding:15px;
+  margin:10px;
+  background-color: rgb(163, 211, 163);
+  border-radius: 20%;
+}
+.register-button{
+  padding:15px;
+  margin:10px;
+  background-color: rgb(163, 211, 163);
+  border-radius: 20%;
+}
+.entryButtons{
+  display: flex;
+  flex-direction: row;
+  ;
+}
+.logout-button{
+  padding:15px;
+  margin:10px;
+  background-color: rgb(207, 72, 72);
+  border-radius: 20%;
+
+}
+
+
+
+/* .Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e8c4e8;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 .css-15bu2in {
   display: flex;
@@ -14,13 +93,13 @@
   justify-content: space-between;
 }
 
-.css-70qvj9 {
+.authenticationButtons{
   display: flex;
   -webkit-box-align: center;
   align-items: center;
 }
 
-.css-14rj303 {
+.codepathHomeimage{
   transition-property: var(--chakra-transition-property-common);
   transition-duration: var(--chakra-transition-duration-fast);
   transition-timing-function: var(--chakra-transition-easing-ease-out);
@@ -32,20 +111,14 @@
   margin-right: 50px;
 }
 
-.css-74uit1 {
-  transition-property: var(--chakra-transition-property-common);
-  transition-duration: var(--chakra-transition-duration-fast);
-  transition-timing-function: var(--chakra-transition-easing-ease-out);
-  cursor: pointer;
-  text-decoration: none;
-  outline: transparent solid 2px;
-  outline-offset: 2px;
-  margin-right: 50px;
-  opacity: 0.7;
-  color: var(--chakra-colors-primary);
-  font-weight: 600;
+.componentSection {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  list-style-type: none;  
 }
 
 .logo-img {
   width: 50px
-}
+} */

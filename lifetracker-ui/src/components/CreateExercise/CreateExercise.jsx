@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import "./CreateExercise.css";
 
 export default function CreateExercise({userId}) {
   const [exerciseData, setExerciseData] = useState({
@@ -50,6 +51,7 @@ export default function CreateExercise({userId}) {
   console.log("Exercise data object: ", exerciseData)
 
   return (
+    <div className='createPage'>
     <div className="newForm">
       <h1> EXERCISE</h1>
       <form>
@@ -129,6 +131,7 @@ export default function CreateExercise({userId}) {
           Submit
         </button>
       </form>
+    </div>
     </div>
   );
 }

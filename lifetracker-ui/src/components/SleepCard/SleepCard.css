@@ -67,8 +67,10 @@
   
   .sleep-image {
     margin-left: 16px;
-    object-fit: cover;
-    border-radius: 50%;
+    transform: rotate(-0.25turn);
+    border-radius: 90%;
+    height:200px;
+    width:200px;
   }
   
   .sleep-content {

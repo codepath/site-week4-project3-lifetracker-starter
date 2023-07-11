@@ -1,199 +1,73 @@
-.tiles {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 20px;
+
+body {
+  background: linear-gradient(to bottom, #eae49abb, white);
+  /* Additional CSS styles for the body */
 }
 
-img {
-  height: 200px;
-  width: 200px;
+.Lifetracker-welcome-image{
+background: linear-gradient(to bottom,antiquewhite,  white);
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+margin-top: 40px;
+padding:40px;
+background-color: antiquewhite;
+
 }
 
-/* .home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-  text-align: center;
+.WelcomeText h1{
+  font-size: 60px;
+}
+.WelcomeText p{
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 30px;
 }
 
-.home-title {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-
-.home-subtitle {
-  font-size: 18px;
-  margin-bottom: 24px;
-}
-
-.create-account-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.create-account-button:hover {
-  background-color: #0056b3;
-}
-
-.tiles-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 24px;
-  margin-top: 48px;
-}
-
-.tile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5f5f5;
-  border-radius: 12px;
-  padding: 24px;
-  text-align: center;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.tile-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.tile-label {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.tile:hover {
-  background-color: #e0e0e0;
-} */
-
-.restoflifetrakerstuff {
-  background-color: aquamarine;
-}
-
-
-.css-16ecvb5 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-  text-align: center;
-  background-image: url("src/assets/pool.avif");
-}
-
-.css-18rb735 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-
-.css-1la3ewl {
-  font-size: 18px;
-  margin-bottom: 24px;
-}
-
-.css-incex5 {
-  align-items: end;
-}
-.css-uybm84 {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.css-uybm84:hover {
-  background-color: #0056b3;
-}
-
-.tiles {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 24px;
-  margin-top: 48px;
-}
-
-.Tile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f5f5f5;
-  border-radius: 12px;
-  padding: 24px;
-  text-align: center;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.Tile img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-bottom: 16px;
-}
-
-.css-1jijfcn {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.Tile:hover {
-  background-color: #e0e0e0;
-}
-
-
-.header {
-  background-color: red; /* Customize the color for the header section */
-  padding: 20px;
-}
-
-.content {
-  background-color: blue; /* Customize the color for the content section */
-  padding: 20px;
-}
-
-.css-1561uet {
+.lifeimage img{
+  width:400px;
+  height:400px;
   background-color: white;
-  width: 100%;
-  text-align: left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 0.3s ease-in-out;
+}
+
+.lifeimage img:hover {
+  transform: scale(1.1);
+}
+
+.wellness-tiles{
+  background: linear-gradient(to bottom, white,  #fff8a5bb);
   display: flex;
-  justify-content: flex-end;
+  background-color: antiquewhite;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding:30px;
+
+}
+.wellness-tiles img{
+  width:250px;
+  height:250px;
+  border-radius: 200%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+}
+.wellness-tiles img:hover {
+  transform: rotate(360deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.wellness-tiles h4{
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 25px;
 
 }
 
-.css-gg4vpm {
-  background-color: white;
+.health-tile, .food-tile, .sleep-tile, .planner-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.css-jocq0n {
-  margin-left: auto;
-}
 
-.chakra-stack.css-18rb735 {
-  text-align: right;
-  max-width: 6000px; /* Adjust the max-width value as needed */
-  margin-right: auto;
-  padding-right: 20px; /* Adjust the padding value as needed */
-}

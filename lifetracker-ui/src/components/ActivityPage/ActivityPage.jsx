@@ -4,15 +4,15 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 
-export default function ActivityPage({ loggedIn }) {
+export default function ActivityPage({ userId, loggedIn }) {
 
     const [aveCalories, setAveCalories] = useState([])
    const [averageHoursSlept, setAverageHoursSlept] = useState([]);
+   const [totalExerciseTime, setTotaltime]=useState([])
 
 //activity ave calories
   useEffect(() =>{
       axios.get('http://localhost:3001/activity').then((response) => {
-         console.log(response.data.avg_calories.avg_calories)
          setAveCalories(response.data.avg_calories.avg_calories)
       })
       }, [])
@@ -21,7 +21,6 @@ export default function ActivityPage({ loggedIn }) {
    useEffect(() => {
       axios.get('http://localhost:3001/activity')
          .then((response) => {
-         console.log("response is",response.data.avg_hours_slept.avg_hours_slept)
          setAverageHoursSlept(response.data.avg_hours_slept.avg_hours_slept);
          })
          .catch((error) => {
@@ -29,6 +28,24 @@ export default function ActivityPage({ loggedIn }) {
          });
          }, []);
 
+//actuivity for total exercise time
+useEffect(() => {
+
+   console.log(userId )
+   if (userId !== undefined) {
+     try {
+    
+       axios.get(`http://localhost:3001/exerciseRoutes/totalExercise/${userId}`)
+         .then((response) => {
+            console.log("ereRERE", userId )
+           setTotaltime(response.data);
+
+         });
+     } catch (error) {
+       console.error(error);
+     }
+   }
+ }, [userId]);
 
     return (
         !loggedIn? (
@@ -85,7 +102,7 @@ export default function ActivityPage({ loggedIn }) {
             <div className="chakra-stack css-12mzq72">
                <div className="chakra-stack css-8g8ihq">
                   <h2 className="chakra-heading css-18j379d">Average Hours of Sleep</h2>
-                  <h2 className="chakra-heading css-1gipxey"></h2>
+                  <h2 className="chakra-heading css-1gipxey">{totalExerciseTime}</h2>
                </div>
                <div className="chakra-stack css-1qwhsm9"></div>
             </div>
