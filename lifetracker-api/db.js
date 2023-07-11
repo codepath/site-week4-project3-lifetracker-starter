@@ -1,17 +1,19 @@
+"use strict"
+
+/** Database setup for vaccine hub. */
+
 const { Client } = require("pg")
-const {getDatabaseURI} = require ("./config")
+const { getDatabaseUri } = require("./config")
 require("colors")
 
-//Create a new Client instance using the getDatabaseURI() function.
-const db= new Client ({ connectionString: getDatabaseURI()})
+const db = new Client({ connectionString: getDatabaseUri() })
 
-//Establish a connection to the PostgreSQL database using the Client instance.
 db.connect((err) => {
-    if (err) { //if there is an error
-        console.error("connection error".red, err.stack)
-    }else{
-        console.log("Successfully connected to postgress db!".blue)
-    }
+  if (err) {
+    console.error("connection error", err.stack)
+  } else {
+    console.log("Successfully connected to postgres database!".blue)
+  }
 })
 
 module.exports = db

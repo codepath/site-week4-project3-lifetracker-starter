@@ -1,0 +1,19 @@
+.activity-feed {
+    height: 100%;
+    max-width: 500vw;
+    display: flex;
+    margin: 50px;
+    padding: 50px;
+    border: solid 1px #ababb7;
+    border-radius: 8px;
+  }
+ 
+  .activity-feed .total-exercise{
+    display: flex;
+
+  }
+
+  .activity-feed .total-exercise .number{
+    text-align: center;
+    
+  }

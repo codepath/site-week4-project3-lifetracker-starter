@@ -1,11 +1,9 @@
 \echo 'Delete and recreate lifetracker db?'
-\prompt 'Return for yes or control-C to cancel > ' answer
+\prompt 'Return for yes or control-C to cancel > ' foo
 
-DROP DATABASE lifetracker; --deletes the lifetracker database
-CREATE DATABASE lifetracker; --creates a fresh lifetracker database
-\connect liftracker --connects to lifetracker database
-\i lifetracker-schema.sql -- runs lifetracker-schema.sql script
+DROP DATABASE lifetracker;
+CREATE DATABASE lifetracker;
+\connect lifetracker
 
---\i lifetracker.sql --runs lifetracker.sql script
+\i lifetracker-schema.sql
 
---\connect psql

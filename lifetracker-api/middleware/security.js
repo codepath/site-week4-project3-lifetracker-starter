@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken")
-import { SECRET_KEY } from "../config"
-import { UnauthorizedError } from "../utils/erros"
+const { SECRET_KEY } = require ("../config")
+const { UnauthorizedError,BadRequestError } = require ("../utils/erros")
+
+const User = require("../models/user")
 
 const jwtFrom = ({headers}) =>{
     //Authorization
@@ -28,7 +30,7 @@ const extractUserFromJwt = (req, res, next) => {
 const requiredAunthenticatedUser = (req,res,next) => {
     try {
        const {user} = res.locals
-       if(!user?.email){
+       if(user?.email){
         throw new UnauthorizedError()
        } 
        return next()
@@ -39,7 +41,6 @@ const requiredAunthenticatedUser = (req,res,next) => {
 
 module.exports = {
     requiredAunthenticatedUser,
-    extractUserFromJwt
+    extractUserFromJwt,
+
 }
-
-

@@ -1,6 +1,42 @@
-.tiles {
+.Home {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
+}
+.Home .jumbo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.Home .jumbo h3 {
+  font-size: 21px;
+  font-weight: 900;
+  color: violet;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.Home .jumbo h1 {
+  font-size: 60px;
+  font-weight: 900;
+}
+.Home .actions {
+  margin: 10px 0 30px;
+}
+.Home .actions .links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 20px;
+}
+.Home .actions .links button {
+  min-width: 280px;
+}
+.Home .media {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.Home .media img {
+  max-width: 600px;
 }

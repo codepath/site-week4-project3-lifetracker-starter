@@ -1,31 +1,37 @@
-require ("dotenv").config()
+"use strict"
+
+require("dotenv").config()
 require("colors")
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001
-const SECRET_KEY = process.env.SECRET_KEY ? process.env.SECRET_KEY : "DFJK123"
+const IS_TESTING = process.env.NODE_ENV === "test"
+const SECRET_KEY = process.env.SECRET_KEY || "secret_dev"
 
-function getDatabaseURI() {
-    const dbUser = process.env.DATABASE_USER || "postgre"
-    const dbPass = process.env.DATABASE_PASS ? encodeURI(process.env.DATABASE_PASS) : "postgre"
-    const dbHost = process.env.DATABASE_HOST|| "localhost"
-    const dbPort = process.env.DATABASE_PORT|| 5432
-    const dbName = process.env.DATABASE_NAME|| "vaccine_hub"
+// Use dev database, testing database, or via env var, production database
+function getDatabaseUri() {
+  const dbUser = process.env.DATABASE_USER || "postgres"
+  const dbPass = process.env.DATABASE_PASS ? encodeURI(process.env.DATABASE_PASS) : "postgres"
+  const dbHost = process.env.DATABASE_HOST || "local"
+  const dbPort = process.env.DATABASE_PORT || 5432
+  const dbTestName = process.env.DATABASE_TEST_NAME || "lifetracker_test"
+  const dbProdName = process.env.DATABASE_NAME || "lifetracker"
+  const dbName = process.env.NODE_ENV === "test" ? dbTestName : dbProdName
 
-    //if 
-
-    return process.env.DATATBASE_URL || `postgresql://${dbUser}:${dbPass}:@${dbHost}:${dbPort}/${dbName}`
+  return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
 }
-const bcrypt_factor = 13
 
-//console.log("process.env".red, Object.keys(process.env))
-console.log("App Config".cyan)
-console.log("PORT:".yellow, PORT)
-console.log("Database URI:".green, getDatabaseURI())
-console.log("---".blue)
+const BCRYPT_WORK_FACTOR = IS_TESTING ? 1 : 13
 
-module.exports ={
-    PORT,
-    SECRET_KEY,
-    bcrypt_factor,
-    getDatabaseURI
-} 
+console.log("Lifetracker Config:".red)
+console.log("PORT:".blue, PORT)
+console.log("BCRYPT_WORK_FACTOR".blue, BCRYPT_WORK_FACTOR)
+console.log("Database:".blue, getDatabaseUri())
+console.log("---")
+
+module.exports = {
+  PORT,
+  IS_TESTING,
+  SECRET_KEY,
+  BCRYPT_WORK_FACTOR,
+  getDatabaseUri,
+}

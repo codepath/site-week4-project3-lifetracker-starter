@@ -1,3 +1,29 @@
 .Navbar {
-  padding-top: 20px;
+  padding: 10px 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+.Navbar ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.Navbar ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.Navbar ul li a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.Navbar .logo h2 {
+  font-weight: 900;
+  font-size: 30px;
+  margin-left: 20px;
+  color: var(--deep-blue);
 }

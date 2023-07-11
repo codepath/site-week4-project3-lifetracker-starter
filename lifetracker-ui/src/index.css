@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+
+:root {
+  --deep-blue: rgba(0, 44, 201, 1);
+  --muted: rgba(90, 90, 90, 1);
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100vw;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a,
+span,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: var(--muted);
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+}
+button,
+.btn {
+  transition: all 0.1s ease;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px;
+  white-space: nowrap;
+  border-radius: 4px;
+  min-width: 150px;
+}
+button:active,
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn.primary {
+  background: var(--deep-blue);
+  color: white;
+  border: solid 1px var(--deep-blue);
+}
+.btn.outline {
+  background: white;
+  color: var(--deep-blue);
+  border: solid 1px var(--deep-blue);
+}
+
+a {
+  text-decoration: none;
+  color: var(--deep-blue);
+}
