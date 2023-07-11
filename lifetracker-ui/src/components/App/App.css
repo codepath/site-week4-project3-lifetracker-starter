@@ -1,4 +1,4 @@
-.App {
+/* .App {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -6,3 +6,7 @@
   min-height: 100vh;
   background: #f7fafc;
 }
+
+/* .app-css {
+  background-color: bisque;
+} */

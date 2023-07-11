@@ -1,3 +1,51 @@
 .Navbar {
   padding-top: 20px;
 }
+.css-15bu2in {
+  display: flex;
+  margin: 0px auto;
+  max-width: 1310px;
+  padding-top: 50px;
+  padding-inline: 20px;
+  height: 100px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.css-70qvj9 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.css-14rj303 {
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-fast);
+  transition-timing-function: var(--chakra-transition-easing-ease-out);
+  cursor: pointer;
+  text-decoration: none;
+  outline: transparent solid 2px;
+  outline-offset: 2px;
+  color: inherit;
+  margin-right: 50px;
+}
+
+.css-74uit1 {
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-fast);
+  transition-timing-function: var(--chakra-transition-easing-ease-out);
+  cursor: pointer;
+  text-decoration: none;
+  outline: transparent solid 2px;
+  outline-offset: 2px;
+  margin-right: 50px;
+  opacity: 0.7;
+  color: var(--chakra-colors-primary);
+  font-weight: 600;
+}
+
+.logo-img {
+  width: 50px;
+}

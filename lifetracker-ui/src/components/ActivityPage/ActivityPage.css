@@ -1,0 +1,139 @@
+.chakra-stack.css-1qwhsm9 {
+    margin-left: auto;
+}
+
+.css-ra15rn {
+    display: flex;
+    min-height: 100%;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 30px;
+    background-image: url(src/assets/cloudy.jpeg);
+}
+
+.css-1m340o4 {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+    max-width: 1024px;
+    padding-top: 1.5rem;
+}
+
+.css-12mzq72 {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+:where(*) {
+    border-width: 0px;
+    border-style: solid;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
+
+.css-18qrtb8 {
+    display: grid;
+    grid-gap: 2.5rem;
+}
+
+.css-xkuesw {
+    /* width: 100%;
+    background: #319795;
+    color: white;
+    border-radius: 3;
+    padding: 5; */
+    width: 100%;
+    /* background: #319795; */
+    background: #81b3fa;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+} 
+
+
+.css-12mzq72 {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.css-8g8ihq {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.css-18j379d {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.css-1gipxey {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    color: #022b69;
+
+}
+
+.css-1qwhsm9 {
+    display: flex;
+    flex-direction: row; /*  or column */
+    gap: 0.5rem;
+}
+
+.css-1lekzkb {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.css-51dhyc {
+    font-size: 4em;
+    line-height: 4rem;
+    font-weight: 700;
+}
+
+.css-tl3ftk {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.css-1k6gjzc {
+    width: 100%;
+    /* background: #00B5D8; */
+    background-color: plum;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+.css-btgv56 {
+    width: 100%;
+    background: #81b3fa;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+.css-qr0fjv {
+    width: 100%;
+    color: #01193f;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
