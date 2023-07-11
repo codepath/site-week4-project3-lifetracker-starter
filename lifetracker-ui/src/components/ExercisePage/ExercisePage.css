@@ -1,6 +1,25 @@
-.ExercisePage .button {
+.activity_page {
+  background-image: url("https://cdn.wallpapersafari.com/91/90/EQXuhy.jpg");
+  background-color: white;
   display: flex;
+  margin-top:20px;
+  justify-content: center;
+  height: 100vh;
 }
-.ExercisePage .button button {
-  flex: 1;
+
+.addExerciseButton {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  margin:20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addExerciseButton:hover {
+  background-color: #555555;
 }

@@ -1,0 +1,47 @@
+.category-container input {
+    width: 30%;
+     padding: 12px 20px;
+    margin: 30px 0 20px 20px; 
+    box-sizing: border-box;
+  
+}
+.category-container label{
+    margin: 0; 
+}
+.nutrition-legend{
+    text-align: center;
+     position: absolute; 
+    left: 46%;
+    font-size: 32px;
+}
+    
+ .nutrition-form {
+    box-sizing: border-box;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: hsl(0, 0%, 100%);
+    border: 4px solid hsl(0, 0%, 90%);
+    gap: 2rem;
+    height: 600px
+    
+  }
+
+.category-container{
+    align-items: center;
+    margin: 2% 20% 2% 25%;
+    padding: 30px 50px 30px 50px;
+    text-align: center;
+}
+
+  .save-btn{
+  width: 150px;
+  height: 40px;
+  color: #4E4E4E;
+  font-size: 15px;
+  border-radius: 7px;
+  margin: 0;
+  /* left: 70%; */
+  /* -ms-transform: translate(-50%, -50%); */
+  /* transform: translate(0%, 260%); */
+  text-align: center;
+  }

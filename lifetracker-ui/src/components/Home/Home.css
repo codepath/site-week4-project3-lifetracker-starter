@@ -1,6 +1,73 @@
-.tiles {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 20px;
+
+body {
+  background: linear-gradient(to bottom, #eae49abb, white);
+  /* Additional CSS styles for the body */
 }
+
+.Lifetracker-welcome-image{
+background: linear-gradient(to bottom,antiquewhite,  white);
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+margin-top: 40px;
+padding:40px;
+background-color: antiquewhite;
+
+}
+
+.WelcomeText h1{
+  font-size: 60px;
+}
+.WelcomeText p{
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 30px;
+}
+
+.lifeimage img{
+  width:400px;
+  height:400px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 0.3s ease-in-out;
+}
+
+.lifeimage img:hover {
+  transform: scale(1.1);
+}
+
+.wellness-tiles{
+  background: linear-gradient(to bottom, white,  #fff8a5bb);
+  display: flex;
+  background-color: antiquewhite;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding:30px;
+
+}
+.wellness-tiles img{
+  width:250px;
+  height:250px;
+  border-radius: 200%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+}
+.wellness-tiles img:hover {
+  transform: rotate(360deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.wellness-tiles h4{
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 25px;
+
+}
+
+.health-tile, .food-tile, .sleep-tile, .planner-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
