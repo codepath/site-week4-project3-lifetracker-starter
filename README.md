@@ -11,11 +11,11 @@ Everywhere around us is data waiting to be collected and utilized. In recent yea
 
 By the end of this project you will be able to...
 
-- [ ] Develop a full-fledged authentication system using PostgreSQL and `bcrypt`
-- [ ] Provide users with an Express API they can interact with to store user-related activity
-- [ ] Construct multiple models that implement the core business logic associated with tracking users' lives
-- [ ] Write SQL queries that aggregate user statistics and provide summary overviews about their activity
-- [ ] Design a React frontend that interacts with the API using an API service class
+- [X] Develop a full-fledged authentication system using PostgreSQL and `bcrypt`
+- [X] Provide users with an Express API they can interact with to store user-related activity
+- [X] Construct multiple models that implement the core business logic associated with tracking users' lives
+- [X] Write SQL queries that aggregate user statistics and provide summary overviews about their activity
+- [X] Design a React frontend that interacts with the API using an API service class
 - [ ] Build multiple pages and forms that communicate with the server using HTTP requests
 - [ ] Employ `useEffect` and `useState` hooks to manage application state on the frontend
 - [ ] Store user-authenticated JWT tokens in the browser's local storage for persisted authentication
@@ -24,20 +24,35 @@ By the end of this project you will be able to...
 
 ### Core Features
 
-- [ ] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
-- [ ] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
-- [ ] **Login Page:** A form that allows users to login with email and password.
-- [ ] When a user first authenticates, they should be redirected to an authenticated view (i.e., the detailed activity page). When they sign out, all frontend data should be reset.
-- [ ] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
-  - [ ] If the user is logged in, it should display a **Sign Out** button.
-  - [ ] If no user is logged in, it should display **Login** and **Register** buttons.
-  - [ ] Display a logo on the far left side, and contain links to the individual detailed activity pages.
+- [X] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
+- [X] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
+- [X] **Login Page:** A form that allows users to login with email and password.
+- [X] When a user first authenticates, they should be redirected to an authenticated view (i.e., the detailed activity page). When they sign out, all frontend data should be reset.
+- [X] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
+  - [X] If the user is logged in, it should display a **Sign Out** button.
+  - [X] If no user is logged in, it should display **Login** and **Register** buttons.
+  - [X] Display a logo on the far left side, and contain links to the individual detailed activity pages.
+     
+  // These were all working but deploying it broke my whole website and I couldn't access my orevious works
 - [ ] Users should have the ability to track at least **one** type of activity (i.e., nutrition, exercise, sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] **Detailed Activity Page:** Display and enter activities.
   - [ ] Display a feed of all previously tracked activities.
   - [ ] A form to enter relevant information (i.e., if tracking nutrition, the user can enter calories, timestamp, image, category, etc.).
   - [ ] Each activity tracked is given a unique ID for easy lookup.
-- [ ] Deploy your website with Render. Check out our [Render Deployment Guide](https://courses.codepath.org/snippets/site/render_deployment_guide) for detailed instructions.
+
+    
+- [X] Deploy your website with Render. Check out our [Render Deployment Guide](https://courses.codepath.org/snippets/site/render_deployment_guide) for detailed instructions.
+
+       https://lifetracker-ui-kjyx.onrender.com/
+
+- [ ] 
+
+
+
+<a href="https://www.loom.com/share/f57589cedd3f4f05a421a74eb829280e">
+    LifeTracker - 7 July 2023 - Watch Video
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/f57589cedd3f4f05a421a74eb829280e-with-play.gif">
+  </a>
 
 ### Stretch Features
 

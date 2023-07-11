@@ -46,4 +46,6 @@ export default function Home({ loggedIn, firstName }) {
       
     </div>
   );
+
+    )
 }
