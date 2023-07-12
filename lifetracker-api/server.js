@@ -19,5 +19,5 @@ app.use(express.json()); // Parse incoming requests with JSON payloads
 //enabling the localhost at PORT - 3001
 app.listen(PORT, () => {
   //console logging the iniation of the server
-  console.log(`Server running  http://localhost:${PORT}`);
+  // console.log(`Server running  http://localhost:${PORT}`);
 });

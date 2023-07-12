@@ -23,7 +23,7 @@ export default function SleepCreate({ user_id }) {
 
     const handleSleep = async (startTime, endTime, user_id) => {
       try {
-        let response = await axios.post('http://localhost:3001/sleep', {startTime, endTime, user_id})
+        let response = await axios.post('https://lifetracker-api-txny.onrender.com/sleep', {startTime, endTime, user_id})
         console.log("Response output ", response)
       } catch (error) {
         console.log(error)

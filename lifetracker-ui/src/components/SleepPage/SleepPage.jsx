@@ -28,6 +28,7 @@ export default function SleepPage({ loggedIn }) {
         <div className="chakra-stack css-1cgbrw5">
           <h2 className="chakra-heading css-b5coes">Sleep</h2>
         </div>
+
       </div>
       <div className="css-vpbd2d">
         <div className="css-1qfrez2">
