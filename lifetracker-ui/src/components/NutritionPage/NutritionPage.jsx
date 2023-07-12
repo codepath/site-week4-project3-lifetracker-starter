@@ -9,7 +9,7 @@ export default function NutritionPage({loggedIn}) {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3001/nutrition').then((response) => {
+    axios.get('https://lifetracker-api-txny.onrender.com/nutrition').then((response) => {
    //   console.log("what's in response: ", response.data);
       setNutritionData(response.data)
       

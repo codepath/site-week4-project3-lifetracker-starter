@@ -12,7 +12,7 @@ export default function ActivityPage({ userId, loggedIn }) {
 
 //activity ave calories
   useEffect(() =>{
-      axios.get('http://localhost:3001/activity').then((response) => {
+      axios.get('https://lifetracker-api-txny.onrender.com/activity').then((response) => {
          console.log(response.data.avg_calories.avg_calories)
          setAveCalories(response.data.avg_calories.avg_calories)
       })
@@ -20,7 +20,7 @@ export default function ActivityPage({ userId, loggedIn }) {
   
   //activity ave hours slept
    useEffect(() => {
-      axios.get('http://localhost:3001/activity')
+      axios.get('https://lifetracker-api-txny.onrender.com/activity')
          .then((response) => {
          setAverageHoursSlept(response.data.avg_hours_slept.avg_hours_slept);
          })
@@ -36,7 +36,7 @@ useEffect(() => {
    if (userId !== undefined) {
      try {
     
-       axios.get(`http://localhost:3001/exerciseRoutes/totalExercise/${userId}`)
+       axios.get(`https://lifetracker-api-txny.onrender.com/exerciseRoutes/totalExercise/${userId}`)
          .then((response) => {
            setTotaltime(response.data.total_exercise);
 
