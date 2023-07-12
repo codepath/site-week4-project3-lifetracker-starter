@@ -32,7 +32,7 @@ export default function NutritionTable(){
     const  nutritionSubmitForm = async (nutritionName, quantity, calories, category, image_url) => {
 
         try{
-        let response = await axios.post('https://lifetracker-api-txny.onrender.com/nutrition', {nutritionName, quantity, calories, category, image_url})
+        let response = await axios.post('http://localhost:3001/nutrition', {nutritionName, quantity, calories, category, image_url})
         }catch (error) {
             console.log(error)
         }

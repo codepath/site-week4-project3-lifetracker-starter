@@ -15,7 +15,7 @@ useEffect(()=>{
     console.log("Ex page useeffect", userId)
     if (userId !== undefined){
 
-        try{ axios.get(`https://lifetracker-api-txny.onrender.com/exerciseRoutes/exercisesCompleted/${userId}`)
+        try{ axios.get(`http://localhost:3001/exerciseRoutes/exercisesCompleted/${userId}`)
         .then((response)=>{
             setExerciseList(response.data.exercisesCompleted)
             

@@ -20,7 +20,7 @@ export default function ActivityPage({ userId, loggedIn }) {
   
   //activity ave hours slept
    useEffect(() => {
-      axios.get('https://lifetracker-api-txny.onrender.com/activity')
+      axios.get('http://localhost:3001/activity')
          .then((response) => {
          setAverageHoursSlept(response.data.avg_hours_slept.avg_hours_slept);
          })

@@ -1,7 +1,9 @@
 .navbar{
   display: flex;
+  height:100px;
   flex-direction: row;
   justify-content: space-evenly;
+  background-color: burlywood;
 }
 .non-authentication{
   display: flex;
