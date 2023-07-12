@@ -48,9 +48,9 @@ router.get("/totalExercise/:id", async function(request, response, next){
   try{
      const TotalExercises= await Exercise.totalExerciseMinutes(userIdReq)
  
-     const exercise_completed=TotalExercises[0]["sum"]
-     console.log("excercies completed",parseInt(exercise_completed))
-     return exercise_completed
+     const total_exercise=TotalExercises[0]["sum"]
+     console.log("Total exercises",parseInt(total_exercise))
+     return response.status(201).json({total_exercise:total_exercise})
 
   }
   catch(err){

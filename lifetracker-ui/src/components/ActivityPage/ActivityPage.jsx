@@ -37,8 +37,7 @@ useEffect(() => {
     
        axios.get(`http://localhost:3001/exerciseRoutes/totalExercise/${userId}`)
          .then((response) => {
-            console.log("ereRERE", userId )
-           setTotaltime(response.data);
+           setTotaltime(response.data.total_exercise);
 
          });
      } catch (error) {
@@ -47,6 +46,7 @@ useEffect(() => {
    }
  }, [userId]);
 
+ console.log("the code is",totalExerciseTime)
     return (
         !loggedIn? (
     <div className="ActivityPage css-ra15rn">
@@ -82,13 +82,13 @@ useEffect(() => {
             <div className="chakra-stack css-12mzq72">
                <div className="chakra-stack css-8g8ihq">
                   <h2 className="chakra-heading css-18j379d">Total Exercise Minutes</h2>
-                  <h2 className="chakra-heading css-1gipxey"></h2>
+                  <h2 className="chakra-heading css-1gipxey">{totalExerciseTime}</h2>
                </div>
                <div className="chakra-stack css-1qwhsm9"></div>
             </div>
             <div className="css-0">
                <div className="css-1lekzkb">
-                  <p className="chakra-text css-51dhyc">0.0</p>
+                  <p className="chakra-text css-51dhyc">{totalExerciseTime}</p>
                   <div className="chakra-stack css-tl3ftk">
                      <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" focusable="false" className="chakra-icon css-9dla43" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                         <path d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path>
@@ -102,7 +102,7 @@ useEffect(() => {
             <div className="chakra-stack css-12mzq72">
                <div className="chakra-stack css-8g8ihq">
                   <h2 className="chakra-heading css-18j379d">Average Hours of Sleep</h2>
-                  <h2 className="chakra-heading css-1gipxey">{totalExerciseTime}</h2>
+                  <h2 className="chakra-heading css-1gipxey">0.0</h2>
                </div>
                <div className="chakra-stack css-1qwhsm9"></div>
             </div>
