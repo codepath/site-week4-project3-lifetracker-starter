@@ -22,26 +22,22 @@ router.post("/", async (req,res,next) => {
     }
 })
 
-// router.get("/", async(req, res, next) => {
-//     try{    
-//         //list all exercises
-//         const exercise = await Exercise.listAllExercise(req.body)
-//         return res.status(200).json({exercise})
-//     } catch (eer){
-//         next(err)
-//     }
-// })
+router.get("/", async(req, res, next) => {
+    try{    
+        //list all exercises
+        const exercise = await Exercise.listAllExercise(req.body)
+        return res.status(200).json({exercise})
+    } catch (eer){
+        next(err)
+    }
+})
 
 router.get("/list", security.extractUserFromJwt, async (req,res,next) => {
     try{
         //add new exercise
-        const {email} = req.locals.email
-        console.log("REQ")
-        console.log(req)
-        const exercises = await Exercise.listExercisesByUserEmail({email: res.locals.email})
-        console.log("exercise route")
-        console.log(exercises)
-        return res.status(201).json({ exercises})
+        const {email} = req.locals
+        const exercises = await Exercise.listExercisesByUserEmail(email)
+        return res.status(201).json({exercises})
     } catch (err){
         next(err)
     }

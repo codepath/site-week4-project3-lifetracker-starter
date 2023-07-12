@@ -8,11 +8,11 @@ import { Link as RouterLink} from "react-router-dom"
 import ExerciseCard from "../ExerciseCard/ExerciseCard"
 
 
-export default function ExercisePage({ user, exercises, isFetching, error , isAuthenticated }) {
+export default function ExercisePage({ user, exercise, isFetching, error , isAuthenticated }) {
    
     //const isAuthenticated = Boolean(user?.email)
     console.log("Exercise")
-    console.log(exercises)
+    console.log(exercise)
   
     
 
@@ -31,8 +31,8 @@ export default function ExercisePage({ user, exercises, isFetching, error , isAu
                   </div>
                   {error ? <h2 className="error">{error}</h2> : null}
                   {isFetching ? <h2>Loading...</h2> : null}
-                  {exercises?.map((exercise) => (
-                  <ExerciseCard exercises={exercises} index={exercise.id} user={user} />
+                  {exercise?.map((element) => (
+                  <ExerciseCard exercises={element} index={element.id} user={user} />
                    ))}
                   
               </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-//import lady from "../../assets/lady-exercise.jpg"
+import lady from "../../assets/lady-exercising.jpeg"
 import apiClient from "../../../services/apiClient"
 
 import "./Login.css"
@@ -85,6 +85,9 @@ export default function Login({ setAppState, user, setUser }) {
 
   return (
     <div className="Login">
+      <div className="media">
+        <img src={lady} alt="health" />
+      </div>
       
       <div className="card">
         <h2>Login</h2>

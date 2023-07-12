@@ -66,7 +66,7 @@ class Exercise {
         // console.log(user_email)
         const result = await db.query(
           `SELECT * FROM newExcercise WHERE user_email = $1`,
-          [user_email]
+          ["happy@gmail.com"]
         );
 
         // console.log(`SELECT * FROM newExcercise WHERE user_email = $1`,

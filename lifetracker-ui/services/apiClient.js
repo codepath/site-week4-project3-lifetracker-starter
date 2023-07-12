@@ -53,6 +53,10 @@ export class ApiClient {
     return await this.request ({endpoint: 'exercise/', method: 'POST', data: cred})
   }
 
+  async listAllExercises(cred){
+    return await this.request({endpoint: 'exercise/', method:'POST', data:cred})
+  }
+
   async listExercises(cred){
     console.log("cred",cred)
     return await this.request ({endpoint: 'exercise/list', method:'POST', data:cred })

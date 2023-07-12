@@ -13,13 +13,14 @@
 .Home .jumbo h3 {
   font-size: 21px;
   font-weight: 900;
-  color: violet;
+  color: #A0AF84;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
 .Home .jumbo h1 {
   font-size: 60px;
   font-weight: 900;
+  color: #A0AF84;
 }
 .Home .actions {
   margin: 10px 0 30px;
@@ -32,11 +33,13 @@
 }
 .Home .actions .links button {
   min-width: 280px;
+  color: #D6A2AD
 }
 .Home .media {
   max-width: 600px;
   margin: 0 auto;
 }
 .Home .media img {
-  max-width: 600px;
+  max-width: 1000px;
+  width: 400px;
 }

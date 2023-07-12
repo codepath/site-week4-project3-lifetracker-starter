@@ -9,7 +9,7 @@ body {
   margin: 0;
   font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;  
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   max-width: 100vw;
@@ -66,6 +66,7 @@ button,
   white-space: nowrap;
   border-radius: 4px;
   min-width: 150px;
+  color:#A0AF84
 }
 button:active,
 .btn:active {
@@ -73,14 +74,14 @@ button:active,
 }
 
 .btn.primary {
-  background: var(--deep-blue);
+  background: #D6A2AD;
   color: white;
   border: solid 1px var(--deep-blue);
 }
 .btn.outline {
   background: white;
-  color: var(--deep-blue);
-  border: solid 1px var(--deep-blue);
+  color: #D6A2AD;
+  border: solid 1px #D6A2Ae;
 }
 
 a {

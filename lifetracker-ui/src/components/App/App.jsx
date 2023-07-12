@@ -26,17 +26,19 @@ export default function App() {
   //   token: null
 
   const [user, setUser] = useState({})
-  const [exercises, setExercise] = useState([])
+  const [exercise, setExercise] = useState([])
   const [error, setError] = useState(null)
   const [isFetching, setIsFetching] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(user?.email)
   const [duration, setDuration] = useState (0)
+  
 
 
   useEffect (() => {
     const fetchUser = async () =>{
       const {data, error} = await apiClient.fetchUserFromToken()
       if (data) setUser(data.user)
+     // setIsAuthenticated(data.user)
       //setIsAuthenticated(true)
       if(error) setError(error)
     }
@@ -45,7 +47,7 @@ export default function App() {
       apiClient.setToken(token)
       fetchUser()
     }
-  }, [])
+  }, [user])
 
 
 
@@ -53,13 +55,14 @@ export default function App() {
   useEffect(() => {
 
     
-    setIsAuthenticated(user.email)
+    
     const fetchExercises = async () => {
       setIsFetching(true)
-       
-      const {data,error} = await apiClient.listExercises(user.email)
+      setIsAuthenticated(user.email)
+      const {data,error} = await apiClient.listAllExercises(user.email)
       console.log()
-      if(data) setExercise(data.exercises)
+      if(data) 
+      setExercise(data.exercises)
       console.log("Exercise from App.jsx")
       console.log(data)
       if (error) setError(error)
@@ -111,8 +114,8 @@ export default function App() {
           <Route path="/register" element={<Register setAppState={setAppState} setUser = {setUser} />} />
           <Route path="/login" element={<Login setAppState={setAppState} setUser = {setUser}/>} />
           <Route path="/activity" element={<ActivityPage user={user} setUser = {setUser} isAuthenticated = {isAuthenticated}/>}/>
-          <Route path="/exercise" element={<ExercisePage user={user} exercises = {exercises} isFetching = {isFetching} error = {error}  isAuthenticated = {isAuthenticated}/>}/>
-          <Route path="/exercise/create" element={<ExerciseForm setAppState={setAppState} appState={appState} user={user} addExercise = {addExercise} />}/>
+          <Route path="/exercise" element={<ExercisePage user={user} exercises = {exercise} isFetching = {isFetching} error = {error}  isAuthenticated = {isAuthenticated}/>}/>
+          <Route path="/exercise/create" element={<ExerciseForm setAppState={setAppState} appState={appState} user={user} addExercise = {addExercise} setExercise = {setExercise} exercise={exercise} />}/>
           <Route path="/sleep" element={<SleepPage setAppState={setAppState} appState={appState} user={appState?.user}/>}/>
           <Route path="/nutrition" element={<NutritionPage setAppState={setAppState} appState={appState} user={appState?.user} />}/>
           {/* <Route path="/nutrition/create" element={<NutritionForm />} /> */}

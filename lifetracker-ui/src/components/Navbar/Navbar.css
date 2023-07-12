@@ -15,15 +15,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  color:#D6A2AD;
 }
 .Navbar ul li a {
   display: flex;
   flex-direction: row;
   align-items: center;
+  color:#D6A2AD;
 }
 .Navbar .logo h2 {
   font-weight: 900;
   font-size: 30px;
   margin-left: 20px;
-  color: var(--deep-blue);
 }

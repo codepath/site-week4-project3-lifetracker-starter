@@ -27,7 +27,7 @@ export default function ActivityPage({ user, setAppState, isAuthenticated }) {
             <div className="content">
                 <div className="actions">
                    <ActivityFeed user = {user}/>   
-                  <p> activities go here</p>
+    
                 </div>
             </div>
         </div>

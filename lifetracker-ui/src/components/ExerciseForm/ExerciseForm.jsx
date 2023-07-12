@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-function ExcerciseForm({user, addExercise}) {
+function ExcerciseForm({user, addExercise, setExercise, exercise}) {
     const [isAuthenticated, setIsAuthenticated] = useState(user?.email) 
     console.log("E FORM")
     console.log(isAuthenticated)
@@ -24,6 +24,7 @@ function ExcerciseForm({user, addExercise}) {
     const handleOnSubmit = async (e) => {
       e.preventDefault()
       setIsLoading(true)
+      setExercise(exercise.push(form))
   
       try {
         const res = await axios.post(`http://localhost:3005/exercise/`, form)

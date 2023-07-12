@@ -1,6 +1,6 @@
 import { useState, useEffect} from "react"
 import { useNavigate, Link } from "react-router-dom"
-//import lady from "../../assets/lady-exercise.jpg"
+import lady from "../../assets/lady-exercising.jpeg"
 import axios from "axios"
 import apiClient from "../../../services/apiClient"
 import "./Register.css"
@@ -120,7 +120,7 @@ export default function Signup({ setAppState, setUser, user}) {
   return (
     <div className="Register">
       <div className="media">
-       {/* // <img src = {lady} alt = "Woman exercising "/> */}
+       <img src = {lady} alt = "Woman exercising "/>
        
 
       </div>

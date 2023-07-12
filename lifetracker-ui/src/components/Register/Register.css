@@ -61,7 +61,7 @@
     height: 40px;
     padding: 0 15px;
     font-size: 16px;
-    border: solid 1px #ababb7;
+    border: solid 1px #C3B59F;
     width: 100%;
     border-radius: 4px;
   }
@@ -73,13 +73,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--deep-blue);
+    background: #D6A2AD;
     border: none;
     cursor: pointer;
     margin-top: 15px;
   }
   .Register .card .footer {
-    border-top: solid 1px #ababb7;
+    border-top: solid 1px #C3B59F;
     margin-top: auto;
     display: flex;
     align-items: center;
