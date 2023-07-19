@@ -4,3 +4,59 @@
 .SleepPage .button button {
   flex: 1;
 }
+
+.sleep-container {
+  padding-bottom: 26%;
+}
+.sleform {
+  align-items: center;
+  margin-left: 30%;  
+  margin-top: 200px;
+}
+
+.sleform input {
+  display: block;
+  border: solid;
+  border-radius: 10px;
+  margin-bottom: 13px;
+  margin-top: 8px;
+  height: 30px;
+  color:rgb(150, 61, 90);
+  width: 50%;
+}
+
+.buttonsave{
+  font-size: 17px;
+  display: inline-flex;
+  color: rgb(150, 61, 90);
+  background-color: white;
+  margin-left: 45%;
+  border: solid;
+  border-radius: 8px;
+}
+
+.adsl {
+  font-size: 17px;
+  color: rgb(150, 61, 90);
+  background-color: white;
+  margin-left: 40.5%;
+  border: solid;
+  border-radius: 8px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 250px;
+  height: 45px
+}
+
+.lognm {
+  display: block;
+  border: solid;
+  margin-bottom: 4px;
+  border-radius: 18px;
+  /* height: 40px; */
+  text-align: center;
+  font-weight: bold;
+  color:rgb(150, 61, 90);
+  width: 24%;
+  margin-left: 35%;
+}

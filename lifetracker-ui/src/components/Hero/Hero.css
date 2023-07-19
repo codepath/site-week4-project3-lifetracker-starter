@@ -1,0 +1,47 @@
+.banner {
+    background-color:rgb(150, 61, 90);
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 18px;
+    height: 8%;
+    box-shadow: 10px 10px 5px rgb(246, 161, 211);
+}
+    
+
+.media {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.banner-img {
+    background-color:black;
+    justify-content:center;
+    align-items: flex;
+    box-shadow: var(--chakra-shadows-2xl);
+    border-radius: 18px;
+    margin-right:5px;
+}
+
+.banner-left {
+    padding-top:50px;
+    
+}
+
+h1 {
+    color: whitesmoke;
+    font-size: 90px;
+    text-shadow: 2px 2px rgb(189, 64, 137)
+}
+
+h3 {
+    color: whitesmoke;
+    font-size: 30px;
+    text-shadow: 2px 2px rgb(189, 64, 137)
+}
+

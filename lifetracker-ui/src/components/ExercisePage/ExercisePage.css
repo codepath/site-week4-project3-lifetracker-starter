@@ -1,6 +1,40 @@
-.ExercisePage .button {
-  display: flex;
+.containerexer input {
+  display: block;
+  border-radius: 10px;
+  border: solid;
+  width: 50%;
+  color: rgb(150, 61, 90);
+
 }
-.ExercisePage .button button {
-  flex: 1;
+
+select {
+  display: block;
+  border: solid;
+  border-radius: 10px;
+  margin-bottom: 13px;
+  margin-top: 8px;
+  width: 25%;
+  height: 30px;
+  color:rgb(150, 61, 90) ;
+}
+
+h8 {
+  font-size: 80px;
+  color: rgb(150, 61, 90);
+  margin-left: 22%;
+  border: solid;
+  padding-left: 20%;
+  padding-right: 20%;
+  border-radius: 18px;
+}
+
+.exercise-forms{
+  padding-bottom: 31%;
+}
+
+.containerexer {
+  display: block;
+  align-items: center;
+  margin-left: 30%;  
+  margin-top: 200px;
 }
