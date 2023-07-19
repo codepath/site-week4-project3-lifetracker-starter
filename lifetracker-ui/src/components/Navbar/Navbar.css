@@ -1,3 +1,79 @@
-.Navbar {
-  padding-top: 20px;
+.navbar {
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  margin-top: 30px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 12px;
+  height: 40px;
+}
+
+.nav-link {
+  padding: 7px 13px;
+  border-radius: 5px;
+  color: var(--stark);
+  transition: 0.5s;
+}
+
+.nav-link {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background: var(--fushia);
+}
+#navbar-button1,
+#navbar-button2 {
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+#navbar-button1 {
+  color: var(--fushia);
+  border: solid var(--fushia);
+  background-color: var(--dark-theme);
+}
+#navbar-button2 {
+  color: white;
+  border: solid var(--jewel);
+  background-color: var(--jewel);
+}
+
+#navbar-button1:hover {
+  background-color: var(--fushia);
+  color: white;
+  cursor: pointer;
+}
+#navbar-button2:hover {
+  background-color: var(--dark-theme);
+  cursor: pointer;
+}
+
+.logo-design {
+  width: 70px;
+  height: 60px;
+  max-width: 70px;
+  max-height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 12px;
+  background: var(--dark-theme);
+  color: white;
+  box-shadow: 7px 7px 7px var(--jewel);
+  font-size: 250%;
+  font-weight: bold;
+}
+
+.logo-design:hover {
+  box-shadow: 7px 7px 7px var(--fushia);
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
 }

@@ -1,6 +1,88 @@
-.SleepPage .button {
-  display: flex;
+.nav-auth {
+  margin-left: 26%;
+  margin-top: 2%;
+  color: var(--stark);
+  font-size: 250%;
 }
-.SleepPage .button button {
-  flex: 1;
+
+.bars-form {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.barsForm-header {
+  color: var(--fushia);
+  font-size: x-large;
+}
+
+.innerForm {
+  margin: 0 auto;
+  width: 30%;
+  padding: 20px;
+}
+
+.barsForm-input {
+  border: none;
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40px;
+  border-radius: 7px;
+  padding-left: 5px;
+  font-size: large;
+}
+
+.bars-label {
+  float: left;
+  color: var(--stark);
+  font-size: x-large;
+  margin-bottom: 6px;
+}
+
+#quantity-input,
+#calories-input {
+  border: none;
+  height: 35px;
+  border-radius: 7px;
+  width: 100%;
+  font-size: medium;
+}
+#calories-input {
+  margin-left: 2px;
+}
+
+.div-input2 {
+  margin-left: 8px;
+}
+.div-input,
+.div-input2 {
+  border: none;
+  width: 48.5%;
+}
+.quantCal-input {
+  border: none;
+  display: flex;
+  width: 102%;
+}
+
+.bars-cancel {
+  margin-top: 5%;
+  width: 48%;
+  height: 40px;
+  background-color: var(--fushia);
+  color: white;
+  font-size: large;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 2%;
+}
+
+.bars-cancel:hover {
+  cursor: pointer;
+  background-color: var(--dark-theme);
+  border: solid 3px var(--fushia);
+}
+.bars-label::after {
+  content: " *";
+  color: red;
 }

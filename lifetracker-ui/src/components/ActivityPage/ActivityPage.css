@@ -1,0 +1,84 @@
+.activityPage {
+  margin: 0 auto;
+  width: 70%;
+  /* margin-top: 10px; */
+  padding: 20px;
+}
+
+.activity-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.activity-header p {
+  margin-left: 4.3%;
+  font-size: 220%;
+  color: white;
+  font-weight: bolder;
+}
+.activity-buttons {
+  margin-right: 6.5%;
+  padding-top: 35px;
+  height: 60px;
+}
+.activity-button {
+  margin-left: 20px;
+  height: 40px;
+  border-radius: 30px;
+  font-size: medium;
+  background-color: var(--dark-theme);
+  color: white;
+  font-weight: bold;
+  width: 150px;
+}
+.activity-button:hover {
+  cursor: pointer;
+}
+.exercise-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#stats {
+  display: flex;
+  flex-direction: row;
+}
+.actExerMin {
+  width: 40%;
+  height: 180px;
+  border-radius: 20px;
+  color: white;
+  padding-left: 25px;
+  padding-bottom: 20px;
+  margin-bottom: 2%;
+  margin-left: 4%;
+}
+
+.actExerMin > p {
+  font-size: 180%;
+  font-weight: bold;
+}
+
+.stats-info {
+  width: 30%;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.apStats{
+  font-weight: bolder;
+  font-size: 500%;
+  margin-right: 50% ;
+}
+
+.stats-info p{
+  font-size: large;
+}
+
+.stats-info span {
+  font-weight: bolder;
+  font-size: x-large;
+}
