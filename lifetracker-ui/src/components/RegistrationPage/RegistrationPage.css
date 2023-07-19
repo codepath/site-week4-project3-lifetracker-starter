@@ -1,0 +1,45 @@
+.user-info-container > :not(style) ~ :not(style) {
+    margin-top: var(--chakra-space-4);
+    margin-inline: 0px;
+    margin-bottom: 0px;
+}
+
+.css-9jay18 {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.css-1kxonj9 {
+    width: 100%;
+    position: relative;
+}
+
+.css-bx0blc {
+    width: 100%;
+    display: flex;
+    position: relative;
+    isolation: isolate;
+}
+
+.css-qz53jc {
+    width: 100%;
+    min-width: 0px;
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    position: relative;
+    appearance: none;
+    transition-property: var(--chakra-transition-property-common);
+    transition-duration: var(--chakra-transition-duration-normal);
+    font-size: var(--chakra-fontSizes-md);
+    padding-inline-start: var(--chakra-space-4);
+    padding-inline-end: var(--chakra-space-4);
+    height: var(--chakra-sizes-10);
+    border-radius: var(--chakra-radii-md);
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: inherit;
+    background: inherit;
+}
