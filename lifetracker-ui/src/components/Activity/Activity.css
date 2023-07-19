@@ -1,0 +1,124 @@
+.activity-page {
+  height: 100%;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  padding: 50px;
+  font-family: "Questrial", sans-serif;
+}
+.activity-page .content {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+}
+.activity-page .content h1 {
+  font-weight: 800;
+  font-size: 40px;
+}
+.activity-page .card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 300px;
+  font-size: 18px;
+}
+.activity-page .card .appt {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.activity-page .card .title {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+.activity-page .card .title.green {
+  background: rgba(0, 156, 44, 0.1);
+  color: rgba(0, 156, 44, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 250px;
+  padding: 10px 20px;
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.activity-page .card .footer {
+  margin-top: auto;
+}
+.activity-page .media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.activity-page .media img {
+  width: 100%;
+  max-width: 500px;
+}
+.activity-page .title {
+  text-align: center;
+}
+.activity-page .title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.box.exercise {
+  flex: 1 1 200px; /* Adjust the width of each box as needed */
+  margin: 10px;
+  padding: 20px;
+  background-color: #de9e09;
+  text-align: center;
+  border-radius: 10px;
+}
+.box.sleep {
+  flex: 1 1 200px; /* Adjust the width of each box as needed */
+  margin: 10px;
+  padding: 20px;
+  background-color: #75dddd;
+  text-align: center;
+  border-radius: 10px;
+}
+.box.calories {
+  flex: 1 1 200px; /* Adjust the width of each box as needed */
+  margin: 10px;
+  padding: 20px;
+  background-color: #09bc8a;
+  text-align: center;
+  border-radius: 10px;
+}
+.box.stats {
+  flex: 1 1 200px; /* Adjust the width of each box as needed */
+  margin: 10px;
+  padding: 20px;
+  background-color: #004346;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+.box {
+  transition: all 0.3s ease-in-out;
+}
+.box:hover {
+  transform: scale(1.08);
+}
+.activity-page a {
+  text-decoration: none;
+  color: inherit;
+}
+.activity-page .info-container {
+  display: flex;
+  justify-content: center;
+}
+.activity-page .info {
+  background-color: white;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}

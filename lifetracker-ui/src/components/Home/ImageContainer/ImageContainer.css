@@ -1,0 +1,26 @@
+.image-container {
+  position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container img {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image-container img.active {
+  opacity: 1;
+}
+
+.image-container img.inactive {
+  display: none;
+}
+.image-container img {
+  height: 400px;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #bbbbbb;
+}

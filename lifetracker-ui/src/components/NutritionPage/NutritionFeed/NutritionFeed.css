@@ -1,0 +1,35 @@
+.nutrition-feed-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.nutrition-card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.media img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.record-name{
+  font-weight: bolder;
+}
+.titles{
+  color: #09b584;
+}
+.nutrition-info {
+  margin-left: 10px;
+}
+
+.nutrition-info p {
+  margin: 5px 0;
+}

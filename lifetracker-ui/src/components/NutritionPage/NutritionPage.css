@@ -1,5 +1,9 @@
 .NutritionPage {
-  background: #f7fafc;
+  font-family: 'Questrial', sans-serif;
+}
+.NutritionPage .title{
+  text-align: center;
+  margin-bottom: 0px;
 }
 .NutritionPage .nutrition-feed {
   display: flex;
@@ -16,4 +20,24 @@
 }
 .NutritionPage .button button {
   flex: 1;
+}
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+.form-button{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #75dddd;
+  border: none;
+  color: #3a4648;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px 15px;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 20px;
+}
+.form-button:hover{
+  background-color: #87ebeb;
 }

@@ -1,0 +1,42 @@
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.tile {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.tile-title {
+  margin: 10px 0;
+  font-weight: bold;
+  font-family: "Questrial", sans-serif;
+}
+
+.tile-icon {
+  margin-bottom: 5px;
+}
+
+.tile-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.tile-image img {
+  width: 100%;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.tile-image img:hover {
+  transform: scale(1.08);
+}
