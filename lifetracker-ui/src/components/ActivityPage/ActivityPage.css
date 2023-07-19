@@ -1,0 +1,55 @@
+.activity-page{
+    margin-right: 20%;
+    margin-left: 20%
+}
+
+
+.buttons {
+    display: inline;
+    margin-top: 18px
+    
+}
+
+.buttons .exercise {
+    background-color: #319795;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: white;
+    border: 1px;
+    padding: 5px 
+}
+
+.buttons .sleep {
+    background-color: #00B5D8 ;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: white;
+    border: 1px;
+    padding: 5px 
+
+}
+.unauthorized{
+    font-size: 34px;
+    font-weight: 500;
+  }
+
+.buttons .nutrition {
+    background-color: #81b3fa;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: white;
+    border: 1px;
+    padding: 5px 
+}
+
+.header{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+   
+}
+
+.header h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}   

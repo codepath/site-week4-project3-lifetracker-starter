@@ -1,0 +1,43 @@
+.sleep-card{
+    display: block;
+    background-color: #00B5D8;
+    width: 30vw;
+    margin-top: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.sleep-card p{
+    color: white
+}
+
+.sleep-card h1{
+    color: white;
+    /* text-align: center; */
+}
+
+.start-date{
+    margin-right: 50px
+}
+.times{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px
+}
+
+.duration{
+    margin-left: 40px;
+    margin-top: 20px;
+    /* padding-top: 10px; */
+    background-color: #dd7be4;
+    border-radius: 40px;
+    height: 60px;
+    width: 60px;
+    color: white;
+    font-size: 30px;
+
+}
+
+.duration div{
+    margin-top: 10px
+}

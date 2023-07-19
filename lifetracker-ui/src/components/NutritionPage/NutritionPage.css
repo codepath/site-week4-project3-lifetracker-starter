@@ -1,4 +1,4 @@
-.NutritionPage {
+/* .NutritionPage {
   background: #f7fafc;
 }
 .NutritionPage .nutrition-feed {
@@ -16,4 +16,64 @@
 }
 .NutritionPage .button button {
   flex: 1;
+} */
+
+
+.nutrition-page .title-container{
+  background-color: #81b3fa;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  margin-bottom: 20px;
+
+}
+
+.unauthorized{
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.title-container h1{
+  color: white;
+  font-size: 60px;
+  text-align: center;
+} 
+
+#nothing-here{
+  font-size: 30px;
+  text-align: center;
+}
+
+.nutrition-page button{
+  font-size: 20px;
+  width: 250px;
+  border-radius: 10px;
+  height: 40px;
+  /* color:white;
+  background-color: #81b3fa; */
+
+}
+
+.nutrition-page img{
+  border-radius: 10px;
+  width: 400px;
+  height: 400px
+}
+
+.fridge{
+  text-align: center;
+  margin-top: 20px
+}
+
+.btn {
+  text-align: center;
+}
+
+.nutrition-cards{
+  display: grid;
+  grid-template-columns: auto;
+  /* flex-direction: column; */
+  /* width: 80%; */
+  justify-content: center;
 }

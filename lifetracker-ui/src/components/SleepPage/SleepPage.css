@@ -1,6 +1,54 @@
-.SleepPage .button {
-  display: flex;
+.sleep-cards{
+  display: grid;
+  grid-template-columns: auto;
+  /* flex-direction: column; */
+  /* width: 80%; */
+  justify-content: center;
 }
-.SleepPage .button button {
-  flex: 1;
+
+.unauthorized{
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.sleep-page .title-container{
+  background-color: #00B5D8;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  margin-bottom: 20px;
+}
+
+.title-container h1{
+  color: white;
+  font-size: 60px;
+  text-align: center;
+} 
+
+.sleep-page p{
+  font-size: 30px;
+  text-align: center;
+}
+
+.sleep-page button{
+  font-size: 20px;
+  width: 250px;
+  border-radius: 10px;
+  height: 40px
+
+}
+
+.sleep-page img{
+  border-radius: 10px;
+  width: 400px
+}
+
+.bed{
+  text-align: center;
+  margin-top: 20px
+}
+
+.btn {
+  text-align: center;
 }

@@ -1,4 +1,4 @@
-.Tile {
+/* .Tile {
   border-radius: 10px;
   background: white;
   width: calc(50% - 10px);
@@ -13,4 +13,133 @@
 .Tile:hover {
   cursor: pointer;
   transform: scale(1.05);
+}
+
+.Tile h3{
+  font-size: 20px
+}
+
+.Tiles img{
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.Tiles{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+} */
+
+
+.Total-Exercise-Minutes {
+  background-color: #319795;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  /* margin-left: 30px; */
+  /* width: 80% */
+  /* rows: 2 */
+}
+
+
+.Total-Exercise-Minutes h3{
+  color: white;
+  font-family:Arial, Helvetica, sans-serif;
+  margin-left: 20px 
+}
+
+.Total-Exercise-Minutes h1{
+  color: white;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  margin-left: 20px 
+
+}
+
+.Average-Hours-of-Sleep {
+  background-color: #00B5D8;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  /* margin-left: 30px; */
+  /* width: 80% */
+  /* rows: 2 */
+}
+
+
+.Average-Hours-of-Sleep h3{
+  color: white;
+  font-size: 18px;
+  font-family:Arial, Helvetica, sans-serif;
+  margin-left: 20px 
+}
+
+.Average-Hours-of-Sleep h1{
+  color: white;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  margin-left: 20px 
+
+}
+
+.Average-Daily-Calories {
+  background-color: #81b3fa;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  /* margin-left: 30px; */
+  /* width: 80% */
+  /* rows: 2 */
+}
+
+
+.Average-Daily-Calories h3{
+  color: white;
+  font-family:Arial, Helvetica, sans-serif;
+  margin-left: 20px 
+}
+
+.Average-Daily-Calories h1{
+  color: white;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  margin-left: 20px 
+
+}
+
+.material-symbols-outlined.md-48{
+  color: white ;
+  font-size: 48px;
+  margin-top: 30px;
+  margin-right: 20px
+}
+
+
+.data{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.increase{
+  color: #22543d;
+  background-color: #c6f6d5;
+  max-width: 60px;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-right: 20px
+}
+
+.decrease{
+  color: #822727;
+  background-color: #fed7d7;
+  max-width: 60px;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-right: 20px
+
+
 }

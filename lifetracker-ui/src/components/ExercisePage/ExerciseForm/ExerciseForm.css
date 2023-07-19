@@ -1,0 +1,43 @@
+.exercise-form{
+    display: block;
+    margin-top: 100px;
+    width: 30vw;
+    /* grid-template-columns: auto; */
+    /* text-align: center; */
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto
+}
+
+.exercise-form h1{
+    color: #319795;
+    text-align: center;
+}
+
+.exercise-form-inputs input{
+    display: block;
+    margin-bottom: 20px;
+    width: 450px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.exercise-form-inputs select{
+    display: block;
+    margin-bottom: 20px;
+    width: 460px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+/* .sleep-form-inputs form label{
+    margin-bottom: 10px;
+    font-size: 18px;
+} */
+
+.exercise-form-inputs button{
+    background-color: #319795;
+    color: white;
+    width: 450px;
+
+}

@@ -1,6 +1,62 @@
-.ExercisePage .button {
+/* .ExercisePage .button {
   display: flex;
 }
 .ExercisePage .button button {
   flex: 1;
+} */
+
+.exercise-cards{
+  display: grid;
+  grid-template-columns: auto;
+  /* flex-direction: column; */
+  /* width: 80%; */
+  justify-content: center;
+}
+
+.unauthorized{
+  font-size: 34px;
+  font-weight: 500;
+}
+
+
+.exercise-page .title-container{
+  background-color: #319795;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  margin-bottom: 15px;
+}
+
+.title-container h1{
+  color: white;
+  font-size: 60px;
+  text-align: center;
+} 
+
+.exercise-page p{
+  font-size: 30px;
+  text-align: center;
+}
+
+.exercise-page button{
+  font-size: 20px;
+  width: 250px;
+  border-radius: 10px;
+  height: 40px
+
+}
+
+.exercise-page img{
+  border-radius: 10px;
+  width: 400px
+}
+
+.pavement{
+  text-align: center;
+  margin-top: 20px
+}
+
+.btn {
+  text-align: center;
 }
